@@ -1,0 +1,20 @@
+V  sym_3_on_2.cif
+Er sym_5_mc_2.cif
+Ti 
+Ce 
+S  
+H  
+He 
+Li 
+Be 
+B  
+C  
+N  
+O  
+F  
+Ne 
+Na 
+Mg 
+Al 
+Si 
+P  

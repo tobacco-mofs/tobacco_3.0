@@ -1,0 +1,230 @@
+data_TBO_3_4
+_audit_creation_date              2018-09-26
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'FM-3M'
+_symmetry_Int_Tables_number       225
+_symmetry_cell_setting            cubic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+  -x,-y,z
+  -x,y,-z
+  x,-y,-z
+  z,x,y
+  z,-x,-y
+  -z,-x,y
+  -z,x,-y
+  y,z,x
+  -y,z,-x
+  y,-z,-x
+  -y,-z,x
+  y,x,-z
+  -y,-x,-z
+  y,-x,z
+  -y,x,z
+  x,z,-y
+  -x,z,y
+  -x,-z,-y
+  x,-z,y
+  z,y,-x
+  z,-y,x
+  -z,y,x
+  -z,-y,-x
+  -x,-y,-z
+  x,y,-z
+  x,-y,z
+  -x,y,z
+  -z,-x,-y
+  -z,x,y
+  z,x,-y
+  z,-x,y
+  -y,-z,-x
+  y,-z,x
+  -y,z,x
+  y,z,-x
+  -y,-x,z
+  y,x,z
+  -y,x,-z
+  y,-x,-z
+  -x,-z,y
+  x,-z,-y
+  x,z,y
+  -x,z,-y
+  -z,-y,x
+  -z,y,-x
+  z,-y,-x
+  z,y,x
+  x,y+1/2,z+1/2
+  -x,-y+1/2,z+1/2
+  -x,y+1/2,-z+1/2
+  x,-y+1/2,-z+1/2
+  z,x+1/2,y+1/2
+  z,-x+1/2,-y+1/2
+  -z,-x+1/2,y+1/2
+  -z,x+1/2,-y+1/2
+  y,z+1/2,x+1/2
+  -y,z+1/2,-x+1/2
+  y,-z+1/2,-x+1/2
+  -y,-z+1/2,x+1/2
+  y,x+1/2,-z+1/2
+  -y,-x+1/2,-z+1/2
+  y,-x+1/2,z+1/2
+  -y,x+1/2,z+1/2
+  x,z+1/2,-y+1/2
+  -x,z+1/2,y+1/2
+  -x,-z+1/2,-y+1/2
+  x,-z+1/2,y+1/2
+  z,y+1/2,-x+1/2
+  z,-y+1/2,x+1/2
+  -z,y+1/2,x+1/2
+  -z,-y+1/2,-x+1/2
+  -x,-y+1/2,-z+1/2
+  x,y+1/2,-z+1/2
+  x,-y+1/2,z+1/2
+  -x,y+1/2,z+1/2
+  -z,-x+1/2,-y+1/2
+  -z,x+1/2,y+1/2
+  z,x+1/2,-y+1/2
+  z,-x+1/2,y+1/2
+  -y,-z+1/2,-x+1/2
+  y,-z+1/2,x+1/2
+  -y,z+1/2,x+1/2
+  y,z+1/2,-x+1/2
+  -y,-x+1/2,z+1/2
+  y,x+1/2,z+1/2
+  -y,x+1/2,-z+1/2
+  y,-x+1/2,-z+1/2
+  -x,-z+1/2,y+1/2
+  x,-z+1/2,-y+1/2
+  x,z+1/2,y+1/2
+  -x,z+1/2,-y+1/2
+  -z,-y+1/2,x+1/2
+  -z,y+1/2,-x+1/2
+  z,-y+1/2,-x+1/2
+  z,y+1/2,x+1/2
+  x+1/2,y,z+1/2
+  -x+1/2,-y,z+1/2
+  -x+1/2,y,-z+1/2
+  x+1/2,-y,-z+1/2
+  z+1/2,x,y+1/2
+  z+1/2,-x,-y+1/2
+  -z+1/2,-x,y+1/2
+  -z+1/2,x,-y+1/2
+  y+1/2,z,x+1/2
+  -y+1/2,z,-x+1/2
+  y+1/2,-z,-x+1/2
+  -y+1/2,-z,x+1/2
+  y+1/2,x,-z+1/2
+  -y+1/2,-x,-z+1/2
+  y+1/2,-x,z+1/2
+  -y+1/2,x,z+1/2
+  x+1/2,z,-y+1/2
+  -x+1/2,z,y+1/2
+  -x+1/2,-z,-y+1/2
+  x+1/2,-z,y+1/2
+  z+1/2,y,-x+1/2
+  z+1/2,-y,x+1/2
+  -z+1/2,y,x+1/2
+  -z+1/2,-y,-x+1/2
+  -x+1/2,-y,-z+1/2
+  x+1/2,y,-z+1/2
+  x+1/2,-y,z+1/2
+  -x+1/2,y,z+1/2
+  -z+1/2,-x,-y+1/2
+  -z+1/2,x,y+1/2
+  z+1/2,x,-y+1/2
+  z+1/2,-x,y+1/2
+  -y+1/2,-z,-x+1/2
+  y+1/2,-z,x+1/2
+  -y+1/2,z,x+1/2
+  y+1/2,z,-x+1/2
+  -y+1/2,-x,z+1/2
+  y+1/2,x,z+1/2
+  -y+1/2,x,-z+1/2
+  y+1/2,-x,-z+1/2
+  -x+1/2,-z,y+1/2
+  x+1/2,-z,-y+1/2
+  x+1/2,z,y+1/2
+  -x+1/2,z,-y+1/2
+  -z+1/2,-y,x+1/2
+  -z+1/2,y,-x+1/2
+  z+1/2,-y,-x+1/2
+  z+1/2,y,x+1/2
+  x+1/2,y+1/2,z
+  -x+1/2,-y+1/2,z
+  -x+1/2,y+1/2,-z
+  x+1/2,-y+1/2,-z
+  z+1/2,x+1/2,y
+  z+1/2,-x+1/2,-y
+  -z+1/2,-x+1/2,y
+  -z+1/2,x+1/2,-y
+  y+1/2,z+1/2,x
+  -y+1/2,z+1/2,-x
+  y+1/2,-z+1/2,-x
+  -y+1/2,-z+1/2,x
+  y+1/2,x+1/2,-z
+  -y+1/2,-x+1/2,-z
+  y+1/2,-x+1/2,z
+  -y+1/2,x+1/2,z
+  x+1/2,z+1/2,-y
+  -x+1/2,z+1/2,y
+  -x+1/2,-z+1/2,-y
+  x+1/2,-z+1/2,y
+  z+1/2,y+1/2,-x
+  z+1/2,-y+1/2,x
+  -z+1/2,y+1/2,x
+  -z+1/2,-y+1/2,-x
+  -x+1/2,-y+1/2,-z
+  x+1/2,y+1/2,-z
+  x+1/2,-y+1/2,z
+  -x+1/2,y+1/2,z
+  -z+1/2,-x+1/2,-y
+  -z+1/2,x+1/2,y
+  z+1/2,x+1/2,-y
+  z+1/2,-x+1/2,y
+  -y+1/2,-z+1/2,-x
+  y+1/2,-z+1/2,x
+  -y+1/2,z+1/2,x
+  y+1/2,z+1/2,-x
+  -y+1/2,-x+1/2,z
+  y+1/2,x+1/2,z
+  -y+1/2,x+1/2,-z
+  y+1/2,-x+1/2,-z
+  -x+1/2,-z+1/2,y
+  x+1/2,-z+1/2,-y
+  x+1/2,z+1/2,y
+  -x+1/2,z+1/2,-y
+  -z+1/2,-y+1/2,x
+  -z+1/2,y+1/2,-x
+  z+1/2,-y+1/2,-x
+  z+1/2,y+1/2,x
+_cell_length_a                    48.9900
+_cell_length_b                    48.9900
+_cell_length_c                    48.9900
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+O      Er    0.33333   0.33333   0.33333   0.00000  Uiso   1.00
+Cl     V     0.25000   0.00000   0.25000   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+O      Cl     10.000   52    S
+O      Cl     10.000   54    S
+O      Cl     10.000   106   S
+Cl     O      10.000   52    S
+Cl     O      10.000   160_545 S
+Cl     O      10.000   61_545 S
+Cl     O      10.000   146   S

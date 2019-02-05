@@ -46,7 +46,7 @@ EXPANSIVE_BOND_SEARCH = configuration.EXPANSIVE_BOND_SEARCH
 TRACE_BOND_MAKING = configuration.TRACE_BOND_MAKING
 NODE_TO_NODE = configuration.NODE_TO_NODE
 SINGLE_ATOM_NODE = configuration.SINGLE_ATOM_NODE
-ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES
+ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES # added as temporary fix to node orientation problem (effects only one node BB to date)
 
 PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
 ####### Global options #######

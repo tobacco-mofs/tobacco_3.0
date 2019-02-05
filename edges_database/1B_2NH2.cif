@@ -1,0 +1,59 @@
+data_1B_2NH2
+_audit_creation_date              2018-09-24
+_audit_creation_method            'tobacco_3.0'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0000
+_cell_length_b                    20.0000
+_cell_length_c                    20.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+C1         C   -0.0689500000    0.0027800000    0.0040400000   0.00000  Uiso   1.00       -0.260213
+X2         C   -0.0376500000   -0.0588000000   -0.0078200000   0.00000  Uiso   1.00       -0.140936
+C3         C    0.0333900000   -0.0625500000   -0.0123000000   0.00000  Uiso   1.00        0.365362
+C4         C    0.0689400000   -0.0027900000   -0.0040700000   0.00000  Uiso   1.00        -0.25469
+X5         C    0.0376500000    0.0588000000    0.0078200000   0.00000  Uiso   1.00       -0.147082
+C6         C   -0.0334000000    0.0625600000    0.0122900000   0.00000  Uiso   1.00        0.376207
+FG7        N   -0.0670900000    0.1210300000    0.0271900000   0.00000  Uiso   1.00       -0.889592
+H8         H   -0.1230500000    0.0038600000    0.0078100000   0.00000  Uiso   1.00         0.18735
+H9         H    0.1230400000   -0.0038700000   -0.0078700000   0.00000  Uiso   1.00        0.187261
+FG10       N    0.0671400000   -0.1210700000   -0.0273400000   0.00000  Uiso   1.00       -0.879874
+FG11       H   -0.1160600000    0.1229900000    0.0148700000   0.00000  Uiso   1.00        0.361043
+FG12       H   -0.0410500000    0.1642100000    0.0223500000   0.00000  Uiso   1.00         0.41201
+FG13       H    0.0410600000   -0.1641900000   -0.0220700000   0.00000  Uiso   1.00        0.408208
+FG14       H    0.1159500000   -0.1230600000   -0.0143800000   0.00000  Uiso   1.00        0.357091
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+C1           X2 1.402       .   A
+C1           C6 1.401       .   A
+C1           H8 1.085       .   S
+X2           C3 1.426       .   A
+C3           C4 1.400       .   A
+C3         FG10 1.384       .   S
+C4           X5 1.402       .   A
+C4           H9 1.085       .   S
+X5           C6 1.426       .   A
+C6          FG7 1.382       .   S
+FG7        FG11 1.011       .   S
+FG7        FG12 1.013       .   S
+FG10       FG13 1.013       .   S
+FG10       FG14 1.011       .   S

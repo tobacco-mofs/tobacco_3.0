@@ -1,0 +1,106 @@
+data_stx\(2)
+_audit_creation_date              2018-06-21
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    36.0310
+_cell_length_b                    36.0310
+_cell_length_c                    37.3720
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+V1     V     0.25000   0.25000   0.25000   0.00000  Uiso   1.00
+V2     V     0.75000   0.75000   0.25000   0.00000  Uiso   1.00
+V3     V     0.75000   0.25000   0.25000   0.00000  Uiso   1.00
+V4     V     0.25000   0.75000   0.25000   0.00000  Uiso   1.00
+V5     V     0.75000   0.25000   0.75000   0.00000  Uiso   1.00
+V6     V     0.25000   0.75000   0.75000   0.00000  Uiso   1.00
+V7     V     0.25000   0.25000   0.75000   0.00000  Uiso   1.00
+V8     V     0.75000   0.75000   0.75000   0.00000  Uiso   1.00
+Er9    Er    0.00000   0.25000   0.36620   0.00000  Uiso   1.00
+Er10   Er    0.50000   0.75000   0.86620   0.00000  Uiso   1.00
+Er11   Er    0.00000   0.75000   0.36620   0.00000  Uiso   1.00
+Er12   Er    0.50000   0.25000   0.86620   0.00000  Uiso   1.00
+Er13   Er    0.75000   0.00000   0.36620   0.00000  Uiso   1.00
+Er14   Er    0.25000   0.50000   0.86620   0.00000  Uiso   1.00
+Er15   Er    0.25000   0.00000   0.36620   0.00000  Uiso   1.00
+Er16   Er    0.75000   0.50000   0.86620   0.00000  Uiso   1.00
+Er17   Er    0.00000   0.25000   0.63380   0.00000  Uiso   1.00
+Er18   Er    0.50000   0.75000   0.13380   0.00000  Uiso   1.00
+Er19   Er    0.00000   0.75000   0.63380   0.00000  Uiso   1.00
+Er20   Er    0.50000   0.25000   0.13380   0.00000  Uiso   1.00
+Er21   Er    0.25000   0.00000   0.63380   0.00000  Uiso   1.00
+Er22   Er    0.75000   0.50000   0.13380   0.00000  Uiso   1.00
+Er23   Er    0.75000   0.00000   0.63380   0.00000  Uiso   1.00
+Er24   Er    0.25000   0.50000   0.13380   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Er20   10.000   .     S
+V1     Er24   10.000   .     S
+V1     Er15   10.000   .     S
+V1     Er9    10.000   .     S
+V2     Er18   10.000   .     S
+V2     Er22   10.000   .     S
+V2     Er13   10.000   1_565 S
+V2     Er11   10.000   1_655 S
+V3     Er22   10.000   .     S
+V3     Er20   10.000   .     S
+V3     Er9    10.000   1_655 S
+V3     Er13   10.000   .     S
+V4     Er24   10.000   .     S
+V4     Er18   10.000   .     S
+V4     Er11   10.000   .     S
+V4     Er15   10.000   1_565 S
+V5     Er12   10.000   .     S
+V5     Er16   10.000   .     S
+V5     Er23   10.000   .     S
+V5     Er17   10.000   1_655 S
+V6     Er10   10.000   .     S
+V6     Er14   10.000   .     S
+V6     Er21   10.000   1_565 S
+V6     Er19   10.000   .     S
+V7     Er14   10.000   .     S
+V7     Er12   10.000   .     S
+V7     Er17   10.000   .     S
+V7     Er21   10.000   .     S
+V8     Er16   10.000   .     S
+V8     Er10   10.000   .     S
+V8     Er19   10.000   1_655 S
+V8     Er23   10.000   1_565 S
+Er9    V3     10.000   1_455 S
+Er9    Er17   10.001   .     S
+Er10   Er18   10.001   1_556 S
+Er11   V2     10.000   1_455 S
+Er11   Er19   10.001   .     S
+Er12   Er20   10.001   1_556 S
+Er13   V2     10.000   1_545 S
+Er13   Er23   10.001   .     S
+Er14   Er24   10.001   1_556 S
+Er15   V4     10.000   1_545 S
+Er15   Er21   10.001   .     S
+Er16   Er22   10.001   1_556 S
+Er17   V5     10.000   1_455 S
+Er18   Er10   10.001   1_554 S
+Er19   V8     10.000   1_455 S
+Er20   Er12   10.001   1_554 S
+Er21   V6     10.000   1_545 S
+Er22   Er16   10.001   1_554 S
+Er23   V8     10.000   1_545 S
+Er24   Er14   10.001   1_554 S

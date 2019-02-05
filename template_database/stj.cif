@@ -1,0 +1,106 @@
+data_stj
+_audit_creation_date              2018-06-25
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    49.5030
+_cell_length_b                    49.5030
+_cell_length_c                    27.0110
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+V1     V     0.10100   0.25000   0.00000   0.00000  Uiso   1.00
+V2     V     0.60100   0.75000   0.50000   0.00000  Uiso   1.00
+V3     V     0.89900   0.75000   0.00000   0.00000  Uiso   1.00
+V4     V     0.39900   0.25000   0.50000   0.00000  Uiso   1.00
+V5     V     0.75000   0.10100   0.00000   0.00000  Uiso   1.00
+V6     V     0.25000   0.60100   0.50000   0.00000  Uiso   1.00
+V7     V     0.25000   0.89900   0.00000   0.00000  Uiso   1.00
+V8     V     0.75000   0.39900   0.50000   0.00000  Uiso   1.00
+V9     V     0.89900   0.25000   0.00000   0.00000  Uiso   1.00
+V10    V     0.39900   0.75000   0.50000   0.00000  Uiso   1.00
+V11    V     0.10100   0.75000   0.00000   0.00000  Uiso   1.00
+V12    V     0.60100   0.25000   0.50000   0.00000  Uiso   1.00
+V13    V     0.25000   0.10100   0.00000   0.00000  Uiso   1.00
+V14    V     0.75000   0.60100   0.50000   0.00000  Uiso   1.00
+V15    V     0.75000   0.89900   0.00000   0.00000  Uiso   1.00
+V16    V     0.25000   0.39900   0.50000   0.00000  Uiso   1.00
+Er17   Er    0.25000   0.25000   0.25000   0.00000  Uiso   1.00
+Er18   Er    0.75000   0.75000   0.25000   0.00000  Uiso   1.00
+Er19   Er    0.75000   0.25000   0.25000   0.00000  Uiso   1.00
+Er20   Er    0.25000   0.75000   0.25000   0.00000  Uiso   1.00
+Er21   Er    0.75000   0.25000   0.75000   0.00000  Uiso   1.00
+Er22   Er    0.25000   0.75000   0.75000   0.00000  Uiso   1.00
+Er23   Er    0.25000   0.25000   0.75000   0.00000  Uiso   1.00
+Er24   Er    0.75000   0.75000   0.75000   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Er17   10.000   .     S
+V1     Er23   10.000   1_554 S
+V1     V9     10.000   1_455 S
+V2     Er24   10.000   .     S
+V2     Er18   10.000   .     S
+V2     V10    10.000   .     S
+V3     Er18   10.000   .     S
+V3     Er24   10.000   1_554 S
+V3     V11    10.000   1_655 S
+V4     Er23   10.000   .     S
+V4     Er17   10.000   .     S
+V4     V12    10.000   .     S
+V5     Er19   10.000   .     S
+V5     Er21   10.000   1_554 S
+V5     V15    10.000   1_545 S
+V6     Er22   10.000   .     S
+V6     Er20   10.000   .     S
+V6     V16    10.000   .     S
+V7     Er20   10.000   .     S
+V7     Er22   10.000   1_554 S
+V7     V13    10.000   1_565 S
+V8     Er21   10.000   .     S
+V8     Er19   10.000   .     S
+V8     V14    10.000   .     S
+V9     Er21   10.000   1_554 S
+V9     Er19   10.000   .     S
+V9     V1     10.000   1_655 S
+V10    Er20   10.000   .     S
+V10    Er22   10.000   .     S
+V11    Er22   10.000   1_554 S
+V11    Er20   10.000   .     S
+V11    V3     10.000   1_455 S
+V12    Er19   10.000   .     S
+V12    Er21   10.000   .     S
+V13    Er23   10.000   1_554 S
+V13    Er17   10.000   .     S
+V13    V7     10.000   1_545 S
+V14    Er18   10.000   .     S
+V14    Er24   10.000   .     S
+V15    Er24   10.000   1_554 S
+V15    Er18   10.000   .     S
+V15    V5     10.000   1_565 S
+V16    Er17   10.000   .     S
+V16    Er23   10.000   .     S
+Er21   V9     10.000   1_556 S
+Er21   V5     10.000   1_556 S
+Er22   V11    10.000   1_556 S
+Er22   V7     10.000   1_556 S
+Er23   V13    10.000   1_556 S
+Er23   V1     10.000   1_556 S
+Er24   V15    10.000   1_556 S
+Er24   V3     10.000   1_556 S

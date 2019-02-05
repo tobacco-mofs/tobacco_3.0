@@ -1,0 +1,83 @@
+data_THE_3_8
+_audit_creation_date              2018-10-08
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    24.9950
+_cell_length_b                    24.9950
+_cell_length_c                    24.9950
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+Er1    Er    0.16670   0.16670   0.16670   0.00000  Uiso   1.00
+Er2    Er    0.83330   0.83330   0.16670   0.00000  Uiso   1.00
+Er3    Er    0.83330   0.16670   0.83330   0.00000  Uiso   1.00
+Er4    Er    0.16670   0.83330   0.83330   0.00000  Uiso   1.00
+Er5    Er    0.16670   0.16670   0.83330   0.00000  Uiso   1.00
+Er6    Er    0.83330   0.83330   0.83330   0.00000  Uiso   1.00
+Er7    Er    0.16670   0.83330   0.16670   0.00000  Uiso   1.00
+Er8    Er    0.83330   0.16670   0.16670   0.00000  Uiso   1.00
+V9     V     0.50000   0.00000   0.00000   0.00000  Uiso   1.00
+V10    V     0.00000   0.50000   0.00000   0.00000  Uiso   1.00
+V11    V     0.00000   0.00000   0.50000   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1    V9     10.204   .     S
+Er1    V10    10.204   .     S
+Er1    V11    10.204   .     S
+Er2    V9     10.204   1_565 S
+Er2    V10    10.204   1_655 S
+Er2    V11    10.204   1_665 S
+Er3    V9     10.204   1_556 S
+Er3    V10    10.204   1_656 S
+Er3    V11    10.204   1_655 S
+Er4    V9     10.204   1_566 S
+Er4    V10    10.204   1_556 S
+Er4    V11    10.204   1_565 S
+Er5    V10    10.204   1_556 S
+Er5    V9     10.204   1_556 S
+Er5    V11    10.204   .     S
+Er6    V10    10.204   1_656 S
+Er6    V9     10.204   1_566 S
+Er6    V11    10.204   1_665 S
+Er7    V10    10.204   .     S
+Er7    V9     10.204   1_565 S
+Er7    V11    10.204   1_565 S
+Er8    V10    10.204   1_655 S
+Er8    V9     10.204   .     S
+Er8    V11    10.204   1_655 S
+V9     Er2    10.204   1_545 S
+V9     Er3    10.204   1_554 S
+V9     Er4    10.204   1_544 S
+V9     Er5    10.204   1_554 S
+V9     Er6    10.204   1_544 S
+V9     Er7    10.204   1_545 S
+V10    Er4    10.204   1_554 S
+V10    Er2    10.204   1_455 S
+V10    Er3    10.204   1_454 S
+V10    Er8    10.204   1_455 S
+V10    Er6    10.204   1_454 S
+V10    Er5    10.204   1_554 S
+V11    Er3    10.204   1_455 S
+V11    Er4    10.204   1_545 S
+V11    Er2    10.204   1_445 S
+V11    Er7    10.204   1_545 S
+V11    Er6    10.204   1_445 S
+V11    Er8    10.204   1_455 S

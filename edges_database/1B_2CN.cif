@@ -1,0 +1,55 @@
+data_1B_2CN
+_audit_creation_date              2018-09-24
+_audit_creation_method            'tobacco_3.0'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0000
+_cell_length_b                    20.0000
+_cell_length_c                    20.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+X1         C   -0.0693300000    0.0095300000   -0.0107200000   0.00000  Uiso   1.00        0.001403
+C2         C   -0.0413300000   -0.0543700000   -0.0116200000   0.00000  Uiso   1.00       -0.117328
+C3         C    0.0272000000   -0.0651200000   -0.0011400000   0.00000  Uiso   1.00        0.023774
+X4         C    0.0693300000   -0.0095300000    0.0107200000   0.00000  Uiso   1.00        0.000553
+C5         C    0.0413200000    0.0543700000    0.0116200000   0.00000  Uiso   1.00       -0.116724
+C6         C   -0.0272000000    0.0651200000    0.0011400000   0.00000  Uiso   1.00        0.022626
+H7         H   -0.0741100000   -0.0965800000   -0.0207500000   0.00000  Uiso   1.00        0.152424
+H8         H    0.0741100000    0.0965800000    0.0207600000   0.00000  Uiso   1.00        0.152433
+FG9        C   -0.0492900000    0.1334300000    0.0034200000   0.00000  Uiso   1.00        0.368948
+FG10       C    0.0492900000   -0.1334300000   -0.0034100000   0.00000  Uiso   1.00        0.368004
+FG11       N   -0.0616800000    0.1901600000    0.0063000000   0.00000  Uiso   1.00       -0.434475
+FG12       N    0.0616900000   -0.1901500000   -0.0062700000   0.00000  Uiso   1.00       -0.434455
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+X1           C2 1.395       .   A
+X1           C6 1.415       .   A
+C2           C3 1.403       .   A
+C2           H7 1.084       .   S
+C3           X4 1.415       .   A
+C3         FG10 1.437       .   S
+X4           C5 1.395       .   A
+C5           C6 1.403       .   A
+C5           H8 1.084       .   S
+C6          FG9 1.437       .   S
+FG9        FG11 1.163       .   T
+FG10       FG12 1.163       .   T
