@@ -1,0 +1,122 @@
+data_fog
+_audit_creation_date              2018-01-16
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    10.0000
+_cell_length_b                    10.0000
+_cell_length_c                    10.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 120.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+V1     V    -0.00000   0.37500   0.50000   0.00000  Uiso   1.00
+V2     V     0.66667   0.70833   0.83333   0.00000  Uiso   1.00
+V3     V     0.33333   0.04167   0.16667   0.00000  Uiso   1.00
+V4     V     0.62500   0.62500   0.50000   0.00000  Uiso   1.00
+V5     V     0.29167   0.95833   0.83333   0.00000  Uiso   1.00
+V6     V     0.95833   0.29167   0.16667   0.00000  Uiso   1.00
+V7     V     0.37500   0.00000   0.50000   0.00000  Uiso   1.00
+V8     V     0.04167   0.33333   0.83333   0.00000  Uiso   1.00
+V9     V     0.70833   0.66667   0.16667   0.00000  Uiso   1.00
+V10    V     0.62500   0.00000   0.50000   0.00000  Uiso   1.00
+V11    V     0.29167   0.33333   0.83333   0.00000  Uiso   1.00
+V12    V     0.95833   0.66667   0.16667   0.00000  Uiso   1.00
+V13    V     0.37500   0.37500   0.50000   0.00000  Uiso   1.00
+V14    V     0.04167   0.70833   0.83333   0.00000  Uiso   1.00
+V15    V     0.70833   0.04167   0.16667   0.00000  Uiso   1.00
+V16    V    -0.00000   0.62500   0.50000   0.00000  Uiso   1.00
+V17    V     0.66667   0.95833   0.83333   0.00000  Uiso   1.00
+V18    V     0.33333   0.29167   0.16667   0.00000  Uiso   1.00
+Er19   Er   -0.00000   0.50000   0.00000   0.00000  Uiso   1.00
+Er20   Er    0.66667   0.83333   0.33333   0.00000  Uiso   1.00
+Er21   Er    0.33333   0.16667   0.66667   0.00000  Uiso   1.00
+Er22   Er    0.50000   0.50000   0.00000   0.00000  Uiso   1.00
+Er23   Er    0.16667   0.83333   0.33333   0.00000  Uiso   1.00
+Er24   Er    0.83333   0.16667   0.66667   0.00000  Uiso   1.00
+Er25   Er    0.50000   0.00000   0.00000   0.00000  Uiso   1.00
+Er26   Er    0.16667   0.33333   0.33333   0.00000  Uiso   1.00
+Er27   Er    0.83333   0.66667   0.66667   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     V16     2.500   .     S
+V1     Er26    2.534   .     S
+V1     Er24    2.534   1_455 S
+V2     V17     2.500   .     S
+V2     Er27    2.534   .     S
+V2     Er22    2.534   1_556 S
+V3     V18     2.500   .     S
+V3     Er25    2.534   .     S
+V3     Er23    2.534   1_545 S
+V4     V13     2.500   .     S
+V4     Er20    2.534   .     S
+V4     Er27    2.534   .     S
+V5     V14     2.500   .     S
+V5     Er21    2.534   1_565 S
+V5     Er25    2.534   1_566 S
+V6     V15     2.500   .     S
+V6     Er19    2.534   1_655 S
+V6     Er26    2.534   1_655 S
+V7     V10     2.500   .     S
+V7     Er23    2.534   1_545 S
+V7     Er21    2.534   .     S
+V8     V11     2.500   .     S
+V8     Er24    2.534   1_455 S
+V8     Er19    2.534   1_556 S
+V9     V12     2.500   .     S
+V9     Er22    2.534   .     S
+V9     Er20    2.534   .     S
+V10    Er20    2.534   1_545 S
+V10    Er24    2.534   .     S
+V11    Er21    2.534   .     S
+V11    Er22    2.534   1_556 S
+V12    Er19    2.534   1_655 S
+V12    Er23    2.534   1_655 S
+V13    Er26    2.534   .     S
+V13    Er21    2.534   .     S
+V14    Er27    2.534   1_455 S
+V14    Er19    2.534   1_556 S
+V15    Er25    2.534   .     S
+V15    Er20    2.534   1_545 S
+V16    Er23    2.534   .     S
+V16    Er27    2.534   1_455 S
+V17    Er24    2.534   1_565 S
+V17    Er25    2.534   1_566 S
+V18    Er22    2.534   .     S
+V18    Er26    2.534   .     S
+Er19   V12     2.534   1_455 S
+Er19   V6      2.534   1_455 S
+Er19   V14     2.534   1_554 S
+Er19   V8      2.534   1_554 S
+Er20   V10     2.534   1_565 S
+Er20   V15     2.534   1_565 S
+Er21   V5      2.534   1_545 S
+Er22   V11     2.534   1_554 S
+Er22   V2      2.534   1_554 S
+Er23   V7      2.534   1_565 S
+Er23   V12     2.534   1_455 S
+Er23   V3      2.534   1_565 S
+Er24   V17     2.534   1_545 S
+Er24   V8      2.534   1_655 S
+Er24   V1      2.534   1_655 S
+Er25   V17     2.534   1_544 S
+Er25   V5      2.534   1_544 S
+Er26   V6      2.534   1_455 S
+Er27   V14     2.534   1_655 S
+Er27   V16     2.534   1_655 S

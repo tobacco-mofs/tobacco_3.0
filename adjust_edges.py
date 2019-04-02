@@ -88,7 +88,7 @@ def adjust_edges(placed_edges, placed_nodes, sc_unit_cell):
 			node_connection_points.pop(min_dist[2])
 			relavent_node_xvecs_append(min_dist[1])
 
-		ecom = np.average(evecs, axis=0)
+		ecom = np.average(xvecs, axis=0)
 		rnxcom = np.average(relavent_node_xvecs, axis=0)
 
 		evecs = np.asarray(evecs - ecom)
