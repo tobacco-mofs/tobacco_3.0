@@ -57,7 +57,7 @@ apply_reindex(CHARGES)
 
 for d in ['templates', 'nodes', 'edges']:
 	try:
-		os.remove(d + '/.DS_store')
+		os.remove(os.path.join(d,'.DS_store'))
 	except:
 		pass
 

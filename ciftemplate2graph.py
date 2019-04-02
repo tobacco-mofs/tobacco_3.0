@@ -1,4 +1,5 @@
 import re
+import os
 import sys
 import numpy as np
 import networkx as nx
@@ -72,7 +73,9 @@ def PBC3DF(c1, c2):
 
 def ct2g(cifname):
 
-	with open('templates/'+cifname, 'r') as template:
+	path = os.path.join('templates', cifname)
+
+	with open(path, 'r') as template:
 		template = template.read()
 		template = filter(None, template.split('\n'))
 

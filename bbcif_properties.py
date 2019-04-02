@@ -72,9 +72,11 @@ def PBC3DF(c1, c2):
     
     return c2
 
-def bb2array(cifname, dir):
+def bb2array(cifname, direc):
 
-	with open(dir+'/'+cifname, 'r') as cif:
+	path = os.path.join(direc, cifname)
+
+	with open(path, 'r') as cif:
 		cif = cif.read()
 		cif = filter(None, cif.split('\n'))
 
@@ -119,9 +121,11 @@ def bb2array(cifname, dir):
 
 	return sccoords
 
-def bbbonds(cifname, dir):
+def bbbonds(cifname, direc):
 
-	with open(dir+'/'+cifname, 'r') as cif:
+	path = os.path.join(direc, cifname)
+
+	with open(path, 'r') as cif:
 		cif = cif.read()
 		cif = filter(None, cif.split('\n'))
 
@@ -134,9 +138,11 @@ def bbbonds(cifname, dir):
 			
 	return bonds
 
-def X_vecs(cifname, dir, label):
+def X_vecs(cifname, direc, label):
 
-	with open(dir+'/'+cifname, 'r') as cif:
+	path = os.path.join(direc, cifname)
+
+	with open(path, 'r') as cif:
 		cif = cif.read()
 		cif = filter(None, cif.split('\n'))
 
@@ -185,9 +191,11 @@ def X_vecs(cifname, dir, label):
 
 	return shifted_ccoords
 
-def bbcharges(cifname, dir):
+def bbcharges(cifname, direc):
 
-	with open(dir+'/'+cifname, 'r') as cif:
+	path = os.path.join(direc, cifname)
+
+	with open(path, 'r') as cif:
 		cif = cif.read()
 		cif = filter(None, cif.split('\n'))
 
@@ -203,8 +211,11 @@ def bbcharges(cifname, dir):
 				
 	return charges, elements
 
-def calc_edge_len(cifname, dir):
-	with open(dir+'/'+cifname, 'r') as cif:
+def calc_edge_len(cifname, direc):
+
+	path = os.path.join(direc, cifname)
+
+	with open(path, 'r') as cif:
 		cif = cif.read()
 		cif = filter(None, cif.split('\n'))
 
@@ -250,9 +261,11 @@ def calc_edge_len(cifname, dir):
 
 	return np.linalg.norm(ccoords[0] - ccoords[1])
 
-def cncalc(cifname, dir, cn1):
+def cncalc(cifname, direc, cn1):
 
-	with open(dir+'/'+cifname, 'r') as cif:
+	path = os.path.join(direc, cifname)
+
+	with open(path, 'r') as cif:
 		cif = cif.read()
 		cif = filter(None, cif.split('\n'))
 	

@@ -50,8 +50,8 @@ def isbond(line):
 
 def reindex(pathfile,charges):
 
-	file = pathfile.split('/')[-1]
-	path_list = pathfile.split('/')[0:-1]
+	file = pathfile.split(os.sep)[-1]
+	path_list = pathfile.split(os.sep)[0:-1]
 
 	path = ''
 	c = 0
@@ -60,7 +60,7 @@ def reindex(pathfile,charges):
 		if c == 1:
 			path = path + p
 		else:
-			path = path + '/' + p
+			path = path + os.sep + p
 
 	with open(pathfile,'r') as cif:
 		cif = cif.read()
@@ -105,7 +105,7 @@ def reindex(pathfile,charges):
 		l[0] = re.sub('[0-9]','',l[0]) + str(ind_dict[l[0]])
 		l[1] = re.sub('[0-9]','',l[1]) + str(ind_dict[l[1]])
 
-	new_path = path + '/' + file + '_ri'
+	new_path = os.path.join(path, file + '_ri')
 
 	with open(new_path, 'w') as out:
 		out.write('data_' + file[0:-4] + '\n')
@@ -161,8 +161,9 @@ def reindex(pathfile,charges):
 			out.write('\n')
 
 def apply_reindex(CHARGES):
-	ecifs = glob.glob('edges/*.cif')
-	ncifs = glob.glob('nodes/*.cif')
+
+	ecifs = glob.glob('edges' + os.sep + '*.cif')
+	ncifs = glob.glob('nodes' + os.sep + '*.cif')
 	
 	for e in ecifs:
 		reindex(e,CHARGES)
@@ -174,8 +175,8 @@ def apply_reindex(CHARGES):
 	for n in ncifs:
 		os.remove(n)
 	
-	ri_ecifs = glob.glob('edges/*.cif_ri')
-	ri_ncifs = glob.glob('nodes/*.cif_ri')
+	ri_ecifs = glob.glob('edges' + os.sep + '*.cif_ri')
+	ri_ncifs = glob.glob('nodes' + os.sep + '*.cif_ri')
 	
 	for e in ri_ecifs:
 		os.rename(e,e.split('.')[0]+'.cif')

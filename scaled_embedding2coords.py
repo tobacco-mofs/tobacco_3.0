@@ -1,6 +1,7 @@
 import numpy as np
 import networkx as nx
 import re
+import os
 from ciftemplate2graph import isvert, PBC3DF
 
 def omega2coords(augTG, sc_omega_plus, uc_params, num_vertices, template, g, CHECK):
@@ -18,7 +19,10 @@ def omega2coords(augTG, sc_omega_plus, uc_params, num_vertices, template, g, CHE
 	cz = (sc_c ** 2.0 - cx ** 2.0 - cy ** 2.0) ** 0.5
 	sc_unit_cell = np.asarray([[ax,ay,az],[bx,by,bz],[cx,cy,cz]]).T
 
-	with open('templates/'+template, 'r') as cif:
+	path = os.path.join('templates', template)
+
+	with open(path, 'r') as cif:
+
 		cif = cif.read()
 		cif = filter(None, cif.split('\n'))
 
@@ -85,12 +89,19 @@ def omega2coords(augTG, sc_omega_plus, uc_params, num_vertices, template, g, CHE
 
 	norm_coords = sorted(norm_coords, key = lambda x : int(re.sub('[A-Za-z]','',x[0])))
 
-	with open('templates/'+template, 'r') as tcif:
+	path = os.path.join('templates', template)
+
+	with open(path, 'r') as tcif:
+
 		tcif = tcif.read()
 		tcif = filter(None, tcif.split('\n'))
+
 	if CHECK:
+
 		q = num_vertices
-		with open('check_cifs/' + str(g) + '_check_scaled_' + template, 'w') as check:
+		cpath = os.path.join('check_cifs', str(g) + '_check_scaled_' + template)
+
+		with open(cpath, 'w') as check:
 			for line in tcif:
 				s = line.split()
 				if not isvert(s):

@@ -1,5 +1,6 @@
 import numpy as np
 import re
+import os
 from ciftemplate2graph import ct2g, isvert
 from scipy.spatial import distance_matrix
 import datetime
@@ -73,10 +74,17 @@ def write_check_cif(template, placed_nodes, placed_edges, g, sp, sc_unit_cell):
 
 	sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = sp
 	q = 0
-	with open('templates/'+template, 'r') as tcif:
+
+	tpath = os.join('templates', template)
+
+	with open(tpath, 'r') as tcif:
+
 		tcif = tcif.read()
 		tcif = filter(None, tcif.split('\n'))
-	with open('check_cifs/' + str(g) + '_check_scaled_placed_' + template, 'w') as check:
+
+	cpath = os.path.join('check_cifs', str(g) + '_check_scaled_placed_' + template)
+
+	with open(cpath, 'w') as check:
 		for line in tcif:
 			s = line.split()
 			if not isvert(s):
@@ -351,8 +359,10 @@ def fix_bond_sym(bonds_all,placed_all,sc_unit_cell):
 def write_cif(placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, charges):
 
 	sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = scaled_params
+
+	opath = os.path.join('output_cifs', cifname)
 	
-	with open('output_cifs/' + cifname, 'w') as out:
+	with open(opath, 'w') as out:
 		out.write('data_' + cifname[0:-4] + '\n')
 		out.write('_audit_creation_date              ' + datetime.datetime.today().strftime('%Y-%m-%d') + '\n')
 		out.write("_audit_creation_method            'tobacco_3.0'" + '\n')
