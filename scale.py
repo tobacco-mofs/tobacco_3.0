@@ -38,8 +38,8 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 			if length > max_length:
 				max_length = length
 
-	#scale_guess = (max_length / max_le)
-	scale_guess = 1.0
+	scale_guess = (max_length / max_le)
+	#scale_guess = 1.0
 	all_SBU_ip = []
 	all_SBU_ip_append = all_SBU_ip.append
 	for sbu in all_SBU_coords:
