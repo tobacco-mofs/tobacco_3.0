@@ -11,6 +11,7 @@ from remove_net_charge import fix_charges
 from remove_dummy_atoms import remove_Fr
 from adjust_edges import adjust_edges
 from write_cifs import write_check_cif, write_cif, bond_connected_components, distance_search_bond, fix_bond_sym
+from scale_animation import scaling_callback_animation, write_scaling_callback_animation, animate_objective_minimization
 
 import configuration
 import glob
@@ -39,6 +40,7 @@ WRITE_CIF = configuration.WRITE_CIF
 USER_SPECIFIED_NODE_ASSIGNMENT = configuration.USER_SPECIFIED_NODE_ASSIGNMENT
 COMBINATORIAL_EDGE_ASSIGNMENT = configuration.COMBINATORIAL_EDGE_ASSIGNMENT
 CHARGES = configuration.CHARGES
+SCALING_ITERATIONS = configuration.SCALING_ITERATIONS
 
 SYMMETRY_TOL = configuration.SYMMETRY_TOL
 BOND_TOL = configuration.BOND_TOL
@@ -49,6 +51,7 @@ SINGLE_ATOM_NODE = configuration.SINGLE_ATOM_NODE
 ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES # added as temporary fix to node orientation problem (effects only one node BB to date)
 
 PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
+RECORD_CALLBACK = configuration.RECORD_CALLBACK
 ####### Global options #######
 
 pi = np.pi
@@ -214,7 +217,7 @@ for template in os.listdir('templates'):
 			ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL)
 			all_SBU_coords = SBU_coords(TG, ea_dict, CONNECTION_SITE_BOND_LENGTH)
 	
-			sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,YOU_ARE_PATIENT)
+			sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,YOU_ARE_PATIENT,SCALING_ITERATIONS)
 	
 			print '*******************************************'
 			print '   The scaled unit cell parameters are : ' 
@@ -253,7 +256,22 @@ for template in os.listdir('templates'):
 			nvecs,evecs = scaled_node_and_edge_vectors(scaled_coords, sc_omega_plus, sc_unit_cell, ea_dict)
 			placed_nodes, node_bonds = place_nodes(nvecs, CHARGES, ORIENTATION_DEPENDENT_NODES)
 			placed_edges, edge_bonds = place_edges(evecs, CHARGES, len(placed_nodes))
-	
+
+			if RECORD_CALLBACK:
+
+				vnames = '_'.join([v.split('.')[0] for v in v_set])
+
+				if len(ea) <= 5:
+					enames = '_'.join([e[0:-4] for e in ea])
+				else:
+					enames = str(len(ea)) + '_edges'
+
+				prefix = template[0:-4] + '_' +  vnames + '_' + enames
+
+				frames = scaling_callback_animation(callbackresults, alpha, Bstar_inv, ncra, ncca, num_vertices, num_edges, TG, template, g, False)
+				write_scaling_callback_animation(frames, prefix)
+				animate_objective_minimization(callbackresults, prefix)
+
 			if PLACE_EDGES_BETWEEN_CONNECTION_POINTS:
 				placed_edges = adjust_edges(placed_edges, placed_nodes, sc_unit_cell)
 	
@@ -292,7 +310,7 @@ for template in os.listdir('templates'):
 				fc_placed_all = placed_all
 
 			fixed_bonds = fix_bond_sym(fixed_bonds, placed_all, sc_unit_cell)
-			
+
 			if CHARGES:
 				print '*******************************************'
 				print '            Charge information :           ' 
