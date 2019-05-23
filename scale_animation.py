@@ -171,7 +171,7 @@ def write_scaling_callback_animation(frames, prefix):
 				ind1 = int(nl(b[1])) - 1
 				out.write('topo addbond ' + str(ind0) + ' ' + str(ind1) + '\n')
 
-def animate_objective_minimization(callbackresults, prefix, bitrate=1800, fps=30, font_size=16, time=10.0):
+def animate_objective_minimization(callbackresults, prefix, bitrate=1800, fps=30, font_size=16, time=5.0):
 
 	plt.rcParams.update({'font.size': font_size})
 

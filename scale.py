@@ -30,7 +30,7 @@ def objective(V, ncra, ncca, Alpha, ne, nv, Bstar_inv, SBU_IP):
 
 	return O1
 
-def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,PATIENCE,SCALING_ITERATIONS):
+def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,NET_2D,PATIENCE,SCALING_ITERATIONS):
 
 	max_length = 0
 	for line in all_SBU_coords:
@@ -39,7 +39,6 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 				max_length = length
 
 	scale_guess = (max_length / max_le)
-	#scale_guess = 1.0
 	all_SBU_ip = []
 	all_SBU_ip_append = all_SBU_ip.append
 	for sbu in all_SBU_coords:
@@ -65,7 +64,12 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 			covars_values_append(0)
 	
 	init_variables = [scale_guess * a,scale_guess * b, scale_guess * c,ang_alpha,ang_beta,ang_gamma] + covars_values
+	if NET_2D:
+		uc_bounds = ((0,None),(0,None),(c,c),(20,160),(20,160),(20,160))
+	else:
+		uc_bounds = ((0,None),(0,None),(0,None),(20,160),(20,160),(20,160))
 	x_bounds = tuple([(None,None) for x in covars_values])
+	bounds = uc_bounds + x_bounds
 
 	Bstar_inv = np.linalg.inv(Bstar)
 
@@ -83,7 +87,7 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 		res = basinhopping(objective, init_variables, niter=100, T=1.0, stepsize=0.5, 
 					   minimizer_kwargs={'args':(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip), 
 								   'method':'L-BFGS-B', 
-								   'bounds':((0,None),(0,None),(0,None),(20,160),(20,160),(20,160)) + x_bounds,
+								   'bounds':bounds,
 								   'callback':callbackF})
 	else:
 
@@ -102,7 +106,7 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 
 			res = minimize(objective, init_variables, args=(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip),
 							method='L-BFGS-B',
-							bounds=((0,None),(0,None),(0,None),(20,160),(20,160),(20,160)) + x_bounds,
+							bounds=bounds,
 							options={'disp':False, 'gtol':1E-12, 'ftol':1E-12},
 							callback=callbackF)
 

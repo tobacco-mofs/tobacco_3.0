@@ -52,6 +52,7 @@ ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES # added 
 
 PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
 RECORD_CALLBACK = configuration.RECORD_CALLBACK
+NET_2D = configuration.NET_2D
 ####### Global options #######
 
 pi = np.pi
@@ -217,7 +218,7 @@ for template in os.listdir('templates'):
 			ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL)
 			all_SBU_coords = SBU_coords(TG, ea_dict, CONNECTION_SITE_BOND_LENGTH)
 	
-			sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,YOU_ARE_PATIENT,SCALING_ITERATIONS)
+			sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,NET_2D,YOU_ARE_PATIENT,SCALING_ITERATIONS)
 	
 			print '*******************************************'
 			print '   The scaled unit cell parameters are : ' 
@@ -268,9 +269,11 @@ for template in os.listdir('templates'):
 
 				prefix = template[0:-4] + '_' +  vnames + '_' + enames
 
-				frames = scaling_callback_animation(callbackresults, alpha, Bstar_inv, ncra, ncca, num_vertices, num_edges, TG, template, g, False)
-				write_scaling_callback_animation(frames, prefix)
-				animate_objective_minimization(callbackresults, prefix)
+				#frames = scaling_callback_animation(callbackresults, alpha, Bstar_inv, ncra, ncca, num_vertices, num_edges, TG, template, g, False)
+				#write_scaling_callback_animation(frames, prefix)
+				#animate_objective_minimization(callbackresults, prefix)
+
+				print callbackresults[-1][-1]
 
 			if PLACE_EDGES_BETWEEN_CONNECTION_POINTS:
 				placed_edges = adjust_edges(placed_edges, placed_nodes, sc_unit_cell)
