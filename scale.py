@@ -30,15 +30,20 @@ def objective(V, ncra, ncca, Alpha, ne, nv, Bstar_inv, SBU_IP):
 
 	return O1
 
-def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,NET_2D,PATIENCE,SCALING_ITERATIONS):
+def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,PATIENCE,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE):
 
+	scale_tol = SCALING_CONVERGENCE_TOLERANCE
 	max_length = 0
 	for line in all_SBU_coords:
 		for length in [np.linalg.norm(s[1]) for s in line[1]]:
 			if length > max_length:
 				max_length = length
 
-	scale_guess = (max_length / max_le) * 2.0
+	if PRE_SCALE == 'none':
+		scale_guess = 1.0
+	else:
+		scale_guess = (max_length / max_le) * PRE_SCALE
+
 	all_SBU_ip = []
 	all_SBU_ip_append = all_SBU_ip.append
 	for sbu in all_SBU_coords:
@@ -65,10 +70,19 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	
 	init_variables = [scale_guess * a,scale_guess * b, scale_guess * c,ang_alpha,ang_beta,ang_gamma] + covars_values
 
-	if NET_2D:
-		uc_bounds = ((0,None),(0,None),(c,c),(20,160),(20,160),(20,160))
+	if np.any(FIX_UC):
+
+		uc_bounds = []
+		uc_bounds_append = uc_bounds.append
+		for f,p in zip(FIX_UC, init_variables[0:6]):
+			if f:
+				uc_bounds_append((p,p))
+			else:
+				uc_bounds_append((0,None))
+		uc_bounds = tuple(uc_bounds)
 	else:
 		uc_bounds = ((0,None),(0,None),(0,None),(20,160),(20,160),(20,160))
+
 	x_bounds = tuple([(None,None) for x in covars_values])
 	bounds = uc_bounds + x_bounds
 
@@ -108,7 +122,7 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 			res = minimize(objective, init_variables, args=(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip),
 							method='L-BFGS-B',
 							bounds=bounds,
-							options={'disp':False, 'gtol':1E-12, 'ftol':1E-12},
+							options={'disp':False, 'gtol':scale_tol, 'ftol':scale_tol},
 							callback=callbackF)
 
 			uc_params = res.x[0:6]

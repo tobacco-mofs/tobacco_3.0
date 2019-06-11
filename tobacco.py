@@ -52,7 +52,9 @@ ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES # added 
 
 PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
 RECORD_CALLBACK = configuration.RECORD_CALLBACK
-NET_2D = configuration.NET_2D
+FIX_UC = configuration.FIX_UC
+PRE_SCALE = configuration.PRE_SCALE
+SCALING_CONVERGENCE_TOLERANCE = configuration.SCALING_CONVERGENCE_TOLERANCE
 ####### Global options #######
 
 pi = np.pi
@@ -217,8 +219,7 @@ for template in os.listdir('templates'):
 	
 			ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL)
 			all_SBU_coords = SBU_coords(TG, ea_dict, CONNECTION_SITE_BOND_LENGTH)
-	
-			sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,NET_2D,YOU_ARE_PATIENT,SCALING_ITERATIONS)
+			sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,YOU_ARE_PATIENT,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE)
 	
 			print '*******************************************'
 			print '   The scaled unit cell parameters are : ' 
@@ -231,7 +232,19 @@ for template in os.listdir('templates'):
 			print 'beta : ', sc_beta
 			print 'gamma : ', sc_gamma
 			print ''
-	
+
+			for sc, name in zip((sc_a, sc_b, sc_c), ('a', 'b', 'c')):
+				cflag = False
+				if sc < 1.0:
+					print 'unit cell parameter', name, 'has collapsed during scaling!'
+					print 'try re-running with', name, 'fixed, with a larger value for PRE_SCALE, or with a higher SCALING_CONVERGENCE_TOLERANCE'
+					print 'no cif will be written'
+					cflag = True
+			print ''
+
+			if cflag:
+				continue
+
 			scaled_params = [sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma]
 		
 			sc_Alpha = np.r_[alpha[0:num_edges-num_vertices+1,:], sc_covar]
