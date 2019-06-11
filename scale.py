@@ -38,7 +38,7 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 			if length > max_length:
 				max_length = length
 
-	scale_guess = (max_length / max_le)
+	scale_guess = (max_length / max_le) * 2.0
 	all_SBU_ip = []
 	all_SBU_ip_append = all_SBU_ip.append
 	for sbu in all_SBU_coords:
@@ -64,6 +64,7 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 			covars_values_append(0)
 	
 	init_variables = [scale_guess * a,scale_guess * b, scale_guess * c,ang_alpha,ang_beta,ang_gamma] + covars_values
+
 	if NET_2D:
 		uc_bounds = ((0,None),(0,None),(c,c),(20,160),(20,160),(20,160))
 	else:
@@ -74,7 +75,7 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	Bstar_inv = np.linalg.inv(Bstar)
 
 	print 'scaling unit cell and vertex positions...'
-	print ''
+	print '' 
 
 	if PATIENCE:
 
@@ -116,8 +117,13 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 			covars = [i + j * (i * covars_perturb) for i,j in zip(res.x[6:], mult)]
 			init_variables = uc_params + covars
 
-	sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = res.x[0:6]
-	sc_covar = res.x[6:].reshape(ncra,ncca)
+	if niter != 0:	
+		sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = res.x[0:6]
+		sc_covar = res.x[6:].reshape(ncra,ncca)
+	else:
+		init_variables = np.asarray(init_variables)
+		sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = init_variables[0:6]
+		sc_covar = init_variables[6:].reshape(ncra,ncca)
 
 	return(sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca)
 

@@ -28,7 +28,7 @@ def superimpose(a1,a2):
 	a1 = np.asarray(a1)
 	a2 = np.asarray(a2)
 
-	if len(a1) <= 8:
+	if len(a1) <= 7:
 
 		min_dist = (1.0E6, 'foo', 'bar')
 		

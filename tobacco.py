@@ -232,11 +232,6 @@ for template in os.listdir('templates'):
 			print 'gamma : ', sc_gamma
 			print ''
 	
-			if sc_a < 1.0 or sc_b < 1.0 or sc_c < 1.0:
-				print 'scaling has likely failed, a unit cell parameter is too small, no cif will be written'
-				print ''
-				continue
-	
 			scaled_params = [sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma]
 		
 			sc_Alpha = np.r_[alpha[0:num_edges-num_vertices+1,:], sc_covar]
@@ -269,9 +264,9 @@ for template in os.listdir('templates'):
 
 				prefix = template[0:-4] + '_' +  vnames + '_' + enames
 
-				#frames = scaling_callback_animation(callbackresults, alpha, Bstar_inv, ncra, ncca, num_vertices, num_edges, TG, template, g, False)
-				#write_scaling_callback_animation(frames, prefix)
-				#animate_objective_minimization(callbackresults, prefix)
+				frames = scaling_callback_animation(callbackresults, alpha, Bstar_inv, ncra, ncca, num_vertices, num_edges, TG, template, g, False)
+				write_scaling_callback_animation(frames, prefix)
+				animate_objective_minimization(callbackresults, prefix)
 
 				print callbackresults[-1][-1]
 
