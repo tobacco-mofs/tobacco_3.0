@@ -144,7 +144,7 @@ def distance_search_bond(placed_all, bonds_all, sc_unit_cell, tol, trace_bond_ma
 			
 	for i in range(len(connection_points)):
 		if trace_bond_making:
-			print i, 'out of ', len(connection_points), 'connection_points have been bonded'
+			print i + 1, 'out of ', len(connection_points), 'connection_points have been bonded'
 		ielem = connection_points[i][0]
 		ivec = np.dot(np.linalg.inv(sc_unit_cell), map(float, connection_points[i][1:4]))
 		ibbid = int(connection_points[i][6])
@@ -192,7 +192,7 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 	else:
 		bb_tol = max_length + max_length * (0.25)
 
-	print 'distance search tolerance is', bb_tol, 'Angstroms'
+	print 'distance search tolerance is', np.round(bb_tol,3), 'Angstroms'
 
 	for i in xrange(len(ccs)):
 

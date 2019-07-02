@@ -27,34 +27,27 @@ start_time = time.time()
 
 ####### Global options #######
 PRINT = configuration.PRINT
-
 ONE_ATOM_NODE_CN = configuration.ONE_ATOM_NODE_CN
-
 CONNECTION_SITE_BOND_LENGTH = configuration.CONNECTION_SITE_BOND_LENGTH
-YOU_ARE_PATIENT = configuration.YOU_ARE_PATIENT
-
-CHECK_NUMBER_OF_VERTICES_AND_EDGES = configuration.CHECK_NUMBER_OF_VERTICES_AND_EDGES
 WRITE_CHECK_FILES = configuration.WRITE_CHECK_FILES
 WRITE_CIF = configuration.WRITE_CIF
-
 USER_SPECIFIED_NODE_ASSIGNMENT = configuration.USER_SPECIFIED_NODE_ASSIGNMENT
 COMBINATORIAL_EDGE_ASSIGNMENT = configuration.COMBINATORIAL_EDGE_ASSIGNMENT
 CHARGES = configuration.CHARGES
 SCALING_ITERATIONS = configuration.SCALING_ITERATIONS
-
 SYMMETRY_TOL = configuration.SYMMETRY_TOL
 BOND_TOL = configuration.BOND_TOL
 EXPANSIVE_BOND_SEARCH = configuration.EXPANSIVE_BOND_SEARCH
 TRACE_BOND_MAKING = configuration.TRACE_BOND_MAKING
 NODE_TO_NODE = configuration.NODE_TO_NODE
 SINGLE_ATOM_NODE = configuration.SINGLE_ATOM_NODE
-ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES # added as temporary fix to node orientation problem (effects only one node BB to date)
-
+ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES
 PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
 RECORD_CALLBACK = configuration.RECORD_CALLBACK
 FIX_UC = configuration.FIX_UC
 PRE_SCALE = configuration.PRE_SCALE
 SCALING_CONVERGENCE_TOLERANCE = configuration.SCALING_CONVERGENCE_TOLERANCE
+SCALING_STEP_SIZE = configuration.SCALING_STEP_SIZE
 ####### Global options #######
 
 pi = np.pi
@@ -70,7 +63,7 @@ for d in ['templates', 'nodes', 'edges']:
 for template in os.listdir('templates'):
 	print ''
 	print '========================================================================================================='
-	print '                                          template : ',template                                          
+	print 'template :',template                                          
 	print '========================================================================================================='
 	print ''
 	
@@ -83,9 +76,7 @@ for template in os.listdir('templates'):
 	print ''
 	
 	if PRINT:
-		print '*****************************************************************'
-		print '   There are', len(TG.nodes()), 'vertices in the voltage graph'
-		print '*****************************************************************'
+		print 'There are', len(TG.nodes()), 'vertices in the voltage graph:'
 		print ''
 		q = 0
 		for node in TG.nodes():
@@ -97,10 +88,7 @@ for template in os.listdir('templates'):
 			print 'fractional coords : ', node_dict['fcoords']
 			print 'degree : ', node_dict['cn'][0]
 			print ''
-		print ''
-		print '**************************************************************'
-		print '   There are', len(TG.edges()), 'edges in the voltage graph'
-		print '**************************************************************'
+		print 'There are', len(TG.edges()), 'edges in the voltage graph:'
 		print ''
 		for edge in TG.edges(data=True,keys=True):
 			edge_dict = edge[3]
@@ -135,10 +123,7 @@ for template in os.listdir('templates'):
 	Bstar, alpha  = Bstar_alpha(CB,CO,TG,num_edges)
 
 	if PRINT:
-		print ''
-		print '************************************************************************'
-		print '   Bstar (top) and alpha (bottom) for the barycentric embedding are : ' 
-		print '************************************************************************'
+		print 'star (top) and alpha (bottom) for the barycentric embedding are: ' 
 		print ''
 		for i in Bstar:
 			print i
@@ -149,26 +134,6 @@ for template in os.listdir('templates'):
 
 	omega_plus = np.dot(np.linalg.inv(Bstar),alpha)
 	num_vertices = len(TG.nodes())
-
-	if CHECK_NUMBER_OF_VERTICES_AND_EDGES:
-		defined = True
-		try:
-			rcsr_nv, rcsr_ne, rest = template.split('_')
-		except ValueError:
-			defined = False
-			print 'Warning! edge and vertex numbers could not be checked.'
-			print 'The template filename does not contain vertex and/or edge numbers.'
-			print ''
-		if defined:
-			if int(rcsr_nv) != num_vertices:
-				print 'Warning! the template does not have the correct number of vertices!'
-			if int(rcsr_ne) != num_edges:
-				print 'Warning! the template does not have the correct number of vertices!'
-
-	if len([e for e in os.listdir('edges')]) == 0:
-		print 'There are no edge cifs in the edge directory.'
-		print 'Exiting'
-		sys.exit()
 
 	if COMBINATORIAL_EDGE_ASSIGNMENT:
 		eas = list(itertools.product([e for e in os.listdir('edges')], repeat = len(TET)))
@@ -219,18 +184,17 @@ for template in os.listdir('templates'):
 	
 			ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL)
 			all_SBU_coords = SBU_coords(TG, ea_dict, CONNECTION_SITE_BOND_LENGTH)
-			sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,YOU_ARE_PATIENT,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE)
+			sc_a, sc_b, sc_c, sc_alpha, sc_beta, sc_gamma, sc_covar, Bstar_inv, max_length, callbackresults, ncra, ncca = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE,SCALING_STEP_SIZE)
 	
 			print '*******************************************'
-			print '   The scaled unit cell parameters are : ' 
+			print 'The scaled unit cell parameters are : ' 
 			print '*******************************************'
-			print ''
-			print 'a : ', sc_a
-			print 'b : ', sc_b
-			print 'c : ', sc_c
-			print 'alpha : ', sc_alpha
-			print 'beta : ', sc_beta
-			print 'gamma : ', sc_gamma
+			print 'a    :', np.round(sc_a, 5)
+			print 'b    :', np.round(sc_b, 5)
+			print 'c    :', np.round(sc_c, 5)
+			print 'alpha:', np.round(sc_alpha, 5)
+			print 'beta :', np.round(sc_beta, 5)
+			print 'gamma:', np.round(sc_gamma, 5)
 			print ''
 
 			for sc, name in zip((sc_a, sc_b, sc_c), ('a', 'b', 'c')):
@@ -240,7 +204,6 @@ for template in os.listdir('templates'):
 					print 'try re-running with', name, 'fixed, with a larger value for PRE_SCALE, or with a higher SCALING_CONVERGENCE_TOLERANCE'
 					print 'no cif will be written'
 					cflag = True
-			print ''
 
 			if cflag:
 				continue
@@ -281,8 +244,6 @@ for template in os.listdir('templates'):
 				write_scaling_callback_animation(frames, prefix)
 				animate_objective_minimization(callbackresults, prefix)
 
-				print callbackresults[-1][-1]
-
 			if PLACE_EDGES_BETWEEN_CONNECTION_POINTS:
 				placed_edges = adjust_edges(placed_edges, placed_nodes, sc_unit_cell)
 	
@@ -290,18 +251,19 @@ for template in os.listdir('templates'):
 			bonds_all = node_bonds + edge_bonds
 	
 			if WRITE_CHECK_FILES:
-				print 'writing check files...'
-				print ''
 				write_check_cif(template, placed_nodes, placed_edges, g, scaled_params, sc_unit_cell)
 	
 			if SINGLE_ATOM_NODE or NODE_TO_NODE:
 				placed_all,bonds_all = remove_Fr(placed_all,bonds_all)
-	
+			
 			print 'computing X-X bonds...'
+			print ''
+			print '*******************************************'
+			print 'Bond formation : ' 
+			print '*******************************************'
 			
 			fixed_bonds, nbcount, bond_check = bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, BOND_TOL, TRACE_BOND_MAKING, NODE_TO_NODE, EXPANSIVE_BOND_SEARCH, ONE_ATOM_NODE_CN)
-	
-			print ''
+
 			print 'there were ' + str(nbcount) + ' X-X bonds formed'
 			if bond_check:
 				print 'bond check passed'
@@ -314,8 +276,6 @@ for template in os.listdir('templates'):
 			print ''
 	
 			if CHARGES:
-				print 'fixing charges...'
-				print ''
 				fc_placed_all, netcharge, onetcharge, rcb = fix_charges(placed_all)
 			else:
 				fc_placed_all = placed_all
@@ -324,12 +284,11 @@ for template in os.listdir('templates'):
 
 			if CHARGES:
 				print '*******************************************'
-				print '            Charge information :           ' 
+				print 'Charge information :                       ' 
 				print '*******************************************'
-				print ''
-				print 'old net charge                   : ', onetcharge
-				print 'new net charge (after rescaling) : ', netcharge
-				print 'rescaling magnitude              : ', rcb
+				print 'old net charge                  :', np.round(onetcharge, 5)
+				print 'new net charge (after rescaling):', np.round(netcharge, 5)
+				print 'rescaling magnitude             :', np.round(rcb, 5)
 				print ''
 	
 			vnames = '_'.join([v.split('.')[0] for v in v_set])

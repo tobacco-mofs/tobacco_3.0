@@ -61,17 +61,23 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL):
 		va = [va]
 
 	else:
+
 		print '*****************************************************************'
-		print '     RMSD of the compatible node BBs with assigned vertices.     '
+		print 'RMSD of the compatible node BBs with assigned vertices:          '
 		print '*****************************************************************'
 		print ''
+		
 		RMSDs = []
 		RMSDs_append = RMSDs.append
-
 		sym_assign = []
 		sym_assign_append = sym_assign.append
 
 		for k in node_dict:
+
+			print 'vertex', k[1], '('+str(k[0]) + ' connected)'
+
+			matched = 0
+			unmatched = 0
 			
 			if len(node_dict[k]) == 0:
 				continue
@@ -87,26 +93,25 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL):
 
 						nvec = np.array([v/np.linalg.norm(v) for v in node_vecs(name, TG, unit_cell, False)])
 						bbxvec = np.array([v/np.linalg.norm(v) for v in X_vecs(cif, 'nodes', False)])
-						
 						rmsd,rot,tran = superimpose(bbxvec,nvec)
-
 						aff_b = np.dot(bbxvec,rot) + tran
-
 						distances_append((rmsd,cif))
 
 					for d in distances:
 						disp,cif = d
 						if d[0] < SYM_TOL[coord_num]:
+							matched += 1
 							matches = '(within tolerance)'
 						else:
+							unmatched += 1
 							matches = '(outside tolerance)'
-						print cif, 'deviation =', disp, matches
+						print '    ', cif, 'deviation =', np.round(disp,5), matches
 
 					for d in distances:
 						if d[0] < SYM_TOL[coord_num]:
 							sym_assign_append((k[1],d[1]))
-
 					break
+			print '*', matched, 'compatible building blocks out of', len(node_dict[k]), 'available for node', k[1], '*'
 		print ''
 		
 		rearrange = dict((k[1],[]) for k in TVT)

@@ -30,9 +30,10 @@ def objective(V, ncra, ncca, Alpha, ne, nv, Bstar_inv, SBU_IP):
 
 	return O1
 
-def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,PATIENCE,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE):
+def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE,SCALING_STEP_SIZE):
 
 	scale_tol = SCALING_CONVERGENCE_TOLERANCE
+	scale_eps = SCALING_STEP_SIZE
 	max_length = 0
 	for line in all_SBU_coords:
 		for length in [np.linalg.norm(s[1]) for s in line[1]]:
@@ -91,45 +92,30 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	print 'scaling unit cell and vertex positions...'
 	print '' 
 
-	if PATIENCE:
+	niter = SCALING_ITERATIONS
+	uc_press = 0.0001
+	covars_perturb = 0.025
+	callbackresults = [[init_variables, objective(init_variables,ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip)]]
 
-		def callbackF(X):
-			var_string = ''
-			for val in X:
-				var_string += str(val) + '   '
-			print objective(X,ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip)
+	def callbackF(X):
+		var_string = ''
+		for val in X:
+			var_string += str(val) + '   '
+		callbackresults.append([X, objective(X,ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip)])
 
-		res = basinhopping(objective, init_variables, niter=100, T=1.0, stepsize=0.5, 
-					   minimizer_kwargs={'args':(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip), 
-								   'method':'L-BFGS-B', 
-								   'bounds':bounds,
-								   'callback':callbackF})
-	else:
+	for it in range(niter):
 
-		niter = SCALING_ITERATIONS
-		uc_press = 0.0001
-		covars_perturb = 0.025
-		callbackresults = [[init_variables, objective(init_variables,ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip)]]
+		res = minimize(objective, init_variables, args=(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip),
+						method='L-BFGS-B',
+						bounds=bounds,
+						options={'disp':False, 'gtol':scale_tol, 'ftol':scale_tol, 'eps':scale_eps},
+						callback=callbackF)
 
-		def callbackF(X):
-			var_string = ''
-			for val in X:
-				var_string += str(val) + '   '
-			callbackresults.append([X, objective(X,ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip)])
-
-		for it in range(niter):
-
-			res = minimize(objective, init_variables, args=(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip),
-							method='L-BFGS-B',
-							bounds=bounds,
-							options={'disp':False, 'gtol':scale_tol, 'ftol':scale_tol},
-							callback=callbackF)
-
-			uc_params = res.x[0:6]
-			uc_params = [i - (i * uc_press) for i in uc_params]
-			mult = [random.choice([-1, 1]) for i in range(len(res.x[6:]))]
-			covars = [i + j * (i * covars_perturb) for i,j in zip(res.x[6:], mult)]
-			init_variables = uc_params + covars
+		uc_params = res.x[0:6]
+		uc_params = [i - (i * uc_press) for i in uc_params]
+		mult = [random.choice([-1, 1]) for i in range(len(res.x[6:]))]
+		covars = [i + j * (i * covars_perturb) for i,j in zip(res.x[6:], mult)]
+		init_variables = uc_params + covars
 
 	if niter != 0:	
 		sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = res.x[0:6]
