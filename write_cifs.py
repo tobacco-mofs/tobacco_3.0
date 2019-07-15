@@ -251,12 +251,14 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 	no_connection_nodes_append = no_connection_nodes.append
 
 	for node in connection_nodes:
+		
 		nbors = list(G.neighbors(node))
 		X_nbors = [n for n in nbors if G.node[n]['ty'] == 'X']
 		if len(X_nbors) == 0:
 			no_connection_nodes_append(node)
 
 	for i in range(len(no_connection_nodes)):
+		
 		n1 = no_connection_nodes[i]
 		vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.node[n1]['coords'])
 		for j in range(i + 1, len(no_connection_nodes)):
@@ -270,10 +272,12 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 				G.add_edge(n1, n2, length=dist, sym=sym, ty='S', order=(n1,n2))
 
 	for node in connection_nodes:
+		
 		vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.node[node]['coords'])
 		elem = re.sub('[0-9]','',node)
 		nbors = list(G.neighbors(node))
-		X_nbors = [n for n in nbors if G.node[n]['ty'] == 'X']
+		cbbcode = G.node[node]['bbcode']
+		X_nbors = [n for n in nbors if G.node[n]['ty'] == 'X' and G.node[n]['bbcode'] != cbbcode]
 
 		if oanc_switch:
 			X_nbors = X_nbors + [n for n in nbors if len(G.node[n]['sacode']) > 0]
@@ -303,6 +307,7 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 	for node in connection_nodes:
 
 		elem = re.sub('[0-9]','',node)
+		cbbcode = G.node[node]['bbcode']
 
 		if len(G.node[node]['sacode']) > 0:
 			sa = True
@@ -311,7 +316,7 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 			sa = False
 
 		nbors = list(G.neighbors(node))
-		X_nbors = [n for n in nbors if G.node[n]['ty'] == 'X']
+		X_nbors = [n for n in nbors if G.node[n]['ty'] == 'X' and G.node[n]['bbcode'] != cbbcode]
 
 		if oanc_switch:
 			X_nbors = X_nbors + [n for n in nbors if len(G.node[n]['sacode']) > 0]

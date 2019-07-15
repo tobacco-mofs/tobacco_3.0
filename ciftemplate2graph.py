@@ -30,7 +30,7 @@ def isvert(line):
 				return False
 		elif re.sub('[^a-zA-Z]','', line[0]) not in vertices or line[1] not in vertices:
 			if (isfloat(line[2]) and isfloat(line[3]) and isfloat(line[4])):
-				print 'Error in ciftemplate2graph, invalid vertex name in', cifname
+				print 'Error in ciftemplate2graph, invalid vertex name'
 				print line
 				print 'Exiting'
 				sys.exit()

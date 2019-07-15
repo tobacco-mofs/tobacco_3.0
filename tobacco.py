@@ -52,6 +52,13 @@ SCALING_STEP_SIZE = configuration.SCALING_STEP_SIZE
 
 pi = np.pi
 
+vname_dict = {'V':1  ,'Er':2 ,'Ti':3 ,'Ce':4 ,'S':5  ,
+			  'H':6  ,'He':7 ,'Li':8 ,'Be':9 ,'B':10 ,
+			  'C':11 ,'N':12 ,'O':13 ,'F':14 ,'Ne':15,
+			  'Na':16,'Mg':17,'Al':18,'Si':19,'P':20 ,
+			  'Cl':21,'Ar':22,'K':23 ,'Ca':24,'Sc':24,
+			  'Cr':26,'Mn':27,'Fe':28,'Co':29,'Ni':30 }
+
 apply_reindex(CHARGES)
 
 for d in ['templates', 'nodes', 'edges']:
@@ -151,7 +158,9 @@ for template in os.listdir('templates'):
 	g = 0
 	for va in vas:
 
-		v_set = list(set([i[1] for i in va]))
+		v_set = [('v' + str(vname_dict[re.sub('[0-9]','',i[0])]), i[1]) for i in va]
+		v_set = sorted(list(set(v_set)), key=lambda x: x[0])
+		v_set = [v[0] + '-' + v[1] for v in v_set]
 
 		print '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 		print 'vertex assignment : ',v_set
