@@ -75,6 +75,7 @@ for template in os.listdir('templates'):
 	print ''
 	
 	TG, unit_cell, TVT, TET, TNAME, a, b, c, ang_alpha, ang_beta, ang_gamma, max_le = ct2g(template)
+	print TVT
 	node_cns = [(cncalc(node, 'nodes', ONE_ATOM_NODE_CN), node) for node in os.listdir('nodes')]
 	edge_type_key = dict((list(TET)[k],k) for k in xrange(len(TET)))
 

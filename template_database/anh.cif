@@ -1,0 +1,65 @@
+data_anh
+_audit_creation_date              2019-08-20
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    18.9360
+_cell_length_b                    18.9360
+_cell_length_c                    39.6530
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 120.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+V1     V     0.00000   0.50000   0.16667   0.00000  Uiso   1.00
+V2     V     0.50000   0.50000   0.83333   0.00000  Uiso   1.00
+V3     V     0.50000  -0.00000   0.50000   0.00000  Uiso   1.00
+Er4    Er    0.50000  -0.00000   0.24780   0.00000  Uiso   1.00
+Er5    Er    0.00000   0.50000   0.91447   0.00000  Uiso   1.00
+Er6    Er    0.50000   0.50000   0.58113   0.00000  Uiso   1.00
+Er7    Er   -0.00000   0.50000   0.41887   0.00000  Uiso   1.00
+Er8    Er    0.50000  -0.00000   0.75220   0.00000  Uiso   1.00
+Er9    Er    0.50000   0.50000   0.08553   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Er4    10.000   1_565 S
+V1     Er4    10.000   1_455 S
+V1     Er9    10.000   1_455 S
+V1     Er5    10.000   1_554 S
+V1     Er7    10.000   .     S
+V2     Er5    10.000   .     S
+V2     Er5    10.000   1_655 S
+V2     Er8    10.000   .     S
+V2     Er8    10.000   1_565 S
+V2     Er6    10.000   .     S
+V2     Er9    10.000   1_556 S
+V3     Er6    10.000   1_545 S
+V3     Er7    10.000   1_655 S
+V3     Er7    10.000   1_545 S
+V3     Er4    10.000   .     S
+V3     Er8    10.000   .     S
+Er4    V1     10.000   1_545 S
+Er4    V1     10.000   1_655 S
+Er5    V2     10.000   1_455 S
+Er5    V1     10.000   1_556 S
+Er6    V3     10.000   1_565 S
+Er7    V3     10.000   1_455 S
+Er7    V3     10.000   1_565 S
+Er8    V2     10.000   1_545 S
+Er9    V1     10.000   1_655 S
+Er9    V2     10.000   1_554 S
