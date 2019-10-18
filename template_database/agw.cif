@@ -1,0 +1,106 @@
+data_agw
+_audit_creation_date              2019-09-09
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    28.4850
+_cell_length_b                    28.4850
+_cell_length_c                    46.9140
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 120.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+Er1    Er    0.00000   0.50000   0.00000   0.00000  Uiso   1.00
+Er2    Er    0.50000   0.50000   0.00000   0.00000  Uiso   1.00
+Er3    Er    0.50000  -0.00000   0.00000   0.00000  Uiso   1.00
+Er4    Er    0.00000   0.50000   0.50000   0.00000  Uiso   1.00
+Er5    Er    0.50000   0.50000   0.50000   0.00000  Uiso   1.00
+Er6    Er    0.50000  -0.00000   0.50000   0.00000  Uiso   1.00
+Ti7    Ti    0.00000   0.00000   0.25000   0.00000  Uiso   1.00
+Ti8    Ti    0.00000   0.00000   0.75000   0.00000  Uiso   1.00
+V9     V     0.14690   0.29380   0.10310   0.00000  Uiso   1.00
+V10    V     0.70620   0.85310   0.10310   0.00000  Uiso   1.00
+V11    V     0.14690   0.85310   0.10310   0.00000  Uiso   1.00
+V12    V     0.85310   0.70620   0.60310   0.00000  Uiso   1.00
+V13    V     0.29380   0.14690   0.60310   0.00000  Uiso   1.00
+V14    V     0.85310   0.14690   0.60310   0.00000  Uiso   1.00
+V15    V     0.29380   0.14690   0.89690   0.00000  Uiso   1.00
+V16    V     0.85310   0.70620   0.89690   0.00000  Uiso   1.00
+V17    V     0.85310   0.14690   0.89690   0.00000  Uiso   1.00
+V18    V     0.70620   0.85310   0.39690   0.00000  Uiso   1.00
+V19    V     0.14690   0.29380   0.39690   0.00000  Uiso   1.00
+V20    V     0.14690   0.85310   0.39690   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1    V16     9.999   1_454 S
+Er1    V11     9.999   .     S
+Er1    V9      9.999   .     S
+Er1    V17     9.999   1_454 S
+Er2    V15     9.999   1_554 S
+Er2    V9      9.999   .     S
+Er2    V10     9.999   .     S
+Er2    V16     9.999   1_554 S
+Er3    V17     9.999   1_554 S
+Er3    V10     9.999   1_545 S
+Er3    V11     9.999   1_545 S
+Er3    V15     9.999   1_554 S
+Er4    V19     9.999   .     S
+Er4    V14     9.999   1_455 S
+Er4    V12     9.999   1_455 S
+Er4    V20     9.999   .     S
+Er5    V18     9.999   .     S
+Er5    V12     9.999   .     S
+Er5    V13     9.999   .     S
+Er5    V19     9.999   .     S
+Er6    V20     9.999   1_545 S
+Er6    V13     9.999   .     S
+Er6    V14     9.999   .     S
+Er6    V18     9.999   1_545 S
+Ti7    V18    10.001   1_445 S
+Ti7    V20    10.001   1_545 S
+Ti7    V19    10.001   .     S
+Ti7    V9     10.001   .     S
+Ti7    V11    10.001   1_545 S
+Ti7    V10    10.001   1_445 S
+Ti8    V15    10.001   .     S
+Ti8    V17    10.001   1_455 S
+Ti8    V16    10.001   1_445 S
+Ti8    V12    10.001   1_445 S
+Ti8    V14    10.001   1_455 S
+Ti8    V13    10.001   .     S
+V10    Ti7    10.001   1_665 S
+V10    Er3     9.999   1_565 S
+V11    Ti7    10.001   1_565 S
+V11    Er3     9.999   1_565 S
+V12    Ti8    10.001   1_665 S
+V12    Er4     9.999   1_655 S
+V14    Ti8    10.001   1_655 S
+V14    Er4     9.999   1_655 S
+V15    Er2     9.999   1_556 S
+V15    Er3     9.999   1_556 S
+V16    Ti8    10.001   1_665 S
+V16    Er1     9.999   1_656 S
+V16    Er2     9.999   1_556 S
+V17    Ti8    10.001   1_655 S
+V17    Er3     9.999   1_556 S
+V17    Er1     9.999   1_656 S
+V18    Ti7    10.001   1_665 S
+V18    Er6     9.999   1_565 S
+V20    Ti7    10.001   1_565 S
+V20    Er6     9.999   1_565 S

@@ -125,5 +125,15 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 		sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = init_variables[0:6]
 		sc_covar = init_variables[6:].reshape(ncra,ncca)
 
-	return(sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca)
+	ab = [a/b, sc_a/sc_b]
+	ac = [a/c, sc_a/sc_c]
+	bc = [b/c, sc_b/sc_c]
+	alpha = [ang_alpha, sc_alpha]
+	beta = [ang_beta, sc_beta]
+	gamma = [ang_gamma, sc_gamma]
+	covar = [np.average(abs(np.array(callbackresults[0][0][6:]) - np.array(callbackresults[-1][0][6:])))]
+	final_obj = [callbackresults[-1][1]]
+	scaling_data = [ab, ac, bc, alpha, beta, gamma, covar, final_obj]
+
+	return(sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca,scaling_data)
 

@@ -1,5 +1,5 @@
 data_ben
-_audit_creation_date              2019-08-20
+_audit_creation_date              2019-09-09
 _audit_creation_method            'Materials Studio'
 _symmetry_space_group_name_H-M    'P1'
 _symmetry_Int_Tables_number       1
@@ -32,16 +32,17 @@ _geom_bond_atom_site_label_2
 _geom_bond_distance
 _geom_bond_site_symmetry_2
 _ccdc_geom_bond_type
-V1     Er4    10.001   1_554 S
 V1     V3      9.998   .     S
 V1     V2      9.998   .     S
+V1     Er4    10.001   .     S
+V1     Er4    10.001   1_554 S
+V2     V3      9.998   .     S
 V2     Er4    10.001   1_664 S
 V2     Er4    10.001   1_665 S
-V2     V3      9.998   .     S
 V3     Er4    10.001   1_564 S
 V3     Er4    10.001   1_565 S
 Er4    V1     10.001   1_556 S
 Er4    V2     10.001   1_446 S
-Er4    V3     10.001   1_546 S
 Er4    V2     10.001   1_445 S
+Er4    V3     10.001   1_546 S
 Er4    V3     10.001   1_545 S

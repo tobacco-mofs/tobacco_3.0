@@ -72,6 +72,35 @@ def PBC3DF(c1, c2):
     
     return c2
 
+def bbelems(cifname, direc):
+
+	path = os.path.join(direc, cifname)
+
+	with open(path, 'r') as cif:
+		cif = cif.read()
+		cif = filter(None, cif.split('\n'))
+
+	elems = []
+	elems_append = elems.append
+	for line in cif:
+		s = line.split()
+		if '_cell_length_a' in line:
+			a = s[1]
+		if '_cell_length_b' in line:
+			b = s[1]
+		if '_cell_length_c' in line:
+			c = s[1]
+		if '_cell_angle_alpha' in line:
+			alpha = s[1]
+		if '_cell_angle_beta' in line:
+			beta = s[1]
+		if '_cell_angle_gamma' in line:
+			gamma = s[1]
+		if iscoord(s):
+			elems_append(s[1])
+
+	return elems
+
 def bb2array(cifname, direc):
 
 	path = os.path.join(direc, cifname)

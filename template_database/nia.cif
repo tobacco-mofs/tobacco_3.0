@@ -1,5 +1,5 @@
-data_NIA_6_6
-_audit_creation_date              2018-09-26
+data_nia
+_audit_creation_date              2019-09-09
 _audit_creation_method            'Materials Studio'
 _symmetry_space_group_name_H-M    'P1'
 _symmetry_Int_Tables_number       1
@@ -32,24 +32,24 @@ _geom_bond_atom_site_label_2
 _geom_bond_distance
 _geom_bond_site_symmetry_2
 _ccdc_geom_bond_type
+Er1    V3      9.999   .     S
 Er1    V3      9.999   1_445 S
 Er1    V3      9.999   1_545 S
 Er1    V4      9.999   1_444 S
 Er1    V4      9.999   1_454 S
 Er1    V4      9.999   1_554 S
 Er2    V4      9.999   .     S
+Er2    V3      9.999   .     S
 Er2    V4      9.999   1_455 S
 Er2    V4      9.999   1_445 S
-Er2    V3      9.999   .     S
 Er2    V3      9.999   1_545 S
 Er2    V3      9.999   1_445 S
 V3     Er1     9.999   1_665 S
 V3     Er1     9.999   1_565 S
 V3     Er2     9.999   1_565 S
 V3     Er2     9.999   1_665 S
-V4     Er2     9.999   1_655 S
-V4     Er2     9.999   1_665 S
 V4     Er1     9.999   1_666 S
 V4     Er1     9.999   1_656 S
 V4     Er1     9.999   1_556 S
-V3     Er1     9.999   .     S
+V4     Er2     9.999   1_655 S
+V4     Er2     9.999   1_665 S

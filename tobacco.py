@@ -2,7 +2,7 @@ from reindex import apply_reindex
 from ciftemplate2graph import ct2g
 from vertex_edge_assign import vertex_assign, assign_node_vecs2edges
 from cycle_cocyle import cycle_cocyle, Bstar_alpha
-from bbcif_properties import cncalc
+from bbcif_properties import cncalc, bbelems
 from SBU_geometry import SBU_coords
 from scale import scale
 from scaled_embedding2coords import omega2coords
@@ -31,6 +31,7 @@ ONE_ATOM_NODE_CN = configuration.ONE_ATOM_NODE_CN
 CONNECTION_SITE_BOND_LENGTH = configuration.CONNECTION_SITE_BOND_LENGTH
 WRITE_CHECK_FILES = configuration.WRITE_CHECK_FILES
 WRITE_CIF = configuration.WRITE_CIF
+ALL_NODE_COMBINATIONS = configuration.ALL_NODE_COMBINATIONS
 USER_SPECIFIED_NODE_ASSIGNMENT = configuration.USER_SPECIFIED_NODE_ASSIGNMENT
 COMBINATORIAL_EDGE_ASSIGNMENT = configuration.COMBINATORIAL_EDGE_ASSIGNMENT
 CHARGES = configuration.CHARGES
@@ -44,10 +45,12 @@ SINGLE_ATOM_NODE = configuration.SINGLE_ATOM_NODE
 ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES
 PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
 RECORD_CALLBACK = configuration.RECORD_CALLBACK
+OUTPUT_SCALING_DATA = configuration.OUTPUT_SCALING_DATA
 FIX_UC = configuration.FIX_UC
 PRE_SCALE = configuration.PRE_SCALE
 SCALING_CONVERGENCE_TOLERANCE = configuration.SCALING_CONVERGENCE_TOLERANCE
 SCALING_STEP_SIZE = configuration.SCALING_STEP_SIZE
+SINGLE_METAL_MOFS_ONLY = configuration.SINGLE_METAL_MOFS_ONLY
 ####### Global options #######
 
 pi = np.pi
@@ -59,7 +62,9 @@ vname_dict = {'V':1  ,'Er':2 ,'Ti':3 ,'Ce':4 ,'S':5  ,
 			  'Cl':21,'Ar':22,'K':23 ,'Ca':24,'Sc':24,
 			  'Cr':26,'Mn':27,'Fe':28,'Co':29,'Ni':30 }
 
-apply_reindex(CHARGES)
+metal_elements = ['Cu', 'Cr', 'Zn', 'Zr', 'Fe', 'Al']
+
+#apply_reindex(CHARGES)
 
 for d in ['templates', 'nodes', 'edges']:
 	try:
@@ -67,7 +72,11 @@ for d in ['templates', 'nodes', 'edges']:
 	except:
 		pass
 
-for template in os.listdir('templates'):
+if OUTPUT_SCALING_DATA:
+	scd = open('scaling_data.txt', 'w')
+	scd.write('ab_ratio_i ab_ratio_f ac_ratio_i ac_ratio_f bc_ratio_i bc_ratio_f alpha_i alpha_f beta_i beta_f gamma_i gamma_f average_covec final_obj\n')
+
+for template in sorted(os.listdir('templates')):
 	print ''
 	print '========================================================================================================='
 	print 'template :',template                                          
@@ -75,7 +84,6 @@ for template in os.listdir('templates'):
 	print ''
 	
 	TG, unit_cell, TVT, TET, TNAME, a, b, c, ang_alpha, ang_beta, ang_gamma, max_le = ct2g(template)
-	print TVT
 	node_cns = [(cncalc(node, 'nodes', ONE_ATOM_NODE_CN), node) for node in os.listdir('nodes')]
 	edge_type_key = dict((list(TET)[k],k) for k in xrange(len(TET)))
 
@@ -110,7 +118,7 @@ for template in os.listdir('templates'):
 			print 'fractional coords : ',edge_dict['fcoords']
 			print ''
 
-	vas = vertex_assign(TG, TVT, node_cns, unit_cell, ONE_ATOM_NODE_CN, USER_SPECIFIED_NODE_ASSIGNMENT, SYMMETRY_TOL)
+	vas = vertex_assign(TG, TVT, node_cns, unit_cell, ONE_ATOM_NODE_CN, USER_SPECIFIED_NODE_ASSIGNMENT, SYMMETRY_TOL, ALL_NODE_COMBINATIONS)
 
 	num_edges = len(TG.edges())
 	CB,CO = cycle_cocyle(TG)
@@ -159,6 +167,10 @@ for template in os.listdir('templates'):
 	g = 0
 	for va in vas:
 
+		node_elems = [bbelems(i[1], 'nodes') for i in va]
+		metals = [[i for i in j if i in metal_elements] for j in node_elems]
+		metals = set([i for j in metals for i in j])
+
 		v_set = [('v' + str(vname_dict[re.sub('[0-9]','',i[0])]), i[1]) for i in va]
 		v_set = sorted(list(set(v_set)), key=lambda x: x[0])
 		v_set = [v[0] + '-' + v[1] for v in v_set]
@@ -167,6 +179,11 @@ for template in os.listdir('templates'):
 		print 'vertex assignment : ',v_set
 		print '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 		print ''
+
+		if len(metals) != 1 and SINGLE_METAL_MOFS_ONLY:
+			print v_set, 'contains no metals or multiple metal elements, no cif will be written', metals
+			print ''
+			continue
 
 		for v in va:
 			for n in TG.nodes(data=True):
@@ -194,7 +211,7 @@ for template in os.listdir('templates'):
 	
 			ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL)
 			all_SBU_coords = SBU_coords(TG, ea_dict, CONNECTION_SITE_BOND_LENGTH)
-			sc_a, sc_b, sc_c, sc_alpha, sc_beta, sc_gamma, sc_covar, Bstar_inv, max_length, callbackresults, ncra, ncca = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE,SCALING_STEP_SIZE)
+			sc_a, sc_b, sc_c, sc_alpha, sc_beta, sc_gamma, sc_covar, Bstar_inv, max_length, callbackresults, ncra, ncca, scaling_data = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE,SCALING_STEP_SIZE)
 	
 			print '*******************************************'
 			print 'The scaled unit cell parameters are : ' 
@@ -279,6 +296,7 @@ for template in os.listdir('templates'):
 				print 'bond check passed'
 				bond_check_code = ''
 			else:
+				continue
 				print 'bond check failed, attempting distance search bonding...'
 				fixed_bonds, nbcount = distance_search_bond(placed_all, bonds_all, sc_unit_cell, 2.5, TRACE_BOND_MAKING)
 				bond_check_code = '_BOND_CHECK'
@@ -304,17 +322,31 @@ for template in os.listdir('templates'):
 			vnames = '_'.join([v.split('.')[0] for v in v_set])
 	
 			if len(ea) <= 5:
-				enames = '_'.join([e[0:-4] for e in ea])
+				enames = []
+				for e in [e[0:-4] for e in ea]:
+					if e not in enames:
+						enames.append(e)
+				enames = '_'.join(enames)
+
 			else:
 				enames = str(len(ea)) + '_edges'
 	
 			cifname = template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '.cif'
+
+			if OUTPUT_SCALING_DATA:
+				line = [cifname.split('.')[0]] + [i for j in scaling_data for i in j]
+				format_string = ' '.join(['{}' for i in line])
+				scd.write(format_string.format(*line))
+				scd.write('\n')
 	
 			if WRITE_CIF:
 				print 'writing cif...'
 				print ''
 				write_cif(fc_placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, CHARGES)
 
+if OUTPUT_SCALING_DATA:
+	scd.close()
+	
 print 'Normal termination of Tobacco_3.0 after'
 print '--- %s seconds ---' % (time.time() - start_time)
 print ''

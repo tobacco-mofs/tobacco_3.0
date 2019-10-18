@@ -5,7 +5,7 @@ from bbcif_properties import X_vecs
 from place_bbs import superimpose
 from ciftemplate2graph import node_vecs
 
-def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL):
+def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COMBINATIONS):
 
 	node_dict = dict((k,[]) for k in TVT)
 
@@ -122,7 +122,14 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL):
 
 		va = []
 		va_append = va.append
+		used = []
+		used_append = used.append
 		for l in itertools.product(*va_uncomb):
+
+			cifs = sorted(tuple([c[1] for c in l]))
+			if cifs in used and not ALL_NODE_COMBINATIONS:
+				continue
+
 			choice_dict = dict((i[0],i[1]) for i in l)
 			va_temp = []
 			va_temp_append = va_temp.append
@@ -130,6 +137,7 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL):
 				name,ndict = n
 				va_temp_append((name, choice_dict[ndict['type']]))
 			va_append(va_temp)
+			used_append(cifs)
 					
 	return va
 

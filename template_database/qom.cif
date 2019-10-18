@@ -1,0 +1,120 @@
+data_qom
+_audit_creation_date              2019-09-10
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    34.6400
+_cell_length_b                    34.6400
+_cell_length_c                    28.2870
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 120.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+Ti1    Ti    0.11111   0.38890   0.91670   0.00000  Uiso   1.00
+Ti2    Ti    0.61110   0.72221   0.91670   0.00000  Uiso   1.00
+Ti3    Ti    0.27779   0.88889   0.91670   0.00000  Uiso   1.00
+Ti4    Ti    0.61110   0.88889   0.58330   0.00000  Uiso   1.00
+Ti5    Ti    0.27779   0.38890   0.58330   0.00000  Uiso   1.00
+Ti6    Ti    0.11111   0.72221   0.58330   0.00000  Uiso   1.00
+Ti7    Ti    0.88889   0.61110   0.08330   0.00000  Uiso   1.00
+Ti8    Ti    0.38890   0.27779   0.08330   0.00000  Uiso   1.00
+Ti9    Ti    0.72221   0.11111   0.08330   0.00000  Uiso   1.00
+Ti10   Ti    0.38890   0.11111   0.41670   0.00000  Uiso   1.00
+Ti11   Ti    0.72221   0.61110   0.41670   0.00000  Uiso   1.00
+Ti12   Ti    0.88889   0.27779   0.41670   0.00000  Uiso   1.00
+V13    V     0.00000   0.00000   0.25000   0.00000  Uiso   1.00
+V14    V     0.00000   0.00000   0.75000   0.00000  Uiso   1.00
+Er15   Er    0.33333   0.66667   0.25000   0.00000  Uiso   1.00
+Er16   Er    0.66667   0.33333   0.75000   0.00000  Uiso   1.00
+Ce17   Ce    0.33333   0.66667   0.75000   0.00000  Uiso   1.00
+Ce18   Ce    0.66667   0.33333   0.25000   0.00000  Uiso   1.00
+S19    S     0.16667   0.83333   0.25000   0.00000  Uiso   1.00
+S20    S     0.16667   0.33333   0.25000   0.00000  Uiso   1.00
+S21    S     0.66667   0.83333   0.25000   0.00000  Uiso   1.00
+S22    S     0.83333   0.16667   0.75000   0.00000  Uiso   1.00
+S23    S     0.83333   0.66667   0.75000   0.00000  Uiso   1.00
+S24    S     0.33333   0.16667   0.75000   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Ti1    Ce17   10.000   .     S
+Ti1    S20    10.000   1_556 S
+Ti1    S22    10.001   1_455 S
+Ti2    Ce17   10.000   .     S
+Ti2    S21    10.000   1_556 S
+Ti2    S23    10.001   .     S
+Ti3    Ce17   10.000   .     S
+Ti3    S19    10.000   1_556 S
+Ti3    S24    10.001   1_565 S
+Ti4    Ce17   10.000   .     S
+Ti4    S21    10.000   .     S
+Ti4    S22    10.001   1_565 S
+Ti5    Ce17   10.000   .     S
+Ti5    S20    10.000   .     S
+Ti5    S24    10.001   .     S
+Ti6    Ce17   10.000   .     S
+Ti6    S19    10.000   .     S
+Ti6    S23    10.001   1_455 S
+Ti7    Ce18   10.000   .     S
+Ti7    S23    10.000   1_554 S
+Ti7    S19    10.001   1_655 S
+Ti8    Ce18   10.000   .     S
+Ti8    S24    10.000   1_554 S
+Ti8    S20    10.001   .     S
+Ti9    Ce18   10.000   .     S
+Ti9    S22    10.000   1_554 S
+Ti9    S21    10.001   1_545 S
+Ti10   Ce18   10.000   .     S
+Ti10   S24    10.000   .     S
+Ti10   S19    10.001   1_545 S
+Ti11   Ce18   10.000   .     S
+Ti11   S23    10.000   .     S
+Ti11   S21    10.001   .     S
+Ti12   Ce18   10.000   .     S
+Ti12   S22    10.000   .     S
+Ti12   S20    10.001   1_655 S
+V13    S21    10.000   1_445 S
+V13    S19    10.000   1_545 S
+V13    S20    10.000   .     S
+V14    S24    10.000   .     S
+V14    S22    10.000   1_455 S
+V14    S23    10.000   1_445 S
+Er15   S19    10.000   .     S
+Er15   S20    10.000   .     S
+Er15   S21    10.000   .     S
+Er16   S22    10.000   .     S
+Er16   S23    10.000   .     S
+Er16   S24    10.000   .     S
+S19    Ti3    10.000   1_554 S
+S19    Ti7    10.001   1_455 S
+S19    Ti10   10.001   1_565 S
+S19    V13    10.000   1_565 S
+S20    Ti1    10.000   1_554 S
+S20    Ti12   10.001   1_455 S
+S21    Ti2    10.000   1_554 S
+S21    Ti9    10.001   1_565 S
+S21    V13    10.000   1_665 S
+S22    Ti9    10.000   1_556 S
+S22    Ti1    10.001   1_655 S
+S22    Ti4    10.001   1_545 S
+S22    V14    10.000   1_655 S
+S23    Ti7    10.000   1_556 S
+S23    Ti6    10.001   1_655 S
+S23    V14    10.000   1_665 S
+S24    Ti8    10.000   1_556 S
+S24    Ti3    10.001   1_545 S
