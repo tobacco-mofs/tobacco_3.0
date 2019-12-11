@@ -1,5 +1,5 @@
 data_bbf
-_audit_creation_date              2019-08-20
+_audit_creation_date              2019-12-11
 _audit_creation_method            'Materials Studio'
 _symmetry_space_group_name_H-M    'P1'
 _symmetry_Int_Tables_number       1
@@ -51,3 +51,5 @@ Er5    V2     10.000   1_565 S
 Er5    Er6    10.001   1_556 S
 Er6    V1     10.000   1_655 S
 Er6    Er5    10.001   1_554 S
+Er3    Er4    10.001   .     S
+Er5    Er6    10.001   .     S

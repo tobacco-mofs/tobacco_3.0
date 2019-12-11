@@ -12,6 +12,7 @@ def metric_tensor(l):
 	return Z
 
 def objective(V, ncra, ncca, Alpha, ne, nv, Bstar_inv, SBU_IP):
+	
 	P = V[0:6]
 	Z = metric_tensor(P)
 	X = np.array(V[6:])
@@ -93,8 +94,8 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	print '' 
 
 	niter = SCALING_ITERATIONS
-	uc_press = 0.0001
-	covars_perturb = 0.025
+	uc_press = 0.05
+	covars_perturb = 0.0001
 	callbackresults = [[init_variables, objective(init_variables,ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip)]]
 
 	def callbackF(X):
@@ -133,6 +134,10 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	gamma = [ang_gamma, sc_gamma]
 	covar = [np.average(abs(np.array(callbackresults[0][0][6:]) - np.array(callbackresults[-1][0][6:])))]
 	final_obj = [callbackresults[-1][1]]
+
+	print 'The final objective function value is', np.round(final_obj[0],3)
+	print '' 
+
 	scaling_data = [ab, ac, bc, alpha, beta, gamma, covar, final_obj]
 
 	return(sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma,sc_covar,Bstar_inv,max_length,callbackresults,ncra,ncca,scaling_data)

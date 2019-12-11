@@ -30,10 +30,7 @@ def isvert(line):
 				return False
 		elif re.sub('[^a-zA-Z]','', line[0]) not in vertices or line[1] not in vertices:
 			if (isfloat(line[2]) and isfloat(line[3]) and isfloat(line[4])):
-				print 'Error in ciftemplate2graph, invalid vertex name'
-				print line
-				print 'Exiting'
-				sys.exit()
+				raise ValueError('Error in ciftemplate2graph, invalid vertex name')
 	else:
 		return False
 	
@@ -145,9 +142,7 @@ def ct2g(cifname):
 			elif s[3] == '.':
 				lbl = np.array([0,0,0])
 			else:
-				print 'Error in ciftemplate2graph, there are unrecognized bond translational symmetries in', cifname
-				print 'Exiting'
-				sys.exit()
+				raise ValueError('Error in ciftemplate2graph, there are unrecognized bond translational symmetries in' + cifname)
 			nlbl = -1*lbl
 
 			if (
@@ -194,9 +189,7 @@ def ct2g(cifname):
 	cns = set(cns)
 
 	if not edge_exist:
-		print 'Error in ciftemplate2graph, no edges are given in the template:', cifname
-		print 'Exiting'
-		sys.exit()
+		raise ValueError('Error in ciftemplate2graph, no edges are given in the template:' + cifname)
 		
 	return (G, unit_cell, cns, e_types, cifname, a, b, c, alpha, beta, gamma, max_le)
 

@@ -48,9 +48,7 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 		for k in choice_dict:
 
 			if len(choice_dict[k]) == 0:
-				print 'Error in vertex_edge_assign.py:'
-				print 'Node type', k[0], 'has not assigned cif.'
-				print 'Exiting'
+				raise ValueError('Node type ' + k[0] + ' has not assigned cif.')
 				sys.exit()
 
 			for n in TG.nodes(data=True):
@@ -142,6 +140,7 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 	return va
 
 def assign_node_vecs2edges(TG, unit_cell, SYM_TOL):
+	
 	edge_assign_dict = dict((k,{}) for k in TG.nodes())
 
 	for n in TG.nodes(data=True):

@@ -142,9 +142,9 @@ def bb2array(cifname, direc):
 	cz = (c ** 2.0 - cx ** 2.0 - cy ** 2.0) ** 0.5
 	unit_cell = np.asarray([[ax,ay,az],[bx,by,bz],[cx,cy,cz]]).T
 	
-	norm_atom, norm_vec = fcoords[0]
-	
+	norm_vec = fcoords[0][1]
 	ccoords = [[n[0],np.dot(unit_cell, PBC3DF(norm_vec, n[1]))] for n in fcoords]
+	#ccoords = [[n[0],np.dot(unit_cell, n[1])] for n in fcoords]
 	com = np.average(np.array([n[1] for n in ccoords if re.sub('[0-9]','',n[0]) == 'X']), axis = 0)
 	sccoords = [[n[0], n[1] - com] for n in ccoords]
 
@@ -282,12 +282,7 @@ def calc_edge_len(cifname, direc):
 
 	mic_fcoords = [PBC3DF(fcoords[0][1],vec[1]) for vec in fcoords]
 	ccoords = [np.dot(unit_cell,vec) for vec in mic_fcoords]
-
-	if len(ccoords) > 2:
-		print 'The edge cif', cifname, 'has to many connection points (Xs)'
-		print 'Exiting'
-		sys.exit()
-
+	
 	return np.linalg.norm(ccoords[0] - ccoords[1])
 
 def cncalc(cifname, direc, cn1):
