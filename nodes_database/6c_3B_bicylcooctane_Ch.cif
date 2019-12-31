@@ -1,0 +1,91 @@
+6c_3B_bicylcooctane
+_audit_creation_date              2019-09-07
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+C1      C         0.14269      0.24710      0.14777      0.00000   Uiso   1.00      0.19409
+H2      H         0.14269      0.24711      0.12498      0.00000   Uiso   1.00      0.02548
+C3      C         0.14267      0.24706      0.20654      0.00000   Uiso   1.00      0.19382
+H4      H         0.14267      0.24703      0.22932      0.00000   Uiso   1.00      0.02553
+C5      C         0.12898      0.22338      0.16177      0.00000   Uiso   1.00     -0.00290
+X6      C         0.10225      0.17747      0.16164      0.00000   Uiso   1.00      0.11012
+C7      C         0.11566      0.20051      0.14615      0.00000   Uiso   1.00     -0.28099
+H8      H         0.11565      0.20061      0.12338      0.00000   Uiso   1.00      0.11572
+C9      C         0.17008      0.24699      0.16181      0.00000   Uiso   1.00     -0.00239
+X10     C         0.22321      0.24639      0.16175      0.00000   Uiso   1.00      0.11317
+C11     C         0.19658      0.24685      0.14623      0.00000   Uiso   1.00     -0.28340
+H12     H         0.19653      0.24707      0.12345      0.00000   Uiso   1.00      0.11632
+C13     C         0.12894      0.27078      0.16181      0.00000   Uiso   1.00     -0.00145
+X14     C         0.10191      0.31653      0.16177      0.00000   Uiso   1.00      0.11266
+C15     C         0.11550      0.29362      0.14624      0.00000   Uiso   1.00     -0.28658
+H16     H         0.11553      0.29359      0.12346      0.00000   Uiso   1.00      0.11792
+C17     C         0.12900      0.22334      0.19248      0.00000   Uiso   1.00     -0.00278
+X18     C         0.10279      0.17712      0.19251      0.00000   Uiso   1.00      0.11004
+C19     C         0.11584      0.20033      0.20804      0.00000   Uiso   1.00     -0.28100
+H20     H         0.11579      0.20040      0.23082      0.00000   Uiso   1.00      0.11573
+C21     C         0.17007      0.24702      0.19252      0.00000   Uiso   1.00     -0.00221
+X22     C         0.22320      0.24647      0.19262      0.00000   Uiso   1.00      0.11274
+C23     C         0.19655      0.24700      0.20812      0.00000   Uiso   1.00     -0.28353
+H24     H         0.19648      0.24733      0.23089      0.00000   Uiso   1.00      0.11637
+C25     C         0.12898      0.27079      0.19252      0.00000   Uiso   1.00     -0.00121
+X26     C         0.10252      0.31686      0.19263      0.00000   Uiso   1.00      0.11207
+C27     C         0.11580      0.29375      0.20813      0.00000   Uiso   1.00     -0.28665
+H28     H         0.11589      0.29372      0.23092      0.00000   Uiso   1.00      0.11794
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+H28     C27        1.140 .   S  
+H24     C23        1.139 .   S  
+H20     C19        1.139 .   S  
+C19     X18        1.542 .   A  
+C19     C17        1.537 .   A  
+X18     X6         1.544 .   A  
+C13     C1         1.539 .   S  
+C13     C15        1.537 .   A  
+C13     C25        1.535 .   A  
+C11     C9         1.537 .   A  
+C11     X10        1.541 .   A  
+C11     H12        1.139 .   S  
+X10     X22        1.544 .   A  
+C17     C3         1.539 .   S  
+C17     C5         1.536 .   A  
+C15     H16        1.139 .   S  
+C15     X14        1.541 .   A  
+X14     X26        1.544 .   A  
+C9      C1         1.539 .   S  
+C9      C21        1.535 .   A  
+C3      C21        1.539 .   S  
+C3      H4         1.139 .   S  
+C3      C25        1.539 .   S  
+C1      H2         1.139 .   S  
+C1      C5         1.539 .   S  
+C7      H8         1.139 .   S  
+C7      X6         1.541 .   A  
+C7      C5         1.537 .   A  
+X22     C23        1.541 .   A  
+C23     C21        1.537 .   A  
+X26     C27        1.541 .   A  
+C27     C25        1.537 .   A  

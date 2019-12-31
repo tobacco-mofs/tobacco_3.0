@@ -1,0 +1,38 @@
+1DoU
+_audit_creation_date              2019-09-07
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0000
+_cell_length_b                    20.0000
+_cell_length_c                    20.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+X1      C        -0.25682     -0.02184      0.05032      0.00000   Uiso   1.00     -0.16135
+X3      C        -0.18000     -0.02202      0.04781      0.00000   Uiso   1.00     -0.31311
+H5      H        -0.28638      0.01462      0.01798      0.00000   Uiso   1.00      0.12887
+H8      H        -0.15041     -0.05776      0.08092      0.00000   Uiso   1.00      0.13462
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+X3      X1         1.537 .   D  
+X3      H8         1.140 .   S  
+X1      H5         1.140 .   S  

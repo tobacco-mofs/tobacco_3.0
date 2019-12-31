@@ -1,0 +1,79 @@
+data_6c_Al_1
+_audit_creation_date              2019-07-11
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0000
+_cell_length_b                    20.0000
+_cell_length_c                    20.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+O1     O     0.37050   0.40925   0.53009   0.10386  Uani   1.00
+O2     O     0.27418   0.58611   0.53009   0.10386  Uani   1.00
+O3     O     0.16918   0.41427   0.53009   0.10386  Uani   1.00
+O4     O     0.27418   0.35364   0.53009   0.10386  Uani   1.00
+O5     O     0.16918   0.52549   0.53009   0.10386  Uani   1.00
+O6     O     0.37050   0.53050   0.53009   0.10386  Uani   1.00
+X7    C    0.33307   0.36286   0.50791   0.06701  Uani   1.00
+X8    C    0.33307   0.57689   0.50791   0.06701  Uani   1.00
+X9    C    0.14771   0.46988   0.50791   0.06701  Uani   1.00
+O10    O     0.37050   0.40925   0.65546   0.10386  Uani   1.00
+O11    O     0.27418   0.58611   0.65546   0.10386  Uani   1.00
+O12    O     0.16918   0.41427   0.65546   0.10386  Uani   1.00
+O13    O     0.27418   0.35364   0.65546   0.10386  Uani   1.00
+O14    O     0.16918   0.52549   0.65546   0.10386  Uani   1.00
+O15    O     0.37050   0.53050   0.65546   0.10386  Uani   1.00
+Al16   Al    0.35801   0.46988   0.59277   0.06152  Uani   1.00
+Al17   Al    0.22792   0.54499   0.59277   0.06152  Uani   1.00
+Al18   Al    0.22792   0.39477   0.59277   0.06152  Uani   1.00
+O19    O     0.27128   0.46988   0.59277   0.05019  Uani   1.00
+X20   C    0.33307   0.36286   0.67764   0.06701  Uani   1.00
+X21   C    0.33307   0.57689   0.67764   0.06701  Uani   1.00
+X22   C    0.14771   0.46988   0.67764   0.06701  Uani   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+O1     Al16    1.762   .     S
+O1     X7     1.272   .     A
+O2     Al17    1.762   .     S
+O2     X8     1.272   .     A
+O3     Al18    1.762   .     S
+O3     X9     1.272   .     A
+O4     Al18    1.762   .     S
+O4     X7     1.272   .     A
+O5     Al17    1.762   .     S
+O5     X9     1.272   .     A
+O6     Al16    1.762   .     S
+O6     X8     1.272   .     A
+O10    Al16    1.762   .     S
+O10    X20    1.272   .     A
+O11    Al17    1.762   .     S
+O11    X21    1.272   .     A
+O12    Al18    1.762   .     S
+O12    X22    1.272   .     A
+O13    Al18    1.762   .     S
+O13    X20    1.272   .     A
+O14    Al17    1.762   .     S
+O14    X22    1.272   .     A
+O15    Al16    1.762   .     S
+O15    X21    1.272   .     A
+Al16   O19     1.735   .     S
+Al17   O19     1.735   .     S
+Al18   O19     1.735   .     S

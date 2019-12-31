@@ -1,0 +1,52 @@
+4c_tetrathiafulvalene
+_audit_creation_date              2019-09-07
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0000
+_cell_length_b                    20.0000
+_cell_length_c                    20.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+C1      C        -0.25297     -0.08570     -0.00032      0.00000   Uiso   1.00      0.03807
+S2      S        -0.20234     -0.16095     -0.00045      0.00000   Uiso   1.00     -0.10195
+X3      C        -0.12286     -0.11790     -0.00051      0.00000   Uiso   1.00     -0.01366
+X4      C        -0.12652     -0.04127     -0.00077      0.00000   Uiso   1.00     -0.01366
+S5      S        -0.20973     -0.00600     -0.00112      0.00000   Uiso   1.00     -0.10197
+X6      C        -0.45976     -0.05640     -0.00123      0.00000   Uiso   1.00     -0.01361
+X7      C        -0.45646     -0.13302      0.00115      0.00000   Uiso   1.00     -0.01365
+S8      S        -0.37343     -0.16868      0.00333      0.00000   Uiso   1.00     -0.10196
+C9      C        -0.32984     -0.08918      0.00073      0.00000   Uiso   1.00      0.03806
+S10     S        -0.38010     -0.01373     -0.00131      0.00000   Uiso   1.00     -0.10197
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+S8      C9         1.814 .   S  
+S8      X7         1.808 .   S  
+S2      X3         1.808 .   S  
+S2      C1         1.814 .   S  
+S10     C9         1.814 .   S  
+S10     X6         1.807 .   S  
+S5      C1         1.814 .   S  
+S5      X4         1.808 .   S  
+C9      C1         1.539 .   D  
+X3      X4         1.534 .   D  
+X7      X6         1.534 .   D  

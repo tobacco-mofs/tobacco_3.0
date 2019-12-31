@@ -1,0 +1,43 @@
+data_sym_5_on_9
+_audit_creation_date              2018-09-25
+_audit_creation_method            'tobacco_3.0'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0000
+_cell_length_b                    20.0000
+_cell_length_c                    20.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+X1         C   -0.0770000000    0.0000000000   -0.0000000000   0.00000  Uiso   1.00   0.02583
+X2         C   -0.0385000000   -0.0666800000    0.0000000000   0.00000  Uiso   1.00   0.02583
+X3         C    0.0385000000   -0.0666800000    0.0000000000   0.00000  Uiso   1.00   0.02583
+X4         C    0.0770000000    0.0000000000   -0.0000000000   0.00000  Uiso   1.00   0.02583
+X5         C    0.0385000000    0.0666800000   -0.0000000000   0.00000  Uiso   1.00   0.02583
+X6         C   -0.0385000000    0.0666800000   -0.0000000000   0.00000  Uiso   1.00   0.02583
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+X1           X2 1.540       .   A
+X1           X6 1.540       .   A
+X2           X3 1.540       .   A
+X3           X4 1.540       .   A
+X4           X5 1.540       .   A
+X5           X6 1.540       .   A

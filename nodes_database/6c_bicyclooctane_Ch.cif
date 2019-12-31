@@ -1,0 +1,52 @@
+6c_bicyclooctane
+_audit_creation_date              2019-09-07
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    25.0000
+_cell_length_b                    25.0000
+_cell_length_c                    25.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+C1      C         0.28543      0.49395      0.29605      0.00000   Uiso   1.00      0.45760
+H2      H         0.28599      0.49404      0.25045      0.00000   Uiso   1.00     -0.03269
+C3      C         0.28501      0.49383      0.41288      0.00000   Uiso   1.00      0.45807
+H4      H         0.28456      0.49402      0.45849      0.00000   Uiso   1.00     -0.03269
+X5      C         0.25714      0.44670      0.32348      0.00000   Uiso   1.00     -0.16963
+X6      C         0.34028      0.49307      0.32396      0.00000   Uiso   1.00     -0.16715
+X7      C         0.25714      0.54110      0.32366      0.00000   Uiso   1.00     -0.17093
+X8      C         0.25822      0.44586      0.38506      0.00000   Uiso   1.00     -0.17075
+X9      C         0.34009      0.49308      0.38552      0.00000   Uiso   1.00     -0.16632
+X10     C         0.25817      0.54171      0.38514      0.00000   Uiso   1.00     -0.16957
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+H2      C1         1.140 .   S  
+H4      C3         1.140 .   S  
+X9      C3         1.538 .   S  
+X9      X6         1.539 .   D  
+X8      C3         1.540 .   S  
+X8      X5         1.540 .   D  
+C3      X10        1.537 .   S  
+C1      X7         1.538 .   S  
+C1      X6         1.539 .   S  
+C1      X5         1.538 .   S  
+X10     X7         1.537 .   D  

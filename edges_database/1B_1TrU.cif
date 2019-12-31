@@ -1,0 +1,54 @@
+data_L_20 
+_audit_creation_date              2014-09-12
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0000
+_cell_length_b                    20.0000
+_cell_length_c                    20.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+C1     C     0.00000  -0.00007  -0.00004   0.00000  Uiso   1.00
+C2     C     0.03963  -0.06608  -0.00004   0.00000  Uiso   1.00
+C3     C     0.11662  -0.06474  -0.00003   0.00000  Uiso   1.00
+X4     C    -0.15398  -0.00260   0.00001   0.00000  Uiso   1.00
+C5     C     0.11435   0.06861  -0.00003   0.00000  Uiso   1.00
+C6     C     0.03736   0.06727  -0.00005   0.00000  Uiso   1.00
+C7     C    -0.07699  -0.00137  -0.00002   0.00000  Uiso   1.00
+X8     C     0.15398   0.00260  -0.00001   0.00000  Uiso   1.00
+H9     H     0.01200  -0.11594  -0.00006   0.00000  Uiso   1.00
+H10    H     0.14598  -0.11360  -0.00004   0.00000  Uiso   1.00
+H11    H     0.14200   0.11845  -0.00003   0.00000  Uiso   1.00
+H12    H     0.00800   0.11613  -0.00007   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+C1     C2      1.540   .     A
+C1     C6      1.540   .     A
+C1     C7      1.540   .     S
+C2     C3      1.540   .     A
+C2     H9      1.140   .     S
+C3     X8      1.540   .     A
+C3     H10     1.140   .     S
+X8     C5      1.540   .     A
+C5     C6      1.540   .     A
+C5     H11     1.140   .     S
+C6     H12     1.140   .     S
+C7     X4      1.540   .     T
