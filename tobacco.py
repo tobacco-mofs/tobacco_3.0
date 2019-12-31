@@ -68,7 +68,7 @@ metal_elements = ['Cu', 'Cr', 'Zn', 'Zr', 'Fe', 'Al']
 
 for d in ['templates', 'nodes', 'edges']:
 	try:
-		os.remove(os.path.join(d,'.DS_store'))
+		os.remove(os.path.join(d,'.DS_Store'))
 	except:
 		pass
 
