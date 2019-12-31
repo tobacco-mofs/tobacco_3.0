@@ -1,0 +1,94 @@
+data_bbb
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    39.7843
+_cell_length_b                    39.7843
+_cell_length_c                    23.8879
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.7505   0.2496   0.0
+V2     V     0.7505   0.5009   0.0
+V3     V     0.4991   0.2496   0.0
+V4     V     0.2496   0.7505   0.0
+V5     V     0.2496   0.4991   0.0
+V6     V     0.5009   0.7505   0.0
+Er7     Er     0.7098   0.8549   0.2907
+Er8     Er     0.7098   0.8549   0.7093
+Er9     Er     0.8549   0.1451   0.2907
+Er10     Er     0.8549   0.1451   0.7093
+Er11     Er     0.1451   0.8549   0.2907
+Er12     Er     0.1451   0.8549   0.7093
+Er13     Er     0.8549   0.7098   0.2907
+Er14     Er     0.8549   0.7098   0.7093
+Er15     Er     0.1451   0.2902   0.2907
+Er16     Er     0.1451   0.2902   0.7093
+Er17     Er     0.2902   0.1451   0.2907
+Er18     Er     0.2902   0.1451   0.7093
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Er10    10.0   1_554     S
+V1     Er9    10.0   .     S
+V1     V3    10.0   .     S
+V1     V2    10.0   .     S
+V2     V3    10.0   .     S
+V2     Er13    10.0   .     S
+V2     Er14    10.0   1_554     S
+V3     Er17    10.0   .     S
+V3     Er18    10.0   1_554     S
+V4     Er11    10.0   .     S
+V4     Er12    10.0   1_554     S
+V4     V6    10.0   .     S
+V4     V5    10.0   .     S
+V5     V6    10.0   .     S
+V5     Er15    10.0   .     S
+V5     Er16    10.0   1_554     S
+V6     Er8    10.0   1_554     S
+V6     Er7    10.0   .     S
+Er7     Er8    10.0   .     S
+Er7     Er13    10.0   .     S
+Er7     Er9    10.0   1_565     S
+Er8     V6    10.0   1_556     S
+Er8     Er14    10.0   .     S
+Er8     Er10    10.0   1_565     S
+Er9     Er10    10.0   .     S
+Er9     Er7    10.0   1_545     S
+Er9     Er15    10.0   1_655     S
+Er10     V1    10.0   1_556     S
+Er10     Er8    10.0   1_545     S
+Er10     Er16    10.0   1_655     S
+Er11     Er12    10.0   .     S
+Er11     Er13    10.0   1_455     S
+Er11     Er17    10.0   1_565     S
+Er12     V4    10.0   1_556     S
+Er12     Er14    10.0   1_455     S
+Er12     Er18    10.0   1_565     S
+Er13     Er14    10.0   .     S
+Er13     Er11    10.0   1_655     S
+Er14     V2    10.0   1_556     S
+Er14     Er12    10.0   1_655     S
+Er15     Er16    10.0   .     S
+Er15     Er17    10.0   .     S
+Er15     Er9    10.0   1_455     S
+Er16     V5    10.0   1_556     S
+Er16     Er18    10.0   .     S
+Er16     Er10    10.0   1_455     S
+Er17     Er18    10.0   .     S
+Er17     Er11    10.0   1_545     S
+Er18     V3    10.0   1_556     S
+Er18     Er12    10.0   1_545     S

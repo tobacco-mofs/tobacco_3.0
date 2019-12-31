@@ -1,0 +1,161 @@
+data_hha
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    54.773
+_cell_length_b                    54.773
+_cell_length_c                    66.8907
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.75   0.75   0.1752
+V2     V     0.75   0.75   0.3248
+V3     V     0.75   0.75   0.6752
+V4     V     0.75   0.75   0.8248
+V5     V     0.25   0.25   0.3248
+V6     V     0.25   0.25   0.1752
+V7     V     0.25   0.25   0.6752
+V8     V     0.25   0.25   0.8248
+Ce9     Ce     0.6637   0.6031   0.3785
+Ce10     Ce     0.6031   0.6637   0.6215
+Er11     Er     0.5646   0.5646   0.5
+Ce12     Ce     0.3363   0.3969   0.6215
+Ce13     Ce     0.3969   0.3363   0.3785
+Er14     Er     0.4354   0.4354   0.5
+Ce15     Ce     0.8363   0.6031   0.1215
+Ce16     Ce     0.8969   0.6637   0.8785
+Er17     Er     0.9354   0.5646   0.0
+Ce18     Ce     0.1637   0.3969   0.8785
+Ce19     Ce     0.1031   0.3363   0.1215
+Er20     Er     0.0646   0.4354   0.0
+Ce21     Ce     0.6031   0.8363   0.8785
+Ce22     Ce     0.6637   0.8969   0.1215
+Er23     Er     0.5646   0.9354   0.0
+Ce24     Ce     0.3969   0.1637   0.1215
+Ce25     Ce     0.3363   0.1031   0.8785
+Er26     Er     0.4354   0.0646   0.0
+Ti27     Ti     0.3263   0.9554   0.791
+Ti28     Ti     0.1737   0.9554   0.709
+Ti29     Ti     0.0446   0.8263   0.709
+Ti30     Ti     0.0446   0.6737   0.791
+Ti31     Ti     0.1737   0.5446   0.791
+Ti32     Ti     0.3263   0.5446   0.709
+Ti33     Ti     0.4554   0.8263   0.791
+Ti34     Ti     0.4554   0.6737   0.709
+Ti35     Ti     0.9554   0.3263   0.209
+Ti36     Ti     0.9554   0.1737   0.291
+Ti37     Ti     0.8263   0.0446   0.291
+Ti38     Ti     0.6737   0.0446   0.209
+Ti39     Ti     0.5446   0.1737   0.209
+Ti40     Ti     0.5446   0.3263   0.291
+Ti41     Ti     0.8263   0.4554   0.209
+Ti42     Ti     0.6737   0.4554   0.291
+Ce43     Ce     0.8363   0.8969   0.3785
+Ce44     Ce     0.8969   0.8363   0.6215
+Er45     Er     0.9354   0.9354   0.5
+Ce46     Ce     0.1637   0.1031   0.6215
+Ce47     Ce     0.1031   0.1637   0.3785
+Er48     Er     0.0646   0.0646   0.5
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Ce22    10.0   .     S
+V1     Ce15    10.0   .     S
+V1     V2    10.0   .     S
+V2     Ce43    10.0   .     S
+V2     Ce9    10.0   .     S
+V3     Ce44    10.0   .     S
+V3     Ce10    10.0   .     S
+V3     V4    10.0   .     S
+V4     Ce16    10.0   .     S
+V4     Ce21    10.0   .     S
+V5     Ce47    10.0   .     S
+V5     Ce13    10.0   .     S
+V5     V6    10.0   .     S
+V6     Ce19    10.0   .     S
+V6     Ce24    10.0   .     S
+V7     Ce46    10.0   .     S
+V7     Ce12    10.0   .     S
+V7     V8    10.0   .     S
+V8     Ce25    10.0   .     S
+V8     Ce18    10.0   .     S
+Ce9     Er11    10.0   .     S
+Ce9     Ti42    10.0   .     S
+Ce10     Er11    10.0   .     S
+Ce10     Ti34    10.0   .     S
+Er11     Er14    10.0   .     S
+Ce12     Er14    10.0   .     S
+Ce12     Ti32    10.0   .     S
+Ce13     Er14    10.0   .     S
+Ce13     Ti40    10.0   .     S
+Ce15     Er17    10.0   .     S
+Ce15     Ti41    10.0   .     S
+Ce16     Er17    10.0   1_556     S
+Ce16     Ti30    10.0   1_655     S
+Er17     Ce16    10.0   1_554     S
+Er17     Er20    10.0   1_655     S
+Ce18     Er20    10.0   1_556     S
+Ce18     Ti31    10.0   .     S
+Ce19     Er20    10.0   .     S
+Ce19     Ti35    10.0   1_455     S
+Er20     Ce18    10.0   1_554     S
+Er20     Er17    10.0   1_455     S
+Ce21     Er23    10.0   1_556     S
+Ce21     Ti33    10.0   .     S
+Ce22     Er23    10.0   .     S
+Ce22     Ti38    10.0   1_565     S
+Er23     Ce21    10.0   1_554     S
+Er23     Er26    10.0   1_565     S
+Ce24     Er26    10.0   .     S
+Ce24     Ti39    10.0   .     S
+Ce25     Er26    10.0   1_556     S
+Ce25     Ti27    10.0   1_545     S
+Er26     Ce25    10.0   1_554     S
+Er26     Er23    10.0   1_545     S
+Ti27     Ce25    10.0   1_565     S
+Ti27     Ti28    10.0   .     S
+Ti27     Ti33    10.0   .     S
+Ti28     Ti29    10.0   .     S
+Ti28     Ce46    10.0   1_565     S
+Ti29     Ti30    10.0   .     S
+Ti29     Ce44    10.0   1_455     S
+Ti30     Ce16    10.0   1_455     S
+Ti30     Ti31    10.0   .     S
+Ti31     Ti32    10.0   .     S
+Ti32     Ti34    10.0   .     S
+Ti33     Ti34    10.0   .     S
+Ti35     Ce19    10.0   1_655     S
+Ti35     Ti36    10.0   .     S
+Ti35     Ti41    10.0   .     S
+Ti36     Ti37    10.0   .     S
+Ti36     Ce47    10.0   1_655     S
+Ti37     Ti38    10.0   .     S
+Ti37     Ce43    10.0   1_545     S
+Ti38     Ce22    10.0   1_545     S
+Ti38     Ti39    10.0   .     S
+Ti39     Ti40    10.0   .     S
+Ti40     Ti42    10.0   .     S
+Ti41     Ti42    10.0   .     S
+Ce43     Er45    10.0   .     S
+Ce43     Ti37    10.0   1_565     S
+Ce44     Er45    10.0   .     S
+Ce44     Ti29    10.0   1_655     S
+Er45     Er48    10.0   1_665     S
+Ce46     Er48    10.0   .     S
+Ce46     Ti28    10.0   1_545     S
+Ce47     Er48    10.0   .     S
+Ce47     Ti36    10.0   1_455     S
+Er48     Er45    10.0   1_445     S

@@ -1,0 +1,66 @@
+data_wiz
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    21.2508
+_cell_length_b                    21.2508
+_cell_length_c                    45.7518
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.7714   0.1474   0.2257
+V2     V     0.8526   0.2286   0.441
+V3     V     0.2286   0.8526   0.2257
+V4     V     0.1474   0.7714   0.441
+V5     V     0.376   0.1474   0.7743
+V6     V     0.376   0.2286   0.559
+V7     V     0.624   0.8526   0.7743
+V8     V     0.624   0.7714   0.559
+V9     V     0.8526   0.624   0.8924
+V10     V     0.7714   0.624   0.1076
+V11     V     0.1474   0.376   0.8924
+V12     V     0.2286   0.376   0.1076
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     V2    10.0   .     S
+V1     V12    10.0   1_655     S
+V1     V3    10.0   1_545     S
+V2     V4    10.0   1_655     S
+V2     V8    10.0   1_545     S
+V3     V4    10.0   .     S
+V3     V10    10.0   1_455     S
+V3     V1    10.0   1_565     S
+V4     V2    10.0   1_455     S
+V4     V6    10.0   1_565     S
+V5     V6    10.0   .     S
+V5     V7    10.0   1_545     S
+V5     V11    10.0   .     S
+V6     V4    10.0   1_545     S
+V6     V8    10.0   .     S
+V7     V8    10.0   .     S
+V7     V5    10.0   1_565     S
+V7     V9    10.0   .     S
+V8     V2    10.0   1_565     S
+V9     V10    10.0   1_556     S
+V9     V11    10.0   1_655     S
+V10     V3    10.0   1_655     S
+V10     V9    10.0   1_554     S
+V10     V12    10.0   .     S
+V11     V12    10.0   1_556     S
+V11     V9    10.0   1_455     S
+V12     V1    10.0   1_455     S
+V12     V11    10.0   1_554     S

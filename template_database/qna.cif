@@ -1,0 +1,111 @@
+data_qna
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    43.5829
+_cell_length_b                    43.5829
+_cell_length_c                    26.1246
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+S1     S     0.1325   0.2649   0.0
+S2     S     0.1325   0.8675   0.0
+S3     S     0.7351   0.8675   0.0
+Ce4     Ce     0.0185   0.6948   0.2865
+Ce5     Ce     0.0185   0.6948   0.7135
+Ce6     Ce     0.6762   0.9815   0.2865
+Ce7     Ce     0.6762   0.9815   0.7135
+He8     He     0.4658   0.9316   0.5
+Ce9     Ce     0.3052   0.9815   0.7135
+Ce10     Ce     0.3052   0.9815   0.2865
+Ce11     Ce     0.0185   0.3238   0.7135
+Ce12     Ce     0.0185   0.3238   0.2865
+He13     He     0.0684   0.5342   0.5
+Ce14     Ce     0.6762   0.6948   0.7135
+Ce15     Ce     0.6762   0.6948   0.2865
+Ce16     Ce     0.3052   0.3238   0.7135
+He17     He     0.4658   0.5342   0.5
+Ce18     Ce     0.3052   0.3238   0.2865
+Ti19     Ti     0.3333   0.6667   0.5
+H20     H     0.4017   0.2009   0.5
+H21     H     0.7991   0.5983   0.5
+H22     H     0.7991   0.2009   0.5
+Er23     Er     0.6667   0.3333   0.5
+V24     V     0.0   0.0   0.0
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+S1     V24    10.0   .     S
+S1     Ce12    10.0   .     S
+S1     Ce11    10.0   1_554     S
+S1     Ce18    10.0   .     S
+S1     Ce16    10.0   1_554     S
+S2     V24    10.0   1_565     S
+S2     Ce4    10.0   .     S
+S2     Ce10    10.0   .     S
+S2     Ce9    10.0   1_554     S
+S2     Ce5    10.0   1_554     S
+S3     V24    10.0   1_665     S
+S3     Ce15    10.0   .     S
+S3     Ce14    10.0   1_554     S
+S3     Ce6    10.0   .     S
+S3     Ce7    10.0   1_554     S
+Ce4     He13    10.0   .     S
+Ce4     H21    10.0   1_455     S
+Ce5     S2    10.0   1_556     S
+Ce5     He13    10.0   .     S
+Ce5     H21    10.0   1_455     S
+Ce6     He8    10.0   .     S
+Ce6     H22    10.0   1_565     S
+Ce7     S3    10.0   1_556     S
+Ce7     He8    10.0   .     S
+Ce7     H22    10.0   1_565     S
+He8     Ce9    10.0   .     S
+He8     Ce10    10.0   .     S
+He8     Ti19    10.0   .     S
+Ce9     S2    10.0   1_556     S
+Ce9     H20    10.0   1_565     S
+Ce10     H20    10.0   1_565     S
+Ce11     S1    10.0   1_556     S
+Ce11     He13    10.0   .     S
+Ce11     H22    10.0   1_455     S
+Ce12     He13    10.0   .     S
+Ce12     H22    10.0   1_455     S
+He13     Ti19    10.0   .     S
+Ce14     S3    10.0   1_556     S
+Ce14     He17    10.0   .     S
+Ce14     H21    10.0   .     S
+Ce15     He17    10.0   .     S
+Ce15     H21    10.0   .     S
+Ce16     S1    10.0   1_556     S
+Ce16     He17    10.0   .     S
+Ce16     H20    10.0   .     S
+He17     Ce18    10.0   .     S
+He17     Ti19    10.0   .     S
+Ce18     H20    10.0   .     S
+H20     Ce9    10.0   1_545     S
+H20     Ce10    10.0   1_545     S
+H20     Er23    10.0   .     S
+H21     Er23    10.0   .     S
+H21     Ce5    10.0   1_655     S
+H21     Ce4    10.0   1_655     S
+H22     Ce12    10.0   1_655     S
+H22     Ce11    10.0   1_655     S
+H22     Ce7    10.0   1_545     S
+H22     Ce6    10.0   1_545     S
+H22     Er23    10.0   .     S
+V24     S2    10.0   1_545     S
+V24     S3    10.0   1_445     S

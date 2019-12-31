@@ -1,0 +1,86 @@
+data_xbb
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    25.6468
+_cell_length_b                    25.6468
+_cell_length_c                    25.6468
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Ti1     Ti     0.2251   0.2251   0.2251
+Er2     Er     0.195   0.5   0.5
+Ti3     Ti     0.2251   0.7749   0.7749
+Er4     Er     0.5   0.195   0.5
+Ti5     Ti     0.7749   0.2251   0.2251
+Ti6     Ti     0.2251   0.2251   0.7749
+Er7     Er     0.805   0.5   0.5
+Ti8     Ti     0.7749   0.7749   0.2251
+Ti9     Ti     0.7749   0.2251   0.7749
+Er10     Er     0.5   0.805   0.5
+Ti11     Ti     0.2251   0.7749   0.2251
+Ti12     Ti     0.7749   0.7749   0.7749
+Er13     Er     0.5   0.5   0.195
+Er14     Er     0.5   0.5   0.805
+V15     V     0.0   0.0   0.0
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Ti1     Er2    10.0   .     S
+Ti1     Er4    10.0   .     S
+Ti1     Er13    10.0   .     S
+Ti1     V15    10.0   .     S
+Er2     Ti3    10.0   .     S
+Er2     Ti11    10.0   .     S
+Er2     Ti6    10.0   .     S
+Er2     Er7    10.0   1_455     S
+Ti3     Er10    10.0   .     S
+Ti3     Er14    10.0   .     S
+Ti3     V15    10.0   1_566     S
+Er4     Ti5    10.0   .     S
+Er4     Ti6    10.0   .     S
+Er4     Ti9    10.0   .     S
+Er4     Er10    10.0   1_545     S
+Ti5     Er7    10.0   .     S
+Ti5     Er13    10.0   .     S
+Ti5     V15    10.0   1_655     S
+Ti6     Er14    10.0   .     S
+Ti6     V15    10.0   1_556     S
+Er7     Ti8    10.0   .     S
+Er7     Ti9    10.0   .     S
+Er7     Ti12    10.0   .     S
+Er7     Er2    10.0   1_655     S
+Ti8     Er10    10.0   .     S
+Ti8     Er13    10.0   .     S
+Ti8     V15    10.0   1_665     S
+Ti9     Er14    10.0   .     S
+Ti9     V15    10.0   1_656     S
+Er10     Ti11    10.0   .     S
+Er10     Ti12    10.0   .     S
+Er10     Er4    10.0   1_565     S
+Ti11     Er13    10.0   .     S
+Ti11     V15    10.0   1_565     S
+Ti12     Er14    10.0   .     S
+Ti12     V15    10.0   1_666     S
+Er13     Er14    10.0   1_554     S
+Er14     Er13    10.0   1_556     S
+V15     Ti5    10.0   1_455     S
+V15     Ti8    10.0   1_445     S
+V15     Ti11    10.0   1_545     S
+V15     Ti3    10.0   1_544     S
+V15     Ti6    10.0   1_554     S
+V15     Ti9    10.0   1_454     S
+V15     Ti12    10.0   1_444     S

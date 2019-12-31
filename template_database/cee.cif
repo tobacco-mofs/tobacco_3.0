@@ -1,98 +1,94 @@
 data_cee
-_audit_creation_date              2019-09-09
-_audit_creation_method            'Materials Studio'
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
 _symmetry_space_group_name_H-M    'P1'
 _symmetry_Int_Tables_number       1
-_symmetry_cell_setting            triclinic
 loop_
 _symmetry_equiv_pos_as_xyz
   x,y,z
-_cell_length_a                    33.3390
-_cell_length_b                    33.3390
-_cell_length_c                    29.8120
-_cell_angle_alpha                 90.0000
-_cell_angle_beta                  90.0000
-_cell_angle_gamma                 120.0000
+_cell_length_a                    33.3391
+_cell_length_b                    33.3391
+_cell_length_c                    29.8122
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
 loop_
 _atom_site_label
 _atom_site_type_symbol
 _atom_site_fract_x
 _atom_site_fract_y
 _atom_site_fract_z
-_atom_site_U_iso_or_equiv
-_atom_site_adp_type
-_atom_site_occupancy
-V1     V     0.00000   0.69980   0.00000   0.00000  Uiso   1.00
-V2     V     0.30020   0.30020   0.00000   0.00000  Uiso   1.00
-V3     V     0.69980   0.00000   0.00000   0.00000  Uiso   1.00
-V4     V     0.00000   0.30020   0.00000   0.00000  Uiso   1.00
-V5     V     0.69980   0.69980   0.00000   0.00000  Uiso   1.00
-V6     V     0.30020  -0.00000   0.00000   0.00000  Uiso   1.00
-Er7    Er    0.00000   0.00000   0.00000   0.00000  Uiso   1.00
-Ti8    Ti    0.00000   0.50000   0.25000   0.00000  Uiso   1.00
-Ti9    Ti    0.50000   0.50000   0.25000   0.00000  Uiso   1.00
-Ti10   Ti    0.50000   0.00000   0.25000   0.00000  Uiso   1.00
-V11    V     0.00000   0.69980   0.50000   0.00000  Uiso   1.00
-V12    V     0.30020   0.30020   0.50000   0.00000  Uiso   1.00
-V13    V     0.69980   0.00000   0.50000   0.00000  Uiso   1.00
-V14    V     0.00000   0.30020   0.50000   0.00000  Uiso   1.00
-V15    V     0.69980   0.69980   0.50000   0.00000  Uiso   1.00
-V16    V     0.30020  -0.00000   0.50000   0.00000  Uiso   1.00
-Er17   Er    0.00000   0.00000   0.50000   0.00000  Uiso   1.00
-Ti18   Ti    0.00000   0.50000   0.75000   0.00000  Uiso   1.00
-Ti19   Ti    0.50000   0.50000   0.75000   0.00000  Uiso   1.00
-Ti20   Ti    0.50000   0.00000   0.75000   0.00000  Uiso   1.00
+V1     V     0.3002   0.3002   0.0
+V2     V     0.3002   0.3002   0.5
+V3     V     0.6998   0.6998   0.0
+V4     V     0.6998   0.6998   0.5
+Ti5     Ti     0.5   0.5   0.25
+Ti6     Ti     0.5   0.5   0.75
+V7     V     0.6998   0.0   0.0
+V8     V     0.6998   0.0   0.5
+V9     V     0.3002   0.0   0.0
+V10     V     0.3002   0.0   0.5
+Ti11     Ti     0.5   0.0   0.25
+Ti12     Ti     0.5   0.0   0.75
+V13     V     0.0   0.3002   0.0
+V14     V     0.0   0.3002   0.5
+V15     V     0.0   0.6998   0.0
+V16     V     0.0   0.6998   0.5
+Ti17     Ti     0.0   0.5   0.25
+Ti18     Ti     0.0   0.5   0.75
+Er19     Er     0.0   0.0   0.0
+Er20     Er     0.0   0.0   0.5
 loop_
 _geom_bond_atom_site_label_1
 _geom_bond_atom_site_label_2
 _geom_bond_distance
 _geom_bond_site_symmetry_2
 _ccdc_geom_bond_type
-V1     Ti18    9.996   1_554 S
-V1     Ti8     9.996   .     S
-V1     Er7    10.008   1_565 S
-V2     Ti19    9.996   1_554 S
-V2     Ti9     9.996   .     S
-V2     Er7    10.008   .     S
-V3     Ti20    9.996   1_554 S
-V3     Ti10    9.996   .     S
-V3     Er7    10.008   1_655 S
-V4     Ti18    9.996   1_554 S
-V4     Ti8     9.996   .     S
-V4     Er7    10.008   .     S
-V5     Ti19    9.996   1_554 S
-V5     Ti9     9.996   .     S
-V5     Er7    10.008   1_665 S
-V6     Ti20    9.996   1_554 S
-V6     Ti10    9.996   .     S
-V6     Er7    10.008   .     S
-Er7    V3     10.008   1_455 S
-Er7    V1     10.008   1_545 S
-Er7    V5     10.008   1_445 S
-Ti8    V14     9.996   .     S
-Ti8    V11     9.996   .     S
-Ti9    V15     9.996   .     S
-Ti9    V12     9.996   .     S
-Ti10   V16     9.996   .     S
-Ti10   V13     9.996   .     S
-V11    Ti18    9.996   .     S
-V11    Er17   10.008   1_565 S
-V12    Ti19    9.996   .     S
-V12    Er17   10.008   .     S
-V13    Ti20    9.996   .     S
-V13    Er17   10.008   1_655 S
-V14    Ti18    9.996   .     S
-V14    Er17   10.008   .     S
-V15    Ti19    9.996   .     S
-V15    Er17   10.008   1_665 S
-V16    Ti20    9.996   .     S
-V16    Er17   10.008   .     S
-Er17   V13    10.008   1_455 S
-Er17   V11    10.008   1_545 S
-Er17   V15    10.008   1_445 S
-Ti18   V4      9.996   1_556 S
-Ti18   V1      9.996   1_556 S
-Ti19   V5      9.996   1_556 S
-Ti19   V2      9.996   1_556 S
-Ti20   V6      9.996   1_556 S
-Ti20   V3      9.996   1_556 S
+V1     Ti5    9.995   .     S
+V1     Ti6    9.995   1_554     S
+V1     Er19    10.009   .     S
+V2     Ti6    9.995   .     S
+V2     Ti5    9.995   .     S
+V2     Er20    10.009   .     S
+V3     Ti5    9.995   .     S
+V3     Ti6    9.995   1_554     S
+V3     Er19    10.009   1_665     S
+V4     Ti6    9.995   .     S
+V4     Ti5    9.995   .     S
+V4     Er20    10.009   1_665     S
+Ti6     V1    9.995   1_556     S
+Ti6     V3    9.995   1_556     S
+V7     Ti11    9.995   .     S
+V7     Ti12    9.995   1_554     S
+V7     Er19    10.009   1_655     S
+V8     Ti12    9.995   .     S
+V8     Ti11    9.995   .     S
+V8     Er20    10.009   1_655     S
+V9     Ti11    9.995   .     S
+V9     Ti12    9.995   1_554     S
+V9     Er19    10.009   .     S
+V10     Ti12    9.995   .     S
+V10     Ti11    9.995   .     S
+V10     Er20    10.009   .     S
+Ti12     V7    9.995   1_556     S
+Ti12     V9    9.995   1_556     S
+V13     Ti18    9.995   1_554     S
+V13     Ti17    9.995   .     S
+V13     Er19    10.009   .     S
+V14     Ti17    9.995   .     S
+V14     Ti18    9.995   .     S
+V14     Er20    10.009   .     S
+V15     Ti17    9.995   .     S
+V15     Ti18    9.995   1_554     S
+V15     Er19    10.009   1_565     S
+V16     Ti18    9.995   .     S
+V16     Ti17    9.995   .     S
+V16     Er20    10.009   1_565     S
+Ti18     V13    9.995   1_556     S
+Ti18     V15    9.995   1_556     S
+Er19     V7    10.009   1_455     S
+Er19     V3    10.009   1_445     S
+Er19     V15    10.009   1_545     S
+Er20     V8    10.009   1_455     S
+Er20     V4    10.009   1_445     S
+Er20     V16    10.009   1_545     S

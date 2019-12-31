@@ -1,0 +1,65 @@
+data_dmh
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    30.5609
+_cell_length_b                    30.0065
+_cell_length_c                    29.4479
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.6636   0.5   0.0
+Er2     Er     0.3364   0.5   0.0
+Ti3     Ti     0.0   0.8719   0.8914
+Ti4     Ti     0.0   0.1281   0.1086
+Ti5     Ti     0.5   0.8719   0.6086
+Ti6     Ti     0.5   0.1281   0.3914
+V7     V     0.25   0.2923   0.25
+V8     V     0.75   0.7077   0.75
+V9     V     0.25   0.7077   0.75
+V10     V     0.75   0.2923   0.25
+Er11     Er     0.8364   0.5   0.5
+Er12     Er     0.1636   0.5   0.5
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     V10    10.0   .     S
+Er1     V8    10.0   1_554     S
+Er1     Er2    10.0   .     S
+Er2     V7    10.0   .     S
+Er2     V9    10.0   1_554     S
+Ti3     Ti4    10.0   1_566     S
+Ti3     V9    10.0   .     S
+Ti3     V8    10.0   1_455     S
+Ti4     Ti3    10.0   1_544     S
+Ti4     V7    10.0   .     S
+Ti4     V10    10.0   1_455     S
+Ti5     Ti6    10.0   1_565     S
+Ti5     V9    10.0   .     S
+Ti5     V8    10.0   .     S
+Ti6     Ti5    10.0   1_545     S
+Ti6     V10    10.0   .     S
+Ti6     V7    10.0   .     S
+V7     Er12    10.0   .     S
+V8     Er1    10.0   1_556     S
+V8     Ti3    10.0   1_655     S
+V8     Er11    10.0   .     S
+V9     Er2    10.0   1_556     S
+V9     Er12    10.0   .     S
+V10     Ti4    10.0   1_655     S
+V10     Er11    10.0   .     S
+Er11     Er12    10.0   1_655     S
+Er12     Er11    10.0   1_455     S

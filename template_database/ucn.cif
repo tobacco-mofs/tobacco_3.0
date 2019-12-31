@@ -1,0 +1,65 @@
+data_ucn
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    24.3679
+_cell_length_b                    24.3679
+_cell_length_c                    42.3384
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.1965   0.3931   0.25
+Er2     Er     0.6069   0.8035   0.25
+Er3     Er     0.1965   0.8035   0.25
+V4     V     0.0   0.0   0.3819
+V5     V     0.0   0.0   0.6181
+V6     V     0.0   0.0   0.1181
+V7     V     0.0   0.0   0.8819
+Er8     Er     0.3931   0.1965   0.75
+Er9     Er     0.8035   0.6069   0.75
+Er10     Er     0.8035   0.1965   0.75
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     V6    10.0   .     S
+Er1     V4    10.0   .     S
+Er1     Er3    10.0   .     S
+Er1     Er2    10.0   .     S
+Er2     V6    10.0   1_665     S
+Er2     V4    10.0   1_665     S
+Er2     Er3    10.0   .     S
+Er3     V4    10.0   1_565     S
+Er3     V6    10.0   1_565     S
+V4     Er2    10.0   1_445     S
+V4     Er3    10.0   1_545     S
+V4     V5    9.999   .     S
+V5     Er8    10.0   .     S
+V5     Er9    10.0   1_445     S
+V5     Er10    10.0   1_455     S
+V6     Er2    10.0   1_445     S
+V6     Er3    10.0   1_545     S
+V6     V7    9.999   1_554     S
+V7     V6    9.999   1_556     S
+V7     Er8    10.0   .     S
+V7     Er9    10.0   1_445     S
+V7     Er10    10.0   1_455     S
+Er8     Er9    10.0   .     S
+Er8     Er10    10.0   .     S
+Er9     V7    10.0   1_665     S
+Er9     V5    10.0   1_665     S
+Er9     Er10    10.0   .     S
+Er10     V5    10.0   1_655     S
+Er10     V7    10.0   1_655     S

@@ -1,0 +1,142 @@
+data_bsv
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.793
+_cell_length_b                    50.793
+_cell_length_c                    35.8145
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.9016   0.3484   0.875
+V2     V     0.5984   0.3484   0.625
+Er3     Er     0.688   0.5   0.5
+V4     V     0.5984   0.6516   0.375
+Er5     Er     0.75   0.562   0.25
+Er6     Er     0.812   0.5   0.0
+Er7     Er     0.75   0.438   0.75
+V8     V     0.9016   0.6516   0.125
+V9     V     0.5984   0.1516   0.625
+Er10     Er     0.75   0.062   0.75
+V11     V     0.5984   0.8484   0.375
+Er12     Er     0.688   0.0   0.5
+Er13     Er     0.812   0.0   0.0
+Er14     Er     0.75   0.938   0.25
+V15     V     0.9016   0.1516   0.875
+V16     V     0.9016   0.8484   0.125
+Er17     Er     0.25   0.062   0.75
+V18     V     0.4016   0.1516   0.625
+Er19     Er     0.188   0.0   0.0
+Er20     Er     0.25   0.938   0.25
+V21     V     0.4016   0.8484   0.375
+Er22     Er     0.312   0.0   0.5
+V23     V     0.0984   0.1516   0.875
+V24     V     0.0984   0.8484   0.125
+Er25     Er     0.25   0.438   0.75
+V26     V     0.4016   0.3484   0.625
+V27     V     0.0984   0.3484   0.875
+V28     V     0.4016   0.6516   0.375
+Er29     Er     0.25   0.562   0.25
+Er30     Er     0.188   0.5   0.0
+Er31     Er     0.312   0.5   0.5
+V32     V     0.0984   0.6516   0.125
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Er7    10.0   .     S
+V1     Er6    10.0   1_556     S
+V1     V27    10.0   1_655     S
+V1     V15    10.0   .     S
+V2     Er7    10.0   .     S
+V2     Er3    10.0   .     S
+V2     V9    10.0   .     S
+V2     V26    10.0   .     S
+Er3     V4    10.0   .     S
+Er3     Er5    10.0   .     S
+Er3     Er7    10.0   .     S
+V4     Er5    10.0   .     S
+V4     V11    10.0   .     S
+V4     V28    10.0   .     S
+Er5     Er6    10.0   .     S
+Er5     V8    10.0   .     S
+Er6     Er7    10.0   1_554     S
+Er6     V8    10.0   .     S
+Er6     V1    10.0   1_554     S
+Er7     Er6    10.0   1_556     S
+V8     V16    10.0   .     S
+V8     V32    10.0   1_655     S
+V9     Er10    10.0   .     S
+V9     Er12    10.0   .     S
+V9     V18    10.0   .     S
+Er10     Er13    10.0   1_556     S
+Er10     V15    10.0   .     S
+Er10     Er12    10.0   .     S
+V11     Er14    10.0   .     S
+V11     Er12    10.0   1_565     S
+V11     V21    10.0   .     S
+Er12     Er14    10.0   1_545     S
+Er12     V11    10.0   1_545     S
+Er13     Er10    10.0   1_554     S
+Er13     Er14    10.0   1_545     S
+Er13     V16    10.0   1_545     S
+Er13     V15    10.0   1_554     S
+Er14     Er12    10.0   1_565     S
+Er14     Er13    10.0   1_565     S
+Er14     V16    10.0   .     S
+V15     Er13    10.0   1_556     S
+V15     V23    10.0   1_655     S
+V16     Er13    10.0   1_565     S
+V16     V24    10.0   1_655     S
+Er17     Er19    10.0   1_556     S
+Er17     V23    10.0   .     S
+Er17     V18    10.0   .     S
+Er17     Er22    10.0   .     S
+V18     Er22    10.0   .     S
+V18     V26    10.0   .     S
+Er19     Er17    10.0   1_554     S
+Er19     Er20    10.0   1_545     S
+Er19     V24    10.0   1_545     S
+Er19     V23    10.0   1_554     S
+Er20     Er19    10.0   1_565     S
+Er20     V24    10.0   .     S
+Er20     Er22    10.0   1_565     S
+Er20     V21    10.0   .     S
+V21     Er22    10.0   1_565     S
+V21     V28    10.0   .     S
+Er22     Er20    10.0   1_545     S
+Er22     V21    10.0   1_545     S
+V23     V15    10.0   1_455     S
+V23     Er19    10.0   1_556     S
+V23     V27    10.0   .     S
+V24     V16    10.0   1_455     S
+V24     Er19    10.0   1_565     S
+V24     V32    10.0   .     S
+Er25     Er30    10.0   1_556     S
+Er25     V27    10.0   .     S
+Er25     Er31    10.0   .     S
+Er25     V26    10.0   .     S
+V26     Er31    10.0   .     S
+V27     V1    10.0   1_455     S
+V27     Er30    10.0   1_556     S
+V28     Er29    10.0   .     S
+V28     Er31    10.0   .     S
+Er29     Er31    10.0   .     S
+Er29     Er30    10.0   .     S
+Er29     V32    10.0   .     S
+Er30     Er25    10.0   1_554     S
+Er30     V27    10.0   1_554     S
+Er30     V32    10.0   .     S
+V32     V8    10.0   1_455     S
