@@ -1,0 +1,120 @@
+data_zbu
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    23.8615
+_cell_length_b                    36.9139
+_cell_length_c                    60.9352
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 100.5495
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Ti1     Ti     0.8402   0.6354   0.1062
+Ti2     Ti     0.8402   0.3646   0.1062
+Ce3     Ce     0.9128   0.5   0.2507
+Ti4     Ti     0.1598   0.6354   0.8938
+Ti5     Ti     0.1598   0.3646   0.8938
+Ce6     Ce     0.0872   0.5   0.7492
+V7     V     0.8028   0.8649   0.0174
+V8     V     0.8028   0.1351   0.0174
+V9     V     0.1972   0.8649   0.9826
+V10     V     0.1972   0.1351   0.9826
+Er11     Er     0.492   0.0   0.9178
+Er12     Er     0.508   0.0   0.0821
+Ti13     Ti     0.6598   0.8646   0.3938
+Ti14     Ti     0.6598   0.1354   0.3938
+Ce15     Ce     0.5872   0.0   0.2492
+Ti16     Ti     0.3402   0.8646   0.6062
+Ti17     Ti     0.3402   0.1354   0.6062
+Ce18     Ce     0.4128   0.0   0.7508
+V19     V     0.6972   0.6351   0.4826
+V20     V     0.6972   0.3649   0.4826
+V21     V     0.3028   0.3649   0.5174
+V22     V     0.3028   0.6351   0.5174
+Er23     Er     0.992   0.5   0.4179
+Er24     Er     0.008   0.5   0.5821
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Ti1     V7    10.008   .     S
+Ti1     Ti2    9.993   .     S
+Ti1     Ce3    9.995   .     S
+Ti2     V8    10.008   .     S
+Ti2     Ce3    9.995   .     S
+Ce3     Er23    10.01   .     S
+Ti4     V9    10.008   .     S
+Ti4     Ti5    9.993   .     S
+Ti4     Ce6    9.995   .     S
+Ti5     V10    10.008   .     S
+Ti5     Ce6    9.995   .     S
+Ce6     Er24    10.01   .     S
+V7     Er11    10.008   1_564     S
+V7     Er12    10.004   1_565     S
+V7     V9    10.02   1_654     S
+V7     V8    9.973   1_565     S
+V8     Er11    10.008   1_554     S
+V8     Er12    10.004   .     S
+V8     V10    10.02   1_654     S
+V8     V7    9.973   1_545     S
+V9     Er12    10.008   1_566     S
+V9     Er11    10.004   1_565     S
+V9     V7    10.02   1_456     S
+V9     V10    9.973   1_565     S
+V10     Er12    10.008   1_556     S
+V10     Er11    10.004   .     S
+V10     V8    10.02   1_456     S
+V10     V9    9.973   1_545     S
+Er11     V8    10.008   1_556     S
+Er11     V7    10.008   1_546     S
+Er11     V9    10.004   1_545     S
+Er11     Ce18    10.01   .     S
+Er11     Er12    9.949   1_556     S
+Er12     V7    10.004   1_545     S
+Er12     V10    10.008   1_554     S
+Er12     V9    10.008   1_544     S
+Er12     Ce15    10.01   .     S
+Er12     Er11    9.949   1_554     S
+Ti13     V19    10.008   .     S
+Ti13     Ti14    9.993   1_565     S
+Ti13     Ce15    9.995   1_565     S
+Ti14     V20    10.008   .     S
+Ti14     Ti13    9.993   1_545     S
+Ti14     Ce15    9.995   .     S
+Ce15     Ti13    9.995   1_545     S
+Ti16     V22    10.008   .     S
+Ti16     Ti17    9.993   1_565     S
+Ti16     Ce18    9.995   1_565     S
+Ti17     V21    10.008   .     S
+Ti17     Ti16    9.993   1_545     S
+Ti17     Ce18    9.995   .     S
+Ce18     Ti16    9.995   1_545     S
+V19     Er24    10.008   1_655     S
+V19     Er23    10.004   .     S
+V19     V22    10.02   .     S
+V19     V20    9.973   .     S
+V20     Er24    10.008   1_655     S
+V20     Er23    10.004   .     S
+V20     V21    10.02   .     S
+V21     Er23    10.008   1_455     S
+V21     Er24    10.004   .     S
+V21     V22    9.973   .     S
+V22     Er23    10.008   1_455     S
+V22     Er24    10.004   .     S
+Er23     V22    10.008   1_655     S
+Er23     V21    10.008   1_655     S
+Er23     Er24    9.949   1_655     S
+Er24     V20    10.008   1_455     S
+Er24     V19    10.008   1_455     S
+Er24     Er23    9.949   1_455     S

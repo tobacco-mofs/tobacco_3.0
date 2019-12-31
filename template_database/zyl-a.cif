@@ -1,0 +1,154 @@
+data_zyl-a
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    38.2718
+_cell_length_b                    92.8492
+_cell_length_c                    70.1019
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Li1     Li     0.6306   0.1717   0.5
+Ce2     Ce     0.8694   0.1316   0.5235
+Er3     Er     0.0   0.0403   0.4988
+S4     S     0.0   0.0836   0.6294
+Li5     Li     0.3694   0.1717   0.5
+Ce6     Ce     0.1306   0.1316   0.5235
+He7     He     0.5   0.2568   0.4494
+V8     V     0.5   0.3539   0.3878
+Ti9     Ti     0.5   0.4168   0.272
+H10     H     0.5   0.461   0.4021
+Li11     Li     0.1306   0.3283   0.0
+Ce12     Ce     0.3694   0.3684   0.0235
+Er13     Er     0.5   0.4597   0.9988
+S14     S     0.5   0.4164   0.1294
+Li15     Li     0.8694   0.3283   0.0
+Ce16     Ce     0.6306   0.3684   0.0235
+He17     He     0.0   0.2432   0.9494
+V18     V     0.0   0.1461   0.8878
+Ti19     Ti     0.0   0.0832   0.772
+H20     H     0.0   0.039   0.9021
+Li21     Li     0.1306   0.6717   0.5
+Ce22     Ce     0.3694   0.6316   0.5235
+Er23     Er     0.5   0.5403   0.4988
+S24     S     0.5   0.5836   0.6294
+Li25     Li     0.8694   0.6717   0.5
+Ce26     Ce     0.6306   0.6316   0.5235
+V27     V     0.0   0.8539   0.3878
+Ti28     Ti     0.0   0.9168   0.272
+H29     H     0.0   0.961   0.4021
+He30     He     0.0   0.7568   0.4494
+Li31     Li     0.6306   0.8283   0.0
+Ce32     Ce     0.8694   0.8684   0.0235
+Er33     Er     0.0   0.9597   0.9988
+S34     S     0.0   0.9164   0.1294
+Li35     Li     0.3694   0.8283   0.0
+Ce36     Ce     0.1306   0.8684   0.0235
+He37     He     0.5   0.7432   0.9494
+V38     V     0.5   0.6461   0.8878
+Ti39     Ti     0.5   0.5831   0.772
+H40     H     0.5   0.539   0.9021
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Li1     Ce2    10.0   .     S
+Li1     Li5    10.0   .     S
+Li1     He7    10.0   .     S
+Ce2     Er3    10.0   1_655     S
+Ce2     S4    10.0   1_655     S
+Ce2     Ce6    10.0   1_655     S
+Er3     S4    10.0   .     S
+Er3     H29    10.0   1_545     S
+Er3     Ce6    10.0   .     S
+Er3     Ce2    10.0   1_455     S
+S4     Ti19    10.0   .     S
+S4     Ce6    10.0   .     S
+S4     Ce2    10.0   1_455     S
+Li5     Ce6    10.0   .     S
+Li5     He7    10.0   .     S
+Ce6     Ce2    10.0   1_455     S
+He7     V8    10.0   .     S
+V8     H10    10.0   .     S
+V8     Ti9    9.999   .     S
+Ti9     H10    10.0   .     S
+Ti9     S14    10.0   .     S
+H10     Er23    10.0   .     S
+Li11     Ce12    10.0   .     S
+Li11     Li15    10.0   1_455     S
+Li11     He17    10.0   1_554     S
+Ce12     Er13    10.0   1_554     S
+Ce12     S14    10.0   .     S
+Ce12     Ce16    10.0   .     S
+Er13     S14    10.0   1_556     S
+Er13     H40    10.0   .     S
+Er13     Ce12    10.0   1_556     S
+Er13     Ce16    10.0   1_556     S
+S14     Er13    10.0   1_554     S
+S14     Ce16    10.0   .     S
+Li15     Ce16    10.0   .     S
+Li15     Li11    10.0   1_655     S
+Li15     He17    10.0   1_654     S
+Ce16     Er13    10.0   1_554     S
+He17     Li11    10.0   1_556     S
+He17     Li15    10.0   1_456     S
+He17     V18    10.0   .     S
+V18     H20    10.0   .     S
+V18     Ti19    9.999   .     S
+Ti19     H20    10.0   .     S
+H20     Er33    10.0   1_545     S
+Li21     Ce22    10.0   .     S
+Li21     Li25    10.0   1_455     S
+Li21     He30    10.0   .     S
+Ce22     Er23    10.0   .     S
+Ce22     S24    10.0   .     S
+Ce22     Ce26    10.0   .     S
+Er23     S24    10.0   .     S
+Er23     Ce26    10.0   .     S
+S24     Ti39    10.0   .     S
+S24     Ce26    10.0   .     S
+Li25     Ce26    10.0   .     S
+Li25     Li21    10.0   1_655     S
+Li25     He30    10.0   1_655     S
+V27     H29    10.0   .     S
+V27     Ti28    9.999   .     S
+V27     He30    10.0   .     S
+Ti28     H29    10.0   .     S
+Ti28     S34    10.0   .     S
+H29     Er3    10.0   1_565     S
+He30     Li25    10.0   1_455     S
+Li31     Ce32    10.0   .     S
+Li31     Li35    10.0   .     S
+Li31     He37    10.0   1_554     S
+Ce32     Er33    10.0   1_654     S
+Ce32     S34    10.0   1_655     S
+Ce32     Ce36    10.0   1_655     S
+Er33     S34    10.0   1_556     S
+Er33     H20    10.0   1_565     S
+Er33     Ce32    10.0   1_456     S
+Er33     Ce36    10.0   1_556     S
+S34     Er33    10.0   1_554     S
+S34     Ce32    10.0   1_455     S
+S34     Ce36    10.0   .     S
+Li35     Ce36    10.0   .     S
+Li35     He37    10.0   1_554     S
+Ce36     Er33    10.0   1_554     S
+Ce36     Ce32    10.0   1_455     S
+He37     Li31    10.0   1_556     S
+He37     Li35    10.0   1_556     S
+He37     V38    10.0   .     S
+V38     H40    10.0   .     S
+V38     Ti39    9.999   .     S
+Ti39     H40    10.0   .     S

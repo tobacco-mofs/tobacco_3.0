@@ -1,0 +1,136 @@
+data_zjz
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    48.6369
+_cell_length_b                    48.6369
+_cell_length_c                    48.6369
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.7297   0.7297   0.7297
+Er2     Er     0.2703   0.7297   0.2703
+Er3     Er     0.7297   0.2703   0.7297
+Er4     Er     0.2703   0.2703   0.7297
+Er5     Er     0.2703   0.7297   0.7297
+Er6     Er     0.7297   0.2703   0.2703
+Ti7     Ti     0.5   0.5   0.1031
+V8     V     0.3546   0.3546   0.1028
+V9     V     0.3546   0.6454   0.1028
+V10     V     0.6454   0.3546   0.1028
+V11     V     0.6454   0.6454   0.1028
+Ti12     Ti     0.5   0.5   0.8969
+V13     V     0.3546   0.3546   0.8972
+V14     V     0.3546   0.6454   0.8972
+V15     V     0.6454   0.3546   0.8972
+V16     V     0.6454   0.6454   0.8972
+Ti17     Ti     0.5   0.1031   0.5
+V18     V     0.3546   0.1028   0.3546
+V19     V     0.6454   0.1028   0.3546
+V20     V     0.3546   0.1028   0.6454
+V21     V     0.6454   0.1028   0.6454
+Ti22     Ti     0.5   0.8969   0.5
+V23     V     0.3546   0.8972   0.3546
+V24     V     0.6454   0.8972   0.3546
+V25     V     0.3546   0.8972   0.6454
+V26     V     0.6454   0.8972   0.6454
+Er27     Er     0.7297   0.7297   0.2703
+Ti28     Ti     0.1031   0.5   0.5
+V29     V     0.1028   0.3546   0.3546
+V30     V     0.1028   0.6454   0.3546
+V31     V     0.1028   0.3546   0.6454
+V32     V     0.1028   0.6454   0.6454
+Ti33     Ti     0.8969   0.5   0.5
+V34     V     0.8972   0.3546   0.3546
+V35     V     0.8972   0.6454   0.3546
+V36     V     0.8972   0.3546   0.6454
+V37     V     0.8972   0.6454   0.6454
+Er38     Er     0.2703   0.2703   0.2703
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     V16    10.0   .     S
+Er1     V26    10.0   .     S
+Er1     V37    10.0   .     S
+Er2     V30    10.0   .     S
+Er2     V9    10.0   .     S
+Er2     V23    10.0   .     S
+Er3     V21    10.0   .     S
+Er3     V36    10.0   .     S
+Er3     V15    10.0   .     S
+Er4     V20    10.0   .     S
+Er4     V31    10.0   .     S
+Er4     V13    10.0   .     S
+Er5     V32    10.0   .     S
+Er5     V25    10.0   .     S
+Er5     V14    10.0   .     S
+Er6     V19    10.0   .     S
+Er6     V10    10.0   .     S
+Er6     V34    10.0   .     S
+Ti7     V11    10.0   .     S
+Ti7     V9    10.0   .     S
+Ti7     V10    10.0   .     S
+Ti7     V8    10.0   .     S
+V8     V13    10.0   1_554     S
+V8     Er38    10.0   .     S
+V9     V14    10.0   1_554     S
+V10     V15    10.0   1_554     S
+V11     V16    10.0   1_554     S
+V11     Er27    10.0   .     S
+Ti12     V16    10.0   .     S
+Ti12     V14    10.0   .     S
+Ti12     V15    10.0   .     S
+Ti12     V13    10.0   .     S
+V13     V8    10.0   1_556     S
+V14     V9    10.0   1_556     S
+V15     V10    10.0   1_556     S
+V16     V11    10.0   1_556     S
+Ti17     V21    10.0   .     S
+Ti17     V19    10.0   .     S
+Ti17     V20    10.0   .     S
+Ti17     V18    10.0   .     S
+V18     V23    10.0   1_545     S
+V18     Er38    10.0   .     S
+V19     V24    10.0   1_545     S
+V20     V25    10.0   1_545     S
+V21     V26    10.0   1_545     S
+Ti22     V26    10.0   .     S
+Ti22     V24    10.0   .     S
+Ti22     V25    10.0   .     S
+Ti22     V23    10.0   .     S
+V23     V18    10.0   1_565     S
+V24     V19    10.0   1_565     S
+V24     Er27    10.0   .     S
+V25     V20    10.0   1_565     S
+V26     V21    10.0   1_565     S
+Er27     V35    10.0   .     S
+Ti28     V32    10.0   .     S
+Ti28     V30    10.0   .     S
+Ti28     V31    10.0   .     S
+Ti28     V29    10.0   .     S
+V29     V34    10.0   1_455     S
+V29     Er38    10.0   .     S
+V30     V35    10.0   1_455     S
+V31     V36    10.0   1_455     S
+V32     V37    10.0   1_455     S
+Ti33     V37    10.0   .     S
+Ti33     V35    10.0   .     S
+Ti33     V36    10.0   .     S
+Ti33     V34    10.0   .     S
+V34     V29    10.0   1_655     S
+V35     V30    10.0   1_655     S
+V36     V31    10.0   1_655     S
+V37     V32    10.0   1_655     S

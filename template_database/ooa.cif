@@ -1,0 +1,101 @@
+data_ooa
+_audit_creation_date              2019-12-31
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    35.0164
+_cell_length_b                    29.3062
+_cell_length_c                    24.9602
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.2066   0.8599   0.0968
+V2     V     0.7066   0.8599   0.0968
+V3     V     0.2066   0.64   0.4032
+V4     V     0.7066   0.64   0.4032
+V5     V     0.4566   0.8599   0.9032
+V6     V     0.9566   0.8599   0.9032
+V7     V     0.4566   0.64   0.5968
+V8     V     0.9566   0.64   0.5968
+V9     V     0.2934   0.14   0.9032
+V10     V     0.7934   0.14   0.9032
+V11     V     0.2934   0.36   0.5968
+V12     V     0.7934   0.36   0.5968
+V13     V     0.0434   0.36   0.4032
+V14     V     0.5434   0.36   0.4032
+V15     V     0.0434   0.14   0.0968
+V16     V     0.5434   0.14   0.0968
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     V3    10.0   .     S
+V1     V5    10.0   1_554     S
+V1     V6    10.0   1_454     S
+V1     V15    10.0   1_565     S
+V1     V9    10.0   1_564     S
+V2     V4    10.0   .     S
+V2     V6    10.0   1_554     S
+V2     V5    10.0   1_554     S
+V2     V16    10.0   1_565     S
+V2     V10    10.0   1_564     S
+V3     V7    10.0   .     S
+V3     V8    10.0   1_455     S
+V3     V11    10.0   .     S
+V3     V13    10.0   .     S
+V4     V8    10.0   .     S
+V4     V7    10.0   .     S
+V4     V12    10.0   .     S
+V4     V14    10.0   .     S
+V5     V1    10.0   1_556     S
+V5     V7    10.0   .     S
+V5     V2    10.0   1_556     S
+V5     V16    10.0   1_566     S
+V5     V9    10.0   1_565     S
+V6     V2    10.0   1_556     S
+V6     V8    10.0   .     S
+V6     V1    10.0   1_656     S
+V6     V15    10.0   1_666     S
+V6     V10    10.0   1_565     S
+V7     V14    10.0   .     S
+V7     V11    10.0   .     S
+V8     V3    10.0   1_655     S
+V8     V13    10.0   1_655     S
+V8     V12    10.0   .     S
+V9     V11    10.0   .     S
+V9     V16    10.0   1_556     S
+V9     V15    10.0   1_556     S
+V9     V1    10.0   1_546     S
+V9     V5    10.0   1_545     S
+V10     V12    10.0   .     S
+V10     V15    10.0   1_656     S
+V10     V16    10.0   1_556     S
+V10     V2    10.0   1_546     S
+V10     V6    10.0   1_545     S
+V11     V14    10.0   .     S
+V11     V13    10.0   .     S
+V12     V13    10.0   1_655     S
+V12     V14    10.0   .     S
+V13     V8    10.0   1_455     S
+V13     V15    10.0   .     S
+V13     V12    10.0   1_455     S
+V14     V16    10.0   .     S
+V15     V10    10.0   1_454     S
+V15     V9    10.0   1_554     S
+V15     V6    10.0   1_444     S
+V15     V1    10.0   1_545     S
+V16     V9    10.0   1_554     S
+V16     V10    10.0   1_554     S
+V16     V5    10.0   1_544     S
+V16     V2    10.0   1_545     S
