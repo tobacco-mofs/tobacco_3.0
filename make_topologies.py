@@ -7,7 +7,7 @@ import warnings
 
 tol = 1E-2 #tolerance for distances
 scale = 10 #scale lattice constants by this factor
-gcd_filename = 'RCSRnets-2019-06-01.cgd' #http://rcsr.anu.edu.au/systre
+cgd_filename = 'RCSRnets-2019-06-01.cgd' #http://rcsr.anu.edu.au/systre
 
 vnames = [
 	'V','Er','Ti','Ce','S',
@@ -32,11 +32,11 @@ edges_tail_all = [] #all [x,y,z] fractional positions of edge tails
 cn_all = [] #all vertex coordination numbers, coded as dictionaries
 
 #Make sure .cgd file is present
-if not os.path.exists(gcd_filename):
-	raise ValueError('Missing RCSR .cgd data file', gcd_filename)
+if not os.path.exists(cgd_filename):
+	raise ValueError('Missing RCSR .cgd data file', cgd_filename)
 
 #Read info from .cgd file
-with open(gcd_filename,'r') as r:
+with open(cgd_filename,'r') as r:
 	for line in r:
 		line = line.strip()
 
@@ -117,15 +117,15 @@ with open(gcd_filename,'r') as r:
 			if not three_dim:
 				continue
 
-			#Skip weirdly formatted gcd entries
+			#Skip weirdly formatted cgd entries
 			if len(cn) != len(vertices):
-				warnings.warn('Error: skipping '+topology_val+' because it is not formatted properly in .gcd file',Warning)
+				warnings.warn('Error: skipping '+topology_val+' because it is not formatted properly in .cgd file',Warning)
 				continue
 			elif len(edges_head) != len(edges_tail):
-				warnings.warn('Error: skipping '+topology_val+' because it is not formatted properly in .gcd file',Warning)
+				warnings.warn('Error: skipping '+topology_val+' because it is not formatted properly in .cgd file',Warning)
 				continue
 			elif len(edges_head) != len(edges_center):
-				warnings.warn('Error: skipping '+topology_val+' because it is not formatted properly in .gcd file',Warning)
+				warnings.warn('Error: skipping '+topology_val+' because it is not formatted properly in .cgd file',Warning)
 				continue				
 
 			topologies_all.append(topology_val)
@@ -196,9 +196,9 @@ for i in range(0,len(topologies_all)):
 
 	#Make lattice constants > 2*bond dist
 	if np.max(bond_dists) < scale:
-		extend = 2.001*scale
+		extend = (2+tol*2.001)*scale #make slightly more than 2x greater just in case...
 	else:
-		extend = 2.001*np.max(bond_dists)
+		extend = (2+tol*2.001)*np.max(bond_dists)
 	n_supercells = [np.ceil(extend/cellpars[0]),np.ceil(extend/cellpars[1]),np.ceil(extend/cellpars[2])]
 	if n_supercells != [1,1,1]:
 		pm_structure.make_supercell(n_supercells)
@@ -406,4 +406,4 @@ for i in range(0,len(topologies_all)):
 	with open(os.path.join('templates_database',topology+'.cif'),'w') as w:
 		w.write(top_text+cellpar_text+pos_text+bond_text)
 
-	print('Succes: '+topology)
+	print('Success: '+topology)
