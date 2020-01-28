@@ -1,7 +1,5 @@
 import re
-import sys
 import numpy as np
-import networkx as nx
 import os
 
 PT = ['H' , 'He', 'Li', 'Be', 'B' , 'C' , 'N' , 'O' , 'F' , 'Ne', 'Na', 'Mg', 'Al', 'Si', 'P' , 'S' , 'Cl', 'Ar',
@@ -282,7 +280,7 @@ def calc_edge_len(cifname, direc):
 
 	mic_fcoords = [PBC3DF(fcoords[0][1],vec[1]) for vec in fcoords]
 	ccoords = [np.dot(unit_cell,vec) for vec in mic_fcoords]
-	
+
 	return np.linalg.norm(ccoords[0] - ccoords[1])
 
 def cncalc(cifname, direc, cn1):

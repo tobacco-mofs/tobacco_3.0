@@ -182,7 +182,8 @@ def assign_node_vecs2edges(TG, unit_cell, SYM_TOL):
 
 			asd_append(smallest_dist)
 			
-		elad = dict((k[2],(k[1], k[3], k[4])) for k in asd)
+		elad = dict((k[2], (k[1],k[3],k[4])) for k in asd)
+
 		edge_assign_dict[name] = elad
 					
 	return edge_assign_dict

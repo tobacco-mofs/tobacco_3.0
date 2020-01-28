@@ -215,6 +215,7 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 			one_atom_nodes_append(cc1[0])
 		
 		for j in xrange(i+1, len(ccs)):
+
 			cc2 = list(ccs[j])
 			xname2 = [n for n in cc2 if G.node[n]['ty'] == 'X']
 			NC2 = len(xname2)
@@ -226,16 +227,16 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 				xvecs2 = xvecs2 + [np.dot(np.linalg.inv(sc_unit_cell),G.node[n]['coords']) for n in cc2 if G.node[n]['ty'] in oanc_dict]
 
 			com2 = np.average(xvecs2, axis=0)
-
 			com_dist = np.linalg.norm(np.dot(sc_unit_cell, com1 - PBC3DF(com1,com2)))
 
 			if com_dist < bb_tol:
+				
 				min_dist = (1.0e6,'foo','bar','foo')
+				
 				for xv1,xn1 in zip(xvecs1,xname1):
 					for xv2,xn2 in zip(xvecs2,xname2):
 						
 						DV, sym = PBC3DF_sym(xv1,xv2)
-			
 						dist = np.linalg.norm(np.dot(sc_unit_cell, DV))
 
 						if dist < min_dist[0]:

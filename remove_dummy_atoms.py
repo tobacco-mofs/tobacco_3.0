@@ -1,7 +1,5 @@
-import numpy as np
 import re
-import networkx as nx
-import sys
+
 
 def remove_Fr(placed_all, bonds_all):
 	

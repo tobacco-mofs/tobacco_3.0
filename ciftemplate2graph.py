@@ -1,6 +1,5 @@
 import re
 import os
-import sys
 import numpy as np
 import networkx as nx
 
@@ -123,17 +122,21 @@ def ct2g(cifname):
 	max_le = 1.0e6
 
 	for line in template:
+
 		s = line.split()
 		ty = re.sub('[^a-zA-Z]','',s[0])
 		types_append(ty)
+
 		if isvert(s):
+
 			nc += 1
 			f_nvec = np.asarray(map(float, s[2:5]))
 			c_nvec = np.dot(unit_cell, f_nvec)
 			G.add_node(s[0], type=ty, index=nc, ccoords=c_nvec, fcoords=f_nvec, cn=[], cifname=[])
+			
 		if isedge(s):
-			edge_exist = True
 
+			edge_exist = True
 			l = sorted([re.sub('[^a-zA-Z]','',s[0]),re.sub('[^a-zA-Z]','',s[1])])
 			e_types_append((l[0],l[1]))
 

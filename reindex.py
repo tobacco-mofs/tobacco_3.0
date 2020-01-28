@@ -98,9 +98,7 @@ def reindex(pathfile,charges):
 	for l in coords:
 		l[0] = re.sub('[0-9]','',l[0]) + str(l[-1])
 		l.pop(-1)
-
-	#print ind_dict
-
+		
 	for l in bonds:
 		l[0] = re.sub('[0-9]','',l[0]) + str(ind_dict[l[0]])
 		l[1] = re.sub('[0-9]','',l[1]) + str(ind_dict[l[1]])
@@ -145,8 +143,6 @@ def reindex(pathfile,charges):
 				charge = l[-1]
 			else:
 				charge = ''
-
-			print charge
 
 			out.write('{:7} {:>4} {:>15} {:>15} {:>15} {:>22} {:>15}'.format(name, elem, "%.10f" % np.round(vec[0],10), "%.10f" % np.round(vec[1],10), "%.10f" % np.round(vec[2],10),'0.00000  Uiso   1.00',charge))
 			out.write('\n')

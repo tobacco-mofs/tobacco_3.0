@@ -79,8 +79,7 @@ def Bstar_alpha(CB, CO, augTG, num_edges):
 			elif (e,s) == positive_direction:
 				direction = -1
 			else:
-				print 'Error in Bstar cycle vector construction, edge direction cannot be defined for:'
-				print s,e
+				raise ValueError('Error in Bstar cycle vector construction, edge direction cannot be defined for:',s,e)
 
 			cycle_vec[ind - 1] = direction
 			net_voltage = net_voltage + (direction * voltage)
@@ -123,6 +122,6 @@ def Bstar_alpha(CB, CO, augTG, num_edges):
 		a_append(np.array([0,0,0]))
 
 	if len(Bstar) != len(a):
-		print 'Error in cycle_cocycle.py, the row ranks of Bstar and alpha do not match.'
+		raise ValueError('Error in cycle_cocycle.py, the row ranks of Bstar and alpha do not match.')
 
 	return np.asarray(Bstar), np.asarray(a)

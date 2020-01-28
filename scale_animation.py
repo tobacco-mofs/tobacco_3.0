@@ -8,7 +8,6 @@ from write_cifs import PBC3DF, PBC3DF_sym
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
-from matplotlib import colors
 from matplotlib import animation
 from matplotlib.lines import Line2D
 

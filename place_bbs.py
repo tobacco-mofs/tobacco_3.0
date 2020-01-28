@@ -1,12 +1,9 @@
-import networkx as nx
 import numpy as np
 from bbcif_properties import bb2array, X_vecs, bbbonds, bbcharges, calc_edge_len
-from ciftemplate2graph import node_vecs, edge_vecs
 from Bio import SVDSuperimposer
 
 import itertools
 import re
-import random
 
 def match_vectors(a1,a2,num):
 

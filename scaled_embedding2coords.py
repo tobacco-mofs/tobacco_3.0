@@ -2,7 +2,7 @@ import numpy as np
 import networkx as nx
 import re
 import os
-from ciftemplate2graph import isvert, PBC3DF
+from ciftemplate2graph import isvert
 
 def omega2coords(augTG, sc_omega_plus, uc_params, num_vertices, template, g, CHECK):
 

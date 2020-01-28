@@ -1,4 +1,4 @@
-from bbcif_properties import X_vecs, calc_edge_len
+from bbcif_properties import calc_edge_len
 import numpy as np
 
 def SBU_coords(augTG, ea_dict, csbl):
@@ -27,7 +27,7 @@ def SBU_coords(augTG, ea_dict, csbl):
 				else:
 					direction = -1
 					ov = positive_direction[0]
-
+					
 				xvecname,dx_v,xvec = ea_dict[vertex][ind]
 				dx_ov = ea_dict[ov][ind][1]
 

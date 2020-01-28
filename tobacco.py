@@ -64,7 +64,7 @@ vname_dict = {'V':1  ,'Er':2 ,'Ti':3 ,'Ce':4 ,'S':5  ,
 
 metal_elements = ['Cu', 'Cr', 'Zn', 'Zr', 'Fe', 'Al']
 
-#apply_reindex(CHARGES)
+apply_reindex(CHARGES)
 
 for d in ['templates', 'nodes', 'edges']:
 	try:
@@ -292,11 +292,11 @@ for template in sorted(os.listdir('templates')):
 			fixed_bonds, nbcount, bond_check = bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, BOND_TOL, TRACE_BOND_MAKING, NODE_TO_NODE, EXPANSIVE_BOND_SEARCH, ONE_ATOM_NODE_CN)
 
 			print 'there were ' + str(nbcount) + ' X-X bonds formed'
+
 			if bond_check:
 				print 'bond check passed'
 				bond_check_code = ''
 			else:
-				continue
 				print 'bond check failed, attempting distance search bonding...'
 				fixed_bonds, nbcount = distance_search_bond(placed_all, bonds_all, sc_unit_cell, 2.5, TRACE_BOND_MAKING)
 				bond_check_code = '_BOND_CHECK'
