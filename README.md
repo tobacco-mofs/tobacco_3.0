@@ -10,11 +10,20 @@ Our Topologically Based Crystal Constructor (ToBaCCo) was developed to rapidly p
 
 # Installation and Dependencies
 We recommend building a Python 2.7 environment using Anaconda. You will need the following packages:
--numpy
--networkx
--scipy
+- numpy
+- networkx
+- scipy
 
-To install these packages just run the following with the correct environment loaded:
+To set up a Python 2.7 environment first install Anaconda (if you install Python 2.7 as your base environment there is no need to set up a new environment for ToBaCCo). After installing Anaconda, run:
+```
+conda create --name my_tobacco python=2.7
+```
+where my_tobacco is the name of the environment, which can be changed to whatever you like. Next, load your new environment:
+```
+conda activate my_tobacco
+```
+(this command changes for Windows, see https://docs.anaconda.com/anaconda/user-guide/tasks/switch-environment/)
+Finally, install these packages just run the following with the environment loaded:
 ```
 conda install numpy
 conda install networkx
