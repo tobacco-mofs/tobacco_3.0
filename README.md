@@ -23,12 +23,13 @@ where my_tobacco is the name of the environment, which can be changed to whateve
 conda activate my_tobacco
 ```
 (this command changes for Windows, see https://docs.anaconda.com/anaconda/user-guide/tasks/switch-environment/)
-Finally, install these packages just run the following with the environment loaded:
+Finally, install the above packages, thus:
 ```
 conda install numpy
 conda install networkx
 conda install scipy
 ```
+Once these are installed you can clone or download the repository and start running ToBaCCo.
 
 # Usage
 Execute the tobacco.py file to run ToBaCCo:
