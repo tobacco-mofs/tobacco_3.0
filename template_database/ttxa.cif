@@ -1,0 +1,121 @@
+data_ttxa
+_audit_creation_date              2020-02-02
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    69.1184
+_cell_length_b                    69.1184
+_cell_length_c                    45.2555
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.5   0.0   0.6105
+Er2     Er     0.5   0.0   0.3895
+Er3     Er     0.0   0.5   0.6105
+Er4     Er     0.0   0.5   0.3895
+Er5     Er     0.5   0.5   0.6105
+Er6     Er     0.5   0.5   0.3895
+V7     V     0.9165   0.4582   0.8018
+V8     V     0.0835   0.5418   0.8018
+V9     V     0.5418   0.0835   0.8018
+V10     V     0.4582   0.9165   0.8018
+V11     V     0.0835   0.5418   0.1982
+V12     V     0.9165   0.4582   0.1982
+V13     V     0.5418   0.0835   0.1982
+V14     V     0.4582   0.9165   0.1982
+Ti15     Ti     0.3816   0.7631   0.8895
+Ti16     Ti     0.3816   0.7631   0.1105
+Ti17     Ti     0.3816   0.6184   0.8895
+Ti18     Ti     0.3816   0.6184   0.1105
+Ti19     Ti     0.2369   0.6184   0.8895
+Ti20     Ti     0.2369   0.6184   0.1105
+V21     V     0.4582   0.5418   0.8018
+V22     V     0.5418   0.4582   0.8018
+V23     V     0.4582   0.5418   0.1982
+V24     V     0.5418   0.4582   0.1982
+Ti25     Ti     0.7631   0.3816   0.8895
+Ti26     Ti     0.7631   0.3816   0.1105
+Ti27     Ti     0.6184   0.2369   0.8895
+Ti28     Ti     0.6184   0.2369   0.1105
+Ti29     Ti     0.6184   0.3816   0.8895
+Ti30     Ti     0.6184   0.3816   0.1105
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     Er2    10.0   .     S
+Er1     V9    10.0   .     S
+Er1     V10    10.0   1_545     S
+Er2     V13    10.0   .     S
+Er2     V14    10.0   1_545     S
+Er3     Er4    10.0   .     S
+Er3     V7    10.0   1_455     S
+Er3     V8    10.0   .     S
+Er4     V11    10.0   .     S
+Er4     V12    10.0   1_455     S
+Er5     Er6    10.0   .     S
+Er5     V21    10.0   .     S
+Er5     V22    10.0   .     S
+Er6     V23    10.0   .     S
+Er6     V24    10.0   .     S
+V7     Er3    10.0   1_655     S
+V7     V8    10.0   1_655     S
+V7     Ti25    10.0   .     S
+V8     V7    10.0   1_455     S
+V8     Ti19    10.0   .     S
+V9     V10    10.0   1_545     S
+V9     Ti27    10.0   .     S
+V10     Er1    10.0   1_565     S
+V10     V9    10.0   1_565     S
+V10     Ti15    10.0   .     S
+V11     V12    10.0   1_455     S
+V11     Ti20    10.0   .     S
+V12     Er4    10.0   1_655     S
+V12     V11    10.0   1_655     S
+V12     Ti26    10.0   .     S
+V13     V14    10.0   1_545     S
+V13     Ti28    10.0   .     S
+V14     Er2    10.0   1_565     S
+V14     V13    10.0   1_565     S
+V14     Ti16    10.0   .     S
+Ti15     Ti16    10.0   1_556     S
+Ti15     Ti17    10.0   .     S
+Ti15     Ti19    10.0   .     S
+Ti16     Ti15    10.0   1_554     S
+Ti16     Ti18    10.0   .     S
+Ti16     Ti20    10.0   .     S
+Ti17     V21    10.0   .     S
+Ti17     Ti18    10.0   1_556     S
+Ti17     Ti19    10.0   .     S
+Ti18     V23    10.0   .     S
+Ti18     Ti17    10.0   1_554     S
+Ti18     Ti20    10.0   .     S
+Ti19     Ti20    10.0   1_556     S
+Ti20     Ti19    10.0   1_554     S
+V21     V22    10.0   .     S
+V22     Ti29    10.0   .     S
+V23     V24    10.0   .     S
+V24     Ti30    10.0   .     S
+Ti25     Ti26    10.0   1_556     S
+Ti25     Ti27    10.0   .     S
+Ti25     Ti29    10.0   .     S
+Ti26     Ti25    10.0   1_554     S
+Ti26     Ti28    10.0   .     S
+Ti26     Ti30    10.0   .     S
+Ti27     Ti28    10.0   1_556     S
+Ti27     Ti29    10.0   .     S
+Ti28     Ti27    10.0   1_554     S
+Ti28     Ti30    10.0   .     S
+Ti29     Ti30    10.0   1_556     S
+Ti30     Ti29    10.0   1_554     S

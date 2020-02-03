@@ -1,0 +1,190 @@
+data_clad
+_audit_creation_date              2020-02-02
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.6563
+_cell_length_b                    20.6563
+_cell_length_c                    20.6563
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.3157   0.6843   0.6843
+V2     V     0.0   0.5   0.5
+Er3     Er     0.6843   0.3157   0.6843
+V4     V     0.5   0.0   0.5
+V5     V     0.5   0.5   0.0
+Er6     Er     0.6843   0.6843   0.3157
+Er7     Er     0.3157   0.3157   0.3157
+Er8     Er     0.1843   0.8157   0.1843
+Er9     Er     0.1843   0.1843   0.8157
+Er10     Er     0.8157   0.1843   0.1843
+V11     V     0.0   0.0   0.5
+V12     V     0.5   0.0   0.0
+V13     V     0.0   0.5   0.0
+Er14     Er     0.8157   0.8157   0.8157
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     V13    9.977   1_556     S
+Er1     V11    9.977   1_565     S
+Er1     V12    9.977   1_566     S
+Er1     Er8    11.018   1_556     S
+Er1     Er9    11.018   1_565     S
+Er1     Er14    11.018   1_455     S
+Er1     Er8    11.018   .     S
+Er1     Er14    11.018   .     S
+Er1     Er9    11.018   .     S
+Er1     V2    8.456   .     S
+Er1     V5    8.456   1_556     S
+Er1     V4    8.456   1_565     S
+Er1     Er7    10.768   .     S
+Er1     Er6    10.768   .     S
+Er1     Er3    10.768   .     S
+V2     V13    10.328   .     S
+V2     V13    10.328   1_556     S
+V2     V11    10.328   .     S
+V2     V11    10.328   1_565     S
+V2     Er14    9.977   1_455     S
+V2     Er9    9.977   .     S
+V2     Er10    9.977   1_455     S
+V2     Er8    9.977   .     S
+V2     Er7    8.456   .     S
+V2     Er6    8.456   1_455     S
+V2     Er3    8.456   1_455     S
+Er3     V12    9.977   1_556     S
+Er3     V11    9.977   1_655     S
+Er3     V13    9.977   1_656     S
+Er3     Er10    11.018   1_556     S
+Er3     Er14    11.018   1_545     S
+Er3     Er9    11.018   1_655     S
+Er3     Er10    11.018   .     S
+Er3     Er9    11.018   .     S
+Er3     Er14    11.018   .     S
+Er3     V4    8.456   .     S
+Er3     V5    8.456   1_556     S
+Er3     V2    8.456   1_655     S
+Er3     Er7    10.768   .     S
+Er3     Er6    10.768   .     S
+V4     V12    10.328   1_556     S
+V4     V12    10.328   .     S
+V4     V11    10.328   1_655     S
+V4     V11    10.328   .     S
+V4     Er10    9.977   .     S
+V4     Er8    9.977   1_545     S
+V4     Er9    9.977   .     S
+V4     Er14    9.977   1_545     S
+V4     Er7    8.456   .     S
+V4     Er1    8.456   1_545     S
+V4     Er6    8.456   1_545     S
+V5     V12    10.328   .     S
+V5     V12    10.328   1_565     S
+V5     V13    10.328   1_655     S
+V5     V13    10.328   .     S
+V5     Er14    9.977   1_554     S
+V5     Er10    9.977   .     S
+V5     Er9    9.977   1_554     S
+V5     Er8    9.977   .     S
+V5     Er7    8.456   .     S
+V5     Er6    8.456   .     S
+V5     Er3    8.456   1_554     S
+V5     Er1    8.456   1_554     S
+Er6     V12    9.977   1_565     S
+Er6     V13    9.977   1_655     S
+Er6     V11    9.977   1_665     S
+Er6     Er14    11.018   1_554     S
+Er6     Er8    11.018   1_655     S
+Er6     Er10    11.018   1_565     S
+Er6     Er14    11.018   .     S
+Er6     Er10    11.018   .     S
+Er6     Er8    11.018   .     S
+Er6     V2    8.456   1_655     S
+Er6     V4    8.456   1_565     S
+Er6     Er7    10.768   .     S
+Er7     V12    9.977   .     S
+Er7     V13    9.977   .     S
+Er7     V11    9.977   .     S
+Er7     Er9    11.018   1_554     S
+Er7     Er10    11.018   1_455     S
+Er7     Er8    11.018   1_545     S
+Er7     Er9    11.018   .     S
+Er7     Er8    11.018   .     S
+Er7     Er10    11.018   .     S
+Er8     V4    9.977   1_565     S
+Er8     Er1    11.018   1_554     S
+Er8     Er6    11.018   1_455     S
+Er8     Er7    11.018   1_565     S
+Er8     V11    8.456   1_565     S
+Er8     V12    8.456   1_565     S
+Er8     V13    8.456   .     S
+Er8     Er9    10.768   1_564     S
+Er8     Er10    10.768   1_465     S
+Er8     Er14    10.768   1_454     S
+Er9     V5    9.977   1_556     S
+Er9     Er7    11.018   1_556     S
+Er9     Er1    11.018   1_545     S
+Er9     Er3    11.018   1_455     S
+Er9     V12    8.456   1_556     S
+Er9     V13    8.456   1_556     S
+Er9     V11    8.456   .     S
+Er9     Er8    10.768   1_546     S
+Er9     Er10    10.768   1_456     S
+Er9     Er14    10.768   1_445     S
+Er10     V2    9.977   1_655     S
+Er10     Er3    11.018   1_554     S
+Er10     Er7    11.018   1_655     S
+Er10     Er6    11.018   1_545     S
+Er10     V13    8.456   1_655     S
+Er10     V11    8.456   1_655     S
+Er10     V12    8.456   .     S
+Er10     Er9    10.768   1_654     S
+Er10     Er8    10.768   1_645     S
+Er10     Er14    10.768   1_544     S
+V11     V4    10.328   1_455     S
+V11     V2    10.328   1_545     S
+V11     Er3    9.977   1_455     S
+V11     Er1    9.977   1_545     S
+V11     Er6    9.977   1_445     S
+V11     Er8    8.456   1_545     S
+V11     Er10    8.456   1_455     S
+V11     Er14    8.456   1_445     S
+V12     V4    10.328   1_554     S
+V12     V5    10.328   1_545     S
+V12     Er3    9.977   1_554     S
+V12     Er6    9.977   1_545     S
+V12     Er1    9.977   1_544     S
+V12     Er8    8.456   1_545     S
+V12     Er9    8.456   1_554     S
+V12     Er14    8.456   1_544     S
+V13     V5    10.328   1_455     S
+V13     V2    10.328   1_554     S
+V13     Er6    9.977   1_455     S
+V13     Er1    9.977   1_554     S
+V13     Er3    9.977   1_454     S
+V13     Er9    8.456   1_554     S
+V13     Er10    8.456   1_455     S
+V13     Er14    8.456   1_454     S
+Er14     V2    9.977   1_655     S
+Er14     V5    9.977   1_556     S
+Er14     V4    9.977   1_565     S
+Er14     Er6    11.018   1_556     S
+Er14     Er3    11.018   1_565     S
+Er14     Er1    11.018   1_655     S
+Er14     V11    8.456   1_665     S
+Er14     V12    8.456   1_566     S
+Er14     V13    8.456   1_656     S
+Er14     Er10    10.768   1_566     S
+Er14     Er8    10.768   1_656     S
+Er14     Er9    10.768   1_665     S
