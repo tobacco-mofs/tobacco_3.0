@@ -1,0 +1,120 @@
+data_csq\(3)
+_audit_creation_date              2019-09-04
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    32.6600
+_cell_length_b                    32.6600
+_cell_length_c                    23.0940
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 120.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+V1     V     0.25000   0.50000   0.25000   0.00000  Uiso   1.00
+V2     V     0.50000   0.75000   0.25000   0.00000  Uiso   1.00
+V3     V     0.25000   0.75000   0.25000   0.00000  Uiso   1.00
+V4     V     0.75000   0.50000   0.25000   0.00000  Uiso   1.00
+V5     V     0.50000   0.25000   0.25000   0.00000  Uiso   1.00
+V6     V     0.75000   0.25000   0.25000   0.00000  Uiso   1.00
+Er7    Er    0.00000   0.50000   0.00000   0.00000  Uiso   1.00
+Er8    Er    0.50000   0.50000   0.00000   0.00000  Uiso   1.00
+Er9    Er    0.50000  -0.00000   0.00000   0.00000  Uiso   1.00
+V10    V     0.25000   0.50000   0.75000   0.00000  Uiso   1.00
+V11    V     0.50000   0.75000   0.75000   0.00000  Uiso   1.00
+V12    V     0.25000   0.75000   0.75000   0.00000  Uiso   1.00
+V13    V     0.75000   0.50000   0.75000   0.00000  Uiso   1.00
+V14    V     0.50000   0.25000   0.75000   0.00000  Uiso   1.00
+V15    V     0.75000   0.25000   0.75000   0.00000  Uiso   1.00
+Er16   Er    0.00000   0.50000   0.50000   0.00000  Uiso   1.00
+Er17   Er    0.50000   0.50000   0.50000   0.00000  Uiso   1.00
+Er18   Er    0.50000  -0.00000   0.50000   0.00000  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Er8    10.000   .     S
+V1     Er7    10.000   .     S
+V1     Er16   10.000   .     S
+V1     Er17   10.000   .     S
+V2     Er8    10.000   .     S
+V2     Er17   10.000   .     S
+V2     Er9    10.000   1_565 S
+V2     Er18   10.000   1_565 S
+V3     Er7    10.000   .     S
+V3     Er18   10.000   1_565 S
+V3     Er9    10.000   1_565 S
+V3     Er16   10.000   .     S
+V4     Er8    10.000   .     S
+V4     Er16   10.000   1_655 S
+V4     Er7    10.000   1_655 S
+V4     Er17   10.000   .     S
+V5     Er9    10.000   .     S
+V5     Er8    10.000   .     S
+V5     Er17   10.000   .     S
+V5     Er18   10.000   .     S
+V6     Er9    10.000   .     S
+V6     Er18   10.000   .     S
+V6     Er7    10.000   1_655 S
+V6     Er16   10.000   1_655 S
+Er7    V10    10.000   1_554 S
+Er7    V12    10.000   1_554 S
+Er7    V13    10.000   1_454 S
+Er7    V4     10.000   1_455 S
+Er7    V6     10.000   1_455 S
+Er7    V15    10.000   1_454 S
+Er8    V10    10.000   1_554 S
+Er8    V11    10.000   1_554 S
+Er8    V13    10.000   1_554 S
+Er8    V14    10.000   1_554 S
+Er9    V2     10.000   1_545 S
+Er9    V11    10.000   1_544 S
+Er9    V12    10.000   1_544 S
+Er9    V3     10.000   1_545 S
+Er9    V14    10.000   1_554 S
+Er9    V15    10.000   1_554 S
+V10    Er17   10.000   .     S
+V10    Er16   10.000   .     S
+V10    Er7    10.000   1_556 S
+V10    Er8    10.000   1_556 S
+V11    Er17   10.000   .     S
+V11    Er8    10.000   1_556 S
+V11    Er18   10.000   1_565 S
+V11    Er9    10.000   1_566 S
+V12    Er16   10.000   .     S
+V12    Er9    10.000   1_566 S
+V12    Er18   10.000   1_565 S
+V12    Er7    10.000   1_556 S
+V13    Er17   10.000   .     S
+V13    Er7    10.000   1_656 S
+V13    Er16   10.000   1_655 S
+V13    Er8    10.000   1_556 S
+V14    Er18   10.000   .     S
+V14    Er17   10.000   .     S
+V14    Er8    10.000   1_556 S
+V14    Er9    10.000   1_556 S
+V15    Er18   10.000   .     S
+V15    Er9    10.000   1_556 S
+V15    Er16   10.000   1_655 S
+V15    Er7    10.000   1_656 S
+Er16   V4     10.000   1_455 S
+Er16   V13    10.000   1_455 S
+Er16   V15    10.000   1_455 S
+Er16   V6     10.000   1_455 S
+Er18   V11    10.000   1_545 S
+Er18   V2     10.000   1_545 S
+Er18   V3     10.000   1_545 S
+Er18   V12    10.000   1_545 S
