@@ -207,9 +207,6 @@ for i in range(0,len(topologies_all)):
 	cellpar_text = 'loop_\n_symmetry_equiv_pos_as_xyz\n  x,y,z\n'+'_cell_length_a                    '+str(np.round(pm_structure.lattice.abc[0],4))+'\n'+'_cell_length_b                    '+str(np.round(pm_structure.lattice.abc[1],4))+'\n'+'_cell_length_c                    '+str(np.round(pm_structure.lattice.abc[2],4))+'\n'+'_cell_angle_alpha                 '+str(np.round(pm_structure.lattice.angles[0],4))+'\n'+'_cell_angle_beta                 '+str(np.round(pm_structure.lattice.angles[1],4))+'\n'+'_cell_angle_gamma                 '+str(np.round(pm_structure.lattice.angles[2],4))+'\n'
 	pos_text = 'loop_\n_atom_site_label\n_atom_site_type_symbol\n_atom_site_fract_x\n_atom_site_fract_y\n_atom_site_fract_z\n'
 
-	#Make (minimum image) distance matrix
-	dist_mat = pm_structure.distance_matrix
-
 	#Initialization
 	bonded_pairs = [] #list for the indices of bonded vertices
 	bonded_edge_centers = [] #list for the indices of bonded edge centers
