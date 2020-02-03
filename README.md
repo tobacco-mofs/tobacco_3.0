@@ -9,11 +9,10 @@
 Our Topologically Based Crystal Constructor (ToBaCCo) was developed to rapidly produce molecular representations of porous crystals as crystallographic information (.cif) files, which can then be used for molecular simulation or for materials characterization. 
 
 # Installation and Dependencies
-To install dependencies:
-```
-pip install -r tobacco_requirements.txt
-```
-Once the required modules are installed, simply clone the repository and ToBaCCo is ready to run. 
+We recommend building a Python 2.7 environment using Anaconda. You will need the following packages:
+numpy
+networkx
+scipy
 
 # Usage
 Execute the tobacco.py file to run ToBaCCo:
