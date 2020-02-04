@@ -305,6 +305,7 @@ for i in range(0,len(topologies_all)):
 
 	#For every bonded pair, get bonding/symmetry info
 	done_dot_indices = [] #completed bond pairs with . symmetry
+	bond_counts = [0]*len(vertices_indices)
 	for j, bonded_pair in enumerate(bonded_pairs):
 
 		#Get distance/image properties
@@ -318,7 +319,7 @@ for i in range(0,len(topologies_all)):
 		if img == [0,0,0]:
 			symmetry_sym = '.'
 		else:
-			symmetry_sym = '1_'+str(img[0]+5)+str(img[1]+5)+str(img[2]+5)			
+			symmetry_sym = '1_'+str(img[0]+5)+str(img[1]+5)+str(img[2]+5)
 
 		#Complete bond text string
 		if symmetry_sym == '.' and (output_indices in done_dot_indices or [output_indices[1],output_indices[0]] in done_dot_indices):
@@ -326,7 +327,22 @@ for i in range(0,len(topologies_all)):
 		bond_text += atom1.species_string+str(output_indices[0])+'     '+atom2.species_string+str(output_indices[1])+'    '+str(np.round(d,3))+'   '+symmetry_sym+'     S\n'
 		if symmetry_sym == '.':
 			done_dot_indices.append(output_indices)
-			
+			bond_counts[atom1.index] += 1
+			bond_counts[atom2.index] += 1
+		else:
+			bond_counts[atom1.index] += 0.5
+			bond_counts[atom2.index] += 0.5
+
+	for j, bond_count in enumerate(bond_counts):
+		if bond_count != cn_vec[pm_structure[vertices_indices[j]].species_string]:
+			warnings.warn('Error: '+topology+'. Incorrect number of bonded vertices in symmetry flags',Warning)
+			pm_structure.to(filename=os.path.join('templates_errors',topology+'.cif'))
+			bad = True
+			break
+
+	if bad:
+		continue
+
 	#Write the topology CIF
 	with open(os.path.join('templates_database',topology+'.cif'),'w') as w:
 		w.write(top_text+cellpar_text+pos_text+bond_text)
