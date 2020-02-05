@@ -274,8 +274,6 @@ for i in range(0,len(topologies_all)):
 						d_img = possible_image[1]
 						z = [vertex_idx,bonded_vertex_idx,img_temp]
 						break
-				if not img_temp:
-					raise ValueError('Could not find image')
 				if z in bonded_set_all:
 					continue
 
@@ -332,6 +330,14 @@ for i in range(0,len(topologies_all)):
 		else:
 			bond_counts[atom1.index] += 0.5
 			bond_counts[atom2.index] += 0.5
+			if [bonded_pair[1],bonded_pair[0],[-ii for ii in img]] not in bonded_set_all:
+				warnings.warn('Error: '+topology+'. Missing symmetry counterpoint',Warning)
+				pm_structure.to(filename=os.path.join('templates_errors',topology+'.cif'))
+				bad = True
+				break				
+
+	if bad:
+		continue
 
 	for j, bond_count in enumerate(bond_counts):
 		if bond_count != cn_vec[pm_structure[vertices_indices[j]].species_string]:
