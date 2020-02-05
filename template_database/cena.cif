@@ -1,0 +1,120 @@
+data_cena
+_audit_creation_date              2020-02-04
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    42.6247
+_cell_length_b                    42.6247
+_cell_length_c                    45.7435
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.5104   0.2552   0.288
+Er2     Er     0.7448   0.4896   0.288
+Er3     Er     0.7448   0.2552   0.288
+V4     V     0.6667   0.3333   0.1095
+Er5     Er     0.2552   0.5104   0.288
+Er6     Er     0.2552   0.7448   0.288
+Er7     Er     0.4896   0.7448   0.288
+V8     V     0.3333   0.6667   0.1095
+Er9     Er     0.7448   0.2552   0.712
+Er10     Er     0.7448   0.4896   0.712
+Er11     Er     0.5104   0.2552   0.712
+V12     V     0.6667   0.3333   0.8905
+Er13     Er     0.4896   0.7448   0.712
+Er14     Er     0.2552   0.5104   0.712
+Er15     Er     0.2552   0.7448   0.712
+V16     V     0.3333   0.6667   0.8905
+Ti17     Ti     0.1355   0.2711   0.3908
+Ti18     Ti     0.1355   0.2711   0.6092
+Ti19     Ti     0.7289   0.8645   0.3908
+Ti20     Ti     0.7289   0.8645   0.6092
+Ti21     Ti     0.8645   0.1355   0.3908
+Ti22     Ti     0.8645   0.1355   0.6092
+Ti23     Ti     0.8645   0.7289   0.3908
+Ti24     Ti     0.8645   0.7289   0.6092
+Ti25     Ti     0.1355   0.8645   0.3908
+Ti26     Ti     0.1355   0.8645   0.6092
+Ti27     Ti     0.2711   0.1355   0.3908
+Ti28     Ti     0.2711   0.1355   0.6092
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     Er2    9.988   .     S
+Er1     Er3    9.988   .     S
+Er1     V4    9.997   .     S
+Er1     Ti27    10.009   .     S
+Er2     Er3    9.988   .     S
+Er2     V4    9.997   .     S
+Er2     Ti23    10.009   .     S
+Er3     V4    9.997   .     S
+Er3     Ti21    10.009   .     S
+V4     V12    10.016   1_554     S
+Er5     Er6    9.988   .     S
+Er5     Er7    9.988   .     S
+Er5     V8    9.997   .     S
+Er5     Ti17    10.009   .     S
+Er6     Er7    9.988   .     S
+Er6     V8    9.997   .     S
+Er6     Ti25    10.009   .     S
+Er7     V8    9.997   .     S
+Er7     Ti19    10.009   .     S
+V8     V16    10.016   1_554     S
+Er9     Er11    9.988   .     S
+Er9     Er10    9.988   .     S
+Er9     V12    9.997   .     S
+Er9     Ti22    10.009   .     S
+Er10     Er11    9.988   .     S
+Er10     V12    9.997   .     S
+Er10     Ti24    10.009   .     S
+Er11     V12    9.997   .     S
+Er11     Ti28    10.009   .     S
+V12     V4    10.016   1_556     S
+Er13     Er14    9.988   .     S
+Er13     Er15    9.988   .     S
+Er13     V16    9.997   .     S
+Er13     Ti20    10.009   .     S
+Er14     Er15    9.988   .     S
+Er14     V16    9.997   .     S
+Er14     Ti18    10.009   .     S
+Er15     V16    9.997   .     S
+Er15     Ti26    10.009   .     S
+V16     V8    10.016   1_556     S
+Ti17     Ti18    9.993   .     S
+Ti17     Ti27    10.006   .     S
+Ti17     Ti21    10.006   1_455     S
+Ti18     Ti22    10.006   1_455     S
+Ti18     Ti28    10.006   .     S
+Ti19     Ti20    9.993   .     S
+Ti19     Ti21    10.006   1_565     S
+Ti19     Ti23    10.006   .     S
+Ti20     Ti24    10.006   .     S
+Ti20     Ti22    10.006   1_565     S
+Ti21     Ti22    9.993   .     S
+Ti21     Ti19    10.006   1_545     S
+Ti21     Ti17    10.006   1_655     S
+Ti22     Ti18    10.006   1_655     S
+Ti22     Ti20    10.006   1_545     S
+Ti23     Ti24    9.993   .     S
+Ti23     Ti25    10.006   1_655     S
+Ti24     Ti26    10.006   1_655     S
+Ti25     Ti26    9.993   .     S
+Ti25     Ti23    10.006   1_455     S
+Ti25     Ti27    10.006   1_565     S
+Ti26     Ti24    10.006   1_455     S
+Ti26     Ti28    10.006   1_565     S
+Ti27     Ti28    9.993   .     S
+Ti27     Ti25    10.006   1_545     S
+Ti28     Ti26    10.006   1_545     S

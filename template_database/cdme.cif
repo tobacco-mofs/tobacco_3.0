@@ -1,0 +1,75 @@
+data_cdme
+_audit_creation_date              2020-02-04
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    16.3358
+_cell_length_b                    16.3358
+_cell_length_c                    69.2321
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Ce1     Ce     0.0   0.0   0.0833
+Er2     Er     0.5   0.0   0.0
+V3     V     0.5   0.0   0.1667
+Ce4     Ce     0.0   0.0   0.9167
+V5     V     0.5   0.0   0.8333
+V6     V     0.0   0.5   0.6667
+Ce7     Ce     0.0   0.0   0.5833
+Er8     Er     0.0   0.5   0.5
+Ti9     Ti     0.0   0.0   0.75
+Ce10     Ce     0.0   0.0   0.4167
+V11     V     0.0   0.5   0.3333
+Ti12     Ti     0.0   0.0   0.25
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Ce1     Er2    10.0   .     S
+Ce1     Er2    10.0   1_455     S
+Ce1     V3    10.0   .     S
+Ce1     V3    10.0   1_455     S
+Er2     Ce1    10.0   1_655     S
+Er2     Ce4    10.0   1_554     S
+Er2     Ce4    10.0   1_654     S
+V3     Ce1    10.0   1_655     S
+V3     Ti12    10.0   .     S
+V3     Ti12    10.0   1_655     S
+Ce4     Er2    10.0   1_556     S
+Ce4     Er2    10.0   1_456     S
+Ce4     V5    10.0   .     S
+Ce4     V5    10.0   1_455     S
+V5     Ti9    10.0   .     S
+V5     Ti9    10.0   1_655     S
+V5     Ce4    10.0   1_655     S
+V6     Ti9    10.0   .     S
+V6     Ti9    10.0   1_565     S
+V6     Ce7    10.0   .     S
+V6     Ce7    10.0   1_565     S
+Ce7     Er8    10.0   .     S
+Ce7     Er8    10.0   1_545     S
+Ce7     V6    10.0   1_545     S
+Er8     Ce7    10.0   1_565     S
+Er8     Ce10    10.0   .     S
+Er8     Ce10    10.0   1_565     S
+Ti9     V5    10.0   1_455     S
+Ti9     V6    10.0   1_545     S
+Ce10     Er8    10.0   1_545     S
+Ce10     V11    10.0   .     S
+Ce10     V11    10.0   1_545     S
+V11     Ti12    10.0   .     S
+V11     Ti12    10.0   1_565     S
+V11     Ce10    10.0   1_565     S
+Ti12     V3    10.0   1_455     S
+Ti12     V11    10.0   1_545     S

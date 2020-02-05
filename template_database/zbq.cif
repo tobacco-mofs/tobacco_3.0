@@ -1,5 +1,5 @@
 data_zbq
-_audit_creation_date              2019-12-31
+_audit_creation_date              2020-02-04
 _audit_creation_method            'Pymatgen'
 _symmetry_space_group_name_H-M    'P1'
 _symmetry_Int_Tables_number       1
@@ -179,8 +179,8 @@ S14     H8    10.015   1_556     S
 S14     H3    10.024   1_545     S
 S14     Ce18    10.011   .     S
 S14     Ce16    9.992   1_545     S
-V15     Er12    9.99   1_554     S
 V15     Ce70    10.018   .     S
+V15     Er12    9.99   1_554     S
 Ce16     H8    9.992   1_566     S
 Ce16     S9    10.011   1_556     S
 Ce16     S14    9.992   1_565     S
@@ -221,8 +221,8 @@ S27     H21    10.015   1_556     S
 S27     H31    10.024   .     S
 S27     Ce34    10.011   .     S
 S27     Ce35    9.992   .     S
-V28     Er25    9.99   1_554     S
 V28     Ce89    10.018   .     S
+V28     Er25    9.99   1_554     S
 Ti29     V33    10.015   .     S
 Ti29     Er30    9.979   .     S
 Er30     V33    9.99   .     S
@@ -254,8 +254,8 @@ S40     H44    10.024   1_455     S
 S40     Ce54    10.011   .     S
 S40     Ce53    9.992   1_455     S
 S40     H49    10.015   1_554     S
-V41     Er38    9.99   1_556     S
 V41     Ce106    10.018   .     S
+V41     Er38    9.99   1_556     S
 Ti42     V46    10.015   .     S
 Ti42     Er43    9.979   .     S
 Er43     V46    9.99   .     S

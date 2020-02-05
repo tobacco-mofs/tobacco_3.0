@@ -1,0 +1,98 @@
+data_dehd
+_audit_creation_date              2020-02-04
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    17.7677
+_cell_length_b                    17.7677
+_cell_length_c                    18.3504
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.5   0.75   0.4375
+V2     V     0.5   0.75   0.9375
+V3     V     0.0   0.75   0.3125
+V4     V     0.0   0.75   0.8125
+V5     V     0.5   0.25   0.0625
+V6     V     0.5   0.25   0.5625
+V7     V     0.0   0.25   0.1875
+V8     V     0.0   0.25   0.6875
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     V6    9.175   1_565     S
+V1     V6    9.175   .     S
+V1     V3    9.175   .     S
+V1     V2    9.175   1_554     S
+V1     V2    9.175   .     S
+V1     V3    9.175   1_655     S
+V1     V5    11.237   1_565     S
+V1     V5    11.237   .     S
+V1     V4    11.237   .     S
+V1     V4    11.237   1_655     S
+V2     V5    9.175   1_566     S
+V2     V5    9.175   1_556     S
+V2     V4    9.175   .     S
+V2     V1    9.175   1_556     S
+V2     V4    9.175   1_655     S
+V2     V6    11.237   1_565     S
+V2     V6    11.237   .     S
+V2     V3    11.237   1_556     S
+V2     V3    11.237   1_656     S
+V3     V7    9.175   1_565     S
+V3     V4    9.175   1_554     S
+V3     V4    9.175   .     S
+V3     V1    9.175   1_455     S
+V3     V7    9.175   .     S
+V3     V8    11.237   1_565     S
+V3     V2    11.237   1_554     S
+V3     V2    11.237   1_454     S
+V3     V8    11.237   .     S
+V4     V8    9.175   1_565     S
+V4     V3    9.175   1_556     S
+V4     V2    9.175   1_455     S
+V4     V8    9.175   .     S
+V4     V7    11.237   1_566     S
+V4     V1    11.237   1_455     S
+V4     V7    11.237   1_556     S
+V5     V2    9.175   1_544     S
+V5     V2    9.175   1_554     S
+V5     V7    9.175   .     S
+V5     V6    9.175   .     S
+V5     V6    9.175   1_554     S
+V5     V7    9.175   1_655     S
+V5     V1    11.237   1_545     S
+V5     V8    11.237   1_554     S
+V5     V8    11.237   1_654     S
+V6     V1    9.175   1_545     S
+V6     V8    9.175   .     S
+V6     V5    9.175   1_556     S
+V6     V8    9.175   1_655     S
+V6     V2    11.237   1_545     S
+V6     V7    11.237   .     S
+V6     V7    11.237   1_655     S
+V7     V3    9.175   1_545     S
+V7     V8    9.175   .     S
+V7     V8    9.175   1_554     S
+V7     V5    9.175   1_455     S
+V7     V4    11.237   1_544     S
+V7     V4    11.237   1_554     S
+V7     V6    11.237   1_455     S
+V8     V4    9.175   1_545     S
+V8     V7    9.175   1_556     S
+V8     V6    9.175   1_455     S
+V8     V3    11.237   1_545     S
+V8     V5    11.237   1_556     S
+V8     V5    11.237   1_456     S

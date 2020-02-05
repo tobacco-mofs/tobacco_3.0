@@ -342,6 +342,8 @@ for template in sorted(os.listdir('templates')):
 			if WRITE_CIF:
 				print 'writing cif...'
 				print ''
+				if len(cifname) > 255:
+					cifname = cifname[0:241]+'_truncated.cif'
 				write_cif(fc_placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, CHARGES)
 
 if OUTPUT_SCALING_DATA:

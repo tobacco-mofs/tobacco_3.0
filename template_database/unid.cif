@@ -1,0 +1,62 @@
+data_unid
+_audit_creation_date              2020-02-04
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    37.8317
+_cell_length_b                    37.8317
+_cell_length_c                    26.1209
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.58   0.29   0.0833
+V2     V     0.2748   0.1374   0.0833
+Er3     Er     0.29   0.71   0.9167
+V4     V     0.1374   0.8626   0.9167
+Er5     Er     0.71   0.42   0.75
+V6     V     0.8626   0.7252   0.75
+Er7     Er     0.42   0.71   0.5833
+V8     V     0.7252   0.8626   0.5833
+V9     V     0.8626   0.1374   0.4167
+Er10     Er     0.71   0.29   0.4167
+Er11     Er     0.29   0.58   0.25
+V12     V     0.1374   0.2748   0.25
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     Er5    10.0   1_554     S
+Er1     V2    10.0   .     S
+Er1     Er10    10.0   .     S
+V2     V4    10.0   1_544     S
+V2     V12    10.0   .     S
+Er3     Er7    10.0   .     S
+Er3     V4    10.0   .     S
+Er3     Er11    10.0   1_556     S
+V4     V2    10.0   1_566     S
+V4     V6    10.0   1_455     S
+Er5     Er1    10.0   1_556     S
+Er5     Er10    10.0   .     S
+Er5     V6    10.0   .     S
+V6     V4    10.0   1_655     S
+V6     V8    10.0   .     S
+Er7     Er11    10.0   .     S
+Er7     V8    10.0   .     S
+V8     V9    10.0   1_565     S
+V9     V8    10.0   1_545     S
+V9     V12    10.0   1_655     S
+V9     Er10    10.0   .     S
+Er11     Er3    10.0   1_554     S
+Er11     V12    10.0   .     S
+V12     V9    10.0   1_455     S
