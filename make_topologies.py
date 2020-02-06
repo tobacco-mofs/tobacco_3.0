@@ -90,7 +90,7 @@ with open(cgd_filename,'r') as r:
 
 			#Make sure there are enough names for the vertices
 			if vertices_count > len(vnames):
-				raise ValueError('More verties than vnames for '+topology)
+				raise ValueError('More verties than vnames for '+topology_val)
 
 			#Make a coordination number dictionary
 			cn[vnames[vertices_count-1]] = int(vert_val[1])
