@@ -9,6 +9,12 @@ PT = ['H' , 'He', 'Li', 'Be', 'B' , 'C' , 'N' , 'O' , 'F' , 'Ne', 'Na', 'Mg', 'A
 	  'Ra', 'La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb', 'Lu', 'Ac', 'Th', 
 	  'Pa', 'U' , 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf', 'Es', 'Fm', 'Md', 'No', 'Lr', 'FG', 'X' ]
 
+def nn(string):
+	return re.sub('[^a-zA-Z]','', string)
+
+def nl(string):
+	return re.sub('[^0-9]','', string)
+
 def isfloat(value):
 	"""
 		determines if a value is a float
@@ -23,11 +29,7 @@ def iscoord(line):
 	"""
 		identifies coordinates in CIFs
 	"""
-	if (re.sub('[^a-zA-Z]','', line[0]) in PT and
-	line[1] in PT and
-	isfloat(line[2]) and
-	isfloat(line[3]) and
-	isfloat(line[4])):
+	if nn(line[0]) in PT and line[1] in PT and False not in map(isfloat,line[2:5]):
 		return True
 	else:
 		return False
@@ -36,11 +38,7 @@ def isbond(line):
 	"""
 		identifies bonding in cifs
 	"""
-	if (re.sub('[^a-zA-Z]','', line[0]) in PT and
-	re.sub('[^a-zA-Z]','', line[1]) in PT and
-	isfloat(line[2]) and
-	not isfloat(line[3]) and
-	not isfloat(line[4])):
+	if nn(line[0]) in PT and nn(line[1]) in PT and isfloat(line[2]) and line[-1] in ('S', 'D', 'T', 'A'):
 		return True
 	else:
 		return False
@@ -124,11 +122,11 @@ def bb2array(cifname, direc):
 		if '_cell_angle_gamma' in line:
 			gamma = s[1]
 		if iscoord(s):
-			fvec = np.array(map(float, s[2:5]))
+			fvec = np.array([float(q) for q	 in s[2:5]])
 			fcoords_append([s[0],fvec])
 
 	pi = np.pi
-	a,b,c,alpha,beta,gamma = map(float, (a,b,c,alpha,beta,gamma))
+	a,b,c,alpha,beta,gamma = list(map(float, (a,b,c,alpha,beta,gamma)))
 	ax = a
 	ay = 0.0
 	az = 0.0
@@ -175,6 +173,7 @@ def X_vecs(cifname, direc, label):
 
 	fcoords = []
 	fcoords_append = fcoords.append
+
 	for line in cif:
 		s = line.split()
 		if '_cell_length_a' in line:
@@ -190,10 +189,11 @@ def X_vecs(cifname, direc, label):
 		if '_cell_angle_gamma' in line:
 			gamma = s[1]
 		if iscoord(s) and 'X' in s[0]:
-			fcoords_append([s[0],np.array(map(float, s[2:5]))])
+			fvec = np.array([float(q) for q in s[2:5]])
+			fcoords_append([s[0],fvec])
 
 	pi = np.pi
-	a,b,c,alpha,beta,gamma = map(float, (a,b,c,alpha,beta,gamma))
+	a,b,c,alpha,beta,gamma = list(map(float, (a,b,c,alpha,beta,gamma)))
 	ax = a
 	ay = 0.0
 	az = 0.0
@@ -263,10 +263,11 @@ def calc_edge_len(cifname, direc):
 		if '_cell_angle_gamma' in line:
 			gamma = s[1]
 		if iscoord(s) and 'X' in s[0]:
-			fcoords_append([s[0],np.array(map(float, s[2:5]))])
+			fvec = np.array([float(q) for q in s[2:5]])
+			fcoords_append([s[0],fvec])
 
 	pi = np.pi
-	a,b,c,alpha,beta,gamma = map(float, (a,b,c,alpha,beta,gamma))
+	a,b,c,alpha,beta,gamma = list(map(float, (a,b,c,alpha,beta,gamma)))
 	ax = a
 	ay = 0.0
 	az = 0.0

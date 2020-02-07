@@ -4,57 +4,34 @@ import re
 import os
 from ciftemplate2graph import isvert
 
-def omega2coords(augTG, sc_omega_plus, uc_params, num_vertices, template, g, CHECK):
+def omega2coords(start, TG, sc_omega_plus, uc_params, num_vertices, template, g, CHECK):
 
-	pi = np.pi
 	sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = uc_params
-	ax = sc_a
-	ay = 0.0
-	az = 0.0
-	bx = sc_b * np.cos(sc_gamma * pi/180.0)
-	by = sc_b * np.sin(sc_gamma * pi/180.0)
-	bz = 0.0
-	cx = sc_c * np.cos(sc_beta * pi/180.0)
-	cy = (sc_c * sc_b * np.cos(sc_alpha * pi/180.0) - bx * cx) / by
-	cz = (sc_c ** 2.0 - cx ** 2.0 - cy ** 2.0) ** 0.5
-	sc_unit_cell = np.asarray([[ax,ay,az],[bx,by,bz],[cx,cy,cz]]).T
-
 	path = os.path.join('templates', template)
-
-	with open(path, 'r') as cif:
-
-		cif = cif.read()
-		cif = filter(None, cif.split('\n'))
-
-	discard_coords = []
-	discard_coords_append = discard_coords.append
-	for line in cif:
-		s = line.split()
-		if isvert(s):
-			discard_coords_append(s)
-
-	start = np.asarray(map(float, discard_coords[0][2:5]))
-
-	shortest_path_dict = nx.shortest_path(augTG)
-	SN = sorted(augTG.nodes(), key = lambda x : int(re.sub('[A-Za-z]','',x)))
+	
+	shortest_path_dict = nx.shortest_path(TG)
+	SN = sorted(TG.nodes(), key = lambda x : int(re.sub('[A-Za-z]','',x)))
 	sequential_paths = [(SN[i],SN[i+1]) for i in range(num_vertices) if i+1 < num_vertices]
 	start = np.asarray(start)
 
-	cnd = nx.get_node_attributes(augTG, 'cifname')
-	coords = [[sequential_paths[0][0], cnd[sequential_paths[0][0]], start, [(e[2]['index'],e[2]['pd'],e[2]['cifname']) for e in augTG.edges(data=True) if sequential_paths[0][0] in e]]]
+	cnd = nx.get_node_attributes(TG, 'cifname')
+	coords = [[sequential_paths[0][0], cnd[sequential_paths[0][0]], start, [(e[2]['index'],e[2]['pd'],e[2]['cifname']) for e in TG.edges(data=True) if sequential_paths[0][0] in e]]]
 	coords_append = coords.append
 	already_placed = [sequential_paths[0][0]]
 	already_placed_append = already_placed.append
 
 	for st in sequential_paths:
+
 		path = shortest_path_dict[st[0]][st[1]]
 		lp = len(path)
 		traverse = [(path[i],path[i+1]) for i in range(lp) if i+1 < lp]
+
 		for e0 in traverse:
+
 			s,e = e0
-			edict = augTG[s][e]
+			edict = TG[s][e]
 			key = [k for k in edict][0]
-			ind = k[0]
+			ind = key[0]
 			positive_direction = edict[key]['pd']
 
 			if (s,e) == positive_direction:
@@ -66,7 +43,7 @@ def omega2coords(augTG, sc_omega_plus, uc_params, num_vertices, template, g, CHE
 			start = start + direction * sc_omega_plus[ind - 1]
 
 			if e0[1] not in already_placed:
-				coords_append([e0[1], cnd[e0[1]], start, [(e[2]['index'], e[2]['pd'],e[2]['cifname']) for e in augTG.edges(data=True) if e0[1] in e]])
+				coords_append([e0[1], cnd[e0[1]], start, [(e[2]['index'], e[2]['pd'],e[2]['cifname']) for e in TG.edges(data=True) if e0[1] in e]])
 				already_placed_append(e0[1])
 	
 	norm_coords = []
@@ -96,7 +73,6 @@ def omega2coords(augTG, sc_omega_plus, uc_params, num_vertices, template, g, CHE
 
 	if CHECK:
 
-		q = num_vertices
 		cpath = os.path.join('check_cifs', str(g) + '_check_scaled_' + template)
 
 		with open(cpath, 'w') as check:

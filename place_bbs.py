@@ -51,7 +51,6 @@ def superimpose(a1,a2):
 			sup.set(a2,p)
 			sup.run()
 			rot,tran = sup.get_rotran()
-			aff_a1 = np.dot(l,rot) + tran
 			rms = sup.get_rms()
 		
 			if rms < min_dist[0]:

@@ -1,4 +1,3 @@
-import sys
 import os
 import re
 import datetime
@@ -137,7 +136,7 @@ def reindex(pathfile,charges):
 		for l in coords:
 			name = l[0]
 			elem = l[1]
-			vec = map(float,l[2:5])
+			vec = list(map(float,l[2:5]))
 
 			if charges:
 				charge = l[-1]
