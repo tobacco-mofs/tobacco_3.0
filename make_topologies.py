@@ -9,7 +9,7 @@ import warnings
 tol = 1E-2 #tolerance for distances
 scale = 10 #scale lattice constants by this factor
 cgd_filename = 'RCSRnets-2019-06-01.cgd' #http://rcsr.anu.edu.au/systre
-consider_2D = True #consider 2D topologies
+consider_2D = False #consider 2D topologies (disabled by default)
 
 #Internal settings
 vnames = [
@@ -24,6 +24,12 @@ edge_center_name = 'Lr' #placeholder edge name
 if edge_center_name in vnames:
 	raise ValueError('Edge center name must not be in vnames',edge_center_name)
 
+#List of 2D topologies where a is the dummy axis
+dummya_list = ['cpr','cqx','sdd','sdf','sdh','sdi','sdo','sdv','sdz','tdv','tdz']
+
+#List of 2D topologies where b is the dummy axis
+dummyb_list = ['cqe','cqv','dhb','krv','krvd','krw','krw-d','sdc','sdm','sdp','sdq','sdw','sdy','tdr','tdw','tdx','tdy']
+
 #initialize lists
 topologies_all = [] #all topologies
 groups_all = [] #all spacegroups
@@ -31,6 +37,7 @@ cellpars_all = [] #all [a,b,c,alpha,beta,gamma]
 vertices_all = [] #all [x,y,z] fractional positions of vertices
 edges_center_all = [] #all [x,y,z] fractional positions of edge centers
 edges_head_all = [] #all [x,y,z] fractional positions of edge heads
+edges_tail_all = [] #all [x,y,z] fractional positions of edge tails
 cn_all = [] #all vertex coordination numbers, coded as dictionaries
 is_threedim_all = [] #all booleans for if 3D
 
@@ -53,6 +60,7 @@ with open(cgd_filename,'r') as r:
 			vertices = []
 			edges_center = []
 			edges_head = []
+			edges_tail = []
 			cn = {}
 			vertices_count = 0
 
@@ -113,9 +121,22 @@ with open(cgd_filename,'r') as r:
 
 			#Add dummy dimensions for 2D topologies
 			if len(cell_val) == 3:
-				cell_gamma_temp = cell_val[2]
-				cell_val[2] = 2.0
-				cell_val.extend([90.0,90.0,cell_gamma_temp])
+				three_dim = False
+				if topology_val in dummya_list:
+					cell_alpha_temp = cell_val[2]
+					del cell_val[2]
+					cell_val.insert(0,2.0)
+					cell_val.extend([cell_alpha_temp,90.0,90.0])					
+				elif topology_val in dummyb_list:
+					cell_beta_temp = cell_val[2]
+					del cell_val[2]
+					cell_val.insert(1,2.0)
+					cell_val.extend([90.0,cell_beta_temp,90.0])	
+				else:
+					cell_gamma_temp = cell_val[2]
+					del cell_val[2]
+					cell_val.append(2.0)
+					cell_val.extend([90.0,90.0,cell_gamma_temp])
 
 			if len(cell_val) != 6:
 				bad = True
@@ -130,10 +151,14 @@ with open(cgd_filename,'r') as r:
 			vert_val = line.lower().split('node')[-1].split('atom')[-1].strip()
 			vert_val = [i for i in vert_val.split()]
 
-			#Add 0.0 z dimension for 2D topologies
+			#Add 0.0 dummy coordinate for 2D topologies
 			if len(vert_val) == 4:
-				vert_val.append('0.0')
-				three_dim = False
+				if topology_val in dummya_list:
+					vert_val.insert(2,'0.0')
+				elif topology_val in dummyb_list:
+					vert_val.insert(3,'0.0')
+				else:
+					vert_val.append('0.0')
 
 			#Make sure there is a coordination number and [x,y,z]
 			if len(vert_val) != 5:
@@ -155,10 +180,14 @@ with open(cgd_filename,'r') as r:
 			edge_center_val = line.lower().split('edge_center')[-1].strip()
 			edge_center_val = [float(i) for i in edge_center_val.split()]
 
-			#Add 0.0 z dimension for 2D topologies
+			#Add 0.0 dummy coordinate for 2D topologies
 			if len(edge_center_val) == 2:
-				edge_center_val.append(0.0)
-				three_dim = False
+				if topology_val in dummya_list:
+					edge_center_val.insert(0,0.0)
+				elif topology_val in dummyb_list:
+					edge_center_val.insert(1,0.0)
+				else:
+					edge_center_val.append(0.0)
 
 			#Make sure there are [x,y,z] coordinates
 			if len(edge_center_val) != 3:
@@ -174,9 +203,19 @@ with open(cgd_filename,'r') as r:
 
 			if len(edge_val) == 4:
 				edge_head_val = edge_val[0:2]
-				edge_head_val.append(0.0)
+				edge_tail_val = edge_val[2:]
+				if topology_val in dummya_list:
+					edge_head_val.insert(0,0.0)
+					edge_tail_val.insert(0,0.0)
+				elif topology_val in dummyb_list:
+					edge_head_val.insert(1,0.0)
+					edge_tail_val.insert(1,0.0)
+				else:
+					edge_head_val.append(0.0)
+					edge_tail_val.append(0.0)
 			elif len(edge_val) == 6:
 				edge_head_val = edge_val[0:3]
+				edge_tail_val = edge_val[3:]
 			else:
 				bad = True
 				continue
@@ -187,6 +226,7 @@ with open(cgd_filename,'r') as r:
 				continue			
 
 			edges_head.append(edge_head_val)
+			edges_tail.append(edge_tail_val)
 
 		#Store results for topology
 		elif line.lower() == 'end':
@@ -205,6 +245,7 @@ with open(cgd_filename,'r') as r:
 			vertices_all.append(vertices)
 			edges_center_all.append(edges_center)
 			edges_head_all.append(edges_head)
+			edges_tail_all.append(edges_tail)
 			cn_all.append(cn)
 			is_threedim_all.append(three_dim)
 
@@ -233,10 +274,10 @@ for i in range(0,len(topologies_all)):
 	vertices = vertices_all[i]
 	edges_center = edges_center_all[i]
 	edges_head = edges_head_all[i]
+	edges_tail = edges_tail_all[i]
 	cn_vec = cn_all[i]
 	threedim = is_threedim_all[i]
-	if threedim:
-		continue
+
 	#Make list of vertex and edge center symbols
 	sym_vertices = []
 	for j in range(len(vertices)):
@@ -307,12 +348,12 @@ for i in range(0,len(topologies_all)):
 
 		#Make string containing fract position for atom j
 		pos_text += vertex_atom.species_string+str(j+1)+'     '+vertex_atom.species_string+'     '+str(np.round(vertex_atom.frac_coords[0],4))+'   '+str(np.round(vertex_atom.frac_coords[1],4))+'   '+str(np.round(vertex_atom.frac_coords[2],4))+'\n'
-		
+
 		#Find all edge centers connected to vertex j
 		edge_overlap_indices = []
 		for bond_dist in unique_bond_dists:
 			edges_shell_temp = pm_structure.get_neighbors_in_shell(pm_structure[vertex_idx].coords,bond_dist/2,tol,include_index=True)
-			edges_shell = [k for k in edges_shell_temp if k[0].species_string == edge_center_name]# and bond_dists[k[2]] == bond_dist]
+			edges_shell = [k for k in edges_shell_temp if k[0].species_string == edge_center_name]
 			for edge_shell in edges_shell:
 				if edge_shell[2] not in edge_overlap_indices:
 					edge_overlap_indices.append(edge_shell[2])
