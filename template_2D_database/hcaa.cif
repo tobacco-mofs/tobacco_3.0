@@ -1,0 +1,73 @@
+data_hcaa
+_audit_creation_date              2020-02-16
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    77.3203
+_cell_length_b                    77.3203
+_cell_length_c                    20.0
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.4627   0.796   0.0
+V2     V     0.6667   0.4627   0.0
+Er3     Er     0.4627   0.5373   0.0
+Er4     Er     0.5373   0.4627   0.0
+V5     V     0.4627   0.6667   0.0
+V6     V     0.5373   0.3333   0.0
+V7     V     0.5373   0.204   0.0
+Er8     Er     0.5373   0.0747   0.0
+Er9     Er     0.4627   0.9253   0.0
+V10     V     0.796   0.3333   0.0
+V11     V     0.6667   0.204   0.0
+V12     V     0.3333   0.5373   0.0
+V13     V     0.204   0.5373   0.0
+V14     V     0.3333   0.796   0.0
+V15     V     0.204   0.6667   0.0
+Er16     Er     0.0747   0.5373   0.0
+Er17     Er     0.9253   0.4627   0.0
+V18     V     0.796   0.4627   0.0
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     V5    10.0   .     S
+V1     V14    10.001   .     S
+V1     Er9    10.0   .     S
+V2     V18    10.0   .     S
+V2     Er4    10.0   .     S
+V2     V6    10.001   .     S
+Er3     V12    10.0   .     S
+Er3     V5    10.0   .     S
+Er3     Er4    10.0   .     S
+Er4     V6    10.0   .     S
+V5     V12    10.001   .     S
+V6     V7    10.0   .     S
+V7     Er8    10.0   .     S
+V7     V11    10.001   .     S
+Er8     V11    10.0   .     S
+Er8     Er9    10.0   1_545     S
+Er9     V14    10.0   .     S
+Er9     Er8    10.0   1_565     S
+V10     V11    10.0   .     S
+V10     Er17    10.0   .     S
+V10     V18    10.001   .     S
+V12     V13    10.0   .     S
+V13     Er16    10.0   .     S
+V13     V15    10.001   .     S
+V14     V15    10.0   .     S
+V15     Er16    10.0   .     S
+Er16     Er17    10.0   1_455     S
+Er17     V18    10.0   .     S
+Er17     Er16    10.0   1_655     S

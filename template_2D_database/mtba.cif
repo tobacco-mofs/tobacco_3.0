@@ -1,0 +1,120 @@
+data_mtba
+_audit_creation_date              2020-02-16
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    81.4461
+_cell_length_b                    81.4461
+_cell_length_c                    20.0
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.4193   0.8386   0.0
+Ti2     Ti     0.3875   0.913   0.0
+Ti3     Ti     0.5255   0.913   0.0
+Er4     Er     0.1614   0.5807   0.0
+Ti5     Ti     0.087   0.4745   0.0
+Ti6     Ti     0.087   0.6125   0.0
+Er7     Er     0.4193   0.5807   0.0
+Ti8     Ti     0.3875   0.4745   0.0
+Ti9     Ti     0.5255   0.6125   0.0
+V10     V     0.3648   0.6352   0.0
+V11     V     0.2705   0.6352   0.0
+V12     V     0.3648   0.7295   0.0
+Ce13     Ce     0.2486   0.9109   0.0
+Ce14     Ce     0.2486   0.3377   0.0
+Ce15     Ce     0.0891   0.3377   0.0
+Ce16     Ce     0.0891   0.7514   0.0
+Ce17     Ce     0.6623   0.9109   0.0
+Ce18     Ce     0.6623   0.7514   0.0
+Er19     Er     0.8386   0.4193   0.0
+Ti20     Ti     0.913   0.3875   0.0
+Ti21     Ti     0.913   0.5255   0.0
+Er22     Er     0.5807   0.1614   0.0
+Ti23     Ti     0.6125   0.087   0.0
+Ti24     Ti     0.4745   0.087   0.0
+Er25     Er     0.5807   0.4193   0.0
+Ti26     Ti     0.6125   0.5255   0.0
+Ti27     Ti     0.4745   0.3875   0.0
+V28     V     0.6352   0.3648   0.0
+V29     V     0.7295   0.3648   0.0
+V30     V     0.6352   0.2705   0.0
+Ce31     Ce     0.7514   0.6623   0.0
+Ce32     Ce     0.7514   0.0891   0.0
+Ce33     Ce     0.3377   0.2486   0.0
+Ce34     Ce     0.3377   0.0891   0.0
+Ce35     Ce     0.9109   0.2486   0.0
+Ce36     Ce     0.9109   0.6623   0.0
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     V12    7.695   .     S
+Er1     Ti2    7.686   .     S
+Er1     Ti3    7.686   .     S
+Ti2     Ti3    11.235   .     S
+Ti2     Ce13    11.228   .     S
+Ti3     Ce17    11.228   .     S
+Er4     Ti6    7.686   .     S
+Er4     Ti5    7.686   .     S
+Er4     V11    7.695   .     S
+Ti5     Ti6    11.235   .     S
+Ti5     Ce15    11.228   .     S
+Ti6     Ce16    11.228   .     S
+Er7     Ti8    7.686   .     S
+Er7     Ti9    7.686   .     S
+Er7     V10    7.695   .     S
+Ti8     Ti9    11.235   .     S
+Ti8     Ce14    11.228   .     S
+Ti9     Ce18    11.228   .     S
+V10     V11    7.679   .     S
+V10     V12    7.679   .     S
+V11     V12    7.679   .     S
+Ce13     Ce34    12.571   1_565     S
+Ce13     Ce16    12.991   .     S
+Ce14     Ce33    12.571   .     S
+Ce14     Ce15    12.991   .     S
+Ce15     Ce35    12.571   1_455     S
+Ce16     Ce36    12.571   1_455     S
+Ce17     Ce32    12.571   1_565     S
+Ce17     Ce18    12.991   .     S
+Ce18     Ce31    12.571   .     S
+Er19     V29    7.695   .     S
+Er19     Ti20    7.686   .     S
+Er19     Ti21    7.686   .     S
+Ti20     Ti21    11.235   .     S
+Ti20     Ce35    11.228   .     S
+Ti21     Ce36    11.228   .     S
+Er22     Ti24    7.686   .     S
+Er22     Ti23    7.686   .     S
+Er22     V30    7.695   .     S
+Ti23     Ti24    11.235   .     S
+Ti23     Ce32    11.228   .     S
+Ti24     Ce34    11.228   .     S
+Er25     Ti27    7.686   .     S
+Er25     Ti26    7.686   .     S
+Er25     V28    7.695   .     S
+Ti26     Ti27    11.235   .     S
+Ti26     Ce31    11.228   .     S
+Ti27     Ce33    11.228   .     S
+V28     V29    7.679   .     S
+V28     V30    7.679   .     S
+V29     V30    7.679   .     S
+Ce31     Ce36    12.991   .     S
+Ce32     Ce17    12.571   1_545     S
+Ce32     Ce35    12.991   .     S
+Ce33     Ce34    12.991   .     S
+Ce34     Ce13    12.571   1_545     S
+Ce35     Ce15    12.571   1_655     S
+Ce36     Ce16    12.571   1_655     S
