@@ -1,45 +1,49 @@
+from __future__ import print_function
 import re
 import os
 import numpy as np
 import networkx as nx
 
-vertices = ('V','Er','Ti','Ce','S',
-			'H','He','Li','Be','B',
-			'C','N','O','F','Ne',
-			'Na','Mg','Al','Si','P',
-			'Cl','Ar','K','Ca','Sc',
-			'Cr','Mn','Fe','Co','Ni')
+vertices = ('V' , 'Er', 'Ti', 'Ce', 'S',
+			'H' , 'He', 'Li', 'Be', 'B',
+			'C' , 'N' , 'O' , 'F' , 'Ne',
+			'Na', 'Mg', 'Al', 'Si', 'P',
+			'Cl', 'Ar', 'K' , 'Ca', 'Sc',
+			'Cr', 'Mn', 'Fe', 'Co', 'Ni')
 pi = np.pi
 
 def isfloat(value):
-	
+	"""
+		determines if a value is a float
+	"""
 	try:
 		float(value)
 		return True
 	except ValueError:
 		return False
 
-def isvert(line):
+def nn(string):
+	return re.sub('[^a-zA-Z]','', string)
 
-	if len(line) >= 5:
-		if re.sub('[^a-zA-Z]','', line[0]) in vertices and line[1] in vertices:
-			if (isfloat(line[2]) and isfloat(line[3]) and isfloat(line[4])):
-				return True
-			else:
-				return False
-		elif re.sub('[^a-zA-Z]','', line[0]) not in vertices or line[1] not in vertices:
-			if (isfloat(line[2]) and isfloat(line[3]) and isfloat(line[4])):
-				raise ValueError('Error in ciftemplate2graph, invalid vertex name')
-	else:
-		return False
+def nl(string):
+	return re.sub('[^0-9]','', string)
+
+def isvert(line):
+	"""
+		identifies coordinates in CIFs
+	"""
+	if len(line) >=5: 
+		if nn(line[0]) in vertices and line[1] in vertices and False not in map(isfloat,line[2:5]):
+			return True
+		else:
+			return False
 	
 def isedge(line):
-
-	if len(line) >= 5:
-		if (re.sub('[^a-zA-Z]','', line[0]) in vertices and
-		re.sub('[^a-zA-Z]','', line[1]) in vertices and 
-		isfloat(line[2]) and not isfloat(line[3]) and
-		not isfloat(line[4])):
+	"""
+		identifies bonding in cifs
+	"""
+	if len(line) >=5:
+		if nn(line[0]) in vertices and nn(line[1]) in vertices and isfloat(line[2]) and line[-1] in ('S', 'D', 'T', 'A'):
 			return True
 		else:
 			return False
@@ -73,20 +77,19 @@ def ct2g(cifname):
 
 	with open(path, 'r') as template:
 		template = template.read()
-		template = filter(None, template.split('\n'))
+		template = list(filter(None, template.split('\n')))
 
-	DG = nx.MultiDiGraph()
 	G = nx.MultiGraph()
 
 	edge_exist = False
 	for line in template:
 		s = line.split()
 		if '_cell_length_a' in line:
-			a = s[1]
+			aL = s[1]
 		if '_cell_length_b' in line:
-			b = s[1]
+			bL = s[1]
 		if '_cell_length_c' in line:
-			c = s[1]
+			cL = s[1]
 		if '_cell_angle_alpha' in line:
 			alpha = s[1]
 		if '_cell_angle_beta' in line:
@@ -94,29 +97,25 @@ def ct2g(cifname):
 		if '_cell_angle_gamma' in line:
 			gamma = s[1]
 
-	a,b,c,alpha,beta,gamma = map(float, (a,b,c,alpha,beta,gamma))
-	ax = a
+	aL,bL,cL,alpha,beta,gamma = list(map(float, (aL,bL,cL,alpha,beta,gamma)))
+	ax = aL
 	ay = 0.0
 	az = 0.0
-	bx = b * np.cos(gamma * pi / 180.0)
-	by = b * np.sin(gamma * pi / 180.0)
+	bx = bL * np.cos(gamma * pi / 180.0)
+	by = bL * np.sin(gamma * pi / 180.0)
 	bz = 0.0
-	cx = c * np.cos(beta * pi / 180.0)
-	cy = (c * b * np.cos(alpha * pi /180.0) - bx * cx) / by
-	cz = (c ** 2.0 - cx ** 2.0 - cy ** 2.0) ** 0.5
+	cx = cL * np.cos(beta * pi / 180.0)
+	cy = (cL * bL * np.cos(alpha * pi /180.0) - bx * cx) / by
+	cz = (cL ** 2.0 - cx ** 2.0 - cy ** 2.0) ** 0.5
 	unit_cell = np.asarray([[ax,ay,az],[bx,by,bz],[cx,cy,cz]]).T
 
 	nc = 0
 	ne = 0
 
 	types = []
-	e_types = []
-	G_forward_edges = []
 	aae = []
 
-	G_forward_edges_append = G_forward_edges.append
 	types_append = types.append
-	e_types_append = e_types.append
 	aae_append = aae.append
 
 	max_le = 1.0e6
@@ -124,24 +123,22 @@ def ct2g(cifname):
 	for line in template:
 
 		s = line.split()
-		ty = re.sub('[^a-zA-Z]','',s[0])
-		types_append(ty)
 
 		if isvert(s):
 
+			ty = re.sub('[^a-zA-Z]','',s[0])
+			types_append(ty)
 			nc += 1
-			f_nvec = np.asarray(map(float, s[2:5]))
+			f_nvec = np.asarray(list(map(float, s[2:5])))
 			c_nvec = np.dot(unit_cell, f_nvec)
 			G.add_node(s[0], type=ty, index=nc, ccoords=c_nvec, fcoords=f_nvec, cn=[], cifname=[])
 			
 		if isedge(s):
 
 			edge_exist = True
-			l = sorted([re.sub('[^a-zA-Z]','',s[0]),re.sub('[^a-zA-Z]','',s[1])])
-			e_types_append((l[0],l[1]))
 
 			if '_' in s[3]:
-				lbl = np.asarray(map(int, s[3].split('_')[1])) - 5
+				lbl = np.asarray(list(map(int, s[3].split('_')[1]))) - 5
 			elif s[3] == '.':
 				lbl = np.array([0,0,0])
 			else:
@@ -170,36 +167,58 @@ def ct2g(cifname):
 				if cdist < max_le:
 					max_le = cdist
 
-				ke = (ne,lbl[0],lbl[1],lbl[2])
-				
 				G.add_edge(s[0],s[1], key=(ne,lbl[0],lbl[1],lbl[2]), label=lbl , length=le, fcoords=ef_coords, ccoords=ec_coords, index=ne, pd=(s[0],s[1]))
 
-	e_types = set(e_types)
-	for edge in G.edges(data=True):
-		ni = (re.sub('[^a-zA-Z]','',edge[0]),re.sub('[^a-zA-Z]','',edge[1]))
-		edict = edge[2]
-		for et in e_types:
-			if ni == et or ni[::-1] == et:
-				edict['type'] = et
-
-	cns = []
-	cns_append = cns.append
-	for node in G.nodes():
-		ndict = G.node[node]
-		cn = G.degree(node)
-		ndict['cn'].append(cn)
-		cns_append((cn, ndict['type']))
-	cns = set(cns)
-
 	if not edge_exist:
-		raise ValueError('Error in ciftemplate2graph, no edges are given in the template:' + cifname)
-		
-	return (G, unit_cell, cns, e_types, cifname, a, b, c, alpha, beta, gamma, max_le)
+		raise ValueError('Error in ciftemplate2graph, no edges are given in the template:',cifname)
+
+	S = [G.subgraph(c).copy() for c in nx.connected_components(G)]
+	if len(S) > 1:
+		catenation = True
+	else:
+		catenation = False
+	
+	for net in [(s, unit_cell, cifname, aL, bL, cL, alpha, beta, gamma, max_le) for s in S]:
+
+		SG = nx.MultiGraph()
+		cns = []
+		cns_append = cns.append
+
+		count = 0
+		for node in net[0].nodes(data=True):
+
+			n,data = node
+			cn = G.degree(n)
+			ty = re.sub('[0-9]','',n)
+			cns_append((cn, ty))
+			SG.add_node(n, **data)
+
+			if count == 0:
+				start = data['fcoords']
+			count += 1
+
+		count = 0
+		e_types = []
+		e_types_append = e_types.append
+
+		for edge in net[0].edges(keys=True, data=True):
+
+			count += 1
+			e0,e1,key,data = edge
+			key = tuple([count] + [k for k in key[1:]])
+			data['index'] = count
+			l = sorted([re.sub('[^a-zA-Z]','',e0),re.sub('[^a-zA-Z]','',e1)])
+			e_types_append((l[0],l[1]))
+
+			SG.add_edge(e0, e1, key=key, type=(l[0],l[1]), **data)
+
+		yield (SG, start, unit_cell, set(cns), set(e_types), cifname, aL, bL, cL, alpha, beta, gamma, max_le, catenation)
 
 def node_vecs(node, G, unit_cell, label):
 
 	edge_coords = []
 	edge_coords_append = edge_coords.append
+
 	for e in G.edges(data=True):
 
 		edict = e[2]

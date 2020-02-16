@@ -1,5 +1,6 @@
+from __future__ import print_function
 import numpy as np
-from scipy.optimize import minimize, basinhopping
+from scipy.optimize import minimize
 import random
 
 pi = np.pi
@@ -69,8 +70,8 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	for i in range(ncra):
 		for j in range(ncca):
 			covars_values_append(0)
-	
-	init_variables = [scale_guess * a,scale_guess * b, scale_guess * c,ang_alpha,ang_beta,ang_gamma] + covars_values
+			
+	init_variables = [scale_guess * a, scale_guess * b, scale_guess * c, ang_alpha, ang_beta, ang_gamma] + covars_values
 
 	if np.any(FIX_UC):
 
@@ -90,8 +91,8 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 
 	Bstar_inv = np.linalg.inv(Bstar)
 
-	print 'scaling unit cell and vertex positions...'
-	print '' 
+	print('scaling unit cell and vertex positions...')
+	print() 
 
 	niter = SCALING_ITERATIONS
 	uc_press = 0.05
@@ -135,8 +136,8 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	covar = [np.average(abs(np.array(callbackresults[0][0][6:]) - np.array(callbackresults[-1][0][6:])))]
 	final_obj = [callbackresults[-1][1]]
 
-	print 'The final objective function value is', np.round(final_obj[0],3)
-	print '' 
+	print('The final objective function value is', np.round(final_obj[0],3))
+	print()
 
 	scaling_data = [ab, ac, bc, alpha, beta, gamma, covar, final_obj]
 

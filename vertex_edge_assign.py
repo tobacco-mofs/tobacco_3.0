@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 import itertools
 import numpy as np
@@ -21,17 +22,7 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 
 		choice_dict = dict((k,'') for k in TVT)
 		if not os.path.isfile('vertex_assignment.txt'):
-			for k in node_dict:
-				cn,name = k
-				print ''
-				print '???????????????????????????????????'
-				print 'select building block for:', name , '(CN=' + str(cn) + ')'
-				for c in range(len(node_dict[k])):
-					print c, node_dict[k][c]
-				cif_index = int(raw_input('enter the index of the desired cif: \n'))
-				choice_dict[k] = node_dict[k][cif_index]
-				print '???????????????????????????????????'
-				print ''
+			raise ValueError('User specificed node assignment is on, but there is not vertex_assignment.txt')
 		else:
 			with open('vertex_assignment.txt','r') as va_key:
 				va_key = va_key.read()
@@ -49,7 +40,6 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 
 			if len(choice_dict[k]) == 0:
 				raise ValueError('Node type ' + k[0] + ' has not assigned cif.')
-				sys.exit()
 
 			for n in TG.nodes(data=True):
 				name,ndict = n
@@ -60,19 +50,17 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 
 	else:
 
-		print '*****************************************************************'
-		print 'RMSD of the compatible node BBs with assigned vertices:          '
-		print '*****************************************************************'
-		print ''
+		print('*****************************************************************')
+		print('RMSD of the compatible node BBs with assigned vertices:          ')
+		print('*****************************************************************')
+		print()
 		
-		RMSDs = []
-		RMSDs_append = RMSDs.append
 		sym_assign = []
 		sym_assign_append = sym_assign.append
 
 		for k in node_dict:
 
-			print 'vertex', k[1], '('+str(k[0]) + ' connected)'
+			print('vertex', k[1], '('+str(k[0]) + ' connected)')
 
 			matched = 0
 			unmatched = 0
@@ -92,7 +80,6 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 						nvec = np.array([v/np.linalg.norm(v) for v in node_vecs(name, TG, unit_cell, False)])
 						bbxvec = np.array([v/np.linalg.norm(v) for v in X_vecs(cif, 'nodes', False)])
 						rmsd,rot,tran = superimpose(bbxvec,nvec)
-						aff_b = np.dot(bbxvec,rot) + tran
 						distances_append((rmsd,cif))
 
 					for d in distances:
@@ -103,14 +90,14 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 						else:
 							unmatched += 1
 							matches = '(outside tolerance)'
-						print '    ', cif, 'deviation =', np.round(disp,5), matches
+						print('    ', cif, 'deviation =', np.round(disp,5), matches)
 
 					for d in distances:
 						if d[0] < SYM_TOL[coord_num]:
 							sym_assign_append((k[1],d[1]))
 					break
-			print '*', matched, 'compatible building blocks out of', len(node_dict[k]), 'available for node', k[1], '*'
-		print ''
+			print('*', matched, 'compatible building blocks out of', len(node_dict[k]), 'available for node', k[1], '*')
+		print()
 		
 		rearrange = dict((k[1],[]) for k in TVT)
 		for a in sym_assign:
@@ -131,9 +118,11 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 			choice_dict = dict((i[0],i[1]) for i in l)
 			va_temp = []
 			va_temp_append = va_temp.append
+
 			for n in TG.nodes(data=True):
 				name,ndict = n
 				va_temp_append((name, choice_dict[ndict['type']]))
+
 			va_append(va_temp)
 			used_append(cifs)
 					
@@ -144,6 +133,7 @@ def assign_node_vecs2edges(TG, unit_cell, SYM_TOL):
 	edge_assign_dict = dict((k,{}) for k in TG.nodes())
 
 	for n in TG.nodes(data=True):
+
 		name,ndict = n
 		cif = ndict['cifname']
 		bbx = X_vecs(cif, 'nodes', True)
@@ -173,7 +163,7 @@ def assign_node_vecs2edges(TG, unit_cell, SYM_TOL):
 		asd_append = asd.append
 		for v1 in laff_b:
 			smallest_dist = (1.0E6, 'foo', 'bar')
-			v1vec = map(float, v1[1:])
+			v1vec = np.array([float(q) for q in v1[1:]])
 			mag = np.linalg.norm(v1vec)
 			for v2 in lnodvec:
 				dist = np.linalg.norm(v1vec - v2[1:])

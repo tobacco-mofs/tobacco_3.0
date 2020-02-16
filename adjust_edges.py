@@ -51,7 +51,7 @@ def adjust_edges(placed_edges, placed_nodes, sc_unit_cell):
 
 	edge_dict = dict((k,[]) for k in edge_labels)
 
-	node_connection_points = [map(float,i[1:4]) for i in placed_nodes if re.sub('[0-9]','',i[5]) == 'X']
+	node_connection_points = [list(map(float,i[1:4])) for i in placed_nodes if re.sub('[0-9]','',i[5]) == 'X']
 
 	for edge in placed_edges:
 		ty = int(edge[-1])
@@ -61,12 +61,12 @@ def adjust_edges(placed_edges, placed_nodes, sc_unit_cell):
 
 		edge = np.asarray(edge_dict[k])
 		elems = edge[:,0]
-		evecs = [map(float,i) for i in edge[:,1:4]]
+		evecs = [list(map(float,i)) for i in edge[:,1:4]]
 		charges = edge[:,4]
 		cp = edge[:,5]
 		ty = edge[:,6]
 
-		xvecs = [map(float,i) for (i,j) in zip(evecs,cp) if re.sub('[0-9]','',j) == 'X']
+		xvecs = [list(map(float,i)) for (i,j) in zip(evecs,cp) if re.sub('[0-9]','',j) == 'X']
 		relavent_node_xvecs = []
 		relavent_node_xvecs_append = relavent_node_xvecs.append
 
