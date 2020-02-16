@@ -28,7 +28,7 @@ if edge_center_name in vnames:
 dummya_list = ['cpr','cqx','sdd','sdf','sdh','sdi','sdo','sdv','sdz','tdv','tdz']
 
 #List of 2D topologies where b is the dummy axis
-dummyb_list = ['cqe','cqv','dhb','krv','krvd','krw','krw-d','sdc','sdm','sdp','sdq','sdw','sdy','tdr','tdw','tdx','tdy']
+dummyb_list = ['cqe','cqv','dhb','krv','krvd','krw','krwd','sdc','sdm','sdp','sdq','sdw','sdy','tdr','tdw','tdx','tdy']
 
 #initialize lists
 topologies_all = [] #all topologies
