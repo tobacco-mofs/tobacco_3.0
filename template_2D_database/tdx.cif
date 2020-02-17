@@ -1,0 +1,74 @@
+data_tdx
+_audit_creation_date              2020-02-16
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    29.8775
+_cell_length_b                    20.0
+_cell_length_c                    17.3932
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Ti1     Ti     0.4174   0.0   0.4956
+Ti2     Ti     0.5826   0.0   0.4956
+Ti3     Ti     0.5826   0.0   0.9956
+Ti4     Ti     0.4174   0.0   0.9956
+V5     V     0.7522   0.0   0.5
+Er6     Er     0.9174   0.0   0.5
+V7     V     0.2478   0.0   0.5
+Er8     Er     0.0826   0.0   0.5
+V9     V     0.7522   0.0   0.0
+Er10     Er     0.9174   0.0   0.0
+V11     V     0.2478   0.0   0.0
+Er12     Er     0.0826   0.0   0.0
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Ti1     V11    9.999   .     S
+Ti1     Er8    10.001   .     S
+Ti1     Ti3    10.001   1_554     S
+Ti1     Ti3    10.001   .     S
+Ti2     V9    9.999   .     S
+Ti2     Er6    10.001   .     S
+Ti2     Ti4    10.001   1_554     S
+Ti2     Ti4    10.001   .     S
+Ti3     V5    9.999   .     S
+Ti3     Er10    10.001   1_556     S
+Ti3     Ti1    10.001   1_556     S
+Ti4     V7    9.999   .     S
+Ti4     Er12    10.001   1_556     S
+Ti4     Ti2    10.001   1_556     S
+V5     Er10    9.999   1_556     S
+V5     Er10    9.999   .     S
+Er6     V9    9.999   1_556     S
+Er6     Er12    10.001   1_656     S
+Er6     V9    9.999   .     S
+Er6     Er12    10.001   1_655     S
+V7     Er12    9.999   1_556     S
+V7     Er12    9.999   .     S
+Er8     V11    9.999   1_556     S
+Er8     Er10    10.001   1_456     S
+Er8     V11    9.999   .     S
+Er8     Er10    10.001   1_455     S
+V9     Er6    9.999   1_554     S
+Er10     V5    9.999   1_554     S
+Er10     Er8    10.001   1_654     S
+Er10     Er8    10.001   1_655     S
+Er10     Ti3    10.001   1_554     S
+V11     Er8    9.999   1_554     S
+Er12     V7    9.999   1_554     S
+Er12     Er6    10.001   1_454     S
+Er12     Er6    10.001   1_455     S
+Er12     Ti4    10.001   1_554     S

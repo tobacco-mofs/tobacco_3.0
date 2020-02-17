@@ -5,10 +5,13 @@ from datetime import datetime
 import numpy as np
 import warnings
 
+#SETTINGS BY USER
 tol = 1E-2 #tolerance for distances
 scale = 10 #scale lattice constants by this factor
 cgd_filename = 'RCSRnets-2019-06-01.cgd' #http://rcsr.anu.edu.au/systre
+consider_2D = False #consider 2D topologies (disabled by default)
 
+#Internal settings
 vnames = [
 	'V','Er','Ti','Ce','S',
 	'H','He','Li','Be','B',
@@ -21,6 +24,12 @@ edge_center_name = 'Lr' #placeholder edge name
 if edge_center_name in vnames:
 	raise ValueError('Edge center name must not be in vnames',edge_center_name)
 
+#List of 2D topologies where a is the dummy axis
+dummya_list = ['cpr','cqx','sdd','sdf','sdh','sdi','sdo','sdv','sdz','tdv','tdz']
+
+#List of 2D topologies where b is the dummy axis
+dummyb_list = ['cqe','cqv','dhb','krv','krvd','krw','krwd','sdc','sdm','sdp','sdq','sdw','sdy','tdr','tdw','tdx','tdy']
+
 #initialize lists
 topologies_all = [] #all topologies
 groups_all = [] #all spacegroups
@@ -28,7 +37,9 @@ cellpars_all = [] #all [a,b,c,alpha,beta,gamma]
 vertices_all = [] #all [x,y,z] fractional positions of vertices
 edges_center_all = [] #all [x,y,z] fractional positions of edge centers
 edges_head_all = [] #all [x,y,z] fractional positions of edge heads
+edges_tail_all = [] #all [x,y,z] fractional positions of edge tails
 cn_all = [] #all vertex coordination numbers, coded as dictionaries
+is_threedim_all = [] #all booleans for if 3D
 
 #Make sure .cgd file is present
 if not os.path.exists(cgd_filename):
@@ -45,9 +56,11 @@ with open(cgd_filename,'r') as r:
 		#Initialize values for new topology
 		if 'crystal' in line.lower():
 			three_dim = True
+			bad = False
 			vertices = []
 			edges_center = []
 			edges_head = []
+			edges_tail = []
 			cn = {}
 			vertices_count = 0
 
@@ -63,14 +76,72 @@ with open(cgd_filename,'r') as r:
 			#Do not alter capitalization of spacegroups
 			group_val = line.split('GROUP')[-1].split('group')[-1].strip()
 
-			#Use updated group name of Cmca
+			#Use updated group names
 			if group_val == 'Cmca':
 				group_val = 'Cmce'
+
+			#2D-->3D group names
+			elif group_val == 'p4gm':
+				group_val = 'P4/mbm'
+			elif group_val == 'p4mm':
+				group_val = 'P4/mmm'
+			elif group_val == 'p6mm':
+				group_val = 'P6/mmm'
+			elif group_val == 'p4mm':
+				group_val = 'P4/mmm'
+			elif group_val == 'p6':
+				group_val = 'P6/m'
+			elif group_val == 'c2mm':
+				group_val = 'Cmmm'
+			elif group_val == 'p31m':
+				group_val = 'P-62m'
+			elif group_val == 'p2mg':
+				group_val = 'Pmma'
+			elif group_val == 'p3m1':
+				group_val = 'P-6m2'
+			elif group_val == 'p2gg':
+				group_val = 'Pbam'
+			elif group_val == 'p2mm':
+				group_val = 'Pmmm'
+			elif group_val == 'cm':
+				group_val = 'Amm2'
+			elif group_val == 'pg':
+				group_val = 'Pmc21'
+			elif group_val == 'p1':
+				group_val = 'Pm'
+			elif group_val == 'p2':
+				group_val = 'P2/m'
+			elif group_val == 'p2gg':
+				group_val = 'Pbam'
 
 		#Get the lattice constants (with scale*(a,b,c))
 		elif 'cell' in line.lower():
 			cell_val = line.lower().split('cell')[-1]
 			cell_val = [float(i) for i in cell_val.split()]
+
+			#Add dummy dimensions for 2D topologies
+			if len(cell_val) == 3:
+				three_dim = False
+				if topology_val in dummya_list:
+					cell_alpha_temp = cell_val[2]
+					del cell_val[2]
+					cell_val.insert(0,2.0)
+					cell_val.extend([cell_alpha_temp,90.0,90.0])					
+				elif topology_val in dummyb_list:
+					cell_beta_temp = cell_val[2]
+					del cell_val[2]
+					cell_val.insert(1,2.0)
+					cell_val.extend([90.0,cell_beta_temp,90.0])	
+				else:
+					cell_gamma_temp = cell_val[2]
+					del cell_val[2]
+					cell_val.append(2.0)
+					cell_val.extend([90.0,90.0,cell_gamma_temp])
+
+			if len(cell_val) != 6:
+				bad = True
+				continue
+
 			cell_val[0] = cell_val[0]*scale
 			cell_val[1] = cell_val[1]*scale
 			cell_val[2] = cell_val[2]*scale
@@ -80,9 +151,18 @@ with open(cgd_filename,'r') as r:
 			vert_val = line.lower().split('node')[-1].split('atom')[-1].strip()
 			vert_val = [i for i in vert_val.split()]
 
+			#Add 0.0 dummy coordinate for 2D topologies
+			if len(vert_val) == 4:
+				if topology_val in dummya_list:
+					vert_val.insert(2,'0.0')
+				elif topology_val in dummyb_list:
+					vert_val.insert(3,'0.0')
+				else:
+					vert_val.append('0.0')
+
 			#Make sure there is a coordination number and [x,y,z]
 			if len(vert_val) != 5:
-				three_dim = False
+				bad = True
 				continue
 
 			vertices.append([float(vert_val[2]),float(vert_val[3]),float(vert_val[4])])
@@ -90,7 +170,7 @@ with open(cgd_filename,'r') as r:
 
 			#Make sure there are enough names for the vertices
 			if vertices_count > len(vnames):
-				raise ValueError('More verties than vnames for '+topology)
+				raise ValueError('More vertices than vnames for '+topology_val)
 
 			#Make a coordination number dictionary
 			cn[vnames[vertices_count-1]] = int(vert_val[1])
@@ -99,33 +179,65 @@ with open(cgd_filename,'r') as r:
 		elif 'edge_center' in line.lower():
 			edge_center_val = line.lower().split('edge_center')[-1].strip()
 			edge_center_val = [float(i) for i in edge_center_val.split()]
-			edges_center.append(edge_center_val)
+
+			#Add 0.0 dummy coordinate for 2D topologies
+			if len(edge_center_val) == 2:
+				if topology_val in dummya_list:
+					edge_center_val.insert(0,0.0)
+				elif topology_val in dummyb_list:
+					edge_center_val.insert(1,0.0)
+				else:
+					edge_center_val.append(0.0)
 
 			#Make sure there are [x,y,z] coordinates
 			if len(edge_center_val) != 3:
-				three_dim = False
+				bad = True
 				continue
 
-		#Get edge endpoints
+			edges_center.append(edge_center_val)
+
+		#Get edge endpoint
 		elif 'edge' in line.lower():
 			edge_val = line.lower().split('edge')[-1].strip()
 			edge_val = [float(i) for i in edge_val.split()]
-			edges_head.append(edge_val[0:3])
+
+			if len(edge_val) == 4:
+				edge_head_val = edge_val[0:2]
+				edge_tail_val = edge_val[2:]
+				if topology_val in dummya_list:
+					edge_head_val.insert(0,0.0)
+					edge_tail_val.insert(0,0.0)
+				elif topology_val in dummyb_list:
+					edge_head_val.insert(1,0.0)
+					edge_tail_val.insert(1,0.0)
+				else:
+					edge_head_val.append(0.0)
+					edge_tail_val.append(0.0)
+			elif len(edge_val) == 6:
+				edge_head_val = edge_val[0:3]
+				edge_tail_val = edge_val[3:]
+			else:
+				bad = True
+				continue
+
+			#Make sure there are [x,y,z] coordinates
+			if len(edge_head_val) != 3:
+				bad = True
+				continue			
+
+			edges_head.append(edge_head_val)
+			edges_tail.append(edge_tail_val)
 
 		#Store results for topology
 		elif line.lower() == 'end':
 
-			#Skip 2D topologies
-			if not three_dim:
+			if not consider_2D and not three_dim:
 				continue
 
 			#Skip weirdly formatted cgd entries
-			if len(cn) != len(vertices):
+			if bad or len(cn) != len(vertices) or len(edges_head) != len(edges_center):
 				warnings.warn('Error: skipping '+topology_val+' because it is not formatted properly in .cgd file',Warning)
-				continue
-			elif len(edges_head) != len(edges_center):
-				warnings.warn('Error: skipping '+topology_val+' because it is not formatted properly in .cgd file',Warning)
-				continue				
+				continue			
 
 			topologies_all.append(topology_val)
 			groups_all.append(group_val)
@@ -133,17 +245,21 @@ with open(cgd_filename,'r') as r:
 			vertices_all.append(vertices)
 			edges_center_all.append(edges_center)
 			edges_head_all.append(edges_head)
+			edges_tail_all.append(edges_tail)
 			cn_all.append(cn)
+			is_threedim_all.append(three_dim)
 
 		#Ignore NC nets (assumed to be at bottom of .cgd file)
 		elif 'nc nets' in line.lower():
 			break
 
 #Make folders to store topology CIFs
-if not os.path.exists('templates_database'):
-	os.mkdir('templates_database')
-if not os.path.exists('templates_errors'):
-	os.mkdir('templates_errors')
+if not os.path.exists('template_database'):
+	os.mkdir('template_database')
+if not os.path.exists('template_errors'):
+	os.mkdir('template_errors')
+if not os.path.exists('template_2D_database') and consider_2D:
+	os.mkdir('template_2D_database')
 
 #Cycle through all topologies and make CIFs
 for i in range(0,len(topologies_all)):
@@ -158,7 +274,9 @@ for i in range(0,len(topologies_all)):
 	vertices = vertices_all[i]
 	edges_center = edges_center_all[i]
 	edges_head = edges_head_all[i]
+	edges_tail = edges_tail_all[i]
 	cn_vec = cn_all[i]
+	threedim = is_threedim_all[i]
 
 	#Make list of vertex and edge center symbols
 	sym_vertices = []
@@ -173,7 +291,12 @@ for i in range(0,len(topologies_all)):
 	basis_collection = np.array(vertices+edges_center)
 
 	#Make pymatgen structure
-	pm_structure = pm.Structure.from_spacegroup(group,lattice_vectors,sym_collection,basis_collection)
+	try:
+		pm_structure = pm.Structure.from_spacegroup(group,lattice_vectors,sym_collection,basis_collection)
+	except:
+		warnings.warn('Error: '+topology+'. Incompatible spacegroup and lattice constants',Warning)
+		pm_structure.to(filename=os.path.join('template_errors',topology+'.cif'))
+		continue		
 	pm_structure.merge_sites(mode='delete')	
 
 	#Calculate distance between edge centers and edge ends
@@ -225,12 +348,12 @@ for i in range(0,len(topologies_all)):
 
 		#Make string containing fract position for atom j
 		pos_text += vertex_atom.species_string+str(j+1)+'     '+vertex_atom.species_string+'     '+str(np.round(vertex_atom.frac_coords[0],4))+'   '+str(np.round(vertex_atom.frac_coords[1],4))+'   '+str(np.round(vertex_atom.frac_coords[2],4))+'\n'
-		
+
 		#Find all edge centers connected to vertex j
 		edge_overlap_indices = []
 		for bond_dist in unique_bond_dists:
 			edges_shell_temp = pm_structure.get_neighbors_in_shell(pm_structure[vertex_idx].coords,bond_dist/2,tol,include_index=True)
-			edges_shell = [k for k in edges_shell_temp if k[0].species_string == edge_center_name]# and bond_dists[k[2]] == bond_dist]
+			edges_shell = [k for k in edges_shell_temp if k[0].species_string == edge_center_name]
 			for edge_shell in edges_shell:
 				if edge_shell[2] not in edge_overlap_indices:
 					edge_overlap_indices.append(edge_shell[2])
@@ -239,7 +362,7 @@ for i in range(0,len(topologies_all)):
 		#Make sure the right number of edges are detected
 		if len(edge_overlap_indices) != cn:
 			warnings.warn('Error: '+topology+'. Incorrect number of edges',Warning)
-			pm_structure.to(filename=os.path.join('templates_errors',topology+'.cif'))
+			pm_structure.to(filename=os.path.join('template_errors',topology+'.cif'))
 			bad = True
 			break
 
@@ -287,7 +410,7 @@ for i in range(0,len(topologies_all)):
 		#Check coordination number
 		if len(vertex_overlap_indices) != cn:
 			warnings.warn('Error: '+topology+'. Incorrect number of bonded vertices',Warning)
-			pm_structure.to(filename=os.path.join('templates_errors',topology+'.cif'))
+			pm_structure.to(filename=os.path.join('template_errors',topology+'.cif'))
 			bad = True
 			break
 
@@ -332,7 +455,7 @@ for i in range(0,len(topologies_all)):
 			bond_counts[atom2.index] += 0.5
 			if [bonded_pair[1],bonded_pair[0],[-ii for ii in img]] not in bonded_set_all:
 				warnings.warn('Error: '+topology+'. Missing symmetry counterpoint',Warning)
-				pm_structure.to(filename=os.path.join('templates_errors',topology+'.cif'))
+				pm_structure.to(filename=os.path.join('template_errors',topology+'.cif'))
 				bad = True
 				break				
 
@@ -342,7 +465,7 @@ for i in range(0,len(topologies_all)):
 	for j, bond_count in enumerate(bond_counts):
 		if bond_count != cn_vec[pm_structure[vertices_indices[j]].species_string]:
 			warnings.warn('Error: '+topology+'. Incorrect number of bonded vertices in symmetry flags',Warning)
-			pm_structure.to(filename=os.path.join('templates_errors',topology+'.cif'))
+			pm_structure.to(filename=os.path.join('template_errors',topology+'.cif'))
 			bad = True
 			break
 
@@ -350,7 +473,10 @@ for i in range(0,len(topologies_all)):
 		continue
 
 	#Write the topology CIF
-	with open(os.path.join('templates_database',topology+'.cif'),'w') as w:
-		w.write(top_text+cellpar_text+pos_text+bond_text)
-
+	if threedim:
+		with open(os.path.join('template_database',topology+'.cif'),'w') as w:
+			w.write(top_text+cellpar_text+pos_text+bond_text)
+	else:
+		with open(os.path.join('template_2D_database',topology+'.cif'),'w') as w:
+			w.write(top_text+cellpar_text+pos_text+bond_text)		
 	print('Success: '+topology)

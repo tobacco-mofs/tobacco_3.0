@@ -1,0 +1,75 @@
+data_krwd
+_audit_creation_date              2020-02-16
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    26.3447
+_cell_length_b                    20.0
+_cell_length_c                    61.5414
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 92.5143
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er1     Er     0.3525   0.0   0.946
+Er2     Er     0.6475   0.0   0.054
+Ce3     Ce     0.4995   0.0   0.2009
+Ce4     Ce     0.5005   0.0   0.7991
+S5     S     0.143   0.0   0.7374
+Ti6     Ti     0.8694   0.0   0.845
+S7     S     0.857   0.0   0.2626
+Ti8     Ti     0.1306   0.0   0.155
+V9     V     0.0   0.0   0.0
+H10     H     0.2926   0.0   0.3333
+H11     H     0.7074   0.0   0.6667
+He12     He     0.9786   0.0   0.4189
+He13     He     0.0214   0.0   0.5811
+Li14     Li     0.398   0.0   0.5666
+Li15     Li     0.602   0.0   0.4334
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Er1     Ce4    10.0   .     S
+Er1     Er2    10.0   1_556     S
+Er1     V9    10.0   1_556     S
+Er2     Ce3    10.0   .     S
+Er2     Er1    10.0   1_554     S
+Er2     V9    10.0   1_655     S
+Ce3     Ti8    10.0   .     S
+Ce3     S7    10.0   .     S
+Ce3     H10    10.0   .     S
+Ce4     Ti6    10.0   .     S
+Ce4     S5    10.0   .     S
+Ce4     H11    10.0   .     S
+S5     He13    10.0   .     S
+S5     Ti6    10.0   1_455     S
+Ti6     S5    10.0   1_655     S
+Ti6     V9    10.0   1_656     S
+S7     He12    10.0   .     S
+S7     Ti8    10.0   1_655     S
+Ti8     S7    10.0   1_455     S
+Ti8     V9    10.0   .     S
+V9     Er2    10.0   1_455     S
+V9     Er1    10.0   1_554     S
+V9     Ti6    10.0   1_454     S
+H10     He12    10.0   1_455     S
+H10     Li15    10.0   .     S
+H11     He13    10.0   1_655     S
+H11     Li14    10.0   .     S
+He12     H10    10.0   1_655     S
+He12     Li15    10.0   .     S
+He12     He13    10.0   1_655     S
+He13     H11    10.0   1_455     S
+He13     Li14    10.0   .     S
+He13     He12    10.0   1_455     S
+Li14     Li15    10.0   .     S

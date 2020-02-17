@@ -1,0 +1,72 @@
+data_krw
+_audit_creation_date              2020-02-16
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    19.3196
+_cell_length_b                    20.0
+_cell_length_c                    48.3628
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 93.07
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.7   0.0   0.6268
+Er2     Er     0.1928   0.0   0.5732
+V3     V     0.3   0.0   0.3732
+Er4     Er     0.8072   0.0   0.4268
+Ce5     Ce     0.1391   0.0   0.1732
+Ti6     Ti     0.6463   0.0   0.2268
+Ce7     Ce     0.8609   0.0   0.8268
+Ti8     Ti     0.3537   0.0   0.7732
+S9     S     0.2464   0.0   0.9732
+S10     S     0.7536   0.0   0.0268
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Er2    10.0   1_655     S
+V1     Er4    10.0   .     S
+V1     Er2    10.0   .     S
+V1     Ti8    10.0   .     S
+V1     Ce7    10.0   .     S
+Er2     V1    10.0   1_455     S
+Er2     Er4    10.001   1_455     S
+Er2     V3    10.0   .     S
+Er2     Ti8    10.0   .     S
+V3     Ti6    10.0   .     S
+V3     Ce5    10.0   .     S
+V3     Er4    10.0   1_455     S
+V3     Er4    10.0   .     S
+Er4     Ti6    10.0   .     S
+Er4     V3    10.0   1_655     S
+Er4     Er2    10.001   1_655     S
+Ce5     Ti6    10.0   1_455     S
+Ce5     Ti6    10.0   .     S
+Ce5     S9    10.0   1_554     S
+Ce5     S10    10.0   1_455     S
+Ti6     Ce5    10.0   1_655     S
+Ti6     S10    10.0   .     S
+Ce7     Ti8    10.0   1_655     S
+Ce7     Ti8    10.0   .     S
+Ce7     S10    10.0   1_556     S
+Ce7     S9    10.0   1_655     S
+Ti8     Ce7    10.0   1_455     S
+Ti8     S9    10.0   .     S
+S9     Ce7    10.0   1_455     S
+S9     Ce5    10.0   1_556     S
+S9     S10    10.0   1_456     S
+S9     S10    10.0   1_556     S
+S10     Ce7    10.0   1_554     S
+S10     Ce5    10.0   1_655     S
+S10     S9    10.0   1_654     S
+S10     S9    10.0   1_554     S

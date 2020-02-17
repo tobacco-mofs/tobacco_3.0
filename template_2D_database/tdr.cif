@@ -1,0 +1,51 @@
+data_tdr
+_audit_creation_date              2020-02-16
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.002
+_cell_length_b                    20.0
+_cell_length_c                    27.3212
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.2187
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Ti1     Ti     0.9985   0.0   0.683
+V2     V     0.75   0.0   0.9999
+Er3     Er     0.4984   0.0   0.683
+Ti4     Ti     0.0015   0.0   0.317
+V5     V     0.25   0.0   0.0001
+Er6     Er     0.5016   0.0   0.317
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Ti1     Er3    9.999   1_655     S
+Ti1     V5    10.0   1_656     S
+Ti1     V2    10.0   .     S
+Ti1     Ti4    10.001   1_655     S
+V2     Er3    9.999   .     S
+V2     Ti4    10.0   1_656     S
+V2     V5    10.001   1_656     S
+V2     V5    10.001   1_556     S
+Er3     Ti1    9.999   1_455     S
+Er3     Er6    9.999   .     S
+Ti4     Er6    9.999   1_455     S
+Ti4     V2    10.0   1_454     S
+Ti4     V5    10.0   .     S
+Ti4     Ti1    10.001   1_455     S
+V5     Er6    9.999   .     S
+V5     Ti1    10.0   1_454     S
+V5     V2    10.001   1_454     S
+V5     V2    10.001   1_554     S
+Er6     Ti4    9.999   1_655     S

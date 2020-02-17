@@ -1,0 +1,141 @@
+data_dhd
+_audit_creation_date              2020-02-16
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    63.7639
+_cell_length_b                    63.7639
+_cell_length_c                    20.0
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 120.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.721   0.279   0.0
+V2     V     0.558   0.279   0.0
+V3     V     0.721   0.442   0.0
+S4     S     0.154   0.154   0.0
+Ce5     Ce     0.6919   0.8459   0.0
+Ce6     Ce     0.3081   0.1541   0.0
+Ce7     Ce     0.8459   0.1541   0.0
+Ti8     Ti     0.5   0.0   0.0
+Er9     Er     0.5765   0.904   0.0
+Er10     Er     0.4235   0.096   0.0
+Er11     Er     0.3275   0.904   0.0
+Er12     Er     0.6725   0.096   0.0
+Ce13     Ce     0.1541   0.8459   0.0
+Ti14     Ti     0.0   0.5   0.0
+Er15     Er     0.904   0.5765   0.0
+Er16     Er     0.096   0.4235   0.0
+Er17     Er     0.904   0.3275   0.0
+Er18     Er     0.096   0.6725   0.0
+Ce19     Ce     0.1541   0.3081   0.0
+Ti20     Ti     0.5   0.5   0.0
+Er21     Er     0.4235   0.3275   0.0
+Er22     Er     0.6725   0.5765   0.0
+Er23     Er     0.3275   0.4235   0.0
+Er24     Er     0.5765   0.6725   0.0
+Ce25     Ce     0.846   0.6919   0.0
+S26     S     0.0   0.846   0.0
+S27     S     0.846   0.846   0.0
+S28     S     0.846   0.0   0.0
+S29     S     0.0   0.154   0.0
+S30     S     0.154   0.0   0.0
+V31     V     0.442   0.721   0.0
+V32     V     0.279   0.558   0.0
+V33     V     0.279   0.721   0.0
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     V2    10.396   .     S
+V1     V3    10.396   .     S
+V1     Er17    10.471   .     S
+V1     Er12    10.471   .     S
+V2     V3    10.396   .     S
+V2     Er21    10.471   .     S
+V2     Er10    10.471   .     S
+V3     Er22    10.471   .     S
+V3     Er15    10.471   .     S
+S4     S30    9.823   .     S
+S4     Ce6    9.823   .     S
+S4     Ce19    9.823   .     S
+S4     S29    9.823   .     S
+Ce5     Er24    9.751   .     S
+Ce5     Er9    9.751   .     S
+Ce5     S27    9.823   .     S
+Ce5     S28    9.823   1_565     S
+Ce6     Er21    9.751   .     S
+Ce6     Er10    9.751   .     S
+Ce6     S30    9.823   .     S
+Ce7     Er17    9.751   .     S
+Ce7     Er12    9.751   .     S
+Ce7     S28    9.823   .     S
+Ce7     S29    9.823   1_655     S
+Ti8     Er11    9.545   1_545     S
+Ti8     Er12    9.545   .     S
+Ti8     Er10    9.545   .     S
+Ti8     Er9    9.545   1_545     S
+Er9     V31    10.471   .     S
+Er9     Er12    10.599   1_565     S
+Er9     Ti8    9.545   1_565     S
+Er10     Er11    10.599   1_545     S
+Er11     V33    10.471   .     S
+Er11     Er10    10.599   1_565     S
+Er11     Ce13    9.751   .     S
+Er11     Ti8    9.545   1_565     S
+Er12     Er9    10.599   1_545     S
+Ce13     Er18    9.751   .     S
+Ce13     S30    9.823   1_565     S
+Ce13     S26    9.823   .     S
+Ti14     Er15    9.545   1_455     S
+Ti14     Er18    9.545   .     S
+Ti14     Er17    9.545   1_455     S
+Ti14     Er16    9.545   .     S
+Er15     Er18    10.599   1_655     S
+Er15     Ce25    9.751   .     S
+Er15     Ti14    9.545   1_655     S
+Er16     V32    10.471   .     S
+Er16     Er17    10.599   1_455     S
+Er16     Ce19    9.751   .     S
+Er17     Er16    10.599   1_655     S
+Er17     Ti14    9.545   1_655     S
+Er18     V33    10.471   .     S
+Er18     Er15    10.599   1_455     S
+Ce19     Er23    9.751   .     S
+Ce19     S29    9.823   .     S
+Ti20     Er24    9.545   .     S
+Ti20     Er23    9.545   .     S
+Ti20     Er21    9.545   .     S
+Ti20     Er22    9.545   .     S
+Er21     Er23    10.599   .     S
+Er22     Er24    10.599   .     S
+Er22     Ce25    9.751   .     S
+Er23     V32    10.471   .     S
+Er24     V31    10.471   .     S
+Ce25     S26    9.823   1_655     S
+Ce25     S27    9.823   .     S
+S26     Ce25    9.823   1_455     S
+S26     S30    9.823   1_565     S
+S26     S27    9.823   1_455     S
+S27     S26    9.823   1_655     S
+S27     S28    9.823   1_565     S
+S28     Ce5    9.823   1_545     S
+S28     S27    9.823   1_545     S
+S28     S29    9.823   1_655     S
+S29     Ce7    9.823   1_455     S
+S29     S28    9.823   1_455     S
+S30     Ce13    9.823   1_545     S
+S30     S26    9.823   1_545     S
+V31     V33    10.396   .     S
+V31     V32    10.396   .     S
+V32     V33    10.396   .     S

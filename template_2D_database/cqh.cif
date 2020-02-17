@@ -1,0 +1,65 @@
+data_cqh
+_audit_creation_date              2020-02-16
+_audit_creation_method            'Pymatgen'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    38.6493
+_cell_length_b                    38.6493
+_cell_length_c                    20.0
+_cell_angle_alpha                 90.0
+_cell_angle_beta                 90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1     V     0.7503   0.4331   0.0
+V2     V     0.9331   0.2503   0.0
+V3     V     0.0669   0.7497   0.0
+V4     V     0.2497   0.5669   0.0
+Er5     Er     0.0   0.5   0.0
+V6     V     0.4331   0.2497   0.0
+V7     V     0.2503   0.0669   0.0
+V8     V     0.5669   0.7503   0.0
+V9     V     0.7497   0.9331   0.0
+Er10     Er     0.5   0.0   0.0
+Ti11     Ti     0.0   0.0   0.0
+Ti12     Ti     0.5   0.5   0.0
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+V1     Ti12    10.014   .     S
+V1     Er5    9.991   1_655     S
+V1     V2    9.99   .     S
+V2     Ti11    10.014   1_655     S
+V2     Er5    9.991   1_655     S
+V3     Ti11    10.014   1_565     S
+V3     V4    9.99   .     S
+V3     Er5    9.991   .     S
+V4     Ti12    10.014   .     S
+V4     Er5    9.991   .     S
+Er5     V1    9.991   1_455     S
+Er5     V2    9.991   1_455     S
+V6     Ti12    10.014   .     S
+V6     Er10    9.991   .     S
+V6     V7    9.99   .     S
+V7     Ti11    10.014   .     S
+V7     Er10    9.991   .     S
+V8     Ti12    10.014   .     S
+V8     V9    9.99   .     S
+V8     Er10    9.991   1_565     S
+V9     Ti11    10.014   1_665     S
+V9     Er10    9.991   1_565     S
+Er10     V8    9.991   1_545     S
+Er10     V9    9.991   1_545     S
+Ti11     V2    10.014   1_455     S
+Ti11     V3    10.014   1_545     S
+Ti11     V9    10.014   1_445     S
