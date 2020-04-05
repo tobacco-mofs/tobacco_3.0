@@ -480,3 +480,4 @@ for i in range(0,len(topologies_all)):
 		with open(os.path.join('template_2D_database',topology+'.cif'),'w') as w:
 			w.write(top_text+cellpar_text+pos_text+bond_text)		
 	print('Success: '+topology)
+	

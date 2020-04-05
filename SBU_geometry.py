@@ -1,19 +1,21 @@
 from bbcif_properties import calc_edge_len
 import numpy as np
 
-def SBU_coords(augTG, ea_dict, csbl):
+def SBU_coords(TG, ea_dict, csbl):
 
 	SBU_coords = []
 	SBU_coords_append = SBU_coords.append
-	for node in augTG.nodes(data=True):
+
+	for node in TG.nodes(data=True):
+
 		vertex = node[0]
-		ndict = node[1]
-		ncif = ndict['cifname']
-		
 		xvecs = []
 		xvecs_append = xvecs.append
-		for e in augTG.edges(data=True):
+
+		for e in TG.edges(data=True):
+
 			edict = e[2]
+
 			if vertex in e:
 
 				ecif = edict['cifname']

@@ -45,7 +45,7 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	if PRE_SCALE == 'none':
 		scale_guess = 1.0
 	else:
-		scale_guess = (max_length / max_le) * PRE_SCALE
+		scale_guess = (max_length/max_le) * PRE_SCALE
 
 	all_SBU_ip = []
 	all_SBU_ip_append = all_SBU_ip.append
@@ -71,13 +71,13 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 		for j in range(ncca):
 			covars_values_append(0)
 			
-	init_variables = [scale_guess * a, scale_guess * b, scale_guess * c, ang_alpha, ang_beta, ang_gamma] + covars_values
+	vars = [a,b,c,ang_alpha,ang_beta,ang_gamma]
 
 	if np.any(FIX_UC):
 
 		uc_bounds = []
 		uc_bounds_append = uc_bounds.append
-		for f,p in zip(FIX_UC, init_variables[0:6]):
+		for f,p in zip(FIX_UC, vars):
 			if f:
 				uc_bounds_append((p,p))
 			else:
@@ -86,6 +86,7 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 	else:
 		uc_bounds = ((0,None),(0,None),(0,None),(20,160),(20,160),(20,160))
 
+	init_variables = [scale_guess * a, scale_guess * b, scale_guess * c, ang_alpha, ang_beta, ang_gamma] + covars_values
 	x_bounds = tuple([(None,None) for x in covars_values])
 	bounds = uc_bounds + x_bounds
 

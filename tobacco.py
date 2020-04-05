@@ -165,7 +165,7 @@ def run_template(template):
 	
 			node_elems = [bbelems(i[1], 'nodes') for i in va]
 			metals = [[i for i in j if i in metal_elements] for j in node_elems]
-			metals = set([i for j in metals for i in j])
+			metals = list(set([i for j in metals for i in j]))
 	
 			v_set = [('v' + str(vname_dict[re.sub('[0-9]','',i[0])]), i[1]) for i in va]
 			v_set = sorted(list(set(v_set)), key=lambda x: x[0])
@@ -175,9 +175,9 @@ def run_template(template):
 			print('vertex assignment : ',v_set)
 			print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
 			print()
-	
-			if len(metals) != 1 and SINGLE_METAL_MOFS_ONLY:
-				print(v_set, 'contains no metals or multiple metal elements, no cif will be written', metals)
+
+			if SINGLE_METAL_MOFS_ONLY and len(metals) != 1:
+				print(v_set, 'contains no metals or multiple metal elements, no cif will be written')
 				print()
 				continue
 	
@@ -347,6 +347,8 @@ def run_template(template):
 		for comb in itertools.combinations(cat_cifs, cat_count):
 
 			builds = [name[0:-9] for name in comb]
+
+			print(set(builds))
 
 			if len(set(builds)) == 1:
 				pass

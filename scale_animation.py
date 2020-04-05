@@ -18,7 +18,7 @@ def nl(string):
 	return re.sub('[^0-9]','', string)
 
 def roundup(x):
-	return int(math.ceil(x / 10.0)) * 10
+	return int(math.ceil(x / 10.0)) * 10.0
 
 pi = np.pi
 
@@ -36,7 +36,7 @@ def scaling_callback_animation(callbackresults, alpha, Bstar_inv, ncra, ncca, nu
 		rc_covars = rc_covars.reshape(ncra,ncca)
 		rc_Alpha = np.r_[alpha[0:num_edges-num_vertices+1,:], rc_covars]
 		rc_omega_plus = np.dot(Bstar_inv, rc_Alpha)
-		rc_coords = omega2coords(TG, rc_omega_plus, uc_params, num_vertices, template, g, cfiles)
+		rc_coords = omega2coords(np.array([0.0,0.0,0.0]), TG, rc_omega_plus, uc_params, num_vertices, template, g, cfiles)
 
 		ax_rc = rc_a
 		ay_rc = 0.0
@@ -60,7 +60,6 @@ def write_scaling_callback_animation(frames, prefix):
 	coord_frames_append = coord_frames.append
 	inds = []
 	inds_append = inds.append
-	norm_coord = np.array([0,0,0])
 	norm_coord_dict = {}
 	fcoord_dict = {}
 
@@ -170,19 +169,16 @@ def write_scaling_callback_animation(frames, prefix):
 				ind1 = int(nl(b[1])) - 1
 				out.write('topo addbond ' + str(ind0) + ' ' + str(ind1) + '\n')
 
-def animate_objective_minimization(callbackresults, prefix, bitrate=1800, fps=30, font_size=16, time=5.0):
+def animate_objective_minimization(callbackresults, prefix, bitrate=3000, fps=30, font_size=16, time=5.0):
 
 	plt.rcParams.update({'font.size': font_size})
 
-	Writer = animation.writers['ffmpeg']
+	Writer = animation.PillowWriter
 	writer = Writer(fps=fps, metadata=dict(artist='Me'), bitrate=bitrate)
 
 	uc_params = []
-	uc_params_append = uc_params.append
 	fX_vals = []
-	fX_vals_append = fX_vals.append
 	res_vals = []
-	res_vals_append = res_vals.append
 
 	max_len = 0
 	max_angle = 0
@@ -218,20 +214,20 @@ def animate_objective_minimization(callbackresults, prefix, bitrate=1800, fps=30
 		def __init__(self):
 			
 			fig = plt.figure(figsize=(16.0,5.5))
-			matplotlib.pyplot.subplots_adjust(left=None, bottom=0.2, right=None, top=None, wspace=0.25, hspace=None)
+			matplotlib.pyplot.subplots_adjust(left=None, bottom=0.2, right=None, top=None, wspace=0.30, hspace=None)
 
 			ax1 = fig.add_subplot(1, 3, 1)
 			ax2 = fig.add_subplot(1, 3, 2)
 			ax3 = fig.add_subplot(1, 3, 3)
 
-			self.t     = iterations
-			self.x     = iterations
-			self.fX    = fX_vals
-			self.a     = uc_params[:,0]
-			self.b     = uc_params[:,1]
-			self.c     = uc_params[:,2]
+			self.t = iterations
+			self.x = iterations
+			self.fX = fX_vals
+			self.a = uc_params[:,0]
+			self.b = uc_params[:,1]
+			self.c = uc_params[:,2]
 			self.alpha = uc_params[:,3]
-			self.beta  = uc_params[:,4]
+			self.beta = uc_params[:,4]
 			self.gamma = uc_params[:,5]
 
 			ax1.set_xlabel('Iterations')
@@ -297,5 +293,5 @@ def animate_objective_minimization(callbackresults, prefix, bitrate=1800, fps=30
 				l.set_data([], [])
 
 	ani = SubplotAnimation()
-	ani.save(prefix + '_ts.mp4')
+	ani.save(prefix + '_ts.gif')
 
