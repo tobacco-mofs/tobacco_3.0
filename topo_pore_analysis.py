@@ -148,7 +148,6 @@ for cif in templates:
 		if spectrum[0] > norm_val:
 			norm_val = spectrum[0]
 
-
 	spec_vals = [s[0] for s in spectrums]/norm_val
 
 	avg_diff = 0
