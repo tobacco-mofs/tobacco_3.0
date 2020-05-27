@@ -55,14 +55,23 @@ RUN_PARALLEL = configuration.RUN_PARALLEL
 
 pi = np.pi
 
-vname_dict = {'V':1  ,'Er':2 ,'Ti':3 ,'Ce':4 ,'S':5  ,
-			  'H':6  ,'He':7 ,'Li':8 ,'Be':9 ,'B':10 ,
-			  'C':11 ,'N':12 ,'O':13 ,'F':14 ,'Ne':15,
+vname_dict = {'V':1,'Er':2,'Ti':3,'Ce':4,'S':5,
+			  'H':6,'He':7,'Li':8,'Be':9,'B':10,
+			  'C':11,'N':12,'O':13,'F':14,'Ne':15,
 			  'Na':16,'Mg':17,'Al':18,'Si':19,'P':20 ,
-			  'Cl':21,'Ar':22,'K':23 ,'Ca':24,'Sc':24,
-			  'Cr':26,'Mn':27,'Fe':28,'Co':29,'Ni':30 }
+			  'Cl':21,'Ar':22,'K':23,'Ca':24,'Sc':24,
+			  'Cr':26,'Mn':27,'Fe':28,'Co':29,'Ni':30}
 
-metal_elements = ['Cu', 'Cr', 'Zn', 'Zr', 'Fe', 'Al']
+metal_elements = ['Ac','Ag','Al','Am','Au','Ba','Be','Bi',
+				  'Bk','Ca','Cd','Ce','Cf','Cm','Co','Cr',
+				  'Cs','Cu','Dy','Er','Es','Eu','Fe','Fm',
+				  'Fr','Ga','Gd','Hf','Hg','Ho','In','Ir',
+				  'K','La','Li','Lr','Lu','Md','Mg','Mn',
+				  'Mo','Na','Nb','Nd','Ni','No','Np','Os',
+				  'Pa','Pb','Pd','Pm','Pr','Pt','Pu','Ra',
+				  'Rb','Re','Rh','Ru','Sc','Sm','Sn','Sr',
+				  'Ta','Tb','Tc','Th','Ti','Tl','Tm','U',
+				  'V','W','Y','Yb','Zn','Zr']
 
 def run_template(template):
 
