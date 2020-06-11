@@ -94,16 +94,19 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 
 					for d in distances:
 						if d[0] < SYM_TOL[coord_num]:
-							sym_assign_append((k[1],d[1]))
+							sym_assign_append((k[1],d[1],d[0]))
 					break
 			print('*', matched, 'compatible building blocks out of', len(node_dict[k]), 'available for node', k[1], '*')
 		print()
 		
 		rearrange = dict((k[1],[]) for k in TVT)
 		for a in sym_assign:
-			rearrange[a[0]].append((a[0],a[1]))
+			rearrange[a[0]].append((a[0],a[1],a[2]))
 
 		va_uncomb = [rearrange[a] for a in rearrange]
+		
+		for i in range(len(va_uncomb)):
+			va_uncomb[i] = sorted(va_uncomb[i], key=lambda x:x[-1])
 
 		va = []
 		va_append = va.append
