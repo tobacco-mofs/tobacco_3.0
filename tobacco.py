@@ -22,6 +22,7 @@ import itertools
 import time
 import glob
 import multiprocessing
+from random import choice
 
 ####### Global options #######
 PRINT = configuration.PRINT
@@ -324,6 +325,9 @@ def run_template(template):
 					print('new net charge (after rescaling):', np.round(netcharge, 5))
 					print('rescaling magnitude             :', np.round(rcb, 5))
 					print()
+
+					remove_net = choice(range(len(fc_placed_all)))
+					fc_placed_all[remove_net][4] -= np.round(netcharge, 4)
 		
 				vnames = '_'.join([v.split('.')[0] for v in v_set])
 		

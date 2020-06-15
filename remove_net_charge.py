@@ -60,7 +60,11 @@ def fix_charges(placed_all):
 
 	for l in fc_placed_all:
 
-		l[4] = round_half_up(l[4], 3)
+		mode = choice(['up','down'])
+		if mode == 'down':
+			l[4] = round_half_down(l[4], 4)
+		else:
+			l[4] = round_half_up(l[4], 4)
 
 	nnet_charge = np.sum([l[4] for l in fc_placed_all])
 
