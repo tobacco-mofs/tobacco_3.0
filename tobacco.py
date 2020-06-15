@@ -322,13 +322,14 @@ def run_template(template):
 					print('Charge information :                       ')
 					print('*******************************************')
 					print('old net charge                  :', np.round(onetcharge, 5))
-					print('new net charge (after rescaling):', np.round(netcharge, 5))
 					print('rescaling magnitude             :', np.round(rcb, 5))
-					print()
 
 					remove_net = choice(range(len(fc_placed_all)))
 					fc_placed_all[remove_net][4] -= np.round(netcharge, 4)
-		
+
+					print('new net charge (after rescaling):', np.sum([li[4] for li in fc_placed_all]))
+					print()
+
 				vnames = '_'.join([v.split('.')[0] for v in v_set])
 		
 				if len(ea) <= 5:
