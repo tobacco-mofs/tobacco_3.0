@@ -7,3 +7,4 @@ build
 .eggs
 test
 back
+tobacco/_*.py
