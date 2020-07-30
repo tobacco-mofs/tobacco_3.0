@@ -25,6 +25,7 @@ import multiprocessing
 from random import choice
 
 ####### Global options #######
+IGNORE_ERRORS = configuration.IGNORE_ERRORS
 PRINT = configuration.PRINT
 ONE_ATOM_NODE_CN = configuration.ONE_ATOM_NODE_CN
 CONNECTION_SITE_BOND_LENGTH = configuration.CONNECTION_SITE_BOND_LENGTH
@@ -378,9 +379,20 @@ def run_template(template):
 def run_tobacco_serial(templates, CHARGES):
 
 	apply_reindex(CHARGES)
-
-	for template in templates:
-		run_template(template)
+	if IGNORE_ERRORS:
+		for template in templates:
+			try:
+				run_template(template)
+			except Exception as e:
+				print()
+				print('*****************************************************************')
+				print('!!!!! ERROR for template :',template, ' !!!!!')      
+				print('!!!!! ',e, ' !!!!!')                                    
+				print('*****************************************************************')
+				print()
+	else:
+		for template in templates:
+			run_template(template)
 
 def run_tobacco_parallel(templates, CHARGES):
 
