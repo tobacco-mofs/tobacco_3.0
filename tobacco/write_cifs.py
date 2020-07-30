@@ -1,11 +1,10 @@
-from __future__ import print_function
 import numpy as np
 import re
 import os
-from ciftemplate2graph import isvert
 import datetime
 import networkx as nx
-from bbcif_properties import iscoord, isbond
+from .ciftemplate2graph import isvert
+from .bbcif_properties import iscoord, isbond
 
 def nn(string):
     return re.sub('[^a-zA-Z]','', string)

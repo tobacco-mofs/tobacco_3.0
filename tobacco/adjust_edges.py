@@ -1,7 +1,7 @@
 import numpy as np
 import re 
 
-from place_bbs import superimpose
+from .place_bbs import superimpose
 
 def PBC3DF_sym(vec1, vec2):
 

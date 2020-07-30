@@ -2,8 +2,8 @@ import numpy as np
 import networkx as nx
 import math
 import re
-from scaled_embedding2coords import omega2coords
-from write_cifs import PBC3DF, PBC3DF_sym
+from .scaled_embedding2coords import omega2coords
+from .write_cifs import PBC3DF, PBC3DF_sym
 
 import matplotlib
 matplotlib.use('Agg')

@@ -1,20 +1,22 @@
-from __future__ import print_function
-from reindex import apply_reindex
-from ciftemplate2graph import ct2g
-from vertex_edge_assign import vertex_assign, assign_node_vecs2edges
-from cycle_cocyle import cycle_cocyle, Bstar_alpha
-from bbcif_properties import cncalc, bbelems
-from SBU_geometry import SBU_coords
-from scale import scale
-from scaled_embedding2coords import omega2coords
-from place_bbs import scaled_node_and_edge_vectors, place_nodes, place_edges
-from remove_net_charge import fix_charges
-from remove_dummy_atoms import remove_Fr
-from adjust_edges import adjust_edges
-from write_cifs import write_check_cif, write_cif, bond_connected_components, distance_search_bond, fix_bond_sym, merge_catenated_cifs
-from scale_animation import scaling_callback_animation, write_scaling_callback_animation, animate_objective_minimization
+from .reindex import apply_reindex
+from .ciftemplate2graph import ct2g
+from .vertex_edge_assign import vertex_assign, assign_node_vecs2edges
+from .cycle_cocyle import cycle_cocyle, Bstar_alpha
+from .bbcif_properties import cncalc, bbelems
+from .SBU_geometry import SBU_coords
+from .scale import scale
+from .scaled_embedding2coords import omega2coords
+from .place_bbs import scaled_node_and_edge_vectors, place_nodes, place_edges
+from .remove_net_charge import fix_charges
+from .remove_dummy_atoms import remove_Fr
+from .adjust_edges import adjust_edges
+from .write_cifs import write_check_cif, write_cif, bond_connected_components, distance_search_bond, fix_bond_sym, merge_catenated_cifs
+from .scale_animation import scaling_callback_animation, write_scaling_callback_animation, animate_objective_minimization
 
-import configuration
+#import configuration
+from monty.collections import  AttrDict
+from monty.serialization import  dumpfn,loadfn
+import argparse
 import os
 import re
 import numpy as np
@@ -22,37 +24,9 @@ import itertools
 import time
 import glob
 import multiprocessing
+import sys
 from random import choice
 
-####### Global options #######
-PRINT = configuration.PRINT
-ONE_ATOM_NODE_CN = configuration.ONE_ATOM_NODE_CN
-CONNECTION_SITE_BOND_LENGTH = configuration.CONNECTION_SITE_BOND_LENGTH
-WRITE_CHECK_FILES = configuration.WRITE_CHECK_FILES
-WRITE_CIF = configuration.WRITE_CIF
-ALL_NODE_COMBINATIONS = configuration.ALL_NODE_COMBINATIONS
-USER_SPECIFIED_NODE_ASSIGNMENT = configuration.USER_SPECIFIED_NODE_ASSIGNMENT
-COMBINATORIAL_EDGE_ASSIGNMENT = configuration.COMBINATORIAL_EDGE_ASSIGNMENT
-CHARGES = configuration.CHARGES
-SCALING_ITERATIONS = configuration.SCALING_ITERATIONS
-SYMMETRY_TOL = configuration.SYMMETRY_TOL
-BOND_TOL = configuration.BOND_TOL
-EXPANSIVE_BOND_SEARCH = configuration.EXPANSIVE_BOND_SEARCH
-TRACE_BOND_MAKING = configuration.TRACE_BOND_MAKING
-NODE_TO_NODE = configuration.NODE_TO_NODE
-SINGLE_ATOM_NODE = configuration.SINGLE_ATOM_NODE
-ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES
-PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
-RECORD_CALLBACK = configuration.RECORD_CALLBACK
-OUTPUT_SCALING_DATA = configuration.OUTPUT_SCALING_DATA
-FIX_UC = configuration.FIX_UC
-PRE_SCALE = configuration.PRE_SCALE
-SCALING_CONVERGENCE_TOLERANCE = configuration.SCALING_CONVERGENCE_TOLERANCE
-SCALING_STEP_SIZE = configuration.SCALING_STEP_SIZE
-SINGLE_METAL_MOFS_ONLY = configuration.SINGLE_METAL_MOFS_ONLY
-MERGE_CATENATED_NETS = configuration.MERGE_CATENATED_NETS
-RUN_PARALLEL = configuration.RUN_PARALLEL
-####### Global options #######
 
 pi = np.pi
 
@@ -81,6 +55,11 @@ def run_template(template):
     print('template :',template)                                          
     print('=========================================================================================================')
     print()
+    outdir=os.path.join(root_dir,'cifs',template[0:-4])
+    if os.path.exists(outdir):
+        pass
+    else:
+        os.mkdir(outdir)
     
     cat_count = 0
     for net in ct2g(template):
@@ -88,7 +67,7 @@ def run_template(template):
         cat_count += 1
         TG, start, unit_cell, TVT, TET, TNAME, a, b, c, ang_alpha, ang_beta, ang_gamma, max_le, catenation = net
 
-        node_cns = [(cncalc(node, 'nodes', ONE_ATOM_NODE_CN), node) for node in os.listdir('nodes')]
+        node_cns = [(cncalc(node, 'nodes', ONE_ATOM_NODE_CN), node) for node in os.listdir(node_dir)]
 
         print('Number of vertices = ', len(TG.nodes()))
         print('Number of edges = ', len(TG.edges()))
@@ -157,9 +136,9 @@ def run_template(template):
         num_vertices = len(TG.nodes())
     
         if COMBINATORIAL_EDGE_ASSIGNMENT:
-            eas = list(itertools.product([e for e in os.listdir('edges')], repeat = len(TET)))
+            eas = list(itertools.product([e for e in os.listdir(edge_dir)], repeat = len(TET)))
         else:
-            edge_files = sorted([e for e in os.listdir('edges')])
+            edge_files = sorted([e for e in os.listdir(edge_dir)])
             eas = []
             i = 0
             while len(eas) < len(TET):
@@ -296,7 +275,11 @@ def run_template(template):
                 print('Bond formation : ')
                 print('*******************************************')
                 
-                fixed_bonds, nbcount, bond_check = bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, BOND_TOL, TRACE_BOND_MAKING, NODE_TO_NODE, EXPANSIVE_BOND_SEARCH, ONE_ATOM_NODE_CN)
+                try:
+                    fixed_bonds, nbcount, bond_check = bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, BOND_TOL, TRACE_BOND_MAKING, NODE_TO_NODE, EXPANSIVE_BOND_SEARCH, ONE_ATOM_NODE_CN)
+                except:
+                    print('skip !')
+                    continue
     
                 print('there were ', nbcount, ' X-X bonds formed')
     
@@ -343,9 +326,9 @@ def run_template(template):
                     enames = str(len(ea)) + '_edges'
                 
                 if catenation:
-                    cifname = template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '_' + 'CAT' + str(cat_count) + '.cif'
+                    cifname = outdir+'/'+ template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '_' + 'CAT' + str(cat_count) + '.cif'
                 else:
-                    cifname = template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '.cif'
+                    cifname = outdir+'/'+ template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '.cif'
         
                 if WRITE_CIF:
                     print('writing cif...')
@@ -393,21 +376,127 @@ def run_tobacco_parallel(templates, CHARGES):
     pool.close()
     pool.join()
 
-start_time = time.time()
+def set_global_vars(args):
+    config=loadfn(args.config)
+    adconfig=AttrDict(config)
+    ####### Global options #######
+    global ALL_NODE_COMBINATIONS
+    global BOND_TOL
+    global CHARGES
+    global COMBINATORIAL_EDGE_ASSIGNMENT
+    global CONNECTION_SITE_BOND_LENGTH
+    global EXPANSIVE_BOND_SEARCH
+    global FIX_UC
+    global MERGE_CATENATED_NETS
+    global NODE_TO_NODE
+    global ONE_ATOM_NODE_CN
+    global ORIENTATION_DEPENDENT_NODES
+    global OUTPUT_SCALING_DATA
+    global PLACE_EDGES_BETWEEN_CONNECTION_POINTS
+    global PRE_SCALE
+    global PRINT
+    global RECORD_CALLBACK
+    global RUN_PARALLEL
+    global SCALING_CONVERGENCE_TOLERANCE
+    global SCALING_ITERATIONS
+    global SCALING_STEP_SIZE
+    global SINGLE_ATOM_NODE
+    global SINGLE_METAL_MOFS_ONLY
+    global SYMMETRY_TOL
+    global TRACE_BOND_MAKING
+    global USER_SPECIFIED_NODE_ASSIGNMENT
+    global WRITE_CHECK_FILES
+    global WRITE_CIF
+    PRINT = adconfig.PRINT
+    ONE_ATOM_NODE_CN = adconfig.ONE_ATOM_NODE_CN
+    CONNECTION_SITE_BOND_LENGTH = adconfig.CONNECTION_SITE_BOND_LENGTH
+    WRITE_CHECK_FILES = adconfig.WRITE_CHECK_FILES
+    WRITE_CIF = adconfig.WRITE_CIF
+    ALL_NODE_COMBINATIONS = adconfig.ALL_NODE_COMBINATIONS
+    USER_SPECIFIED_NODE_ASSIGNMENT = adconfig.USER_SPECIFIED_NODE_ASSIGNMENT
+    COMBINATORIAL_EDGE_ASSIGNMENT = adconfig.COMBINATORIAL_EDGE_ASSIGNMENT
+    CHARGES = adconfig.CHARGES
+    SCALING_ITERATIONS = adconfig.SCALING_ITERATIONS
+    SYMMETRY_TOL = adconfig.SYMMETRY_TOL
+    BOND_TOL = adconfig.BOND_TOL
+    EXPANSIVE_BOND_SEARCH = adconfig.EXPANSIVE_BOND_SEARCH
+    TRACE_BOND_MAKING = adconfig.TRACE_BOND_MAKING
+    NODE_TO_NODE = adconfig.NODE_TO_NODE
+    SINGLE_ATOM_NODE = adconfig.SINGLE_ATOM_NODE
+    ORIENTATION_DEPENDENT_NODES = adconfig.ORIENTATION_DEPENDENT_NODES
+    PLACE_EDGES_BETWEEN_CONNECTION_POINTS = adconfig.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
+    RECORD_CALLBACK = adconfig.RECORD_CALLBACK
+    OUTPUT_SCALING_DATA = adconfig.OUTPUT_SCALING_DATA
+    FIX_UC = adconfig.FIX_UC
+    PRE_SCALE = adconfig.PRE_SCALE
+    SCALING_CONVERGENCE_TOLERANCE = adconfig.SCALING_CONVERGENCE_TOLERANCE
+    SCALING_STEP_SIZE = adconfig.SCALING_STEP_SIZE
+    SINGLE_METAL_MOFS_ONLY = adconfig.SINGLE_METAL_MOFS_ONLY
+    MERGE_CATENATED_NETS = adconfig.MERGE_CATENATED_NETS
+    RUN_PARALLEL = adconfig.RUN_PARALLEL
+    ####### Global options #######
 
-for d in ['templates', 'nodes', 'edges']:
+def main():
+    """
+    Handle main.
+    """
+    parser = argparse.ArgumentParser(
+        description="""Topologically Based Crystal Constructor (ToBaCCo) was developed to
+                       rapidly produce molecular representations of porous crystals 
+                       as crystallographic information (.cif) files, 
+                       which can then be used for molecular simulation or 
+                       for materials characterization.
+                       To see the options, type "tobacco  -h".
+                    """
+    )   
+    parser.add_argument("-c", "--config", default="config.json",
+                        help="configure file")
+
+    parser.add_argument("-n", "--node",default="nodes", 
+                        help="node directory")
+
+    parser.add_argument("-e", "--edge", default="edges",
+                        help="edge directory")
+
+    parser.add_argument("-t", "--template", default="templates",
+                        help="template directory")
+
     try:
-        os.remove(os.path.join(d,'.DS_Store'))
-    except:
+        import argcomplete
+        argcomplete.autocomplete(parser)
+    except ImportError:
+        # argcomplete not present.
         pass
 
-templates = sorted(os.listdir('templates'))
+    args = parser.parse_args()
 
-if RUN_PARALLEL:
-    run_tobacco_parallel(templates, CHARGES)
-else:
-    run_tobacco_serial(templates, CHARGES)
+    set_global_vars(args)
 
-print('Normal termination of Tobacco_3.0 after')
-print('--- %s seconds ---' % (time.time() - start_time))
-print()
+    global node_dir
+    node_dir=args.node
+    global edge_dir
+    edge_dir=args.edge
+    global template_dir
+    template_dir=args.template
+    global root_dir 
+    root_dir=os.getcwd()
+
+
+    start_time = time.time()
+    
+    for d in [node_dir,edge_dir,template_dir]:
+        try:
+            os.remove(os.path.join(d,'.DS_Store'))
+        except:
+            pass
+    
+    templates = sorted(os.listdir(template_dir))
+    
+    if RUN_PARALLEL:
+        run_tobacco_parallel(templates, CHARGES)
+    else:
+        run_tobacco_serial(templates, CHARGES)
+    
+    print('Normal termination of Tobacco_3.0 after')
+    print('--- %s seconds ---' % (time.time() - start_time))
+    print()

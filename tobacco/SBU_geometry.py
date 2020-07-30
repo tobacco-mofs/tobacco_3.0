@@ -1,4 +1,4 @@
-from bbcif_properties import calc_edge_len
+from .bbcif_properties import calc_edge_len
 import numpy as np
 
 def SBU_coords(TG, ea_dict, csbl):

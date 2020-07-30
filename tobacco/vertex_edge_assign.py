@@ -1,10 +1,9 @@
-from __future__ import print_function
 import os
 import itertools
 import numpy as np
-from bbcif_properties import X_vecs
-from place_bbs import superimpose
-from ciftemplate2graph import node_vecs
+from .bbcif_properties import X_vecs
+from .place_bbs import superimpose
+from .ciftemplate2graph import node_vecs
 
 def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COMBINATIONS):
 
