@@ -19,13 +19,14 @@ today = datetime.date.today().strftime("%b-%d-%Y")
 with open(path.join(NAME, '_date.py'), 'w') as fp :
     fp.write('date = \'%s\'' % today)
 
-install_requires=['networkx==2.2','numpy==1.19.1']
+install_requires=['networkx==2.2','numpy==1.19.1', 'monty==3.0.4']
 
 setuptools.setup(
     name=NAME,
     use_scm_version={'write_to': 'tobacco/_version.py'},
     setup_requires=['setuptools_scm'],
     author="Ryther Anderson,Yamil Colón, Diego Gómez-Gualdrón",
+    maintainer="haidi Wang",
     description="MOF generator",
     long_description=readme,
     long_description_content_type="text/markdown",
