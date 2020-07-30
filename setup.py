@@ -19,7 +19,7 @@ today = datetime.date.today().strftime("%b-%d-%Y")
 with open(path.join(NAME, '_date.py'), 'w') as fp :
     fp.write('date = \'%s\'' % today)
 
-install_requires=['networkx==2.2','numpy==1.19.1', 'monty==3.0.4']
+install_requires=['networkx==2.2','numpy==1.19.1','monty==3.0.4']
 
 setuptools.setup(
     name=NAME,
