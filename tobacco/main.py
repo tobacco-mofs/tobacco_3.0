@@ -449,7 +449,7 @@ def main():
                        To see the options, type "tobacco  -h".
                     """
     )   
-    parser.add_argument("-c", "--config", default="config.json",
+    parser.add_argument("-c", "--config", default="config.yaml",
                         help="configure file")
 
     parser.add_argument("-n", "--node",default="nodes", 
