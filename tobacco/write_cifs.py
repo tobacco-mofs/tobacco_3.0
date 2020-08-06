@@ -5,6 +5,7 @@ import datetime
 import networkx as nx
 from .ciftemplate2graph import isvert
 from .bbcif_properties import iscoord, isbond
+from pymatgen import Structure,Lattice
 
 def nn(string):
     return re.sub('[^a-zA-Z]','', string)
@@ -368,12 +369,39 @@ def fix_bond_sym(bonds_all,placed_all,sc_unit_cell):
 
     return fixed_bonds
 
-def write_cif(placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, charges):
+def write_cif(placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, charges,
+               shift=False, dist_filter=0.5, max_natom=600):
 
     sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = scaled_params
+    if shift:
+        zs=0.5
+    else:
+        zs=0.0
 
-    opath = os.path.join('output_cifs', cifname)
+    #opath = os.path.join('cifs', cifname)
+    opath=cifname
+
+    coords=[]
+    sps=[]
+    for l in placed_all:
+        vec = list(map(float, l[1:4]))
+        cvec = np.dot(np.linalg.inv(sc_unit_cell), vec)
+        coord=[np.round(cvec[0],10),np.round(cvec[1],10), np.round(cvec[2],10)]
+        coords.append(coord)
+        sps.append(re.sub('[0-9]','',l[0]))
+    lat=Lattice.from_parameters(sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma)
+    st=Structure(lat,sps,coords)
+    if len(st)>max_natom:
+       return
+
+    st.sort()
+    min_d=st.distance_matrix+np.eye(len(st))*1000
     
+    if min_d.min() < dist_filter:
+        print("! %s",opath)
+        return
+    
+     
     with open(opath, 'w') as out:
         out.write('data_' + cifname[0:-4] + '\n')
         out.write('_audit_creation_date              ' + datetime.datetime.today().strftime('%Y-%m-%d') + '\n')
@@ -398,15 +426,14 @@ def write_cif(placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, cha
         out.write('_atom_site_fract_z' + '\n')
         if charges:
             out.write('_atom_site_charge' + '\n')
-
         for l in placed_all:
             vec = list(map(float, l[1:4]))
             cvec = np.dot(np.linalg.inv(sc_unit_cell), vec)
             if charges:
-                out.write('{:7} {:>4} {:>15} {:>15} {:>15} {:>15}'.format(l[0], re.sub('[0-9]','',l[0]), "%.10f" % np.round(cvec[0],10), "%.10f" % np.round(cvec[1],10), "%.10f" % np.round(cvec[2],10), l[4]))
+                out.write('{:7} {:>4} {:>15} {:>15} {:>15} {:>15}'.format(l[0], re.sub('[0-9]','',l[0]), "%.10f" % (np.round(cvec[0],10)+zs), "%.10f" % (np.round(cvec[1],10)+zs), "%.10f" % (np.round(cvec[2],10)+zs), l[4]))
                 out.write('\n')
             else:
-                out.write('{:7} {:>4} {:>15} {:>15} {:>15}'.format(l[0], re.sub('[0-9]','',l[0]), "%.10f" % np.round(cvec[0],10), "%.10f" % np.round(cvec[1],10), "%.10f" % np.round(cvec[2],10)))
+                out.write('{:7} {:>4} {:>15} {:>15} {:>15}'.format(l[0], re.sub('[0-9]','',l[0]), "%.10f" % (np.round(cvec[0],10)+zs), "%.10f" % (np.round(cvec[1],10)+zs), "%.10f" % (np.round(cvec[2],10)+zs)))
                 out.write('\n')
 
         out.write('loop_' + '\n')
@@ -495,7 +522,7 @@ def cif_read(filename, charges=False):
     return elems, names, ccoords, fcoords, charge_list, bonds, (a,b,c,alpha,beta,gamma), unit_cell
 
 def merge_catenated_cifs(comb, charges):
-    
+    zs=0.5 
     all_read = [cif_read(cif) for cif in comb]
     natoms = [len(c[0]) for c in all_read]
     a,b,c,alpha,beta,gamma = all_read[0][6]

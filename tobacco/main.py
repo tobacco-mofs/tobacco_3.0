@@ -335,7 +335,8 @@ def run_template(template):
                     print()
                     if len(cifname) > 255:
                         cifname = cifname[0:241]+'_truncated.cif'
-                    write_cif(fc_placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, CHARGES)
+                    write_cif(fc_placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, CHARGES, 
+                              SHIFT, MIN_DISTANCE, MAX_NATOM)
 
     if catenation and MERGE_CATENATED_NETS:
         
@@ -407,6 +408,9 @@ def set_global_vars(args):
     global USER_SPECIFIED_NODE_ASSIGNMENT
     global WRITE_CHECK_FILES
     global WRITE_CIF
+    global SHIFT
+    global MIN_DISTANCE
+    global MAX_NATOM
     PRINT = adconfig.PRINT
     ONE_ATOM_NODE_CN = adconfig.ONE_ATOM_NODE_CN
     CONNECTION_SITE_BOND_LENGTH = adconfig.CONNECTION_SITE_BOND_LENGTH
@@ -434,6 +438,9 @@ def set_global_vars(args):
     SINGLE_METAL_MOFS_ONLY = adconfig.SINGLE_METAL_MOFS_ONLY
     MERGE_CATENATED_NETS = adconfig.MERGE_CATENATED_NETS
     RUN_PARALLEL = adconfig.RUN_PARALLEL
+    SHIFT = adconfig.SHIFT
+    MIN_DISTANCE = adconfig.MIN_DISTANCE
+    MAX_NATOM  = adconfig.MAX_NATOM
     ####### Global options #######
 
 def main():
