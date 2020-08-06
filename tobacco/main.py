@@ -26,7 +26,9 @@ import glob
 import multiprocessing
 import sys
 from random import choice
-
+import warnings
+import ruamel
+warnings.simplefilter('ignore', ruamel.yaml.error.MantissaNoDotYAML1_1Warning)
 
 pi = np.pi
 
@@ -55,14 +57,18 @@ def run_template(template):
     print('template :',template)                                          
     print('=========================================================================================================')
     print()
-    outdir=os.path.join(root_dir,'cifs',template[0:-4])
-    if os.path.exists(outdir):
+    cat_count = 0
+    cif_count = 0
+    dir_count = 0
+    rootdir=os.path.join(root_dir,'cifs') #,template[0:-4])
+    outdir=os.path.join(rootdir,template[0:-4]+"-"+str(dir_count))
+    if os.path.exists(rootdir):
         pass
     else:
-        os.mkdir(outdir)
+        os.makedirs(rootdir)
     
-    cat_count = 0
     for net in ct2g(template):
+
 
         cat_count += 1
         TG, start, unit_cell, TVT, TET, TNAME, a, b, c, ang_alpha, ang_beta, ang_gamma, max_le, catenation = net
@@ -326,10 +332,18 @@ def run_template(template):
                     enames = str(len(ea)) + '_edges'
                 
                 if catenation:
-                    cifname = outdir+'/'+ template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '_' + 'CAT' + str(cat_count) + '.cif'
+                    cifname = os.path.join(outdir, template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '_' + 'CAT' + str(cat_count) + '.cif')
                 else:
-                    cifname = outdir+'/'+ template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '.cif'
+                    cifname =os.path.join( outdir,template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '.cif')
         
+                if cif_count > MAX_CIFS_IN_ONE_FOLDER:
+                   dir_count+=1
+                outdir=os.path.join(rootdir,template[0:-4]+"-"+str(dir_count))
+                if os.path.exists(outdir):
+                   pass
+                else:
+                   os.mkdir(outdir)
+
                 if WRITE_CIF:
                     print('writing cif...')
                     print()
@@ -337,6 +351,7 @@ def run_template(template):
                         cifname = cifname[0:241]+'_truncated.cif'
                     write_cif(fc_placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, CHARGES, 
                               SHIFT, MIN_DISTANCE, MAX_NATOM)
+                    cif_count += 1
 
     if catenation and MERGE_CATENATED_NETS:
         
@@ -411,6 +426,7 @@ def set_global_vars(args):
     global SHIFT
     global MIN_DISTANCE
     global MAX_NATOM
+    global MAX_CIFS_IN_ONE_FOLDER
     PRINT = adconfig.PRINT
     ONE_ATOM_NODE_CN = adconfig.ONE_ATOM_NODE_CN
     CONNECTION_SITE_BOND_LENGTH = adconfig.CONNECTION_SITE_BOND_LENGTH
@@ -441,6 +457,7 @@ def set_global_vars(args):
     SHIFT = adconfig.SHIFT
     MIN_DISTANCE = adconfig.MIN_DISTANCE
     MAX_NATOM  = adconfig.MAX_NATOM
+    MAX_CIFS_IN_ONE_FOLDER = adconfig.MAX_CIFS_IN_ONE_FOLDER
     ####### Global options #######
 
 def main():
