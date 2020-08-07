@@ -339,6 +339,7 @@ def run_template(template):
                 if cif_count > MAX_CIFS_IN_ONE_FOLDER:
                    dir_count+=1
                 outdir=os.path.join(rootdir,template[0:-4]+"-"+str(dir_count))
+                cif_count=len(glob.glob(os.path.join(outdir,"*.cif")))
                 if os.path.exists(outdir):
                    pass
                 else:
@@ -351,7 +352,7 @@ def run_template(template):
                         cifname = cifname[0:241]+'_truncated.cif'
                     write_cif(fc_placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, CHARGES, 
                               SHIFT, MIN_DISTANCE, MAX_NATOM)
-                    cif_count += 1
+                    #cif_count += 1
 
     if catenation and MERGE_CATENATED_NETS:
         
