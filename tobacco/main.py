@@ -385,10 +385,10 @@ def run_tobacco_serial(templates, CHARGES):
 def run_tobacco_parallel(templates, CHARGES):
 
     apply_reindex(CHARGES)
-    
-    print('running parallel on', multiprocessing.cpu_count(), 'processors...')
+     
+    print('running parallel on', NCPUS, 'processors...')
     args = [template  for template in templates]
-    pool = multiprocessing.Pool(multiprocessing.cpu_count())
+    pool = multiprocessing.Pool(NCPUS)
     pool.map_async(run_template, args) 
     pool.close()
     pool.join()
@@ -428,6 +428,7 @@ def set_global_vars(args):
     global MIN_DISTANCE
     global MAX_NATOM
     global MAX_CIFS_IN_ONE_FOLDER
+    global NCPUS
     PRINT = adconfig.PRINT
     ONE_ATOM_NODE_CN = adconfig.ONE_ATOM_NODE_CN
     CONNECTION_SITE_BOND_LENGTH = adconfig.CONNECTION_SITE_BOND_LENGTH
@@ -459,6 +460,10 @@ def set_global_vars(args):
     MIN_DISTANCE = adconfig.MIN_DISTANCE
     MAX_NATOM  = adconfig.MAX_NATOM
     MAX_CIFS_IN_ONE_FOLDER = adconfig.MAX_CIFS_IN_ONE_FOLDER
+    try:
+       NCPUS=adconfig.NCPUS
+    except:
+       NCPUS=multiprocessing.cpu_count()
     ####### Global options #######
 
 def main():
