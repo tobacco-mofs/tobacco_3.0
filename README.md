@@ -28,14 +28,46 @@ Finally, install the above packages, thus:
 conda install numpy
 conda install networkx
 conda install scipy
+python setup.py install 
 ```
 Once these are installed you can clone or download the repository and start running ToBaCCo.
 
 # Usage
-Execute the tobacco.py file to run ToBaCCo:
+Execute the tobacco command to run ToBaCCo:
 ```
-python tobacco.py
+tobacco -h
 ```
+it will shows
+
+```
+usage: tobacco [-h] [-c CONFIG] [-n NODE] [-e EDGE] [-t TEMPLATE]
+
+Topologically Based Crystal Constructor (ToBaCCo) was developed to rapidly
+produce molecular representations of porous crystals as crystallographic
+information (.cif) files, which can then be used for molecular simulation or
+for materials characterization. To see the options, type "tobacco -h".
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config CONFIG
+                        configure file
+  -n NODE, --node NODE  node directory
+  -e EDGE, --edge EDGE  edge directory
+  -t TEMPLATE, --template TEMPLATE
+                        template directory
+```
+
+to run a real example , you may to to example directory, then use following command
+```
+mkdir cifs
+tobacco 
+```
+or
+```
+mkdir cifs
+tobacco -c config.yaml -n nodes -e edges -t templates
+```
+
 For more details on ToBaCCo inputs, outputs, and configuration see the ToBaCCo_manual.pdf included with the repository.
 
 # License
