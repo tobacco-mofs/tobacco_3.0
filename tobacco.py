@@ -88,6 +88,9 @@ def run_template(template):
 		cat_count += 1
 		TG, start, unit_cell, TVT, TET, TNAME, a, b, c, ang_alpha, ang_beta, ang_gamma, max_le, catenation = net
 
+		TVT = sorted(TVT, key=lambda x:x[0], reverse=True)
+		TET = sorted(TET, reverse=True)
+
 		node_cns = [(cncalc(node, 'nodes', ONE_ATOM_NODE_CN), node) for node in os.listdir('nodes')]
 
 		print('Number of vertices = ', len(TG.nodes()))
@@ -204,8 +207,8 @@ def run_template(template):
 				print('edge assignment : ',ea)
 				print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
 				print()
-	
-				type_assign = dict((k,[]) for k in TET)
+				
+				type_assign = dict((k,[]) for k in sorted(TET, reverse=True))
 				for k,m in zip(TET,ea):
 					type_assign[k] = m
 		

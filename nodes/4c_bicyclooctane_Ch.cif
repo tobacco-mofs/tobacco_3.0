@@ -1,0 +1,56 @@
+data_4c_bicyclooctane_Ch
+_audit_creation_date              2020-06-15
+_audit_creation_method            'tobacco_3.0'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    10.0000
+_cell_length_b                    10.0000
+_cell_length_c                    10.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+X1         C    0.0364600000    0.1655800000   -0.0087900000   0.00000  Uiso   1.00         0.86785
+C2         C    0.1101000000    0.0737300000   -0.1081500000   0.00000  Uiso   1.00        -0.53453
+X3         C    0.0760600000   -0.0763800000   -0.1014900000   0.00000  Uiso   1.00         0.09708
+C4         C   -0.0260800000   -0.1191200000    0.0057000000   0.00000  Uiso   1.00         0.20660
+C5         C   -0.1104800000    0.1257700000   -0.0326400000   0.00000  Uiso   1.00        -0.54174
+X6         C   -0.1434700000   -0.0245300000   -0.0257300000   0.00000  Uiso   1.00         0.09813
+C7         C    0.0658600000    0.0953200000    0.1250500000   0.00000  Uiso   1.00        -0.53709
+X8         C    0.0320300000   -0.0547500000    0.1330100000   0.00000  Uiso   1.00         0.10382
+H9         H    0.1853400000    0.1147900000   -0.1833100000   0.00000  Uiso   1.00         0.14899
+H10        H   -0.0502200000   -0.2303700000    0.0114900000   0.00000  Uiso   1.00         0.00639
+H11        H   -0.1907500000    0.2038000000   -0.0541000000   0.00000  Uiso   1.00         0.15203
+H12        H    0.1105900000    0.1514600000    0.2136100000   0.00000  Uiso   1.00         0.14992
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+H9           C2 1.140       .   S
+H10          C4 1.140       .   S
+H11          C5 1.140       .   S
+H12          C7 1.140       .   S
+X8           C7 1.540       .   D
+X8           C4 1.540       .   S
+X3           C2 1.541       .   D
+X3           C4 1.541       .   S
+C2           X1 1.541       .   S
+X1           C7 1.540       .   S
+X1           C5 1.541       .   S
+X6           C5 1.540       .   D
+X6           C4 1.540       .   S
