@@ -1,5 +1,6 @@
 import numpy as np
-from bbcif_properties import bb2array, X_vecs, bbbonds, bbcharges, calc_edge_len
+from numpy.linalg import norm
+from bbcif_properties import bb2array, X_vecs, bbbonds, bbcharges
 from Bio import SVDSuperimposer
 
 import itertools
@@ -18,6 +19,49 @@ def match_vectors(a1,a2,num):
 	
 	return vecs1,vecs2
 
+def mag_superimpose(a1,a2):
+	
+	sup = SVDSuperimposer()
+
+	a1 = np.asarray(a1)
+	a2 = np.asarray(a2)
+	mags = [norm(v) for v in a2]
+
+	if len(a1) <= 7:
+
+		min_dist = (1.0E6, 'foo', 'bar')
+		
+		for l in itertools.permutations(a1):
+
+			p = np.array([m*v/norm(v) for m,v in zip(mags,l)])
+			sup.set(a2,p)
+			sup.run()
+			rot,tran = sup.get_rotran()
+			rms = sup.get_rms()
+
+			if rms < min_dist[0]:
+				min_dist = (rms,rot,tran)
+	
+	else:
+
+		a1,a2 = match_vectors(a1,a2,6)
+		mags = [norm(v) for v in a2]
+		
+		min_dist = (1.0E6, 'foo', 'bar')
+		
+		for l in itertools.permutations(a1):
+
+			p = np.array([m*v/norm(v) for m,v in zip(mags,l)])
+			sup.set(a2,p)
+			sup.run()
+			rot,tran = sup.get_rotran()
+			rms = sup.get_rms()
+		
+			if rms < min_dist[0]:
+				min_dist = (rms,rot,tran)
+
+	return min_dist
+
 def superimpose(a1,a2):
 	
 	sup = SVDSuperimposer()
@@ -30,11 +74,11 @@ def superimpose(a1,a2):
 		min_dist = (1.0E6, 'foo', 'bar')
 		
 		for l in itertools.permutations(a1):
+
 			p = np.asarray(l)
 			sup.set(a2,p)
 			sup.run()
 			rot,tran = sup.get_rotran()
-			aff_a1 = np.dot(l,rot) + tran
 			rms = sup.get_rms()
 
 			if rms < min_dist[0]:
@@ -42,11 +86,11 @@ def superimpose(a1,a2):
 	
 	else:
 
-		a1,a2 = match_vectors(a1,a2,6)
-		
+		a1,a2 = match_vectors(a1,a2,6)		
 		min_dist = (1.0E6, 'foo', 'bar')
 		
 		for l in itertools.permutations(a1):
+
 			p = np.asarray(l)
 			sup.set(a2,p)
 			sup.run()
@@ -59,19 +103,24 @@ def superimpose(a1,a2):
 	return min_dist
 
 def scaled_node_and_edge_vectors(sc_coords, sc_omega_plus, sc_unit_cell, ea_dict):
+
 	nvecs = []
 	evecs = []
 	already_placed_edges = []
 	nvecs_append = nvecs.append
 	evecs_append = evecs.append
 	already_placed_edges_append = already_placed_edges.append
+
 	for n in sc_coords:
+
 		vertex,vcif,vfvec,indicent_edges = n
 		vcvec = np.dot(sc_unit_cell, vfvec)
 
 		ie = []
 		ie_append = ie.append
+
 		for e in indicent_edges:
+
 			ind = e[0]
 			positive_direction = e[1]
 			ecif = e[2]
@@ -86,15 +135,15 @@ def scaled_node_and_edge_vectors(sc_coords, sc_omega_plus, sc_unit_cell, ea_dict
 			dxn = ea_dict[vertex][ind][1]
 			dxon = ea_dict[on][ind][1]
 
-			LE = calc_edge_len(ecif, 'edges')
-
 			ie_append((ind, direction, ecif, dxn, dxon))
 
 		efvec = []
 		ecvec = []
 		efvec_append = efvec.append
 		ecvec_append = ecvec.append
+
 		for e in ie:
+
 			ind, d, ecif, dxn, dxon = e
 			cs = np.dot(sc_unit_cell, sc_omega_plus[ind - 1])
 			fvec = vfvec + d * sc_omega_plus[ind - 1]
@@ -107,6 +156,7 @@ def scaled_node_and_edge_vectors(sc_coords, sc_omega_plus, sc_unit_cell, ea_dict
 			
 			ecvec_append(cvec)
 			efvec_append(fvec)
+
 			if ind not in already_placed_edges:
 				evecs_append((ind, ecif, ecoords, np.array([vcvec,cvec])))
 				already_placed_edges_append(ind)
@@ -123,22 +173,24 @@ def place_nodes(nvecs, charges, ORIENTATION_DEPENDENT_NODES):
 	all_bonds_extend = all_bonds.extend
 	ind_seg = 0
 	bbind = 1
+
 	for n in nvecs:
+
 		bbind = bbind + 1
 		name,cvec,cif,nvec = n
-		ncom = np.average(nvec, axis=0)
 		ll = 0
+
 		for v in nvec:
 			mag = np.linalg.norm(v - np.average(nvec, axis = 0))
 			if mag > ll:
 				ll = mag
 
-		bbxvec  = np.array(X_vecs(cif,'nodes',False))
+		bbxvec = np.array(X_vecs(cif,'nodes',False))
 
-		if ORIENTATION_DEPENDENT_NODES:
-			nbbxvec = bbxvec
-		else:
-			nbbxvec = np.array([ll*(v / np.linalg.norm(v)) for v in bbxvec])
+		#if ORIENTATION_DEPENDENT_NODES:
+		nbbxvec = bbxvec
+		#else:
+		#	nbbxvec = np.array([ll*(v / np.linalg.norm(v)) for v in bbxvec])
 
 		min_dist,rot,tran = superimpose(nbbxvec,nvec)
 
@@ -186,11 +238,13 @@ def place_edges(evecs, charges, nnodes):
 	all_bonds_extend = all_bonds.extend
 	ind_seg = nnodes
 	bbind = -1
+
 	for e in evecs:
+
 		bbind = bbind - 1
 		index,cif,ecoords,evec=e
-		ecom = np.average(evec, axis=0)
 		ll = 0
+
 		for v in evec:
 			mag = np.linalg.norm(v - np.average(evec, axis = 0))
 			if mag > ll:

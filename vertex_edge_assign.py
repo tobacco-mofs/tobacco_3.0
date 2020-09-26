@@ -3,8 +3,9 @@ import os
 import itertools
 import numpy as np
 from bbcif_properties import X_vecs
-from place_bbs import superimpose
+from place_bbs import superimpose, mag_superimpose
 from ciftemplate2graph import node_vecs
+import warnings
 
 def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COMBINATIONS):
 
@@ -131,7 +132,7 @@ def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COM
 					
 	return va
 
-def assign_node_vecs2edges(TG, unit_cell, SYM_TOL):
+def assign_node_vecs2edges(TG, unit_cell, SYM_TOL, template_name):
 	
 	edge_assign_dict = dict((k,{}) for k in TG.nodes())
 
@@ -139,45 +140,69 @@ def assign_node_vecs2edges(TG, unit_cell, SYM_TOL):
 
 		name,ndict = n
 		cif = ndict['cifname']
-		bbx = X_vecs(cif, 'nodes', True)
-		nod = node_vecs(n[0], TG, unit_cell, True)
 
-		bbxlabels = np.array([l[0] for l in bbx])
-		nodlabels = np.array([l[0] for l in nod])
+		bbxlabels = np.array([l[0] for l in X_vecs(cif, 'nodes', True)])
+		nodlabels = np.array([l[0] for l in node_vecs(n[0], TG, unit_cell, True)])
 
-		bbxvec = np.array([l[1] for l in bbx])
+		bbxvec = X_vecs(cif, 'nodes', False)
+		nodvec = node_vecs(n[0], TG, unit_cell, False)
 		
-		ll = 0
-		for v in bbxvec:
-			mag = np.linalg.norm(v - np.average(bbxvec, axis = 0))
-			if mag > ll:
-				ll = mag
-
-		nodvec = np.array([mag * (l[1]/np.linalg.norm(l[1])) for l in nod])
-
-		rmsd,rot,tran = superimpose(bbxvec, nodvec)
-
+		rmsd,rot,tran = mag_superimpose(bbxvec, nodvec)
 		aff_b = np.dot(bbxvec,rot) + tran
-
 		laff_b = np.c_[bbxlabels,aff_b]
 		lnodvec = np.c_[nodlabels,nodvec]
 		
 		asd = []
 		asd_append = asd.append
-		for v1 in laff_b:
-			smallest_dist = (1.0E6, 'foo', 'bar')
+
+		distance_matrix = np.zeros((len(laff_b),len(laff_b)))
+		nrow = ncol = len(laff_b)
+		
+		for i in range(nrow):
+			for j in range(ncol):
+		
+				v1 = laff_b[i]
+				v1vec = np.array([float(q) for q in v1[1:]])
+		
+				v2 = lnodvec[j]
+				v2vec = np.array([float(q) for q in v2[1:]])
+		
+				dist = np.linalg.norm(v1vec - v2vec)
+				distance_matrix[i,j] += dist
+		
+		distances = []
+		for i in range(nrow):
+			for j in range(ncol):
+				distances.append((distance_matrix[i,j],i,j))
+		distances = sorted(distances, key=lambda x:x[0])
+		
+		used_edges = []
+		
+		for dist in distances:
+		
+			v1 = laff_b[dist[1]]
 			v1vec = np.array([float(q) for q in v1[1:]])
 			mag = np.linalg.norm(v1vec)
-			for v2 in lnodvec:
-				dist = np.linalg.norm(v1vec - v2[1:])
-				if dist < smallest_dist[0]:
-					smallest_dist = (dist, v1[0], int(v2[0]), mag, v1vec)
+		
+			v2 = lnodvec[dist[2]]
+			ind = int(v2[0])
+		
+			edge_assign = ind
+		
+			if edge_assign not in used_edges:
 
-			asd_append(smallest_dist)
+				used_edges.append(edge_assign)
+				asd_append([ind, v1[0], mag, v1vec, dist[0]])
+
+				if dist[0] > 1.0:
+					message = "There is a nodular building block vector that deviates from its assigned edge by more than 1.0 Å\nthis may be fixed during scaling, but don't count on it!\n"
+					message = message + "the deviation is for " + cif + " assigned to " + name + " for template " + template_name
+					warnings.warn(message)
 			
-		elad = dict((k[2], (k[1],k[3],k[4])) for k in asd)
+			if len(used_edges) == ncol:
+				break
 
+		elad = dict((k[0], (k[1],k[2],k[3])) for k in asd)
 		edge_assign_dict[name] = elad
 					
 	return edge_assign_dict
-	

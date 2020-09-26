@@ -130,7 +130,7 @@ def run_template(template):
 	
 		vas = vertex_assign(TG, TVT, node_cns, unit_cell, ONE_ATOM_NODE_CN, USER_SPECIFIED_NODE_ASSIGNMENT, SYMMETRY_TOL, ALL_NODE_COMBINATIONS)
 		CB,CO = cycle_cocyle(TG)
-		
+
 		for va in vas:
 			if len(va) == 0:
 				print('At least one vertex does not have a building block with the correct number of connection sites.')
@@ -218,8 +218,7 @@ def run_template(template):
 						if ty == k or (ty[1],ty[0]) == k:
 							e[2]['cifname'] = type_assign[k]
 		
-				ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL)
-					
+				ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL, template)
 				all_SBU_coords = SBU_coords(TG, ea_dict, CONNECTION_SITE_BOND_LENGTH)
 				sc_a, sc_b, sc_c, sc_alpha, sc_beta, sc_gamma, sc_covar, Bstar_inv, max_length, callbackresults, ncra, ncca, scaling_data = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE,SCALING_STEP_SIZE)
 		

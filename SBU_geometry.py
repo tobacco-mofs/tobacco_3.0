@@ -12,11 +12,9 @@ def SBU_coords(TG, ea_dict, csbl):
 		xvecs = []
 		xvecs_append = xvecs.append
 
-		for e in TG.edges(data=True):
+		for e0, e1, edict in TG.edges(data=True):
 
-			edict = e[2]
-
-			if vertex in e:
+			if vertex in (e0,e1):
 
 				ecif = edict['cifname']
 				positive_direction = edict['pd']
@@ -29,7 +27,7 @@ def SBU_coords(TG, ea_dict, csbl):
 				else:
 					direction = -1
 					ov = positive_direction[0]
-					
+				
 				xvecname,dx_v,xvec = ea_dict[vertex][ind]
 				dx_ov = ea_dict[ov][ind][1]
 
