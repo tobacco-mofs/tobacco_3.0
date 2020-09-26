@@ -1,5 +1,4 @@
 from __future__ import print_function
-from reindex import apply_reindex
 from ciftemplate2graph import ct2g
 from vertex_edge_assign import vertex_assign, assign_node_vecs2edges
 from cycle_cocyle import cycle_cocyle, Bstar_alpha
@@ -25,7 +24,7 @@ import multiprocessing
 from random import choice
 
 ####### Global options #######
-IGNORE_ERRORS = configuration.IGNORE_ERRORS
+IGNORE_ALL_ERRORS = configuration.IGNORE_ALL_ERRORS
 PRINT = configuration.PRINT
 ONE_ATOM_NODE_CN = configuration.ONE_ATOM_NODE_CN
 CONNECTION_SITE_BOND_LENGTH = configuration.CONNECTION_SITE_BOND_LENGTH
@@ -381,16 +380,16 @@ def run_template(template):
 
 def run_tobacco_serial(templates, CHARGES):
 
-	apply_reindex(CHARGES)
-	if IGNORE_ERRORS:
+	if IGNORE_ALL_ERRORS:
 		for template in templates:
 			try:
 				run_template(template)
 			except Exception as e:
 				print()
 				print('*****************************************************************')
-				print('!!!!! ERROR for template :',template, ' !!!!!')      
-				print('!!!!! ',e, ' !!!!!')                                    
+				print('ERROR for template :',template)      
+				print('error message:',e)
+				print('continuing to next template...')                          
 				print('*****************************************************************')
 				print()
 	else:
@@ -398,8 +397,6 @@ def run_tobacco_serial(templates, CHARGES):
 			run_template(template)
 
 def run_tobacco_parallel(templates, CHARGES):
-
-	apply_reindex(CHARGES)
 	
 	print('running parallel on', multiprocessing.cpu_count(), 'processors...')
 	args = [template  for template in templates]
