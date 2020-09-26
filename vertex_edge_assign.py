@@ -2,6 +2,7 @@ from __future__ import print_function
 import os
 import itertools
 import numpy as np
+from numpy.linalg import norm
 from bbcif_properties import X_vecs
 from place_bbs import superimpose, mag_superimpose
 from ciftemplate2graph import node_vecs
@@ -163,9 +164,11 @@ def assign_node_vecs2edges(TG, unit_cell, SYM_TOL, template_name):
 		
 				v1 = laff_b[i]
 				v1vec = np.array([float(q) for q in v1[1:]])
+				v1vec /= norm(v1vec)
 		
 				v2 = lnodvec[j]
 				v2vec = np.array([float(q) for q in v2[1:]])
+				v2vec /= norm(v2vec)
 		
 				dist = np.linalg.norm(v1vec - v2vec)
 				distance_matrix[i,j] += dist
@@ -193,9 +196,9 @@ def assign_node_vecs2edges(TG, unit_cell, SYM_TOL, template_name):
 
 				used_edges.append(edge_assign)
 				asd_append([ind, v1[0], mag, v1vec, dist[0]])
-
-				if dist[0] > 1.0:
-					message = "There is a nodular building block vector that deviates from its assigned edge by more than 1.0 Å\nthis may be fixed during scaling, but don't count on it!\n"
+				
+				if dist[0] > 0.60:
+					message = "There is a nodular building block vector that deviates from its assigned edge by more large\nthis may be fixed during scaling, but don't count on it!\n"
 					message = message + "the deviation is for " + cif + " assigned to " + name + " for template " + template_name
 					warnings.warn(message)
 			
