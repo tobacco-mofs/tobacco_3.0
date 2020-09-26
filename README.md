@@ -18,7 +18,8 @@ To set up a Python X.7 environment first install Anaconda. After installing Anac
 ```
 conda create --name my_tobacco python=X.7
 ```
-where my_tobacco is the name of the environment and X is 2 or 3, which can be changed to whatever you like. Next, load your new environment:
+where my_tobacco is the name of the environment (which can be changed to whatever you like) and X is 2 or 3. ToBaCCo will probably work with Python 3.Y, but has only been tested for 3.7 and 3.8.
+Next, load your new environment:
 ```
 conda activate my_tobacco
 ```
