@@ -1,0 +1,80 @@
+6c_Fe_1
+_audit_creation_date              2020-06-09
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+Fe1     Fe        0.53169      0.47843      0.49833      0.00000   Uiso   1.00      1.65778
+Fe2     Fe        0.46690      0.48300      0.50078      0.00000   Uiso   1.00      1.73249
+Fe3     Fe        0.50267      0.53890      0.50022      0.00000   Uiso   1.00      1.54415
+O4      O         0.53786      0.53792      0.52511      0.00000   Uiso   1.00     -0.81378
+O5      O         0.45280      0.50190      0.46931      0.00000   Uiso   1.00     -0.79683
+O6      O         0.55037      0.49651      0.53048      0.00000   Uiso   1.00     -0.83884
+O7      O         0.55188      0.50179      0.47218      0.00000   Uiso   1.00     -0.78740
+O8      O         0.47732      0.54267      0.53361      0.00000   Uiso   1.00     -0.80514
+O9      O         0.47590      0.45291      0.47524      0.00000   Uiso   1.00     -0.83258
+X10     C         0.54634      0.52314      0.46069      0.00000   Uiso   1.00      0.97507
+X11     C         0.54978      0.52122      0.53657      0.00000   Uiso   1.00      1.04946
+O12     O         0.49889      0.49827      0.50039      0.00000   Uiso   1.00     -1.12241
+O13     O         0.47566      0.46038      0.53288      0.00000   Uiso   1.00     -0.74674
+O14     O         0.51876      0.44880      0.52406      0.00000   Uiso   1.00     -0.78160
+O15     O         0.52770      0.53963      0.46599      0.00000   Uiso   1.00     -0.78849
+X16     C         0.49698      0.44843      0.53743      0.00000   Uiso   1.00      0.96411
+O17     O         0.51950      0.45521      0.46655      0.00000   Uiso   1.00     -0.76806
+O18     O         0.44913      0.50825      0.52607      0.00000   Uiso   1.00     -0.82000
+X19     C         0.45372      0.52741      0.46395      0.00000   Uiso   1.00      0.99034
+X20     C         0.45714      0.52885      0.53841      0.00000   Uiso   1.00      1.04951
+O21     O         0.46814      0.54352      0.47478      0.00000   Uiso   1.00     -0.77644
+X22     C         0.49735      0.44811      0.46168      0.00000   Uiso   1.00      1.03251
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+Fe1     O17        2.060 .   S  
+Fe1     O7         2.023 .   S  
+Fe1     O12        1.920 .   S  
+Fe1     O14        2.066 .   S  
+Fe1     O6         2.067 .   S  
+Fe2     O5         1.966 .   S  
+Fe2     O9         2.024 .   S  
+Fe2     O13        2.012 .   S  
+Fe2     O18        1.996 .   S  
+Fe2     O12        1.772 .   S  
+Fe3     O21        2.157 .   S  
+Fe3     O8         2.105 .   S  
+Fe3     O15        2.120 .   S  
+Fe3     O12        2.040 .   S  
+Fe3     O4         2.156 .   S  
+O4      X11        1.175 .   A  
+O5      X19        1.304 .   A  
+O6      X11        1.273 .   A  
+O7      X10        1.243 .   A  
+O8      X20        1.246 .   A  
+O9      X22        1.291 .   A  
+X10     O15        1.272 .   A  
+O13     X16        1.243 .   A  
+O14     X16        1.278 .   A  
+O17     X22        1.188 .   A  
+O18     X20        1.266 .   A  
+X19     O21        1.209 .   A  

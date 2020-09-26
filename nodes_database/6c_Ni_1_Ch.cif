@@ -1,0 +1,89 @@
+6c_Ni_1
+_audit_creation_date              2020-06-09
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+O1      O         0.53967      0.43642      0.50741      0.00000   Uiso   1.00     -0.80595
+O2      O         0.44068      0.52726      0.51047      0.00000   Uiso   1.00     -0.65284
+O3      O         0.50008      0.47584      0.48923      0.00000   Uiso   1.00     -1.11886
+X4      C         0.56154      0.55173      0.50556      0.00000   Uiso   1.00      1.06294
+O5      O         0.46033      0.56358      0.49258      0.00000   Uiso   1.00     -0.78492
+O6      O         0.50701      0.55203      0.45934      0.00000   Uiso   1.00     -0.66073
+Ni7     Ni        0.49873      0.43828      0.50138      0.00000   Uiso   1.00      1.34868
+X8      C         0.52039      0.53410      0.44847      0.00000   Uiso   1.00      0.85030
+O9      O         0.43822      0.47313      0.49240      0.00000   Uiso   1.00     -0.79031
+O10     O         0.45886      0.43383      0.49546      0.00000   Uiso   1.00     -0.89306
+X11     C         0.44071      0.55120      0.50219      0.00000   Uiso   1.00      0.84603
+O12     O         0.49299      0.44797      0.54066      0.00000   Uiso   1.00     -0.67508
+O13     O         0.54114      0.56617      0.50454      0.00000   Uiso   1.00     -0.86796
+X14     C         0.47961      0.46590      0.55153      0.00000   Uiso   1.00      0.85433
+X15     C         0.43846      0.44827      0.49444      0.00000   Uiso   1.00      1.07001
+H16     H         0.50061      0.52471      0.53037      0.00000   Uiso   1.00      0.38804
+O17     O         0.49992      0.52416      0.51077      0.00000   Uiso   1.00     -1.09455
+O18     O         0.53158      0.51474      0.46026      0.00000   Uiso   1.00     -0.66107
+Ni19    Ni        0.53106      0.50111      0.49894      0.00000   Uiso   1.00      1.26346
+O20     O         0.46842      0.48526      0.53974      0.00000   Uiso   1.00     -0.66335
+O21     O         0.56178      0.52687      0.50760      0.00000   Uiso   1.00     -0.78627
+X22     C         0.55929      0.44880      0.49781      0.00000   Uiso   1.00      0.84816
+O23     O         0.55932      0.47275      0.48953      0.00000   Uiso   1.00     -0.65804
+Ni24    Ni        0.50127      0.56172      0.49862      0.00000   Uiso   1.00      1.27449
+Ni25    Ni        0.46894      0.49889      0.50106      0.00000   Uiso   1.00      1.26060
+H26     H         0.49939      0.47529      0.46963      0.00000   Uiso   1.00      0.39359
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+O1      Ni7        2.071 .   S  
+O1      X22        1.255 .   A  
+O2      Ni25       2.056 .   S  
+O2      X11        1.267 .   A  
+O3      Ni7        1.975 .   S  
+O3      Ni25       2.026 .   S  
+O3      H26        0.981 .   S  
+O3      Ni19       2.057 .   S  
+X4      O21        1.248 .   A  
+X4      O13        1.251 .   A  
+O5      X11        1.255 .   A  
+O5      Ni24       2.071 .   S  
+O6      X8         1.244 .   A  
+O6      Ni24       2.043 .   S  
+Ni7     O10        2.027 .   S  
+Ni7     O12        2.043 .   S  
+X8      O18        1.264 .   A  
+O9      X15        1.248 .   A  
+O9      Ni25       2.051 .   S  
+O10     X15        1.251 .   A  
+O12     X14        1.244 .   A  
+O13     Ni24       2.027 .   S  
+X14     O20        1.264 .   A  
+H16     O17        0.981 .   S  
+O17     Ni25       2.057 .   S  
+O17     Ni19       2.026 .   S  
+O17     Ni24       1.975 .   S  
+O18     Ni19       2.051 .   S  
+Ni19    O23        2.056 .   S  
+Ni19    O21        2.051 .   S  
+O20     Ni25       2.051 .   S  
+X22     O23        1.267 .   A  

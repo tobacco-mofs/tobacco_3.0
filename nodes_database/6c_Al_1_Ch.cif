@@ -1,0 +1,80 @@
+6c_Al_1
+_audit_creation_date              2020-06-09
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+O1      O         0.54192      0.51047      0.46597      0.00000   Uiso   1.00     -0.81501
+X2      C         0.44223      0.49706      0.51638      0.00000   Uiso   1.00      0.97853
+O3      O         0.44559      0.49669      0.49235      0.00000   Uiso   1.00     -0.70618
+O4      O         0.47175      0.53529      0.47067      0.00000   Uiso   1.00     -0.74210
+Al5     Al        0.47747      0.49799      0.47087      0.00000   Uiso   1.00      1.48979
+X6      C         0.48806      0.55377      0.47560      0.00000   Uiso   1.00      0.93107
+O7      O         0.52082      0.53658      0.53362      0.00000   Uiso   1.00     -0.80431
+O8      O         0.52989      0.46116      0.52827      0.00000   Uiso   1.00     -0.73989
+Al9     Al        0.52841      0.52138      0.50001      0.00000   Uiso   1.00      1.90119
+O10     O         0.50445      0.50067      0.55508      0.00000   Uiso   1.00     -0.73057
+O11     O         0.48312      0.44494      0.50730      0.00000   Uiso   1.00     -0.72908
+O12     O         0.45932      0.48714      0.53349      0.00000   Uiso   1.00     -0.78569
+O13     O         0.47754      0.46147      0.46613      0.00000   Uiso   1.00     -0.76772
+O14     O         0.50044      0.49826      0.49983      0.00000   Uiso   1.00     -1.12905
+O15     O         0.50478      0.50088      0.44389      0.00000   Uiso   1.00     -0.72100
+X16     C         0.52917      0.50417      0.44508      0.00000   Uiso   1.00      0.98617
+X17     C         0.51252      0.52424      0.55443      0.00000   Uiso   1.00      0.95014
+Al18    Al        0.49440      0.47558      0.52788      0.00000   Uiso   1.00      1.55559
+O19     O         0.51084      0.55159      0.48487      0.00000   Uiso   1.00     -0.76722
+X20     C         0.47737      0.44253      0.48337      0.00000   Uiso   1.00      0.99181
+X21     C         0.55165      0.47365      0.52469      0.00000   Uiso   1.00      0.94061
+O22     O         0.55282      0.49777      0.51580      0.00000   Uiso   1.00     -0.82042
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+O1      X16        1.264 .   A  
+O1      Al9        1.910 .   S  
+X2      O12        1.307 .   A  
+X2      O3         1.213 .   A  
+O3      Al5        1.923 .   S  
+O4      Al5        1.887 .   S  
+O4      X6         1.257 .   A  
+Al5     O13        1.841 .   S  
+Al5     O14        1.849 .   S  
+Al5     O15        1.925 .   S  
+X6      O19        1.234 .   A  
+O7      Al9        1.883 .   S  
+O7      X17        1.279 .   A  
+O8      Al18       1.915 .   S  
+O8      X21        1.267 .   A  
+Al9     O14        1.814 .   S  
+Al9     O22        1.873 .   S  
+Al9     O19        1.904 .   S  
+O10     Al18       1.918 .   S  
+O10     X17        1.246 .   A  
+O11     X20        1.236 .   A  
+O11     Al18       1.930 .   S  
+O12     Al18       1.868 .   S  
+O13     X20        1.281 .   A  
+O14     Al18       1.829 .   S  
+O15     X16        1.232 .   A  
+X21     O22        1.287 .   A  

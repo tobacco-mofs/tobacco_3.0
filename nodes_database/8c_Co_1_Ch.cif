@@ -1,0 +1,96 @@
+8c_Co_1
+_audit_creation_date              2020-06-09
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+O1      O         0.47284      0.44390      0.47310      0.00000   Uiso   1.00     -0.79840
+O2      O         0.52728      0.55614      0.47328      0.00000   Uiso   1.00     -0.79864
+O3      O         0.44394      0.52724      0.47309      0.00000   Uiso   1.00     -0.79871
+O4      O         0.55617      0.47280      0.47329      0.00000   Uiso   1.00     -0.79814
+O5      O         0.47284      0.55614      0.47317      0.00000   Uiso   1.00     -0.79937
+O6      O         0.52728      0.44390      0.47321      0.00000   Uiso   1.00     -0.79856
+O7      O         0.55617      0.52724      0.47332      0.00000   Uiso   1.00     -0.79840
+O8      O         0.44394      0.47280      0.47306      0.00000   Uiso   1.00     -0.79878
+X9      C         0.45327      0.45322      0.46325      0.00000   Uiso   1.00      1.09850
+X10     C         0.54688      0.54683      0.46349      0.00000   Uiso   1.00      1.09734
+X11     C         0.45327      0.54683      0.46330      0.00000   Uiso   1.00      1.09871
+X12     C         0.54688      0.45322      0.46344      0.00000   Uiso   1.00      1.09750
+O13     O         0.52716      0.44387      0.52684      0.00000   Uiso   1.00     -0.79841
+O14     O         0.47272      0.55610      0.52679      0.00000   Uiso   1.00     -0.79918
+O15     O         0.44383      0.47277      0.52668      0.00000   Uiso   1.00     -0.79853
+O16     O         0.55606      0.52721      0.52694      0.00000   Uiso   1.00     -0.79833
+O17     O         0.52716      0.55610      0.52690      0.00000   Uiso   1.00     -0.79886
+O18     O         0.47272      0.44387      0.52672      0.00000   Uiso   1.00     -0.79851
+O19     O         0.55606      0.47277      0.52691      0.00000   Uiso   1.00     -0.79810
+O20     O         0.44383      0.52721      0.52672      0.00000   Uiso   1.00     -0.79880
+Co21    Co        0.50000      0.45298      0.49997      0.00000   Uiso   1.00      1.51534
+Co22    Co        0.50000      0.54703      0.50003      0.00000   Uiso   1.00      1.51691
+Co23    Co        0.45298      0.50000      0.49990      0.00000   Uiso   1.00      1.51569
+Co24    Co        0.54702      0.50000      0.50010      0.00000   Uiso   1.00      1.51468
+O25     O         0.50000      0.50000      0.50000      0.00000   Uiso   1.00     -1.41775
+X26     C         0.54673      0.45317      0.53670      0.00000   Uiso   1.00      1.09777
+X27     C         0.45312      0.54679      0.53656      0.00000   Uiso   1.00      1.09867
+X28     C         0.45312      0.45317      0.53651      0.00000   Uiso   1.00      1.09803
+X29     C         0.54673      0.54679      0.53676      0.00000   Uiso   1.00      1.09779
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+O1      X9         1.190 .   A  
+O1      Co21       1.964 .   S  
+O2      X10        1.190 .   A  
+O2      Co22       1.964 .   S  
+O3      X11        1.190 .   A  
+O3      Co23       1.964 .   S  
+O4      X12        1.190 .   A  
+O4      Co24       1.964 .   S  
+O5      X11        1.190 .   A  
+O5      Co22       1.964 .   S  
+O6      Co21       1.964 .   S  
+O6      X12        1.190 .   A  
+O7      X10        1.190 .   A  
+O7      Co24       1.964 .   S  
+O8      X9         1.190 .   A  
+O8      Co23       1.964 .   S  
+O13     Co21       1.964 .   S  
+O13     X26        1.190 .   A  
+O14     X27        1.190 .   A  
+O14     Co22       1.964 .   S  
+O15     X28        1.190 .   A  
+O15     Co23       1.964 .   S  
+O16     Co24       1.964 .   S  
+O16     X29        1.190 .   A  
+O17     Co22       1.964 .   S  
+O17     X29        1.190 .   A  
+O18     X28        1.190 .   A  
+O18     Co21       1.964 .   S  
+O19     X26        1.190 .   A  
+O19     Co24       1.964 .   S  
+O20     X27        1.190 .   A  
+O20     Co23       1.964 .   S  
+Co21    O25        2.351 .   S  
+Co22    O25        2.351 .   S  
+Co23    O25        2.351 .   S  
+Co24    O25        2.351 .   S  

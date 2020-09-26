@@ -1,0 +1,60 @@
+4c_In_1
+_audit_creation_date              2020-06-09
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+In1     In        0.49850      0.49969      0.49985      0.00000   Uiso   1.00      1.36866
+X2      C         0.48098      0.53228      0.53585      0.00000   Uiso   1.00      0.77878
+O3      O         0.49547      0.46600      0.52755      0.00000   Uiso   1.00     -0.60567
+O4      O         0.53363      0.47885      0.52204      0.00000   Uiso   1.00     -0.51479
+X5      C         0.47848      0.46773      0.46251      0.00000   Uiso   1.00      0.70544
+O6      O         0.46296      0.48214      0.47597      0.00000   Uiso   1.00     -0.46336
+X7      C         0.52155      0.53617      0.46959      0.00000   Uiso   1.00      0.75248
+O8      O         0.46563      0.51803      0.52073      0.00000   Uiso   1.00     -0.58196
+O9      O         0.53746      0.52278      0.48148      0.00000   Uiso   1.00     -0.48287
+O10     O         0.50444      0.53137      0.53384      0.00000   Uiso   1.00     -0.54627
+X11     C         0.51892      0.46340      0.53105      0.00000   Uiso   1.00      0.85428
+O12     O         0.50444      0.46809      0.46557      0.00000   Uiso   1.00     -0.56520
+O13     O         0.49620      0.53147      0.46950      0.00000   Uiso   1.00     -0.59814
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+In1     O3         2.186 .   S  
+In1     O4         2.324 .   S  
+In1     O12        2.350 .   S  
+In1     O6         2.314 .   S  
+In1     O8         2.152 .   S  
+In1     O9         2.444 .   S  
+In1     O10        2.342 .   S  
+In1     O13        2.200 .   S  
+X2      O8         1.292 .   A  
+X2      O10        1.178 .   A  
+O3      X11        1.193 .   A  
+O4      X11        1.157 .   A  
+X5      O12        1.307 .   A  
+X5      O6         1.255 .   A  
+X7      O9         1.198 .   A  
+X7      O13        1.289 .   A  

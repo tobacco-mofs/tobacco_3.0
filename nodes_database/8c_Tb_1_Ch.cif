@@ -1,0 +1,89 @@
+8c_Tb_1
+_audit_creation_date              2020-06-09
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+X1      C         0.48453      0.53574      0.41635      0.00000   Uiso   1.00      0.76747
+Tb2     Tb        0.50000      0.50000      0.54137      0.00000   Uiso   1.00      1.80739
+O3      O         0.50422      0.53750      0.42807      0.00000   Uiso   1.00     -0.51271
+O4      O         0.53099      0.48393      0.42383      0.00000   Uiso   1.00     -0.58720
+X5      C         0.48585      0.55081      0.50442      0.00000   Uiso   1.00      0.92562
+O6      O         0.47059      0.51880      0.57617      0.00000   Uiso   1.00     -0.58247
+Tb7     Tb        0.50000      0.50000      0.45863      0.00000   Uiso   1.00      1.78060
+O8      O         0.52941      0.48120      0.57617      0.00000   Uiso   1.00     -0.58747
+O9      O         0.51175      0.46450      0.48437      0.00000   Uiso   1.00     -0.77551
+O10     O         0.48825      0.53550      0.48437      0.00000   Uiso   1.00     -0.76871
+O11     O         0.45715      0.48622      0.47202      0.00000   Uiso   1.00     -0.62135
+X12     C         0.51415      0.44919      0.50442      0.00000   Uiso   1.00      0.92154
+O13     O         0.53662      0.50757      0.51563      0.00000   Uiso   1.00     -0.74084
+X14     C         0.53869      0.50447      0.58365      0.00000   Uiso   1.00      0.75596
+X15     C         0.51547      0.46426      0.41635      0.00000   Uiso   1.00      0.76576
+O16     O         0.46901      0.51607      0.42383      0.00000   Uiso   1.00     -0.59332
+O17     O         0.49578      0.46250      0.42807      0.00000   Uiso   1.00     -0.51278
+O18     O         0.46338      0.49243      0.51563      0.00000   Uiso   1.00     -0.77342
+O19     O         0.54285      0.51378      0.47202      0.00000   Uiso   1.00     -0.61339
+X20     C         0.55108      0.51315      0.49558      0.00000   Uiso   1.00      0.90374
+X21     C         0.44892      0.48685      0.49558      0.00000   Uiso   1.00      0.91601
+X22     C         0.46131      0.49553      0.58365      0.00000   Uiso   1.00      0.75945
+O23     O         0.53037      0.52241      0.57193      0.00000   Uiso   1.00     -0.50665
+O24     O         0.46963      0.47759      0.57193      0.00000   Uiso   1.00     -0.51819
+O25     O         0.50949      0.45600      0.52798      0.00000   Uiso   1.00     -0.64671
+O26     O         0.49051      0.54400      0.52798      0.00000   Uiso   1.00     -0.65806
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+X1      O16        1.307 .   A  
+X1      O3         1.149 .   A  
+Tb2     O24        2.428 .   S  
+Tb2     O25        2.348 .   S  
+Tb2     O8         2.465 .   S  
+Tb2     O18        2.270 .   S  
+Tb2     O13        2.270 .   S  
+Tb2     O6         2.465 .   S  
+Tb2     O26        2.348 .   S  
+Tb2     O23        2.428 .   S  
+O3      Tb7        2.428 .   S  
+O4      Tb7        2.465 .   S  
+O4      X15        1.307 .   A  
+X5      O10        1.267 .   A  
+X5      O26        1.248 .   A  
+O6      X22        1.307 .   A  
+Tb7     O11        2.348 .   S  
+Tb7     O16        2.465 .   S  
+Tb7     O10        2.270 .   S  
+Tb7     O17        2.428 .   S  
+Tb7     O19        2.348 .   S  
+Tb7     O9         2.270 .   S  
+O8      X14        1.307 .   A  
+O9      X12        1.267 .   A  
+O11     X21        1.248 .   A  
+X12     O25        1.248 .   A  
+O13     X20        1.267 .   A  
+X14     O23        1.149 .   A  
+X15     O17        1.149 .   A  
+O18     X21        1.267 .   A  
+O19     X20        1.248 .   A  
+X22     O24        1.149 .   A  

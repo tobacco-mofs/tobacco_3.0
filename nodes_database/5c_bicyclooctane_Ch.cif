@@ -1,0 +1,81 @@
+5c_bicyclooctane
+_audit_creation_date              2020-06-09
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+X1      C        -0.00003      0.00003      0.02745      0.00000   Uiso   1.00      0.30301
+X3      C        -0.00003      0.00003     -0.02745      0.00000   Uiso   1.00      0.30302
+C5      C        -0.00635      0.02696      0.01431      0.00000   Uiso   1.00     -0.05897
+C6      C         0.02646     -0.00796      0.01431      0.00000   Uiso   1.00     -0.06684
+C7      C        -0.02023     -0.01888      0.01431      0.00000   Uiso   1.00     -0.06552
+C8      C        -0.00635      0.02696     -0.01431      0.00000   Uiso   1.00     -0.05903
+C9      C         0.02646     -0.00796     -0.01431      0.00000   Uiso   1.00     -0.06675
+C10     C        -0.02023     -0.01887     -0.01431      0.00000   Uiso   1.00     -0.06558
+C11     C        -0.01174      0.05257     -0.02258      0.00000   Uiso   1.00     -0.31945
+X12     N        -0.01484      0.06836      0.00000      0.00000   Uiso   1.00      0.14556
+C13     C        -0.01175      0.05257      0.02258      0.00000   Uiso   1.00     -0.31951
+H14     H        -0.01360      0.06127      0.04230      0.00000   Uiso   1.00      0.16497
+C15     C         0.05134     -0.01610     -0.02258      0.00000   Uiso   1.00     -0.30922
+X16     N         0.06656     -0.02132     -0.00000      0.00000   Uiso   1.00      0.13285
+C17     C         0.05134     -0.01610      0.02258      0.00000   Uiso   1.00     -0.30913
+C18     C        -0.03894     -0.03717     -0.02258      0.00000   Uiso   1.00     -0.31209
+X19     N        -0.05028     -0.04858     -0.00000      0.00000   Uiso   1.00      0.13790
+H20     H        -0.04532     -0.04337     -0.04230      0.00000   Uiso   1.00      0.16407
+C21     C        -0.03894     -0.03717      0.02258      0.00000   Uiso   1.00     -0.31213
+H22     H        -0.04531     -0.04338      0.04230      0.00000   Uiso   1.00      0.16408
+H23     H         0.05979     -0.01884      0.04230      0.00000   Uiso   1.00      0.16408
+H24     H        -0.01360      0.06127     -0.04230      0.00000   Uiso   1.00      0.16493
+H43     H         0.05979     -0.01883     -0.04230      0.00000   Uiso   1.00      0.16410
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+X1      C5         1.542 .   S  
+X1      C7         1.541 .   S  
+X1      C6         1.542 .   S  
+X3      C8         1.542 .   S  
+X3      C10        1.541 .   S  
+X3      C9         1.542 .   S  
+C5      C13        1.429 .   A  
+C5      C8         1.361 .   A  
+C6      C17        1.429 .   A  
+C6      C9         1.361 .   A  
+C7      C21        1.429 .   A  
+C7      C10        1.361 .   A  
+C8      C11        1.429 .   A  
+C9      C15        1.429 .   A  
+C10     C18        1.429 .   A  
+C11     X12        1.442 .   A  
+C11     H24        1.080 .   S  
+X12     C13        1.442 .   A  
+C13     H14        1.080 .   S  
+C15     X16        1.442 .   A  
+C15     H43        1.070 .   S  
+X16     C17        1.442 .   A  
+C17     H23        1.080 .   S  
+C18     X19        1.441 .   A  
+C18     H20        1.080 .   S  
+X19     C21        1.441 .   A  
+C21     H22        1.080 .   S  

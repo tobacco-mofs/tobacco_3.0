@@ -1,0 +1,62 @@
+4c_Ni_1
+_audit_creation_date              2020-06-09
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    20.0
+_cell_length_b                    20.0
+_cell_length_c                    20.0
+_cell_angle_alpha                 90.0
+_cell_angle_beta                  90.0
+_cell_angle_gamma                 90.0
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+O1      O         0.31665      0.52359      0.63738      0.00000   Uiso   1.00     -0.74130
+O2      O         0.31145      0.39945      0.51367      0.00000   Uiso   1.00     -0.74161
+O3      O         0.31290      0.39970      0.63769      0.00000   Uiso   1.00     -0.74215
+O4      O         0.31520      0.52338      0.51342      0.00000   Uiso   1.00     -0.74264
+O5      O         0.42567      0.52026      0.51236      0.00000   Uiso   1.00     -0.74196
+O6      O         0.42334      0.39600      0.63605      0.00000   Uiso   1.00     -0.74174
+O7      O         0.42192      0.39634      0.51211      0.00000   Uiso   1.00     -0.74151
+O8      O         0.42711      0.51996      0.63635      0.00000   Uiso   1.00     -0.74215
+Ni9     Ni        0.31315      0.46155      0.57555      0.00000   Uiso   1.00      1.25410
+Ni10    Ni        0.42541      0.45812      0.57421      0.00000   Uiso   1.00      1.25363
+X11     C         0.37283      0.54422      0.65933      0.00000   Uiso   1.00      0.88049
+X12     C         0.36575      0.37544      0.49042      0.00000   Uiso   1.00      0.87982
+X13     C         0.36770      0.37539      0.65934      0.00000   Uiso   1.00      0.88009
+X14     C         0.37085      0.54429      0.49042      0.00000   Uiso   1.00      0.88180
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+O1      Ni9        1.753 .   S  
+O1      X11        1.275 .   A  
+O2      Ni9        1.754 .   S  
+O2      X12        1.275 .   A  
+O3      Ni9        1.753 .   S  
+O3      X13        1.275 .   A  
+O4      Ni9        1.753 .   S  
+O4      X14        1.275 .   A  
+O5      Ni10       1.753 .   S  
+O5      X14        1.275 .   A  
+O6      Ni10       1.753 .   S  
+O6      X13        1.275 .   A  
+O7      Ni10       1.753 .   S  
+O7      X12        1.275 .   A  
+O8      Ni10       1.754 .   S  
+O8      X11        1.275 .   A  
+Ni9     Ni10       2.246 .   S  

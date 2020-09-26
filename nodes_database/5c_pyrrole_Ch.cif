@@ -1,0 +1,41 @@
+5c_pyrrole
+_audit_creation_date              2020-06-11
+_audit_creation_method            'assign_MBBB_charges.py'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    50.0000
+_cell_length_b                    50.0000
+_cell_length_c                    50.0000
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+_atom_site_charge
+X1      N         0.48118      0.51176      0.49313      0.00000   Uiso   1.00     -0.01299
+X2      C         0.50584      0.52281      0.49905      0.00000   Uiso   1.00     -0.12072
+X3      C         0.52285      0.50221      0.50642      0.00000   Uiso   1.00     -0.07625
+X4      C         0.50792      0.47793      0.50489      0.00000   Uiso   1.00     -0.08287
+X5      C         0.48220      0.48440      0.49662      0.00000   Uiso   1.00     -0.12173
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+X1      X5         1.380 .   A  
+X1      X2         1.383 .   A  
+X2      X3         1.386 .   A  
+X3      X4         1.427 .   A  
+X4      X5         1.389 .   A  
