@@ -209,29 +209,29 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 			print(i, 'out of', len(ccs), 'building blocks have been bonded')
 
 		cc1 = list(ccs[i])
-		xname1 = [n for n in cc1 if G.node[n]['ty'] == 'X']
-		xvecs1 = [np.dot(np.linalg.inv(sc_unit_cell),G.node[n]['coords']) for n in cc1 if G.node[n]['ty'] == 'X']
+		xname1 = [n for n in cc1 if G.nodes[n]['ty'] == 'X']
+		xvecs1 = [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in cc1 if G.nodes[n]['ty'] == 'X']
 
 		if oanc_switch and len(xname1) == 0:
-			xname1 = xname1 + [n for n in cc1 if G.node[n]['ty'] in oanc_dict]
-			xvecs1 = xvecs1 + [np.dot(np.linalg.inv(sc_unit_cell),G.node[n]['coords']) for n in cc1 if G.node[n]['ty'] in oanc_dict]
+			xname1 = xname1 + [n for n in cc1 if G.nodes[n]['ty'] in oanc_dict]
+			xvecs1 = xvecs1 + [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in cc1 if G.nodes[n]['ty'] in oanc_dict]
 
 		com1 = np.average(xvecs1, axis=0)
 
 		if oanc_switch and len(cc1) == 1:
-			G.node[cc1[0]]['sacode'].append(1)
+			G.nodes[cc1[0]]['sacode'].append(1)
 			one_atom_nodes_append(cc1[0])
 		
 		for j in range(i+1, len(ccs)):
 
 			cc2 = list(ccs[j])
-			xname2 = [n for n in cc2 if G.node[n]['ty'] == 'X']
+			xname2 = [n for n in cc2 if G.nodes[n]['ty'] == 'X']
 
-			xvecs2 = [np.dot(np.linalg.inv(sc_unit_cell),G.node[n]['coords']) for n in cc2 if G.node[n]['ty'] == 'X']
+			xvecs2 = [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in cc2 if G.nodes[n]['ty'] == 'X']
 
 			if oanc_switch and len(xname2) == 0:
-				xname2 = xname2 + [n for n in cc2 if G.node[n]['ty'] in oanc_dict]
-				xvecs2 = xvecs2 + [np.dot(np.linalg.inv(sc_unit_cell),G.node[n]['coords']) for n in cc2 if G.node[n]['ty'] in oanc_dict]
+				xname2 = xname2 + [n for n in cc2 if G.nodes[n]['ty'] in oanc_dict]
+				xvecs2 = xvecs2 + [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in cc2 if G.nodes[n]['ty'] in oanc_dict]
 
 			com2 = np.average(xvecs2, axis=0)
 			com_dist = np.linalg.norm(np.dot(sc_unit_cell, com1 - PBC3DF(com1,com2)))
@@ -261,17 +261,17 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 	for node in connection_nodes:
 		
 		nbors = list(G.neighbors(node))
-		X_nbors = [n for n in nbors if G.node[n]['ty'] == 'X']
+		X_nbors = [n for n in nbors if G.nodes[n]['ty'] == 'X']
 		if len(X_nbors) == 0:
 			no_connection_nodes_append(node)
 
 	for i in range(len(no_connection_nodes)):
 		
 		n1 = no_connection_nodes[i]
-		vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.node[n1]['coords'])
+		vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[n1]['coords'])
 		for j in range(i + 1, len(no_connection_nodes)):
 			n2 = no_connection_nodes[j]
-			vec2 = np.dot(np.linalg.inv(sc_unit_cell), G.node[n2]['coords'])
+			vec2 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[n2]['coords'])
 
 			DV, sym = PBC3DF_sym(vec1,vec2)
 			dist = np.linalg.norm(np.dot(sc_unit_cell, DV))
@@ -281,19 +281,19 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 
 	for node in connection_nodes:
 		
-		vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.node[node]['coords'])
+		vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[node]['coords'])
 		elem = re.sub('[0-9]','',node)
 		nbors = list(G.neighbors(node))
-		cbbcode = G.node[node]['bbcode']
-		X_nbors = [n for n in nbors if G.node[n]['ty'] == 'X' and G.node[n]['bbcode'] != cbbcode]
+		cbbcode = G.nodes[node]['bbcode']
+		X_nbors = [n for n in nbors if G.nodes[n]['ty'] == 'X' and G.nodes[n]['bbcode'] != cbbcode]
 
 		if oanc_switch:
-			X_nbors = X_nbors + [n for n in nbors if len(G.node[n]['sacode']) > 0]
+			X_nbors = X_nbors + [n for n in nbors if len(G.nodes[n]['sacode']) > 0]
 
 		if len(X_nbors) > 1:
 			nbor_dists = []
 			for nbor in X_nbors:
-				vec2 = np.dot(np.linalg.inv(sc_unit_cell), G.node[nbor]['coords'])
+				vec2 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[nbor]['coords'])
 				dist = np.linalg.norm(np.dot(sc_unit_cell, vec1 - PBC3DF(vec1,vec2)))
 				nbor_dists.append((dist,nbor))
 			nbor_dists.sort(key=lambda x:x[0])
@@ -301,7 +301,7 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 			if not oanc_switch:
 				cut_site = 1
 			else:
-				if len(G.node[node]['sacode']) > 0:
+				if len(G.nodes[node]['sacode']) > 0:
 					cut_site = oanc_dict[elem]
 				else:
 					cut_site = 1
@@ -315,19 +315,19 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 	for node in connection_nodes:
 
 		elem = re.sub('[0-9]','',node)
-		cbbcode = G.node[node]['bbcode']
+		cbbcode = G.nodes[node]['bbcode']
 
-		if len(G.node[node]['sacode']) > 0:
+		if len(G.nodes[node]['sacode']) > 0:
 			sa = True
 			CN = oanc_dict[elem]
 		else:
 			sa = False
 
 		nbors = list(G.neighbors(node))
-		X_nbors = [n for n in nbors if G.node[n]['ty'] == 'X' and G.node[n]['bbcode'] != cbbcode]
+		X_nbors = [n for n in nbors if G.nodes[n]['ty'] == 'X' and G.nodes[n]['bbcode'] != cbbcode]
 
 		if oanc_switch:
-			X_nbors = X_nbors + [n for n in nbors if len(G.node[n]['sacode']) > 0]
+			X_nbors = X_nbors + [n for n in nbors if len(G.nodes[n]['sacode']) > 0]
 
 		if sa:
 			if len(X_nbors) != CN:

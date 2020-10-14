@@ -106,7 +106,7 @@ def run_template(template):
 			for node in TG.nodes():
 				v += 1
 				print(v,':',node)
-				node_dict = TG.node[node]
+				node_dict = TG.nodes[node]
 				print('type : ', node_dict['type'])
 				print('cartesian coords : ', node_dict['ccoords'])
 				print('fractional coords : ', node_dict['fcoords'])

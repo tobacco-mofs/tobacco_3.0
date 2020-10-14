@@ -155,8 +155,8 @@ def ct2g(cifname):
 				ne += 1
 				aae_append((s[0],s[1],lbl[0],lbl[1],lbl[2]))
 
-				v1 = G.node[s[0]]['fcoords']
-				v2 = G.node[s[1]]['fcoords'] + lbl
+				v1 = G.nodes[s[0]]['fcoords']
+				v2 = G.nodes[s[1]]['fcoords'] + lbl
 
 				ef_coords = np.average(np.array([v1, v2]), axis=0)
 				ec_coords = np.dot(unit_cell, ef_coords)
@@ -255,7 +255,7 @@ def edge_vecs(edge, G, unit_cell):
 		if edict['index'] == edge:
 			s,e = e[0:2]
 			ccoords = edict['ccoords']
-			v1 = G.node[s]['ccoords']
-			v2 = G.node[e]['ccoords']
+			v1 = G.nodes[s]['ccoords']
+			v2 = G.nodes[e]['ccoords']
 
 			return [v1 - ccoords, v2 - ccoords]
