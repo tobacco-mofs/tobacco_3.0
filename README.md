@@ -30,7 +30,9 @@ conda install numpy
 conda install networkx
 conda install scipy
 ```
-Once these are installed you can clone or download the repository and start running ToBaCCo.
+Once these are installed, you can clone or download the repository and start running ToBaCCo. Please note that only certain versions of these packages have been tested. Specifically, for Python 2.7 
+the tested versions are numpy=1.14.2, networkx=2.2, and scipy=1.1.0. For Python 3.7 the tested versions are numpy=1.19.1 and numpy=1.15.4, networkx=2.2 and networkx=2.5, and scipy=1.1.0, scipy=1.3.1, and scipy=1.5.2. 
+
 
 # Usage
 Execute the tobacco.py file to run ToBaCCo:
