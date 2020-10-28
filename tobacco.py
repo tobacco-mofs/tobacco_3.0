@@ -50,6 +50,7 @@ PRE_SCALE = configuration.PRE_SCALE
 SCALING_CONVERGENCE_TOLERANCE = configuration.SCALING_CONVERGENCE_TOLERANCE
 SCALING_STEP_SIZE = configuration.SCALING_STEP_SIZE
 SINGLE_METAL_MOFS_ONLY = configuration.SINGLE_METAL_MOFS_ONLY
+MOFS_ONLY = configuration.MOFS_ONLY
 MERGE_CATENATED_NETS = configuration.MERGE_CATENATED_NETS
 RUN_PARALLEL = configuration.RUN_PARALLEL
 ####### Global options #######
@@ -66,7 +67,7 @@ vname_dict = {'V':1,'Er':2,'Ti':3,'Ce':4,'S':5,
 metal_elements = ['Ac','Ag','Al','Am','Au','Ba','Be','Bi',
 				  'Bk','Ca','Cd','Ce','Cf','Cm','Co','Cr',
 				  'Cs','Cu','Dy','Er','Es','Eu','Fe','Fm',
-				  'Fr','Ga','Gd','Hf','Hg','Ho','In','Ir',
+				  'Ga','Gd','Hf','Hg','Ho','In','Ir',
 				  'K','La','Li','Lr','Lu','Md','Mg','Mn',
 				  'Mo','Na','Nb','Nd','Ni','No','Np','Os',
 				  'Pa','Pb','Pd','Pm','Pr','Pt','Pu','Ra',
@@ -193,7 +194,12 @@ def run_template(template):
 				print(v_set, 'contains no metals or multiple metal elements, no cif will be written')
 				print()
 				continue
-	
+
+			if MOFS_ONLY and len(metals) < 1:
+				print(v_set, 'contains no metals, no cif will be written')
+				print()
+				continue
+
 			for v in va:
 				for n in TG.nodes(data=True):
 					if v[0] == n[0]:
@@ -299,9 +305,8 @@ def run_template(template):
 				print('*******************************************')
 				
 				fixed_bonds, nbcount, bond_check = bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, BOND_TOL, TRACE_BOND_MAKING, NODE_TO_NODE, EXPANSIVE_BOND_SEARCH, ONE_ATOM_NODE_CN)
-	
 				print('there were ', nbcount, ' X-X bonds formed')
-	
+					
 				if bond_check:
 					print('bond check passed')
 					bond_check_code = ''

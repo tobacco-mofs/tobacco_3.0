@@ -14,7 +14,7 @@ def nl(string):
 	return re.sub('[^0-9]','', string)
 
 def PBC3DF(c1, c2):
-	
+    
     diffa = c1[0] - c2[0]
     diffb = c1[1] - c2[1]
     diffc = c1[2] - c2[2]
