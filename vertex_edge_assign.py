@@ -8,7 +8,7 @@ from place_bbs import superimpose, mag_superimpose
 from ciftemplate2graph import node_vecs
 import warnings
 
-def vertex_assign(TG, TVT, node_cns, unit_cell, cn1, USNA, SYM_TOL, ALL_NODE_COMBINATIONS):
+def vertex_assign(TG, TVT, node_cns, unit_cell, USNA, SYM_TOL, ALL_NODE_COMBINATIONS):
 
 	node_dict = dict((k,[]) for k in TVT)
 

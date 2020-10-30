@@ -3,6 +3,7 @@ import numpy as np
 import re
 import os
 from ciftemplate2graph import isvert
+from itertools import combinations
 import datetime
 import networkx as nx
 from bbcif_properties import iscoord, isbond
@@ -137,7 +138,7 @@ def write_check_cif(template, placed_nodes, placed_edges, g, sp, sc_unit_cell):
 
 				break
 
-def distance_search_bond(placed_all, bonds_all, sc_unit_cell, tol, trace_bond_making):
+def distance_search_bond(placed_all, bonds_all, sc_unit_cell, tol):
 
 	fixed_bonds = []
 	used_bonds = []
@@ -153,8 +154,6 @@ def distance_search_bond(placed_all, bonds_all, sc_unit_cell, tol, trace_bond_ma
 			
 	for i in range(len(connection_points)):
 
-		if trace_bond_making:
-			print(i + 1, 'out of ', len(connection_points), 'connection_points have been bonded')
 		ielem = connection_points[i][0]
 		ivec = np.dot(np.linalg.inv(sc_unit_cell), np.array([float(q) for q in connection_points[i][1:4]]))
 		ibbid = int(connection_points[i][6])
@@ -179,171 +178,188 @@ def distance_search_bond(placed_all, bonds_all, sc_unit_cell, tol, trace_bond_ma
 
 	return fixed_bonds, nbcount
 
-def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, tol, trace_bond_making, ntn, ebs, oanc):
-
-	one_atom_nodes = []
-	one_atom_nodes_append = one_atom_nodes.append
+def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, bond_tol, nconnections_list, num_possible_XX_bonds):
 
 	G = nx.Graph()
 
-	oanc_switch,oanc_dict = oanc
-
 	for n in placed_all:
-		G.add_node(n[0], coords=np.array(list(map(float,(n[1:4])))), occ=n[4], ty=re.sub('[0-9]','',n[5]), bbcode=int(n[6]), sacode=[])
+		isX = (re.sub('[0-9]','',n[-3]) == 'X')
+		G.add_node(n[0], coords=np.array(list(map(float,(n[1:4])))), occ=n[4], isX=isX, bbcode=int(n[6]), nconnect=1, bbtype=n[-1])
 	for l in bonds_all:
-		G.add_edge(l[0], l[1], length=l[2], sym=l[3], ty=l[4], order=(l[0],l[1]))
+		G.add_edge(l[0], l[1], length=l[2], sym=l[3], ty=l[4], is_new_XX=False, order=(l[0],l[1]))
+
+	for line in nconnections_list:
+		node,nc = line
+		G.nodes[node]['nconnect'] -= 1
+		G.nodes[node]['nconnect'] += nc
+
+	previous_degrees = dict((node,G.degree(node)) for node in G.nodes())
 
 	ccs = list(nx.connected_components(G))
 	count = 0
-
-	if ebs:
-		bb_tol = 2 * (max_length + 0.25 * max_length)
-	else:
-		bb_tol = max_length + max_length * (0.25)
-
+	bb_tol = max_length + 0.50*max_length
 	print('distance search tolerance is', np.round(bb_tol,3), 'Angstroms')
 
-	for i in range(len(ccs)):
+	for connect_comp0, connect_comp1 in combinations(ccs,2):
 
-		if trace_bond_making:
-			print(i, 'out of', len(ccs), 'building blocks have been bonded')
+		xname0 = [n for n in connect_comp0 if G.nodes[n]['isX']]
+		xvecs0 = [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in connect_comp0 if G.nodes[n]['isX']]
+		com0 = np.average(xvecs0, axis=0)
+		type0 = list(set([G.nodes[n]['bbtype'] for n in connect_comp0]))
 
-		cc1 = list(ccs[i])
-		xname1 = [n for n in cc1 if G.nodes[n]['ty'] == 'X']
-		xvecs1 = [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in cc1 if G.nodes[n]['ty'] == 'X']
-
-		if oanc_switch and len(xname1) == 0:
-			xname1 = xname1 + [n for n in cc1 if G.nodes[n]['ty'] in oanc_dict]
-			xvecs1 = xvecs1 + [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in cc1 if G.nodes[n]['ty'] in oanc_dict]
-
+		xname1 = [n for n in connect_comp1 if G.nodes[n]['isX']]
+		xvecs1 = [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in connect_comp1 if G.nodes[n]['isX']]
 		com1 = np.average(xvecs1, axis=0)
+		type1 = list(set([G.nodes[n]['bbtype'] for n in connect_comp1]))
 
-		if oanc_switch and len(cc1) == 1:
-			G.nodes[cc1[0]]['sacode'].append(1)
-			one_atom_nodes_append(cc1[0])
-		
-		for j in range(i+1, len(ccs)):
+		if len(type0) > 1 or len(type1) > 1:
+			raise ValueError('building block indicated as both node and edge type')
 
-			cc2 = list(ccs[j])
-			xname2 = [n for n in cc2 if G.nodes[n]['ty'] == 'X']
+		type0 = type0[0]
+		type1 = type1[0]
 
-			xvecs2 = [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in cc2 if G.nodes[n]['ty'] == 'X']
+		# don't want to try any edge-edge bonds, this will always result in incorrect bonding that must be corrected later
+		if type0 == 'edge' and type1 == 'edge':
+			continue
 
-			if oanc_switch and len(xname2) == 0:
-				xname2 = xname2 + [n for n in cc2 if G.nodes[n]['ty'] in oanc_dict]
-				xvecs2 = xvecs2 + [np.dot(np.linalg.inv(sc_unit_cell),G.nodes[n]['coords']) for n in cc2 if G.nodes[n]['ty'] in oanc_dict]
+		com_dist = np.linalg.norm(np.dot(sc_unit_cell, com0 - PBC3DF(com0,com1)))
 
-			com2 = np.average(xvecs2, axis=0)
-			com_dist = np.linalg.norm(np.dot(sc_unit_cell, com1 - PBC3DF(com1,com2)))
+		if com_dist <= bb_tol:
 
-			if com_dist < bb_tol:
-				
-				min_dist = (1.0e6,'foo','bar','foo')
-				
-				for xv1,xn1 in zip(xvecs1,xname1):
-					for xv2,xn2 in zip(xvecs2,xname2):
-						
-						DV, sym = PBC3DF_sym(xv1,xv2)
-						dist = np.linalg.norm(np.dot(sc_unit_cell, DV))
+			min_dist = (100.0, 'no.3', 'the', 'larch')
 
-						if dist < min_dist[0]:
-							min_dist = (dist, xn1, xn2, sym)
+			for xv0,xn0 in zip(xvecs0, xname0):
+				for xv1,xn1 in zip(xvecs1, xname1):
 
-				if min_dist[0] < tol:
-					count += 1
-					G.add_edge(min_dist[1], min_dist[2], length=min_dist[0], sym=min_dist[3], ty='S', order=(min_dist[1],min_dist[2]))
+					DV, sym = PBC3DF_sym(xv0,xv1)
+					dist = np.linalg.norm(np.dot(sc_unit_cell, DV))
 
-	connection_nodes = [n[0] for n in G.nodes(data=True) if n[1]['ty'] == 'X'] + one_atom_nodes
+					if dist < min_dist[0]:
+						min_dist = (dist, xn0, xn1, sym)
 
-	no_connection_nodes = []
-	no_connection_nodes_append = no_connection_nodes.append
+			if min_dist[0] < bond_tol:
+				count += 1
+				G.add_edge(min_dist[1], min_dist[2], length=min_dist[0], sym=min_dist[3], ty='S', is_new_XX=True, order=(min_dist[1],min_dist[2]))
 
-	for node in connection_nodes:
-		
+	# attempt to bond any connection sites left without X neighbors
+	# by forming bonds (distance search) within the X atoms withoug any X neighbors
+	connection_nodes = [(n,data) for n,data in G.nodes(data=True) if data['isX']]
+	no_bond_connection_sites = []
+	
+	for node,data in connection_nodes:
+
+		bbcode0 = data['bbcode']
+		nconnections = data['nconnect']
 		nbors = list(G.neighbors(node))
-		X_nbors = [n for n in nbors if G.nodes[n]['ty'] == 'X']
-		if len(X_nbors) == 0:
-			no_connection_nodes_append(node)
+		X_nbors = [nbor for nbor in nbors if (G.nodes[nbor]['isX'] and G.nodes[nbor]['bbcode'] != bbcode0)]
 
-	for i in range(len(no_connection_nodes)):
+		if len(X_nbors) < nconnections:
+			no_bond_connection_sites.append(node)
+
+	for n0,n1 in combinations(no_bond_connection_sites, 2):
 		
-		n1 = no_connection_nodes[i]
+		vec0 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[n0]['coords'])
 		vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[n1]['coords'])
-		for j in range(i + 1, len(no_connection_nodes)):
-			n2 = no_connection_nodes[j]
-			vec2 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[n2]['coords'])
+	
+		bbcode0 = G.nodes[n0]['bbcode']
+		bbcode1 = G.nodes[n1]['bbcode']
+	
+		bbtype0 = G.nodes[n0]['bbtype']
+		bbtype1 = G.nodes[n1]['bbtype']
+	
+		if bbcode0 == bbcode1:
+			continue
+		if bbtype0 == 'edge' and bbtype1 == 'edge':
+			continue
+	
+		DV, sym = PBC3DF_sym(vec0,vec1)
+		dist = np.linalg.norm(np.dot(sc_unit_cell, DV))
+	
+		if dist < bond_tol:
+			count += 1
+			G.add_edge(n0, n1, length=dist, sym=sym, ty='S', is_new_XX=True, order=(n0,n1))
 
-			DV, sym = PBC3DF_sym(vec1,vec2)
-			dist = np.linalg.norm(np.dot(sc_unit_cell, DV))
-			
-			if dist < tol:
-				G.add_edge(n1, n2, length=dist, sym=sym, ty='S', order=(n1,n2))
-
-	for node in connection_nodes:
+	# remove any extra bonds by keeping only bonds to the closest N X-neighbors
+	# where N is the number of possible connections for each X
+	for node,data in connection_nodes:
 		
-		vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[node]['coords'])
-		elem = re.sub('[0-9]','',node)
+		vec0 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[node]['coords'])
+		bbcode0 = data['bbcode']
+		bbtype0 = data['bbtype']
+	
 		nbors = list(G.neighbors(node))
-		cbbcode = G.nodes[node]['bbcode']
-		X_nbors = [n for n in nbors if G.nodes[n]['ty'] == 'X' and G.nodes[n]['bbcode'] != cbbcode]
-
-		if oanc_switch:
-			X_nbors = X_nbors + [n for n in nbors if len(G.nodes[n]['sacode']) > 0]
-
-		if len(X_nbors) > 1:
+		X_nbors = [nbor for nbor in nbors if (G.nodes[nbor]['isX'] and G.nodes[nbor]['bbcode'] != bbcode0)]
+		nconnections = data['nconnect']
+	
+		if len(X_nbors) > nconnections:
+	
 			nbor_dists = []
 			for nbor in X_nbors:
-				vec2 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[nbor]['coords'])
-				dist = np.linalg.norm(np.dot(sc_unit_cell, vec1 - PBC3DF(vec1,vec2)))
+				vec1 = np.dot(np.linalg.inv(sc_unit_cell), G.nodes[nbor]['coords'])
+				dist = np.linalg.norm(np.dot(sc_unit_cell, vec0 - PBC3DF(vec0,vec1)))
 				nbor_dists.append((dist,nbor))
 			nbor_dists.sort(key=lambda x:x[0])
-
-			if not oanc_switch:
-				cut_site = 1
-			else:
-				if len(G.nodes[node]['sacode']) > 0:
-					cut_site = oanc_dict[elem]
-				else:
-					cut_site = 1
-			
-			for nbd in nbor_dists[cut_site:]:
-				G.remove_edge(node, nbd[1])
+	
+			for nbor in nbor_dists[nconnections:]:
+				G.remove_edge(node, nbor[1])
 				count -= 1
 
 	wrong_connection_nodes = []
 	wrong_connection_nodes_append = wrong_connection_nodes.append
-	for node in connection_nodes:
 
-		elem = re.sub('[0-9]','',node)
-		cbbcode = G.nodes[node]['bbcode']
+	for node,data in connection_nodes:
 
-		if len(G.nodes[node]['sacode']) > 0:
-			sa = True
-			CN = oanc_dict[elem]
-		else:
-			sa = False
-
+		nconnect = data['nconnect']
 		nbors = list(G.neighbors(node))
-		X_nbors = [n for n in nbors if G.nodes[n]['ty'] == 'X' and G.nodes[n]['bbcode'] != cbbcode]
+		bbcode0 = data['bbcode']
 
-		if oanc_switch:
-			X_nbors = X_nbors + [n for n in nbors if len(G.nodes[n]['sacode']) > 0]
+		X_nbors = [nbor for nbor in nbors if (G.nodes[nbor]['isX'] and G.nodes[nbor]['bbcode'] != bbcode0)]
+		if len(X_nbors) != nconnect:
+			wrong_connection_nodes_append(node)
 
-		if sa:
-			if len(X_nbors) != CN:
-				wrong_connection_nodes_append(node)
-		else:
-			if len(X_nbors) != 1:
-				wrong_connection_nodes_append(node)
+	XX_bond_count = 0
+	for e0,e1,data in G.edges(data=True):
+		if data['is_new_XX']:
+			XX_bond_count += 1
+	
+	if XX_bond_count != count:
+		raise ValueError('bond counts do not match, there is a problem with the connection site bonding algorithm')
+
+	bond_check_passed = True
+
+	for node,data in G.nodes(data=True):
+
+		isX = data['isX']
+		degree = G.degree(node)
+		previous_degree = previous_degrees[node]
+		nconnections = data['nconnect']
+
+		if isX and degree != previous_degree + nconnections:
+			print('There are connection sites with too many/not enough bonds formed.')
+			bond_check_passed = False
+			break
+		elif not isX and degree != previous_degree:
+			print('The degree of a non-X atom has changed after XX bond formation.')
+			bond_check_passed = False
+			break
 
 	if len(wrong_connection_nodes) > 0:
-		bond_check = False
-	else:
-		bond_check = True
+		print('There are connection sites with too few or too many bonds')
+		bond_check_passed = False
+	if XX_bond_count < num_possible_XX_bonds:
+		print('The number of XX bonds formed', XX_bond_count, 'is less than the correct number', num_possible_XX_bonds)
+		print('Try increasing the bond formation distance tolerance.')
+		bond_check_passed = False
+	if XX_bond_count > num_possible_XX_bonds:
+		print('The number of XX bonds formed', XX_bond_count, 'is more than the correct number', num_possible_XX_bonds)
+		print('Check your inputs for incorrect X atoms.')
+		bond_check_passed = False
 
 	fixed_bonds = []
 	fixed_bonds_append = fixed_bonds.append
+
 	for edge in G.edges(data=True):
+		
 		edict = edge[2]
 		ty = edict['ty']
 		leng = edict['length']
@@ -351,7 +367,7 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, t
 		order = edict['order']
 		fixed_bonds_append([order[0], order[1], leng, sy, ty])
 
-	return fixed_bonds, count, bond_check
+	return fixed_bonds, count, bond_check_passed
 
 def fix_bond_sym(bonds_all,placed_all,sc_unit_cell):
 	

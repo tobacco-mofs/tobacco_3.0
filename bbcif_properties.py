@@ -284,7 +284,7 @@ def calc_edge_len(cifname, direc):
 
 	return np.linalg.norm(ccoords[0] - ccoords[1])
 
-def cncalc(cifname, direc, cn1):
+def cncalc(cifname, direc):
 
 	path = os.path.join(direc, cifname)
 

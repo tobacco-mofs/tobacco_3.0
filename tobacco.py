@@ -26,7 +26,6 @@ from random import choice
 ####### Global options #######
 IGNORE_ALL_ERRORS = configuration.IGNORE_ALL_ERRORS
 PRINT = configuration.PRINT
-ONE_ATOM_NODE_CN = configuration.ONE_ATOM_NODE_CN
 CONNECTION_SITE_BOND_LENGTH = configuration.CONNECTION_SITE_BOND_LENGTH
 WRITE_CHECK_FILES = configuration.WRITE_CHECK_FILES
 WRITE_CIF = configuration.WRITE_CIF
@@ -37,10 +36,6 @@ CHARGES = configuration.CHARGES
 SCALING_ITERATIONS = configuration.SCALING_ITERATIONS
 SYMMETRY_TOL = configuration.SYMMETRY_TOL
 BOND_TOL = configuration.BOND_TOL
-EXPANSIVE_BOND_SEARCH = configuration.EXPANSIVE_BOND_SEARCH
-TRACE_BOND_MAKING = configuration.TRACE_BOND_MAKING
-NODE_TO_NODE = configuration.NODE_TO_NODE
-SINGLE_ATOM_NODE = configuration.SINGLE_ATOM_NODE
 ORIENTATION_DEPENDENT_NODES = configuration.ORIENTATION_DEPENDENT_NODES
 PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNECTION_POINTS
 RECORD_CALLBACK = configuration.RECORD_CALLBACK
@@ -53,6 +48,8 @@ SINGLE_METAL_MOFS_ONLY = configuration.SINGLE_METAL_MOFS_ONLY
 MOFS_ONLY = configuration.MOFS_ONLY
 MERGE_CATENATED_NETS = configuration.MERGE_CATENATED_NETS
 RUN_PARALLEL = configuration.RUN_PARALLEL
+REMOVE_DUMMY_ATOMS = configuration.REMOVE_DUMMY_ATOMS
+
 ####### Global options #######
 
 pi = np.pi
@@ -92,11 +89,15 @@ def run_template(template):
 		TVT = sorted(TVT, key=lambda x:x[0], reverse=True)
 		TET = sorted(TET, reverse=True)
 
-		node_cns = [(cncalc(node, 'nodes', ONE_ATOM_NODE_CN), node) for node in os.listdir('nodes')]
+		node_cns = [(cncalc(node, 'nodes'), node) for node in os.listdir('nodes')]
 
 		print('Number of vertices = ', len(TG.nodes()))
 		print('Number of edges = ', len(TG.edges()))
 		print()
+
+		edge_counts = dict((data['type'],0) for e0,e1,data in TG.edges(data=True))
+		for e0,e1,data in TG.edges(data=True):
+			edge_counts[data['type']] += 1
 		
 		if PRINT:
 	
@@ -129,7 +130,7 @@ def run_template(template):
 				print('fractional coords : ',edge_dict['fcoords'])
 				print()
 	
-		vas = vertex_assign(TG, TVT, node_cns, unit_cell, ONE_ATOM_NODE_CN, USER_SPECIFIED_NODE_ASSIGNMENT, SYMMETRY_TOL, ALL_NODE_COMBINATIONS)
+		vas = vertex_assign(TG, TVT, node_cns, unit_cell, USER_SPECIFIED_NODE_ASSIGNMENT, SYMMETRY_TOL, ALL_NODE_COMBINATIONS)
 		CB,CO = cycle_cocyle(TG)
 
 		for va in vas:
@@ -223,7 +224,16 @@ def run_template(template):
 					for k in type_assign:
 						if ty == k or (ty[1],ty[0]) == k:
 							e[2]['cifname'] = type_assign[k]
-		
+
+				num_possible_XX_bonds = 0
+				for edge_type, cifname in zip(TET, ea):
+					if cifname == 'ntn_edge.cif':
+						factor = 1
+					else:
+						factor = 2
+					edge_type_count = edge_counts[edge_type]
+					num_possible_XX_bonds += factor * edge_type_count
+
 				ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL, template)
 				all_SBU_coords = SBU_coords(TG, ea_dict, CONNECTION_SITE_BOND_LENGTH)
 				sc_a, sc_b, sc_c, sc_alpha, sc_beta, sc_gamma, sc_covar, Bstar_inv, max_length, callbackresults, ncra, ncca, scaling_data = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE,SCALING_STEP_SIZE)
@@ -288,15 +298,18 @@ def run_template(template):
 	
 				if PLACE_EDGES_BETWEEN_CONNECTION_POINTS:
 					placed_edges = adjust_edges(placed_edges, placed_nodes, sc_unit_cell)
-		
-				placed_all = placed_nodes + placed_edges
+				
+				placed_nodes = np.c_[placed_nodes, np.array(['node' for i in range(len(placed_nodes))])]
+				placed_edges = np.c_[placed_edges, np.array(['edge' for i in range(len(placed_edges))])]
+
+				placed_all = list(placed_nodes) + list(placed_edges)
 				bonds_all = node_bonds + edge_bonds
 		
 				if WRITE_CHECK_FILES:
 					write_check_cif(template, placed_nodes, placed_edges, g, scaled_params, sc_unit_cell)
 		
-				if SINGLE_ATOM_NODE or NODE_TO_NODE:
-					placed_all,bonds_all = remove_Fr(placed_all,bonds_all)
+				if REMOVE_DUMMY_ATOMS:
+					placed_all, bonds_all, nconnections = remove_Fr(placed_all,bonds_all)
 				
 				print('computing X-X bonds...')
 				print()
@@ -304,16 +317,16 @@ def run_template(template):
 				print('Bond formation : ')
 				print('*******************************************')
 				
-				fixed_bonds, nbcount, bond_check = bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, BOND_TOL, TRACE_BOND_MAKING, NODE_TO_NODE, EXPANSIVE_BOND_SEARCH, ONE_ATOM_NODE_CN)
+				fixed_bonds, nbcount, bond_check_passed = bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, BOND_TOL, nconnections, num_possible_XX_bonds)
 				print('there were ', nbcount, ' X-X bonds formed')
 					
-				if bond_check:
+				if bond_check_passed:
 					print('bond check passed')
 					bond_check_code = ''
 				else:
 					print('bond check failed, attempting distance search bonding...')
-					fixed_bonds, nbcount = distance_search_bond(placed_all, bonds_all, sc_unit_cell, 2.5, TRACE_BOND_MAKING)
-					bond_check_code = '_BOND_CHECK'
+					fixed_bonds, nbcount = distance_search_bond(placed_all, bonds_all, sc_unit_cell, 2.5)
+					bond_check_code = '_BOND_CHECK_FAILED'
 					print('there were', nbcount, 'X-X bonds formed')
 				print()
 		
@@ -400,30 +413,44 @@ def run_tobacco_serial(templates, CHARGES):
 		for template in templates:
 			run_template(template)
 
+def ignore_errors_wrapper(template, CHARGES):
+
+	try:
+		run_template(template)
+	except:
+		pass
+
 def run_tobacco_parallel(templates, CHARGES):
+
+	if IGNORE_ALL_ERRORS:
+		runfunc = ignore_errors_wrapper
+	else:
+		runfunc = run_template
 	
 	print('running parallel on', multiprocessing.cpu_count(), 'processors...')
 	args = [template  for template in templates]
 	pool = multiprocessing.Pool(multiprocessing.cpu_count())
-	pool.map_async(run_template, args) 
+	pool.map_async(runfunc, args) 
 	pool.close()
 	pool.join()
 
-start_time = time.time()
+if __name__ == '__main__':
 
-for d in ['templates', 'nodes', 'edges']:
-	try:
-		os.remove(os.path.join(d,'.DS_Store'))
-	except:
-		pass
-
-templates = sorted(os.listdir('templates'))
-
-if RUN_PARALLEL:
-	run_tobacco_parallel(templates, CHARGES)
-else:
-	run_tobacco_serial(templates, CHARGES)
-
-print('Normal termination of Tobacco_3.0 after')
-print('--- %s seconds ---' % (time.time() - start_time))
-print()
+	start_time = time.time()
+	
+	for d in ['templates', 'nodes', 'edges']:
+		try:
+			os.remove(os.path.join(d,'.DS_Store'))
+		except:
+			pass
+	
+	templates = sorted(os.listdir('templates'))
+	
+	if RUN_PARALLEL:
+		run_tobacco_parallel(templates, CHARGES)
+	else:
+		run_tobacco_serial(templates, CHARGES)
+	
+	print('Normal termination of Tobacco_3.0 after')
+	print('--- %s seconds ---' % (time.time() - start_time))
+	print()

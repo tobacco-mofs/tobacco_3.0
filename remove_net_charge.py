@@ -46,17 +46,17 @@ def fix_charges(placed_all):
 
 	for l in placed_all:
 		
-		e,x,y,z,c,oe,i = l
+		e,x,y,z,c,oe,i,bbtype = l
 		c = float(c)
 		
 		if e in dont_change_charge_atoms:
 
-			fc_placed_all_append([e,x,y,z,c,oe,i])
+			fc_placed_all_append([e,x,y,z,c,oe,i,bbtype])
 		
 		else:
 
 			nc = c - rcb
-			fc_placed_all_append([e,x,y,z,nc,oe,i])
+			fc_placed_all_append([e,x,y,z,nc,oe,i,bbtype])
 
 	for l in fc_placed_all:
 
