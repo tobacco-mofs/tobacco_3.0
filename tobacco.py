@@ -413,24 +413,12 @@ def run_tobacco_serial(templates, CHARGES):
 		for template in templates:
 			run_template(template)
 
-def ignore_errors_wrapper(template, CHARGES):
-
-	try:
-		run_template(template)
-	except:
-		pass
-
 def run_tobacco_parallel(templates, CHARGES):
-
-	if IGNORE_ALL_ERRORS:
-		runfunc = ignore_errors_wrapper
-	else:
-		runfunc = run_template
 	
 	print('running parallel on', multiprocessing.cpu_count(), 'processors...')
 	args = [template  for template in templates]
 	pool = multiprocessing.Pool(multiprocessing.cpu_count())
-	pool.map_async(runfunc, args) 
+	pool.map_async(run_template, args) 
 	pool.close()
 	pool.join()
 
@@ -445,7 +433,7 @@ if __name__ == '__main__':
 			pass
 	
 	templates = sorted(os.listdir('templates'))
-	
+
 	if RUN_PARALLEL:
 		run_tobacco_parallel(templates, CHARGES)
 	else:
