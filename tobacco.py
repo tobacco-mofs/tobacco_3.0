@@ -351,16 +351,11 @@ def run_template(template):
 					print()
 
 				vnames = '_'.join([v.split('.')[0] for v in v_set])
-		
-				if len(ea) <= 5:
-					enames = []
-					for e in [e[0:-4] for e in ea]:
-						if e not in enames:
-							enames.append(e)
-					enames = '_'.join(enames)
-	
-				else:
-					enames = str(len(ea)) + '_edges'
+				enames_list = [e[0:-4] for e in ea]
+				enames_grouped = [list(edge_gr) for ind,edge_gr in itertools.groupby(enames_list)]
+				enames_grouped = [(len(edge_gr), list(set(edge_gr))) for edge_gr in enames_grouped]
+				enames_flat = [str(L) + '-' + '_'.join(names) for L,names in enames_grouped]
+				enames = '_'.join(enames_flat)
 				
 				if catenation:
 					cifname = template[0:-4] + '_' +  vnames + '_' + enames + bond_check_code + '_' + 'CAT' + str(cat_count) + '.cif'
