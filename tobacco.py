@@ -41,9 +41,9 @@ PLACE_EDGES_BETWEEN_CONNECTION_POINTS = configuration.PLACE_EDGES_BETWEEN_CONNEC
 RECORD_CALLBACK = configuration.RECORD_CALLBACK
 OUTPUT_SCALING_DATA = configuration.OUTPUT_SCALING_DATA
 FIX_UC = configuration.FIX_UC
+MIN_CELL_LENGTH = configuration.MIN_CELL_LENGTH
+OPT_METHOD = configuration.OPT_METHOD
 PRE_SCALE = configuration.PRE_SCALE
-SCALING_CONVERGENCE_TOLERANCE = configuration.SCALING_CONVERGENCE_TOLERANCE
-SCALING_STEP_SIZE = configuration.SCALING_STEP_SIZE
 SINGLE_METAL_MOFS_ONLY = configuration.SINGLE_METAL_MOFS_ONLY
 MOFS_ONLY = configuration.MOFS_ONLY
 MERGE_CATENATED_NETS = configuration.MERGE_CATENATED_NETS
@@ -236,7 +236,7 @@ def run_template(template):
 
 				ea_dict = assign_node_vecs2edges(TG, unit_cell, SYMMETRY_TOL, template)
 				all_SBU_coords = SBU_coords(TG, ea_dict, CONNECTION_SITE_BOND_LENGTH)
-				sc_a, sc_b, sc_c, sc_alpha, sc_beta, sc_gamma, sc_covar, Bstar_inv, max_length, callbackresults, ncra, ncca, scaling_data = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE,SCALING_STEP_SIZE)
+				sc_a, sc_b, sc_c, sc_alpha, sc_beta, sc_gamma, sc_covar, Bstar_inv, max_length, callbackresults, ncra, ncca, scaling_data = scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,MIN_CELL_LENGTH,OPT_METHOD)
 		
 				print('*******************************************')
 				print('The scaled unit cell parameters are : ')
@@ -251,9 +251,9 @@ def run_template(template):
 	
 				for sc, name in zip((sc_a, sc_b, sc_c), ('a', 'b', 'c')):
 					cflag = False
-					if sc < 1.0:
-						print('unit cell parameter', name, 'has collapsed during scaling!')
-						print('try re-running with', name, 'fixed, with a larger value for PRE_SCALE, or with a higher SCALING_CONVERGENCE_TOLERANCE')
+					if sc == MIN_CELL_LENGTH:
+						print('unit cell parameter', name, 'may have collapsed during scaling!')
+						print('try re-running with', name, 'fixed or a larger MIN_CELL_LENGTH')
 						print('no cif will be written')
 						cflag = True
 	

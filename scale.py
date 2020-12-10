@@ -1,6 +1,6 @@
 from __future__ import print_function
 import numpy as np
-from scipy.optimize import minimize
+from scipy.optimize import minimize, differential_evolution
 import random
 
 pi = np.pi
@@ -32,10 +32,8 @@ def objective(V, ncra, ncca, Alpha, ne, nv, Bstar_inv, SBU_IP):
 
 	return O1
 
-def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,SCALING_CONVERGENCE_TOLERANCE,SCALING_STEP_SIZE):
+def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,Bstar,alpha,num_edges,FIX_UC,SCALING_ITERATIONS,PRE_SCALE,MIN_CELL_LENGTH,OPT_METHOD):
 
-	scale_tol = SCALING_CONVERGENCE_TOLERANCE
-	scale_eps = SCALING_STEP_SIZE
 	max_length = 0
 	for line in all_SBU_coords:
 		for length in [np.linalg.norm(s[1]) for s in line[1]]:
@@ -71,28 +69,39 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 		for j in range(ncca):
 			covars_values_append(0)
 			
-	vars = [a,b,c,ang_alpha,ang_beta,ang_gamma]
+	ucvars = [a,b,c,ang_alpha,ang_beta,ang_gamma]
 
 	if np.any(FIX_UC):
 
 		uc_bounds = []
 		uc_bounds_append = uc_bounds.append
-		for f,p in zip(FIX_UC, vars):
+		for f,p in zip(FIX_UC, ucvars):
 			if f:
 				uc_bounds_append((p,p))
 			else:
 				uc_bounds_append((0,None))
 		uc_bounds = tuple(uc_bounds)
 	else:
-		uc_bounds = ((0,None),(0,None),(0,None),(20,160),(20,160),(20,160))
+		max_a = 2 * scale_guess * a
+		max_b = 2 * scale_guess * a
+		max_c = 2 * scale_guess * a
+		uc_bounds = ((MIN_CELL_LENGTH, max_a), (MIN_CELL_LENGTH, max_b), (MIN_CELL_LENGTH, max_c), (20,160), (20,160), (20,160))
 
 	init_variables = [scale_guess * a, scale_guess * b, scale_guess * c, ang_alpha, ang_beta, ang_gamma] + covars_values
-	x_bounds = tuple([(None,None) for x in covars_values])
+	x_bounds = tuple([(-10.0,10.0) for x in covars_values])
 	bounds = uc_bounds + x_bounds
 
 	Bstar_inv = np.linalg.inv(Bstar)
 
 	print('scaling unit cell and vertex positions...')
+
+	if OPT_METHOD == 'L-BFGS-B':
+		print('optimizing with local minimization algorithm L-BFGS-B...')
+	elif OPT_METHOD == 'differential_evolution':
+		print('optimizing with global minimization algorithm differential_evolution...')
+	else:
+		raise ValueError('optimization method', OPT_METHOD, 'is not implemented')
+
 	print() 
 
 	niter = SCALING_ITERATIONS
@@ -108,11 +117,18 @@ def scale(all_SBU_coords,a,b,c,ang_alpha,ang_beta,ang_gamma,max_le,num_vertices,
 
 	for it in range(niter):
 
-		res = minimize(objective, init_variables, args=(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip),
-						method='L-BFGS-B',
-						bounds=bounds,
-						options={'disp':False, 'gtol':scale_tol, 'ftol':scale_tol, 'eps':scale_eps},
-						callback=callbackF)
+		if OPT_METHOD == 'L-BFGS-B':
+
+			res = minimize(objective, init_variables, args=(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip),
+						   method='L-BFGS-B',
+						   bounds=bounds,
+						   options={'disp':False},
+						   callback=callbackF)
+
+		elif OPT_METHOD == 'differential_evolution':
+
+			res = differential_evolution(objective, bounds, args=(ncra,ncca,alpha,num_edges,num_vertices,Bstar_inv,all_SBU_ip),
+                                    	 polish=True, disp=False, strategy='randtobest1bin')
 
 		uc_params = res.x[0:6]
 		uc_params = [i - (i * uc_press) for i in uc_params]
