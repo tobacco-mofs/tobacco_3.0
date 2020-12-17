@@ -222,6 +222,9 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, b
 		if type0 == 'edge' and type1 == 'edge':
 			continue
 
+		if len(xname0) == 0 or len(xname1) == 0:
+			raise ValueError('There are connected components with no connection site atoms (this probably means the one of the building blocks is not continuously bonded)')
+
 		com_dist = np.linalg.norm(np.dot(sc_unit_cell, com0 - PBC3DF(com0,com1)))
 
 		if com_dist <= bb_tol:
