@@ -423,7 +423,9 @@ def write_cif(placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, cha
 
 			vec = list(map(float, l[1:4]))
 			cvec = np.dot(np.linalg.inv(sc_unit_cell), vec)
-			cvec = np.mod(cvec, 1)
+
+			if wrap_coords:
+				cvec = np.mod(cvec, 1) # makes sure that all fractional coordinates are in [0,1]
 
 			if charges:
 				out.write('{:7} {:>4} {:>15} {:>15} {:>15} {:>15}'.format(l[0], re.sub('[0-9]','',l[0]), "%.10f" % np.round(cvec[0],10), "%.10f" % np.round(cvec[1],10), "%.10f" % np.round(cvec[2],10), l[4]))
