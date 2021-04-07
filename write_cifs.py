@@ -213,17 +213,17 @@ def bond_connected_components(placed_all, bonds_all, sc_unit_cell, max_length, b
 		type1 = list(set([G.nodes[n]['bbtype'] for n in connect_comp1]))
 
 		if len(type0) > 1 or len(type1) > 1:
+			print(type0, type1)
 			raise ValueError('building block indicated as both node and edge type')
+
+		if len(xname0) == 0 or len(xname1) == 0:
+			raise ValueError('There are connected components with no connection site atoms')
 
 		type0 = type0[0]
 		type1 = type1[0]
-
 		# don't want to try any edge-edge bonds, this will always result in incorrect bonding that must be corrected later
 		if type0 == 'edge' and type1 == 'edge':
 			continue
-
-		if len(xname0) == 0 or len(xname1) == 0:
-			raise ValueError('There are connected components with no connection site atoms (this probably means the one of the building blocks is not continuously bonded)')
 
 		com_dist = np.linalg.norm(np.dot(sc_unit_cell, com0 - PBC3DF(com0,com1)))
 
@@ -388,7 +388,7 @@ def fix_bond_sym(bonds_all,placed_all,sc_unit_cell):
 
 	return fixed_bonds
 
-def write_cif(placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, charges):
+def write_cif(placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, charges, wrap_coords=True):
 
 	sc_a,sc_b,sc_c,sc_alpha,sc_beta,sc_gamma = scaled_params
 
@@ -420,8 +420,11 @@ def write_cif(placed_all, fixed_bonds, scaled_params, sc_unit_cell, cifname, cha
 			out.write('_atom_site_charge' + '\n')
 
 		for l in placed_all:
+
 			vec = list(map(float, l[1:4]))
 			cvec = np.dot(np.linalg.inv(sc_unit_cell), vec)
+			cvec = np.mod(cvec, 1)
+
 			if charges:
 				out.write('{:7} {:>4} {:>15} {:>15} {:>15} {:>15}'.format(l[0], re.sub('[0-9]','',l[0]), "%.10f" % np.round(cvec[0],10), "%.10f" % np.round(cvec[1],10), "%.10f" % np.round(cvec[2],10), l[4]))
 				out.write('\n')
